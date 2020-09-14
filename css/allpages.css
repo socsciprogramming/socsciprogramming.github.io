@@ -1,0 +1,38 @@
+/*font styling - leaving for now*/
+.headfont {font-family: "Playfair Display SC";}
+.mainfont {font-family: "Open Sans";}
+.quotefont {font-family: "Abhaya Libre";}
+
+/*font awesome icon styling - leaving for now*/
+
+/*links and button styling - leaving for now*/
+.copy-link, .copy-link:link {color: #367eb8; text-decoration: underline;}
+.copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #B8367E; transition:color .15s ease-in;}
+.bttn {text-align: center; border-radius: 0.5rem; border: none; outline:none}
+
+/*transitions - leaving for now */
+.dim{opacity:1}
+.dim,.dim:focus,.dim:hover{transition:opacity .15s ease-in}
+.dim:focus,.dim:hover{opacity:.5}
+.dim:active,.dim:visited{opacity:.8;transition:opacity .15s ease-out}
+
+/*colors - leaving for now*/
+.white{color:#fff}
+.black{color:#000}
+.bg-blue{background-color:#367eb8}
+.bg-green{background-color:#36B870} /*complementary green to the pink which forms the triad with the blue*/
+
+/* padding - leaving for now */
+.pv2{padding-top:.5rem;padding-bottom:.5rem}
+.pad1{padding: 1rem;}
+.pad75{padding: 0.75rem;}
+.pad-l1{padding-left: 1rem;}
+.pad-b75{padding-bottom: 0.75rem;}
+.pad-t75{padding-top: 0.75rem;}
+.pad-t125{padding-top: 1.25rem;}
+
+/* misc */
+
+/*navbar styling - will need to add sticky left nav*/
+
+/*the masthead or header image on the pages - need to consider*/
