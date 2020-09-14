@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<base target='_blank'/> <!--will make each link default open in new tab; probably best for portfolio pages-->
+    <meta charset="utf-8"/>
+	<meta name="google-site-verification" content="Hl1D8Wi_Na9rBhnPm51m6rstMdR3t3WR38vQS9t1keo" /><!--verifying site for the purpose of google-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"/><!--viewport is user's visible area of web page-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <meta name="description" content="Introductory Programming for Online Social Science Experiments"/><!--To increase SEO, add description, keywords, author, etc. -->
+    <meta name="keywords" content="Social Science, JavaScript, HTML, CSS, Qualtrics, Amazon Mechanical Turk"/>
+    <meta name="author" content="Christina Bejjani"/>
+
+	<title>Introductory Programming for Online Social Science Experiments</title>
+	
+	<!-- Favicons
+	<link href="files/favi_icon_website2.png" rel="icon" type="image/x-icon" /> 
+	<link rel="apple-touch-icon" href="files/favi_icon_website_180.png" sizes="180x180">
+	<link rel="icon" href="files/favi_icon_website_32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="files/favi_icon_website_16.png" sizes="16x16" type="image/png">-->
+	
+	<!--This is for the open graph framework, which sites like Facebook, Twitter, LinkedIn etc. use, esp when the site URL is shared -->
+	<meta property='og:url' content='https://socsciprogramming.github.io/index.html'/>
+	<meta property='og:title' content='Introductory Programming for Online Social Science Experiments'/>
+	<meta property='og:description' content='An online course/workshop for learning how to program online social science experiments'/>
+	<meta property='og:type' content='website'/>
+	<!--<meta property='og:image' content='files/twitter_card_v4.png'/>
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="2058">
+	<meta property="og:image:height" content="821">-->
+		
+	<!--This is for those little thumbnails when the link is shared on twitter -->
+	<meta name='twitter:card' content='summary'/>
+	<meta name='twitter:site' content='@chbejjani'/>
+	<meta name='twitter:creator' content='@chbejjani'/>
+	<meta name='twitter:url' content='https://socsciprogramming.github.io/index.html'/>
+	<meta name='twitter:image' content='files/twitter_card_v4.png'/>
+	<meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments'/>
+	<meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/>
+	
+    <!--rel canonical is a way of defining canonical page for similar or duplicate pages -->
+	<link href='https://socsciprogramming.github.io/index.html' rel='canonical'/> 
+	
+    <!-- Bootstrap core CSS + font awesome JS for icons-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous"></script>
+	
+	<!-- Custom CSS -->
+	<link href="css/allpages.css" rel="stylesheet">
+	
+	<!-- Loading fonts; pairing serif fonts in headers w/ sans serif for body-->
+	<link href="https://fonts.googleapis.com/css?family=Abhaya+Libre|Open+Sans|Playfair+Display+SC&display=swap" rel="stylesheet">
+	
+	<!-- need to add in Google Analytrics -->
+</head>
+<body>
+
+	<!-- Add in more once I figure out what layout I want to do... -->
+							
+		<div class="mainfont pad-b75" id="top-scroll" aria-labelledby="scroll-to-top">
+			<a class="copy-link" href="#top" rel="tooltip" data-toggle="tooltip" aria-labelledby="tooltip" data-placement="top" title="Scroll to top">
+				<i class="fas fa-angle-up fa-3x"></i>
+			</a>
+		</div>
+    
+    <!-- Bootstrap core JavaScript-->
+    <!-- Placed at the end of the document so the pages load faster -->	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	
+		//this is the scroll to the top arrow; it selects any select that says href=#top and when you click that link, it animates the html body to slowly scroll to the top
+		$("a[href='#top']").click(function() {
+            $('html,body').animate({scrollTop: 0}, "slow");
+			return false;
+        });
+		//this is the tooltip hover that explains what the scroll to the top arrow is in case someone is not familiar with that
+		$('[rel=tooltip]').tooltip({ trigger: "hover" });
+	
+	});
+	</script>
+</body>
+</html>
