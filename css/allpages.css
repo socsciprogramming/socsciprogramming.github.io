@@ -1,14 +1,13 @@
 /*font styling - leaving for now*/
-.headfont {font-family: "Playfair Display SC";}
+.headfont {font-family: "Playfair Display";}
 .mainfont {font-family: "Open Sans";}
-.quotefont {font-family: "Abhaya Libre";}
 
 /*font awesome icon styling - leaving for now*/
 
-/*links and button styling - leaving for now*/
-.copy-link, .copy-link:link {color: #367eb8; text-decoration: underline;}
-.copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #B8367E; transition:color .15s ease-in;}
-.bttn {text-align: center; border-radius: 0.5rem; border: none; outline:none}
+/*links and button styling - colors informed by https://brand.duke.edu/colors/ */
+.copy-link, .copy-link:link {color: #012169; text-decoration: underline;}
+.copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399; transition:color .15s ease-in;}
+.bttn {text-align: center; color: #fff; border-radius: 0.5rem; border: none; outline:none; background-color:#A1B70D;}
 
 /*transitions - leaving for now */
 .dim{opacity:1}
@@ -32,7 +31,58 @@
 .pad-t125{padding-top: 1.25rem;}
 
 /* misc */
+.sidebar-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
-/*navbar styling - will need to add sticky left nav*/
+.make-me-sticky {
+  position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+  padding: 0 1rem;
+}
 
-/*the masthead or header image on the pages - need to consider*/
+body, article {
+  background: #F3F2F1;
+}
+
+.content-section {
+  background: #fff;
+}
+
+.title-section h1 {
+  background: #012169;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.content-section h2 {
+  text-align: center;
+  padding-top: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.content-section p {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  font-family: 'Open Sans', sans-serif;
+}
+  
+ h5 {
+    background: #E5E5E5;
+    color: #000;
+    max-width: 100%;
+    padding: 1.5rem 1.5rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+  }
