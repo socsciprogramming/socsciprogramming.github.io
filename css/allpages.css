@@ -1,8 +1,8 @@
-/*font styling - leaving for now*/
+/*font styling - headers serif, regular sans serif*/
 h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}
 p, .mainfont {font-family: "Open Sans";}
 
-/*font awesome icon styling - leaving for now*/
+/*font awesome icon styling - e.g., the collapsed sidebar*/
 .fas {color: #993399;}
 .scrollstyle {padding-top: 2rem; float: right;}
 
@@ -16,8 +16,8 @@ p, .mainfont {font-family: "Open Sans";}
 
 /*links and button styling - colors informed by https://brand.duke.edu/colors/ */
 .copy-link, .copy-link:link {color: #012169;}
-.navb-link, .navb-link:link, .navb-link:visited {color: #E5E5E5;}
-.navb-link:hover, .navb-link:focus, .copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399; transition:color .15s ease-in;}
+.navb-link, .navb-link:link {color: #E5E5E5;}
+.navb-link:hover, .copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399;}
 .navb-link:active, .active {font-weight: bold;}
 .bttn {text-align: center; color: #fff; border-radius: 0.5rem; border: none; outline:none; background-color:#A1B70D;}
 
@@ -27,7 +27,7 @@ p, .mainfont {font-family: "Open Sans";}
 .dim:focus,.dim:hover{opacity:.5}
 .dim:active,.dim:visited{opacity:.8;transition:opacity .15s ease-out}
 
-/*colors - leaving for now*/
+/*colors informed by https://brand.duke.edu/colors/ */
 .white{color:#fff}
 .black{color:#000}
 .bg-blue{background-color:#012169}
@@ -45,25 +45,21 @@ p, .mainfont {font-family: "Open Sans";}
 .pad-t5{padding-top: 5rem;}
 .pad-r1{padding-right: 1rem;}
 
-/* body & sidebar - padding necessary for navbar */
-body {padding-top: 56px; overflow:hidden;}
+/* body & sidebar - padding necessary for navbar at the top; overflow auto means it'll provide scrollbar when necessary */
+body {padding-top: 56px; overflow:auto;}
 .sticky-offset {top: 56px;}
 
-/* make things start on the left*/
+/* make things start on the left, with a slight indent*/
 #body-row {margin-left:0; margin-right:0;}
 
-#sidebar-container {min-height: 100vh; background-color: #E5E5E5; padding: 0;}
-.list-group-item, .list-group-item:hover, .list-group-item:visited, .list-group-item:active, .list-group-item:focus {background-color: #E5E5E5; border: none;}
+/* make sidebar start on the left, indicate its full column size, make sure no outlines on the dropdowns & that they match the colors of the dropdown itself*/
+#sidebar-container {min-height: 100vh; padding: 0; min-width: 275px;}
+.list-group-item, .list-group-item:hover, .list-group-item:visited, .list-group-item:active, .list-group-item:focus {background-color: #E5E5E5; border: none; text-decoration: none;}
+.dropdown-menu, .dropdown-item, .dropdown-item:hover, .dropdown-item:visited, .dropdown-item:active, .dropdown-item:focus {background-color: #012169; border: none; text-decoration: none;}
 
-/* Sidebar sizes when expanded and expanded */
-.sidebar-expanded {width: 230px;}
-.sidebar-collapsed {width: 60px;}
-
-/* Submenu item*/
+/* Submenu item - make the subsections look smaller + have them indented more left*/
 #sidebar-container .list-group .sidebar-submenu a {padding-left: 30px;}
 .sidebar-submenu {font-size: 0.9rem;}
 
-/* Closed submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {display: inline; text-align: right; padding-left: 10px;}
-/* Opened submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {display: inline; text-align: right; padding-left: 10px;}
+/* Submenu links that turn to underline when you scroll to that section*/
+.sidebar-submenu a:hover, a:focus, a:active {border-bottom: 1px #993399;}
