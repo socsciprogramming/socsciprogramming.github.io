@@ -12,28 +12,28 @@
 
 	<title>Introductory Programming for Online Social Science Experiments</title>
 	
-	<!-- Favicons
-	<link href="files/favi_icon_website2.png" rel="icon" type="image/x-icon" /> 
+	<!-- Favicons-->
+	<link href="files/favi_icon_website.png" rel="icon" type="image/x-icon" /> 
 	<link rel="apple-touch-icon" href="files/favi_icon_website_180.png" sizes="180x180">
 	<link rel="icon" href="files/favi_icon_website_32.png" sizes="32x32" type="image/png">
-	<link rel="icon" href="files/favi_icon_website_16.png" sizes="16x16" type="image/png">-->
+	<link rel="icon" href="files/favi_icon_website_16.png" sizes="16x16" type="image/png">
 	
 	<!--This is for the open graph framework, which sites like Facebook, Twitter, LinkedIn etc. use, esp when the site URL is shared -->
 	<meta property='og:url' content='https://socsciprogramming.github.io/index.html'/>
 	<meta property='og:title' content='Introductory Programming for Online Social Science Experiments'/>
 	<meta property='og:description' content='An online course/workshop for learning how to program online social science experiments'/>
 	<meta property='og:type' content='website'/>
-	<!--<meta property='og:image' content='files/twitter_card_v4.png'/>
+	<meta property='og:image' content='files/twittercard.png'/>
 	<meta property="og:image:type" content="image/png">
-	<meta property="og:image:width" content="2058">
-	<meta property="og:image:height" content="821">-->
+	<meta property="og:image:width" content="1280">
+	<meta property="og:image:height" content="640">
 		
 	<!--This is for those little thumbnails when the link is shared on twitter -->
 	<meta name='twitter:card' content='summary'/>
 	<meta name='twitter:site' content='@chbejjani'/>
 	<meta name='twitter:creator' content='@chbejjani'/>
 	<meta name='twitter:url' content='https://socsciprogramming.github.io/index.html'/>
-	<meta name='twitter:image' content='files/twitter_card_v4.png'/>
+	<meta name='twitter:image' content='files/twittercard.png'/>
 	<meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments'/>
 	<meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/>
 	
@@ -55,11 +55,10 @@
 <body>
 	<nav class="navbar navbar-expand-md fixed-top bg-blue">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+			<span class="fas fa-bars"></span>
 		</button>
 		<a class="navbar-brand" href="#">
 			<img src="files/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
-			<span class="menu-collapsed"></span>
 		</a>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
@@ -76,109 +75,99 @@
 					<a class="nav-link navb-link" href="wishlist.html">Wishlist</a>
 				</li>
 				<li class="nav-item dropdown d-sm-block d-md-none">
-					<a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-					<div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
-						<a class="dropdown-item navb-link" href="#">Module 1</a>
-						<a class="dropdown-item navb-link" href="#">Module 2</a>
-						<a class="dropdown-item navb-link" href="#">Module 3</a>
-						<a class="dropdown-item navb-link" href="#">Module 4</a>
+					<a class="nav-link dropdown-toggle navb-link" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modules</a>
+					<div class="dropdown-menu bg-blue" aria-labelledby="smallerscreenmenu">
+						<a class="dropdown-item navb-link" href="module1.html">Module 1</a>
+						<a class="dropdown-item navb-link" href="module2.html">Module 2</a>
+						<a class="dropdown-item navb-link" href="module3.html">Module 3</a>
+						<a class="dropdown-item navb-link" href="module4.html">Module 4</a>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</nav>
 	<div class="row" id="body-row">
-		<!-- Sidebar -->
-		<div id="sidebar-container" class="sidebar-expanded d-none d-md-block col-2 bg-grey">
-			<!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-			<!-- Bootstrap List Group -->
+		<div id="sidebar-container" class="d-none d-md-block col-2 bg-grey">
 			<ul class="list-group sticky-top sticky-offset">
-				<li class="list-group-item sidebar-separator-title  text-muted d-flex align-items-center menu-collapsed">
+				<li class="list-group-item text-muted d-flex align-items-center ">
 					<small>MODULES</small>
 				</li>
-				<a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start collapsed">
+				<!-- Normally, this would say #submenu1 as the href & data-toggle = "collapse" & class = "collapsed" & the span class would not be hidden, but I want to link to each module page and then allow people to collapse there. Therefore I'm keeping this infastructure here for other pages to use too & just adjust then.-->
+				<a href="module1.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
-						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
-						<span class="menu-collapsed copy-link">1: Crowdsourced Experiments</span>
-						<span class="submenu-icon ml-auto"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class="copy-link">1: Crowdsourced Experiments</span>
 					</div>
 				</a>
-				<!-- Submenu content -->
 				<div id="submenu1" class="sidebar-submenu collapse" style="">
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 1</span>
+					<a href="#subsec11" class="list-group-item ">
+						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 2</span>
+					<a href="#subsec12" class="list-group-item ">
+						<span class=" copy-link">Subsection 2</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 3</span>
+					<a href="#subsec13" class="list-group-item ">
+						<span class=" copy-link">Subsection 3</span>
 					</a>
 				</div>
-				<a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start collapsed">
+				<a href="module2.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
-						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
-						<span class="menu-collapsed copy-link">2: Basic Survey Design</span>
-						<span class="submenu-icon ml-auto"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class=" copy-link">2: Basic Survey Design</span>
 					</div>
 				</a>
-				<!-- Submenu content -->
 				<div id="submenu2" class="sidebar-submenu collapse" style="">
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 1</span>
+					<a href="#subsec21" class="list-group-item ">
+						<span class=" copy-link">Subsection 1</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 2</span>
+					<a href="#subsec22" class="list-group-item ">
+						<span class=" copy-link">Subsection 2</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 3</span>
+					<a href="#subsec23" class="list-group-item ">
+						<span class=" copy-link">Subsection 3</span>
 					</a>
 				</div>
-				<a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start collapsed">
+				<a href="module3.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
-						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
-						<span class="menu-collapsed copy-link">3: Customized Design with JavaScript, HTML, &amp; CSS</span>
-						<span class="submenu-icon ml-auto"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class=" copy-link">3: Customized Design with JavaScript, HTML, &amp; CSS</span>
 					</div>
 				</a>
-				<!-- Submenu content -->
 				<div id="submenu3" class="sidebar-submenu collapse" style="">
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 1</span>
+					<a href="#subsec31" class="list-group-item ">
+						<span class=" copy-link">Subsection 1</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 2</span>
+					<a href="#subsec32" class="list-group-item ">
+						<span class=" copy-link">Subsection 2</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 3</span>
+					<a href="#subsec33" class="list-group-item ">
+						<span class=" copy-link">Subsection 3</span>
 					</a>
 				</div>
-				<a href="#submenu4" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start collapsed">
+				<a href="module4.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
-						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
-						<span class="menu-collapsed copy-link">4: Advanced Customization</span>
-						<span class="submenu-icon ml-auto"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class=" copy-link">4: Advanced Customization</span>
 					</div>
 				</a>
-				<!-- Submenu content -->
 				<div id="submenu4" class="sidebar-submenu collapse" style="">
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 1</span>
+					<a href="#subsec41" class="list-group-item ">
+						<span class=" copy-link">Subsection 1</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 2</span>
+					<a href="#subsec42" class="list-group-item ">
+						<span class=" copy-link">Subsection 2</span>
 					</a>
-					<a href="#" class="list-group-item list-group-item-action">
-						<span class="menu-collapsed copy-link">Subsection 3</span>
+					<a href="#subsec42" class="list-group-item ">
+						<span class=" copy-link">Subsection 3</span>
 					</a>
 				</div>
 			</ul>
 		</div>
-		<div class="col py-3">
+		<div class="col py-3" id="page-content">
 			<h1>Introductory Programming for Online Social Science Experiments</h1>
 
 			<hr>
@@ -210,7 +199,7 @@
 			</div>
 			<div class="row pad-l1 pad-b75 pad-t75"></div>
 		</div>
-	</div>							
+	</div>	
     <!-- Bootstrap core JavaScript-->
     <!-- Placed at the end of the document so the pages load faster -->	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -227,29 +216,6 @@
         });
 		//this is the tooltip hover that explains what the scroll to the top arrow is in case someone is not familiar with that
 		$('[rel=tooltip]').tooltip({ trigger: "hover" });
-		
-		// Hide submenus
-		$('#body-row .collapse').collapse('hide'); 
-
-		// Collapse click
-		$('[data-toggle=sidebar-colapse]').click(function() {
-			SidebarCollapse();
-		});
-
-		function SidebarCollapse () {
-			$('.menu-collapsed').toggleClass('d-none');
-			$('.sidebar-submenu').toggleClass('d-none');
-			$('.submenu-icon').toggleClass('d-none');
-			$('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
-
-			// Treating d-flex/d-none on separators with title
-			var SeparatorTitle = $('.sidebar-separator-title');
-			if ( SeparatorTitle.hasClass('d-flex') ) {
-				SeparatorTitle.removeClass('d-flex');
-			} else {
-				SeparatorTitle.addClass('d-flex');
-			}
-		}
 		
 	});
 	</script>
