@@ -1,6 +1,6 @@
 ## Introductory Programming for Online Social Science Experiments
 
-We thank the following Course Contributers--
+We thank the following Course Contributors--
 
 ### Course Contributors:
 
