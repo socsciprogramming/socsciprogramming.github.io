@@ -1,12 +1,24 @@
 /*font styling - leaving for now*/
-.headfont {font-family: "Playfair Display";}
-.mainfont {font-family: "Open Sans";}
+h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}
+p, .mainfont {font-family: "Open Sans";}
 
 /*font awesome icon styling - leaving for now*/
+.fas {color: #993399;}
+.scrollstyle {padding-top: 2rem; float: right;}
+
+/*collapse for the module buttons*/
+[data-toggle="collapse"].collapsed .if-not-collapsed {
+  display: none;
+}
+[data-toggle="collapse"]:not(.collapsed) .if-collapsed {
+  display: none;
+}
 
 /*links and button styling - colors informed by https://brand.duke.edu/colors/ */
-.copy-link, .copy-link:link {color: #012169; text-decoration: underline;}
-.copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399; transition:color .15s ease-in;}
+.copy-link, .copy-link:link {color: #012169;}
+.navb-link, .navb-link:link, .navb-link:visited {color: #E5E5E5;}
+.navb-link:hover, .navb-link:focus, .copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399; transition:color .15s ease-in;}
+.navb-link:active, .active {font-weight: bold;}
 .bttn {text-align: center; color: #fff; border-radius: 0.5rem; border: none; outline:none; background-color:#A1B70D;}
 
 /*transitions - leaving for now */
@@ -18,8 +30,9 @@
 /*colors - leaving for now*/
 .white{color:#fff}
 .black{color:#000}
-.bg-blue{background-color:#367eb8}
-.bg-green{background-color:#36B870} /*complementary green to the pink which forms the triad with the blue*/
+.bg-blue{background-color:#012169}
+.bg-purple{background-color:#993399}
+.bg-grey{background-color: #E5E5E5}
 
 /* padding - leaving for now */
 .pv2{padding-top:.5rem;padding-bottom:.5rem}
@@ -29,60 +42,28 @@
 .pad-b75{padding-bottom: 0.75rem;}
 .pad-t75{padding-top: 0.75rem;}
 .pad-t125{padding-top: 1.25rem;}
+.pad-t5{padding-top: 5rem;}
+.pad-r1{padding-right: 1rem;}
 
-/* misc */
-.sidebar-item {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
+/* body & sidebar - padding necessary for navbar */
+body {padding-top: 56px; overflow:hidden;}
+.sticky-offset {top: 56px;}
 
-.make-me-sticky {
-  position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-  padding: 0 1rem;
-}
+/* make things start on the left*/
+#body-row {margin-left:0; margin-right:0;}
 
-body, article {
-  background: #F3F2F1;
-}
+#sidebar-container {min-height: 100vh; background-color: #E5E5E5; padding: 0;}
+.list-group-item, .list-group-item:hover, .list-group-item:visited, .list-group-item:active, .list-group-item:focus {background-color: #E5E5E5; border: none;}
 
-.content-section {
-  background: #fff;
-}
+/* Sidebar sizes when expanded and expanded */
+.sidebar-expanded {width: 230px;}
+.sidebar-collapsed {width: 60px;}
 
-.title-section h1 {
-  background: #012169;
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-bottom: 1rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: bold;
-}
+/* Submenu item*/
+#sidebar-container .list-group .sidebar-submenu a {padding-left: 30px;}
+.sidebar-submenu {font-size: 0.9rem;}
 
-.content-section h2 {
-  text-align: center;
-  padding-top: 1rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: bold;
-}
-
-.content-section p {
-  margin-left: 2rem;
-  font-size: 1.5rem;
-  padding-bottom: 1rem;
-  font-family: 'Open Sans', sans-serif;
-}
-  
- h5 {
-    background: #E5E5E5;
-    color: #000;
-    max-width: 100%;
-    padding: 1.5rem 1.5rem 1.5rem;
-    font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-  }
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {display: inline; text-align: right; padding-left: 10px;}
+/* Opened submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {display: inline; text-align: right; padding-left: 10px;}
