@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<base target='_blank'/> <!--will make each link default open in new tab-->
+    <meta charset="utf-8"/>
+	<meta name="google-site-verification" content="Hl1D8Wi_Na9rBhnPm51m6rstMdR3t3WR38vQS9t1keo" /><!--verifying site for the purpose of google-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"/><!--viewport is user's visible area of web page-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <meta name="description" content="An online course/workshop for learning how to program online social science experiments."/><!--To increase SEO, add description, keywords, author, etc. -->
+    <meta name="keywords" content="Social Science, JavaScript, HTML, CSS, Qualtrics, Amazon Mechanical Turk"/>
+    <meta name="author" content="Christina Bejjani"/>
+
+	<title>Module 1 of Introductory Programming for Online Social Science Experiments</title>
+	
+	<!-- Favicons-->
+	<link href="files/favi_icon_website.png" rel="icon" type="image/x-icon" /> 
+	<link rel="apple-touch-icon" href="files/favi_icon_website_180.png" sizes="180x180">
+	<link rel="icon" href="files/favi_icon_website_32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="files/favi_icon_website_16.png" sizes="16x16" type="image/png">
+	
+	<!--This is for the open graph framework, which sites like Facebook, Twitter, LinkedIn etc. use, esp when the site URL is shared -->
+	<meta property='og:url' content='https://socsciprogramming.github.io/module1.html'/>
+	<meta property='og:title' content='Introductory Programming for Online Social Science Experiments'/>
+	<meta property='og:description' content='An online course/workshop for learning how to program online social science experiments.'/>
+	<meta property='og:type' content='website'/>
+	<meta property='og:image' content='files/twittercard.png'/>
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="1280">
+	<meta property="og:image:height" content="640">
+		
+	<!--This is for those little thumbnails when the link is shared on twitter -->
+	<meta name='twitter:card' content='summary'/>
+	<meta name='twitter:site' content='@chbejjani'/>
+	<meta name='twitter:creator' content='@chbejjani'/>
+	<meta name='twitter:url' content='https://socsciprogramming.github.io/module1.html'/>
+	<meta name='twitter:image' content='files/twittercard.png'/>
+	<meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments.'/>
+	<meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/>
+	
+    <!--rel canonical is a way of defining canonical page for similar or duplicate pages -->
+	<link href='https://socsciprogramming.github.io/module1.html' rel='canonical'/> 
+	
+    <!-- Bootstrap core CSS + font awesome JS for icons-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous"></script>
+	
+	<!-- Custom CSS -->
+	<link href="css/allpages.css" rel="stylesheet">
+	
+	<!-- Loading fonts; pairing serif fonts in headers w/ sans serif for body-->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Playfair+Display+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5K6E5T95PP"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-5K6E5T95PP');
+	</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md fixed-top bg-blue">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="fas fa-bars"></span>
+		</button>
+		<a class="navbar-brand" href="#">
+			<img src="files/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+		</a>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link navb-link" href="index.html" target="_self">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link navb-link" href="about.html" target="_self">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link navb-link" href="contribute.html" target="_self">How to Contribute</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link navb-link" href="wishlist.html" target="_self">Wishlist</a>
+				</li>
+				<li class="nav-item dropdown d-sm-block d-md-none">
+					<a class="nav-link dropdown-toggle navb-link" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modules</a>
+					<div class="dropdown-menu bg-blue" aria-labelledby="smallerscreenmenu">
+						<a class="dropdown-item navb-link" href="module1.html" target="_self">Module 1</a>
+						<a class="dropdown-item navb-link" href="module2.html" target="_self">Module 2</a>
+						<a class="dropdown-item navb-link" href="module3.html" target="_self">Module 3</a>
+						<a class="dropdown-item navb-link" href="module4.html" target="_self">Module 4</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="row" id="body-row">
+		<div id="sidebar-container" class="d-none d-md-block col-2 bg-grey">
+			<ul class="list-group sticky-top sticky-offset">
+				<li class="list-group-item text-muted d-flex align-items-center">
+					<small>MODULES</small>
+				</li>
+				<!-- Normally, this would say #submenu1 as the href & data-toggle = "collapse" & class = "collapsed" & the span class would not be hidden, but I want to link to each module page and then allow people to collapse there. Therefore I'm keeping this infastructure here for other pages to use too & just adjust then.-->
+				<a href="#submenu1" target="_self" data-toggle="collapse" aria-expanded="true" class="list-group-item flex-column align-items-start">
+					<div class="d-flex w-100 justify-content-start align-items-center">
+						<span class="if-collapsed fas fa-angle-up mr-3"></span>
+						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
+						<span class="copy-link active">1: Crowdsourced Experiments</span>
+					</div>
+				</a>
+				<div id="submenu1" class="sidebar-submenu">
+					<a href="#subsec11" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 1</span>
+					</a>
+					<a href="#subsec12" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 2</span>
+					</a>
+					<a href="#subsec13" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 3</span>
+					</a>
+				</div>
+				<a href="module2.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
+					<div class="d-flex w-100 justify-content-start align-items-center">
+						<span class="if-collapsed fas fa-angle-up mr-3"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class=" copy-link">2: Basic Survey Design</span>
+					</div>
+				</a>
+				<div id="submenu2" class="sidebar-submenu collapse">
+					<a href="#subsec21" target="_self" class="list-group-item ">
+						<span class="copy-link">Subsection 1</span>
+					</a>
+					<a href="#subsec22" target="_self" class="list-group-item ">
+						<span class="copy-link">Subsection 2</span>
+					</a>
+					<a href="#subsec23" target="_self" class="list-group-item ">
+						<span class="copy-link">Subsection 3</span>
+					</a>
+				</div>
+				<a href="module3.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
+					<div class="d-flex w-100 justify-content-start align-items-center">
+						<span class="if-collapsed fas fa-angle-up mr-3"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class="copy-link">3: Customized Design with JavaScript, HTML, &amp; CSS</span>
+					</div>
+				</a>
+				<div id="submenu3" class="sidebar-submenu collapse">
+					<a href="#subsec31" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 1</span>
+					</a>
+					<a href="#subsec32" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 2</span>
+					</a>
+					<a href="#subsec33" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 3</span>
+					</a>
+				</div>
+				<a href="module4.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
+					<div class="d-flex w-100 justify-content-start align-items-center">
+						<span class="if-collapsed fas fa-angle-up mr-3"></span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class="copy-link">4: Advanced Customization</span>
+					</div>
+				</a>
+				<div id="submenu4" class="sidebar-submenu collapse">
+					<a href="#subsec41" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 1</span>
+					</a>
+					<a href="#subsec42" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 2</span>
+					</a>
+					<a href="#subsec42" target="_self" class="list-group-item">
+						<span class="copy-link">Subsection 3</span>
+					</a>
+				</div>
+			</ul>
+		</div>
+		<div class="col py-3" id="page-content">
+			<h1>Module 1: Crowdsourced Experiments</h1>
+
+			<hr>
+
+			<p>Introduction to the Module</p>
+
+			<p>Put a bootstrap card here with the explicit learning goals; also make the Font Awesome icons as bullet points.</p>
+
+			<h3 id="subsec11" class="pad1">Subsection 1</h3>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec11t1" class="pad1">Tutorial 1</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec11t2" class="pad1">Tutorial 2</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec11t3" class="pad1">Tutorial 3</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<h3 id="subsec12" class="pad1">Subsection 2</h3>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec12t1" class="pad1">Tutorial 1</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec12t2" class="pad1">Tutorial 2</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec12t3" class="pad1">Tutorial 3</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h3 id="subsec13" class="pad1">Subsection 3</h3>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec13t1" class="pad1">Tutorial 1</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec13t2" class="pad1">Tutorial 2</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h5 id="subsec13t3" class="pad1">Tutorial 3</h5>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<div class="scrollstyle mainfont pad1" id="top-scroll" aria-labelledby="scroll-to-top">
+				<a class="copy-link" href="#top" rel="tooltip" data-toggle="tooltip" aria-labelledby="tooltip" data-placement="left" title="Scroll to top">
+					<i class="fas fa-angle-up fa-3x"></i>
+				</a>
+			</div>
+			<div class="row pad-l1 pad-b75 pad-t75"></div>
+		</div>
+	</div>	
+    <!-- Bootstrap core JavaScript-->
+    <!-- Placed at the end of the document so the pages load faster -->	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	
+		//this is the scroll to the top arrow; it selects any select that says href=#top and when you click that link, it animates the html body to slowly scroll to the top
+		$("a[href='#top']").click(function() {
+            $('html,body').animate({scrollTop: 0}, "slow");
+			return false;
+        });
+		//this is the tooltip hover that explains what the scroll to the top arrow is in case someone is not familiar with that
+		$('[rel=tooltip]').tooltip({ trigger: "hover" });
+		
+	});
+	</script>
+</body>
+</html>
