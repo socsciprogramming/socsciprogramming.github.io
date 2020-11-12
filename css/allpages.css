@@ -62,4 +62,10 @@ body {padding-top: 56px; overflow:auto;}
 .sidebar-submenu {font-size: 0.9rem;}
 
 /* Submenu links that turn to underline when you scroll to that section*/
-.sidebar-submenu a:hover, a:focus, a:active {border-bottom: 1px #993399;}
+#sidebar-container .list-group-item.copy-link.active,
+#sidebar-container .list-group-item.copy-link:active,
+#sidebar-container .list-group-item.copy-link:hover,
+#sidebar-container .list-group-item.copy-link:focus{
+    color: #993399;
+    border-bottom: 1px #993399 solid;
+}
