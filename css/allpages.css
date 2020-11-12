@@ -5,6 +5,7 @@ p, .mainfont {font-family: "Open Sans";}
 /*font awesome icon styling - e.g., the collapsed sidebar*/
 .fas {color: #993399;}
 .scrollstyle {padding-top: 2rem; float: right;}
+hr{color: #E5E5E5;}
 
 /*collapse for the module buttons*/
 [data-toggle="collapse"].collapsed .if-not-collapsed {
