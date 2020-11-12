@@ -76,7 +76,7 @@
 				<li class="nav-item">
 					<a class="nav-link navb-link" href="about.html" target="_self">About</a>
 				</li>
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a class="nav-link navb-link" href="contribute.html" target="_self">How to Contribute</a>
 				</li>
 				<li class="nav-item">
@@ -101,7 +101,7 @@
 					<small>MODULES</small>
 				</li>
 				<!-- Normally, this would say #submenu1 as the href & data-toggle = "collapse" & class = "collapsed" & the span class would not be hidden, but I want to link to each module page and then allow people to collapse there. Therefore I'm keeping this infastructure here for other pages to use too & just adjust then.-->
-				<a href="#submenu1" target="_self" data-toggle= "collapse" aria-expanded="false" class="list-group-item flex-column align-items-start not-collapsed">
+				<a href="#submenu1" target="_self" data-toggle= "collapse" aria-expanded="true" class="list-group-item flex-column align-items-start active">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
 						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
@@ -109,13 +109,13 @@
 					</div>
 				</a>
 				<div id="submenu1" class="sidebar-submenu collapse">
-					<a href="#subsec11" class="list-group-item">
+					<a href="#subsec11" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec12" class="list-group-item">
+					<a href="#subsec12" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec13" class="list-group-item">
+					<a href="#subsec13" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
@@ -127,13 +127,13 @@
 					</div>
 				</a>
 				<div id="submenu2" class="sidebar-submenu collapse">
-					<a href="#subsec21" class="list-group-item ">
+					<a href="#subsec21" target="_self" class="list-group-item ">
 						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec22" class="list-group-item ">
+					<a href="#subsec22" target="_self" class="list-group-item ">
 						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec23" class="list-group-item ">
+					<a href="#subsec23" target="_self" class="list-group-item ">
 						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
@@ -145,13 +145,13 @@
 					</div>
 				</a>
 				<div id="submenu3" class="sidebar-submenu collapse">
-					<a href="#subsec31" class="list-group-item">
+					<a href="#subsec31" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec32" class="list-group-item">
+					<a href="#subsec32" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec33" class="list-group-item">
+					<a href="#subsec33" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
@@ -163,13 +163,13 @@
 					</div>
 				</a>
 				<div id="submenu4" class="sidebar-submenu collapse">
-					<a href="#subsec41" class="list-group-item">
+					<a href="#subsec41" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec42" class="list-group-item">
+					<a href="#subsec42" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec42" class="list-group-item">
+					<a href="#subsec42" target="_self" class="list-group-item">
 						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
@@ -190,6 +190,36 @@
 			
 			<p>....</p>
 			
+			<h6 id="subsec11t1" class="pad1">Tutorial 1</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h6 id="subsec11t2" class="pad1">Tutorial 2</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h6 id="subsec11t3" class="pad1">Tutorial 3</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
 			<p>....</p>
 			
 			<p>....</p>
@@ -199,9 +229,39 @@
 			<h3 id="subsec12" class="pad1">Subsection 2</h3>
 
 			<p>....</p>
-
+			
+			<p>....</p>
+			
+			<h6 id="subsec12t1" class="pad1">Tutorial 1</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
 			<p>....</p>
 
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h6 id="subsec12t2" class="pad1">Tutorial 2</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h6 id="subsec12t3" class="pad1">Tutorial 3</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
 			<p>....</p>
 			
 			<p>....</p>
@@ -212,7 +272,37 @@
 			
 			<p>....</p>
 			
-			<p>...</p>
+			<p>....</p>
+			
+			<h6 id="subsec13t1" class="pad1">Tutorial 1</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h6 id="subsec13t2" class="pad1">Tutorial 2</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h6 id="subsec13t3" class="pad1">Tutorial 3</h6>
+			
+			<p>....</p>
+			
+			<p>....</p>
 			
 			<p>....</p>
 			
