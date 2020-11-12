@@ -63,24 +63,24 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link navb-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link navb-link" href="index.html" target="_self">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link navb-link" href="about.html">About</a>
+					<a class="nav-link navb-link" href="about.html" target="_self">About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link navb-link" href="contribute.html">How to Contribute</a>
+					<a class="nav-link navb-link" href="contribute.html" target="_self">How to Contribute</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link navb-link" href="wishlist.html">Wishlist</a>
+					<a class="nav-link navb-link" href="wishlist.html" target="_self">Wishlist</a>
 				</li>
 				<li class="nav-item dropdown d-sm-block d-md-none">
 					<a class="nav-link dropdown-toggle navb-link" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modules</a>
 					<div class="dropdown-menu bg-blue" aria-labelledby="smallerscreenmenu">
-						<a class="dropdown-item navb-link" href="module1.html">Module 1</a>
-						<a class="dropdown-item navb-link" href="module2.html">Module 2</a>
-						<a class="dropdown-item navb-link" href="module3.html">Module 3</a>
-						<a class="dropdown-item navb-link" href="module4.html">Module 4</a>
+						<a class="dropdown-item navb-link" href="module1.html" target="_self">Module 1</a>
+						<a class="dropdown-item navb-link" href="module2.html" target="_self">Module 2</a>
+						<a class="dropdown-item navb-link" href="module3.html" target="_self">Module 3</a>
+						<a class="dropdown-item navb-link" href="module4.html" target="_self">Module 4</a>
 					</div>
 				</li>
 			</ul>
@@ -89,80 +89,80 @@
 	<div class="row" id="body-row">
 		<div id="sidebar-container" class="d-none d-md-block col-2 bg-grey">
 			<ul class="list-group sticky-top sticky-offset">
-				<li class="list-group-item text-muted d-flex align-items-center ">
+				<li class="list-group-item text-muted d-flex align-items-center">
 					<small>MODULES</small>
 				</li>
 				<!-- Normally, this would say #submenu1 as the href & data-toggle = "collapse" & class = "collapsed" & the span class would not be hidden, but I want to link to each module page and then allow people to collapse there. Therefore I'm keeping this infastructure here for other pages to use too & just adjust then.-->
-				<a href="module1.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
+				<a href="module1.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
 						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
 						<span class="copy-link">1: Crowdsourced Experiments</span>
 					</div>
 				</a>
-				<div id="submenu1" class="sidebar-submenu collapse" style="">
-					<a href="#subsec11" class="list-group-item ">
+				<div id="submenu1" class="sidebar-submenu collapse">
+					<a href="#subsec11" class="list-group-item">
 						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec12" class="list-group-item ">
-						<span class=" copy-link">Subsection 2</span>
+					<a href="#subsec12" class="list-group-item">
+						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec13" class="list-group-item ">
-						<span class=" copy-link">Subsection 3</span>
+					<a href="#subsec13" class="list-group-item">
+						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
-				<a href="module2.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
+				<a href="module2.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
 						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
 						<span class=" copy-link">2: Basic Survey Design</span>
 					</div>
 				</a>
-				<div id="submenu2" class="sidebar-submenu collapse" style="">
+				<div id="submenu2" class="sidebar-submenu collapse">
 					<a href="#subsec21" class="list-group-item ">
-						<span class=" copy-link">Subsection 1</span>
+						<span class="copy-link">Subsection 1</span>
 					</a>
 					<a href="#subsec22" class="list-group-item ">
-						<span class=" copy-link">Subsection 2</span>
+						<span class="copy-link">Subsection 2</span>
 					</a>
 					<a href="#subsec23" class="list-group-item ">
-						<span class=" copy-link">Subsection 3</span>
+						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
-				<a href="module3.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
+				<a href="module3.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
 						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
-						<span class=" copy-link">3: Customized Design with JavaScript, HTML, &amp; CSS</span>
+						<span class="copy-link">3: Customized Design with JavaScript, HTML, &amp; CSS</span>
 					</div>
 				</a>
-				<div id="submenu3" class="sidebar-submenu collapse" style="">
-					<a href="#subsec31" class="list-group-item ">
-						<span class=" copy-link">Subsection 1</span>
+				<div id="submenu3" class="sidebar-submenu collapse">
+					<a href="#subsec31" class="list-group-item">
+						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec32" class="list-group-item ">
-						<span class=" copy-link">Subsection 2</span>
+					<a href="#subsec32" class="list-group-item">
+						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec33" class="list-group-item ">
-						<span class=" copy-link">Subsection 3</span>
+					<a href="#subsec33" class="list-group-item">
+						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
-				<a href="module4.html" aria-expanded="false" class="list-group-item  flex-column align-items-start">
+				<a href="module4.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
 						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
-						<span class=" copy-link">4: Advanced Customization</span>
+						<span class="copy-link">4: Advanced Customization</span>
 					</div>
 				</a>
-				<div id="submenu4" class="sidebar-submenu collapse" style="">
-					<a href="#subsec41" class="list-group-item ">
-						<span class=" copy-link">Subsection 1</span>
+				<div id="submenu4" class="sidebar-submenu collapse">
+					<a href="#subsec41" class="list-group-item">
+						<span class="copy-link">Subsection 1</span>
 					</a>
-					<a href="#subsec42" class="list-group-item ">
-						<span class=" copy-link">Subsection 2</span>
+					<a href="#subsec42" class="list-group-item">
+						<span class="copy-link">Subsection 2</span>
 					</a>
-					<a href="#subsec42" class="list-group-item ">
-						<span class=" copy-link">Subsection 3</span>
+					<a href="#subsec42" class="list-group-item">
+						<span class="copy-link">Subsection 3</span>
 					</a>
 				</div>
 			</ul>
