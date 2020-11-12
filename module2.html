@@ -10,7 +10,7 @@
     <meta name="keywords" content="Social Science, JavaScript, HTML, CSS, Qualtrics, Amazon Mechanical Turk"/>
     <meta name="author" content="Christina Bejjani"/>
 
-	<title>Module 1 of Introductory Programming for Online Social Science Experiments</title>
+	<title>Module 2 of Introductory Programming for Online Social Science Experiments</title>
 	
 	<!-- Favicons-->
 	<link href="files/favi_icon_website.png" rel="icon" type="image/x-icon" /> 
@@ -19,7 +19,7 @@
 	<link rel="icon" href="files/favi_icon_website_16.png" sizes="16x16" type="image/png">
 	
 	<!--This is for the open graph framework, which sites like Facebook, Twitter, LinkedIn etc. use, esp when the site URL is shared -->
-	<meta property='og:url' content='https://socsciprogramming.github.io/module1.html'/>
+	<meta property='og:url' content='https://socsciprogramming.github.io/module2.html'/>
 	<meta property='og:title' content='Introductory Programming for Online Social Science Experiments'/>
 	<meta property='og:description' content='An online course/workshop for learning how to program online social science experiments.'/>
 	<meta property='og:type' content='website'/>
@@ -32,13 +32,13 @@
 	<meta name='twitter:card' content='summary'/>
 	<meta name='twitter:site' content='@chbejjani'/>
 	<meta name='twitter:creator' content='@chbejjani'/>
-	<meta name='twitter:url' content='https://socsciprogramming.github.io/module1.html'/>
+	<meta name='twitter:url' content='https://socsciprogramming.github.io/module2.html'/>
 	<meta name='twitter:image' content='files/twittercard.png'/>
 	<meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments.'/>
 	<meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/>
 	
     <!--rel canonical is a way of defining canonical page for similar or duplicate pages -->
-	<link href='https://socsciprogramming.github.io/module1.html' rel='canonical'/> 
+	<link href='https://socsciprogramming.github.io/module2.html' rel='canonical'/> 
 	
     <!-- Bootstrap core CSS + font awesome JS for icons-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -100,15 +100,14 @@
 				<li class="list-group-item text-muted d-flex align-items-center">
 					<small>MODULES</small>
 				</li>
-				<!-- Normally, this would say #submenu1 as the href & data-toggle = "collapse" & class = "collapsed" & the span class would not be hidden, but I want to link to each module page and then allow people to collapse there. Therefore I'm keeping this infastructure here for other pages to use too & just adjust then.-->
-				<a href="#submenu1" target="_self" data-toggle="collapse" aria-expanded="true" class="list-group-item flex-column align-items-start">
+				<a href="module1.html" target="_self"  aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
-						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
-						<span class="copy-link active">1: Crowdsourced Experiments</span>
+						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
+						<span class="copy-link">1: Crowdsourced Experiments</span>
 					</div>
 				</a>
-				<div id="submenu1" class="sidebar-submenu">
+				<div id="submenu1" class="sidebar-submenu collapse">
 					<a href="#subsec11" target="_self" class="list-group-item">
 						<span class="copy-link anchor">Subsection 1</span>
 					</a>
@@ -119,21 +118,21 @@
 						<span class="copy-link anchor">Subsection 3</span>
 					</a>
 				</div>
-				<a href="module2.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
+				<a href="#submenu2" target="_self" data-toggle="collapse" aria-expanded="true" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
-						<!--<span class="if-not-collapsed fas fa-angle-down mr-3"></span>-->
-						<span class=" copy-link">2: Basic Survey Design</span>
+						<span class="if-not-collapsed fas fa-angle-down mr-3"></span>
+						<span class="copy-link active">2: Basic Survey Design</span>
 					</div>
 				</a>
-				<div id="submenu2" class="sidebar-submenu collapse">
-					<a href="#subsec21" target="_self" class="list-group-item ">
+				<div id="submenu2" class="sidebar-submenu">
+					<a href="#subsec21" target="_self" class="list-group-item">
 						<span class="copy-link anchor">Subsection 1</span>
 					</a>
-					<a href="#subsec22" target="_self" class="list-group-item ">
+					<a href="#subsec22" target="_self" class="list-group-item">
 						<span class="copy-link anchor">Subsection 2</span>
 					</a>
-					<a href="#subsec23" target="_self" class="list-group-item ">
+					<a href="#subsec23" target="_self" class="list-group-item">
 						<span class="copy-link anchor">Subsection 3</span>
 					</a>
 				</div>
@@ -176,7 +175,7 @@
 			</ul>
 		</div>
 		<div class="col py-3" id="page-content">
-			<h1>Module 1: Crowdsourced Experiments</h1>
+			<h1>Module 2: Basic Survey Design</h1>
 
 			<hr>
 
@@ -184,55 +183,13 @@
 
 			<p>Put a bootstrap card here with the explicit learning goals; also make the Font Awesome icons as bullet points.</p>
 
-			<h2 id="subsec11" class="pad1">Subsection 1</h2>
+			<h2 id="subsec21" class="pad1">Subsection 1</h2>
 
 			<p>....</p>
 			
 			<p>....</p>
 			
-			<h4 id="subsec11t1" class="pad1">Tutorial 1</h4>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<h4 id="subsec11t2" class="pad1">Tutorial 2</h4>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<h4 id="subsec11t3" class="pad1">Tutorial 3</h4>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-
-			<h2 id="subsec12" class="pad1">Subsection 2</h2>
-
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<h4 id="subsec12t1" class="pad1">Tutorial 1</h4>
+			<h4 id="subsec21t1" class="pad1">Tutorial 1</h4>
 			
 			<p>....</p>
 			
@@ -244,7 +201,7 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec12t2" class="pad1">Tutorial 2</h4>
+			<h4 id="subsec21t2" class="pad1">Tutorial 2</h4>
 			
 			<p>....</p>
 			
@@ -256,7 +213,7 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec12t3" class="pad1">Tutorial 3</h4>
+			<h4 id="subsec21t3" class="pad1">Tutorial 3</h4>
 			
 			<p>....</p>
 			
@@ -267,14 +224,14 @@
 			<p>....</p>
 			
 			<p>....</p>
-			
-			<h2 id="subsec13" class="pad1">Subsection 3</h2>
-			
+
+			<h2 id="subsec22" class="pad1">Subsection 2</h2>
+
 			<p>....</p>
 			
 			<p>....</p>
 			
-			<h4 id="subsec13t1" class="pad1">Tutorial 1</h4>
+			<h4 id="subsec22t1" class="pad1">Tutorial 1</h4>
 			
 			<p>....</p>
 			
@@ -286,7 +243,7 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec13t2" class="pad1">Tutorial 2</h4>
+			<h4 id="subsec22t2" class="pad1">Tutorial 2</h4>
 			
 			<p>....</p>
 			
@@ -298,7 +255,49 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec13t3" class="pad1">Tutorial 3</h4>
+			<h4 id="subsec22t3" class="pad1">Tutorial 3</h4>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h2 id="subsec23" class="pad1">Subsection 3</h2>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec23t1" class="pad1">Tutorial 1</h4>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec23t2" class="pad1">Tutorial 2</h4>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec23t3" class="pad1">Tutorial 3</h4>
 			
 			<p>....</p>
 			
