@@ -62,10 +62,4 @@ body {padding-top: 56px; overflow:auto;}
 .sidebar-submenu {font-size: 0.9rem;}
 
 /* Submenu links that turn to underline when you scroll to that section*/
-#sidebar-container .list-group-item.copy-link.active,
-#sidebar-container .list-group-item.copy-link:active,
-#sidebar-container .list-group-item.copy-link:hover,
-#sidebar-container .list-group-item.copy-link:focus{
-    color: #993399;
-    border-bottom: 1px #993399 solid;
-}
+#sidebar-container .anchor.active, #sidebar-container .anchor:active, #sidebar-container .anchor:link, #sidebar-container .anchor:hover, #sidebar-container .anchor:focus{border-bottom: 1px #993399 solid;}
