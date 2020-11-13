@@ -18,6 +18,7 @@ hr{color: #E5E5E5;}
 
 /*links and button styling - colors informed by https://brand.duke.edu/colors/ */
 .copy-link, .copy-link:link {color: #012169;}
+.alert {background-color: #012169; color: #E5E5E5;}
 .navb-link, .navb-link:link {color: #E5E5E5; outline:none;}
 .navb-link:hover, .copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399;}
 .navb-link:active, .active {font-weight: bold;}
