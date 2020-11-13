@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}
 p, .mainfont {font-family: "Open Sans";}
 
 /*font awesome icon styling, plus blockquote, line beneath headers, and scroll to top button*/
-.fas {color: #993399;}
+.fas, .fab {color: #993399;}
 .scrollstyle {padding-top: 2rem; float: right;}
 hr{color: #E5E5E5;}
 .blockquote{line-height: 100%; font-family: "Georgia";}
