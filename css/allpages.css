@@ -47,6 +47,10 @@ hr{color: #E5E5E5;}
 .pad-t5{padding-top: 5rem;}
 .pad-r1{padding-right: 1rem;}
 
+/*misc*/
+.card{border: none}
+.card-header{background-color:#E5E5E5; color: #012169; border: none;}
+
 /* body & sidebar - padding necessary for navbar at the top; overflow auto means it'll provide scrollbar when necessary */
 body {padding-top: 56px; overflow:auto;}
 .sticky-offset {top: 56px;}
