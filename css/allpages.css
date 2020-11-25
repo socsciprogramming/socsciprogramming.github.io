@@ -70,3 +70,23 @@ body {padding-top: 56px; overflow:auto;}
 
 /* Submenu links that turn to underline when you scroll to that section*/
 #sidebar-container .anchor.active, #sidebar-container .anchor:active, #sidebar-container .anchor:link, #sidebar-container .anchor:hover, #sidebar-container .anchor:focus{border-bottom: 1px #993399 solid;}
+
+/* styling the quizzes */
+.slide{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 40px;
+}
