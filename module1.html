@@ -484,13 +484,20 @@ Although effects observed on MTurk usually replicate in nationally representativ
 			
 			<h2 id="testyourself" class="pad1">Test Yourself:</h2>
 			
-			<div class="quiz-container mainfont">
-			  <div id="quiz"></div>
-			</div>
-			<button id="previous mainfont bttn">Previous Question</button>
-			<button id="next mainfont bttn">Next Question</button>
-			<button id="submit mainfont bttn">Submit Quiz</button>
-			<div id="results mainfont"></div>
+            <!--from: https://codepen.io/teachtyler/pen/raEprM -->
+			<div id="quiz mainfont">
+              <button id="submit-button mainfont">Submit Answers</button>
+              <button id="next-question-button mainfont">Next Question</button>
+              <button id="prev-question-button mainfont">Previous</button>
+
+              <div id="quiz-results mainfont">
+
+                <p id="quiz-results-message mainfont"></p>
+                <p id="quiz-results-score mainfont"></p>
+                <button id="quiz-retry-button mainfont">Retry</button>
+
+              </div>
+            </div>
 			
 			<h2 id="assignments" class="pad1">Assignments:</h2>
 			
