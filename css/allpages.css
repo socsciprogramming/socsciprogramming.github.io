@@ -72,8 +72,13 @@ body {padding-top: 56px; overflow:auto;}
 /* Submenu links that turn to underline when you scroll to that section*/
 #sidebar-container .anchor.active, #sidebar-container .anchor:active, #sidebar-container .anchor:link, #sidebar-container .anchor:hover, #sidebar-container .anchor:focus{border-bottom: 1px #993399 solid;}
 
-img[alt*="mturkcsv"] {height:25vh; }
 img[alt*="mturkinterface"] {height:25vh; }
+img[alt*="mturkworkers"] {height:50vh; }
+img[alt*="mturkpayments"] {height:50vh; }
+img[alt*="mturkqualifications"] {height:50vh; }
+img[alt*="mturkprojects"] {height:50vh; }
+img[alt*="mturkcreate"] {height:50vh; }
+img[alt*="mturkbatches"] {height:50vh; }
 
 /* styling the quizzes */
 #quiz {
