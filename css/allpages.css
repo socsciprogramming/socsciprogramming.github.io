@@ -77,7 +77,7 @@ img[alt*="mturkworkers"] {height:50vh; }
 img[alt*="mturkpayments"] {height:50vh; }
 img[alt*="mturkqualifications"] {height:50vh; }
 img[alt*="mturkprojects"] {height:50vh; }
-img[alt*="mturkcreate"] {height:50vh; }
+img[alt*="mturkcreate"] {height:35vh; }
 img[alt*="mturkbatches"] {height:50vh; }
 
 /* styling the quizzes */
