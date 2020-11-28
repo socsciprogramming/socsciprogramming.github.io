@@ -279,19 +279,23 @@
 
 			<p>What's wrong with this description? Well, it gives you a sense of what the HIT page looks like, but a more transparent version would have included (e.g., in the Supplementary Text) the exact preview of the HIT and mentioned what days and times on which participants were run. This was one of the first studies I'd run, and I hadn't included a Location: United States Qualification, which I now do (especially since NIH grants are typically based on U.S. census reports, with certain demographics specified). Personally, I also tend to run participants between 9 a.m. to 5 p.m. EST and cancel any "batches" that aren't finished by 5 p.m. EST to ensure that participants who are not in my desired location but are getting past Amazon's Location Qualification will not participate in the study. However, I didn't include this guideline in the above description, either, and that is a problem if <a href="https://psyarxiv.com/najwk/" class="copy-link">someone wanted to directly replicate my study</a>.</p>
 			
+			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-reconciling-worker-responses-280c96f1a696" class="copy-link">Tutorial: Reconciling Worker Responses</a> (showing more of how that output .csv file could also have data); <a href="https://blog.mturk.com/tutorial-managing-results-with-the-requester-website-219f6c809e47" class="copy-link">Tutorial: Managing Results with the Requester Website</a> (more details on interacting with the interface/batches); <a href="https://blog.mturk.com/tutorial-identifying-workers-that-will-be-good-at-your-task-66dccb92b42f" class="copy-link">Tutorial: Identifying Workers That Will Be Good at Your Task</a> (more details on creating qualifications and thinking about reasons for approving/rejecting work).</p>
+			
 			<h4 id="subsec11t3" class="pad1">Amazon Mechanical Turk accounts</h4>
 			
-			<!--Your Own Account or Lab Account? Pros/Cons-->
+			<p>How do you sign up for an MTurk account? You will want to sign up as both a requester and worker; you will post your HITs as a requester, but you will also want to test out your own tasks BEFORE that, as a worker (on the developer site). (You may also want to try out a few tasks as a worker to get a feel for what your participants generally experience.)</p>
 			
-			<p>How do you sign up for an MTurk account?</p>
+			<p>First, you should sign up for an Amazon Web Services (AWS) account and eventually link this to your MTurk account. You can find <a href="https://blog.mturk.com/tutorial-setting-up-your-aws-account-to-make-use-of-mturks-api-4e405b8fc8cb" class="copy-link">that tutorial</a> here. This isn't 100% necessary to use MTurk, but if you end up going all the way through these Modules, in Module 4, we will go over how to use MTurk with code, and the linked tutorial will make that possible.</p>
 			
-			<p>....</p>
+			<p>Next, you can sign up for a requester account following <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/SetUp.html" class="copy-link">this tutorial</a> ("Step 2"). If you followed the above tutorial on the AWS account, you should be able to link the two accounts.</p>
 			
-			<p>Should you sign up for your own account or an account that represents your lab at large?</p>
+			<p>Should you sign up for your own account or an account that represents your lab/company at large? That depends on your goals.</p>
 			
-			<p>....</p>
+			<p>If you're at a company or a large lab, you may want to have one central account that everyone can access. This means that it is easy for your financial manager (e.g., a lab manager) to access the receipts associated with running studies. It also means that you will have to set your policies on how to treat MTurk workers and run your studies together as a lab, reducing individual variability.</p>
 			
-			<p>....</p>
+			<p>On the other hand, having one account means that if one person has a boring study, the entire lab has been reviewed (negatively). That means you might lose ranking even when it's not something that you specifically do.</p>
+			
+			<p>Yet, if you create your own accounts, it can make it hard to keep track of all the receipts associated with different accounts. At the same time, you'll only be affected by how you treat MTurk participants. Part of this may depend on what IRB (<a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/institutional-review-boards-frequently-asked-questions" class="copy-link">Institutional Review Board</a>) protocol you have: that is, what do the standardized ethical procedures at your institution suggest? If it's for the entire lab (an umbrella IRB), you may need a lab account; if you have your own IRB, then you could use your own. There are negatives and positives to each choice.</p>
 			
 			<hr>
 
@@ -317,7 +321,7 @@
 
 			<p>....</p>
 			
-			<p>....</p>
+			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveymonkey-f49c2891ca6f" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Monkey</a>, <a href="https://medium.com/@mechanicalturk/tutorial-getting-great-survey-results-from-mturk-and-qualtrics-f5366f0bd880" class="copy-link">Tutorial: Getting great survey results from MTurk and Qualtrics</a>, <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveygizmo-dee93ff58561" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Gizmo</a>, <a href="https://blog.mturk.com/tutorial-understanding-requirements-and-qualifications-99a26069fba2" class="copy-link">Tutorial: Understanding Requirements and Qualifications</a></p>
 			
 			<h4 id="subsec12t2" class="pad1">A typical social science project on MTurk</h4>
 			
@@ -330,7 +334,7 @@
 			
 			<p>Yes, their interface is pretty terrible. It is possible their interface is so bad because they want you to use their more expensive features, like Prime Panels and the MTurk Toolkit. Who knows?</p>
 			
-			<p>....</p>
+			<p>Additional Resource: <a href="https://blog.mturk.com/editing-the-survey-link-project-template-in-the-ui-7c75285105fb" class="copy-link">Editing the Survey Link Project Template</a></p>
 			
 			<h4 id="subsec12t3" class="pad1">Special qualifications and properties on MTurk</h4>
 			
@@ -421,6 +425,8 @@ Attention checks have the potential to improve data quality but also have measur
 			<p>....</p>
 			
 			<p>If your task is dependent on workers being fluent or native in English, <a href="https://psyarxiv.com/uq45c" class="copy-link">Hauser, Paolacci, and Chandler (2018)</a> suggest 1) offering your task in different languages (to ensure participant diversity) or requiring participants to fill out a language assessment pre-screen; 2) examining responses to open-text questions as a way to detect non-native English; 3) restricting eligibility of the survey to people most likely to know English (e.g., Location: United States); or 4) using any of the tips mentioned earlier for inattentive responding. </p>
+			
+			<p>If you want to run a longitudinal study, <a href="https://blog.mturk.com/tutorial-best-practices-for-managing-workers-in-follow-up-surveys-or-longitudinal-studies-4d0732a7319b" class="copy-link">this tutorial</a> goes over best practices.</p>
 			
 			<h4 id="subsec13t3" class="pad1">Frequently Asked Questions</h4>
 			
