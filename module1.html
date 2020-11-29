@@ -222,7 +222,7 @@
 			
 			<p><b>Reward</b> - The amount of money/compensation workers receive after their HIT is approved. Note that Amazon takes at least a 20% cut on the reward rate. If you pay a worker $3 to complete your HIT, it actually costs $3.60 per participant.</p>
 			
-			<p><b>Qualifications</b> - Criteria that requesters can impose on a HIT and that determine worker eligibility to accept a HIT. Basic Qualifications (accessible to all requesters) include Location, # of HITs completed, and HIT approval ratio (e.g., restricting to U.S. workers who've completed at least 1,000 HITs and have a >95% approval ratio). Premium Qualifications (i.e., Amazon charges requesters an extra 20% for these) include other sorts of demographics (e.g., "18-29" age range). Requesters can also create their own Qualifications, like ensuring that workers don't do their task more than once.</p>
+			<p><b>Qualifications</b> - Criteria that requesters can impose on a HIT and that determine worker eligibility to accept a HIT. Basic Qualifications (accessible to all requesters) include Location, # of HITs completed, and HIT approval ratio (e.g., restricting to U.S. workers who've completed at least 1,000 HITs and have a >95% approval ratio). Premium Qualifications (i.e., Amazon charges requesters an extra 20% for these) include other sorts of demographics (e.g., "18-29" age range). Requesters can also create their own Qualifications, like ensuring that workers don't do their task more than once. Workers can become a <b>Master</b> Worker, which Amazon opaquely suggests are people with high approval ratings, but it's unclear what qualifies participants to reach Master level. Using the Master worker Qualification also costs an additional 5% fee.</p>
 
 			<p><b>TurkOpticon & TurkerView</b> - Sites where workers can post reviews of a requester + HIT (<a href="https://turkopticon.ucsd.edu/" class="copy-link">TurkOpticon</a>) or a particular HIT (<a href="https://turkerview.com/" class="copy-link">TurkerView</a>). Generally speaking, I think folks have transferred over to TurkerView, as I have more reviews on that site than I do on TurkOpticon. Also, generally speaking, my reviews are more favorable on TurkerView, so there may be a split between who uses what site. TurkerView also includes a forum for workers to discuss HITs.</p>
 
@@ -301,19 +301,37 @@
 
 			<h2 id="subsec12" class="pad1">Designing Online Studies</h2>
 
-			<p>....</p>
-			
-			<p>....</p>
-			
+			<p>This section will primarily go over the ethics of crowdsourced studies and how to post the most common type of social science survey.</p>
+						
 			<h4 id="subsec12t1" class="pad1">Running social science research on MTurk</h4>
 			
-			<!--Frame the question of ethics, consent process, paying, workers as contractors (but payment standards will change by country) - students need to write their IRB, so they should think about these things
+			<!--Frame the question of ethics, consent process, paying - students need to write their IRB, so they should think about these things
 			what to report
 			It is important to report all of these considerations whether in a paper or on the wiki with your open materials, especially if other researchers want to directly replicate your work (see <a href="https://psyarxiv.com/najwk/" class="copy-link">Paolacci and Chandler, 2018</a> for commentary).
 			
+			Is ‘Click here to continue’ good enough for informed consent? Do participants understand that they can withdraw from the study at any time?
+			Do participants have a way to request deletion of their data?
+			Payment -- a primarily ethical consideration
+			Data quality not usually sensitive to compensation level;
+			Greater payment = quicker data collection & reduces data attrition
+			Could also act as incentive - spend longer on tasks with greater effort demands
+			Could, however, also attract most keen workers and crowd out the less experienced
+
+			also ethics of science
+			More bad ideas being tested & greater false positives and file drawer effects?
+			More p-hacking?
+
+			But maybe the ease of collecting data, the resource costs, etc. allows researchers to let go of less promising ideas
+			The time reduction should also reduce “data-peeking” p-hacking, since there is little gain in understanding how a study is unfolding
+			Larger samples for greater power
+			Lowered investment to replicate a study
+
+			
 			-->
 			
-			<p>....</p>
+			<p>One thing you may be wondering is how Amazon is able to host this crowdsourcing site, handling a lot of money. With this crowdsourcing site, workers are considered <a href="https://www.mturk.com/participation-agreement" class="copy-link">independent contractors</a> ("3e"), although payment standards will change according to each country's regulations. Being an independent contractor means that they are not employees of any Requester or MTurk at large and do not get the benefits therein.</p>
+			
+			<p>Payment is an ethical issue (<a href="http://merlino.unimo.it/campusone/web_dep/wpdemb/0139.pdf" class="copy-link">Cantarella and Strozzi, 2018</a>). <a href="https://psyarxiv.com/jbc9d/" class="copy-link">Moss, Rosenzweig, Robinson, and Litman (2020)</a> reported that MTurk participants don't find most requesters abusive or MTurk stressful and that they appreciate its flexibility and the financial incentives, but that does not absolve researchers from paying an ethical amount for our studies to be performed online. How much will you pay participants? One thing, for instance, that differentiates MTurk from other crowdsourcing sites (like Prolific) is that it does not have a minimum payment rate.</p>
 			
 			<p>....</p>
 			
@@ -377,8 +395,6 @@ WEIRD populations (sarah gaither) + https://royalsocietypublishing.org/doi/full/
 			
 			<p>....</p>
 			
-			<p>Payment is an ethical issue (<a href="http://merlino.unimo.it/campusone/web_dep/wpdemb/0139.pdf" class="copy-link">Cantarella and Strozzi, 2018</a>). <a href="https://psyarxiv.com/jbc9d/" class="copy-link">Moss, Rosenzweig, Robinson, and Litman (2020)</a> found that MTurk participants don't found most requesters abusive or MTurk stressful and that they appreciate its flexibility and the financial incentives, but that does not absolve researchers from paying an ethical amount for our studies to be performed online.</p>
-			
 			<p>....</p>
 
 			<p>....</p>
@@ -422,11 +438,13 @@ Attention checks have the potential to improve data quality but also have measur
 			
 			<p>....</p>
 			
-			<p>....</p>
+			<p>You should probably also collect: a measure of attrition rates (if you can; this would tell you about self-selection bias in your sample - but MTurk on its own does not collect this information), browser agent strings (which browsers do participants use to perform your study? Does your task or survey work better in certain browsers than others?), demographics, whether you've recruited participants via other means (like posting the URL to Reddit, etc.), IP addresses, and if you've added any Qualifications of your own (like excluding participants from previous studies).</p>
 			
 			<p>If your task is dependent on workers being fluent or native in English, <a href="https://psyarxiv.com/uq45c" class="copy-link">Hauser, Paolacci, and Chandler (2018)</a> suggest 1) offering your task in different languages (to ensure participant diversity) or requiring participants to fill out a language assessment pre-screen; 2) examining responses to open-text questions as a way to detect non-native English; 3) restricting eligibility of the survey to people most likely to know English (e.g., Location: United States); or 4) using any of the tips mentioned earlier for inattentive responding. </p>
 			
 			<p>If you want to run a longitudinal study, <a href="https://blog.mturk.com/tutorial-best-practices-for-managing-workers-in-follow-up-surveys-or-longitudinal-studies-4d0732a7319b" class="copy-link">this tutorial</a> goes over best practices.</p>
+			
+			<p>In terms of practical tips, I'd suggest 1) creating a separate email account for MTurk to help you manage any communication with MTurk workers so you won't feel bombarded. Also, whether or not you respond to emails is really up to you. It's the rare case when I've been able to actually communicate with an MTurk worker and turn things around. The helpful times usually have to do with #2. I'd recommend 2) always testing your study extensively before posting studies to the regular Mturk site, because a bad review will stay with you forever, and you'd lose money (to compensate workers when your code doesn't work or work the way you want). You should 3) always explicitly state what you expect of workers for approval/payment; if you want participants to achieve a certain level of accuracy or finish all parts of the task, tell them up front. You should also 4) give Mturk workers a cumulative feedback score or regular feedback related to how they are doing on the task, so they have the chance to improve. Moreover, if you have an accuracy criterion, this lets workers know if they can still achieve that criterion. Finally, you should definitely 5) make sure your instructions are easy to understand and don't come all at once (i.e., make them appear line-by-line so it's not just one block of text). Try to think of every possible way people could misunderstand your instructions, and try to think of every way people could try and not do your task. Run your instructions and study by undergraduates, other folks in lab, or non-science friends sometimes, because you can make helpful edits based on this information.
 			
 			<h4 id="subsec13t3" class="pad1">Frequently Asked Questions</h4>
 			
@@ -477,11 +495,11 @@ Although effects observed on MTurk usually replicate in nationally representativ
 			
 			<p>What is listed here is not the only type of study to find on MTurk. For example, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6415984/" class="copy-link">Qureshi et al. (2019)</a> showed MTurk workers the results of medical tests to examine how well people (patients) understand what they're seeing in terms of diagnoses. You're mostly limited by what you can post online and what you can reasonably ask participants to do within ethical guidelines. You can find more suggestions at <a href="https://pubmed.ncbi.nlm.nih.gov/28803699/" class="copy-link">Stewart, Chandler, and Paolacci (2017)</a> (e.g., infant attention, economic games, crowd creativity, transactive crowds, participants as field researchers, mechanical diary, time of day, crowds as research assistants, etc.).</p>
 			
-			<p><b>OK, so you've highlighted a bunch of positives. What are the negatives of using a crowdsourcing site?</b></p>
+			<p><b>OK, so you've highlighted a bunch of positives (cheap, fast acquisition; simultaneously running multiple people, who can participate at any time; a larger and more diverse pool of participants; easy to test replicability and transparent and easily allows tasks to run on multiple platforms). What are the negatives of using a crowdsourcing site?</b></p>
 			
 			<p>First, there are professional participants. On MTurk, there may be a repeat of participants between labs, and you don't necessarily know the extent to which people are aware of your study's purpose (see <a href="#subsec13t5" class="copy-link">Unknown Frontiers</a> section below). Moreover, having more experienced participants may result in an inability to generalize your results. Generalizability is something you should especially consider with this population (see, for example, <a href="#subsec13t1" class="copy-link">the Diversity and Inclusion</a> section).</p>
 			
-			<p>Second, you cannot control the environment under which participants take your survey. That is the nature of the internet: participants may be watching TV or distracted by a child who got a nosebleed (yes, I have received this email). I do not know the extent to which this is specific to MTurk or really, any sort of crowdsourcing site. However, there are solutions for inattentive responding and insufficient effort: incentivizing paying attention (with a bonus or following principles of web survey design), excluding participants who don't pay attention, and more (see <a href="#subsec13t2" class="copy-link">Tips and Tricks</a> section). Moreover, a number of MTurk studies have found effects that rely on differences observed at the millisecond level, just as they are in college students (see above), which suggests that inattentive responding is not as large of an issue (for some studies, at least). </p>
+			<p>Second, you cannot control the environment under which participants take your survey. That is the nature of the internet: participants may be watching TV or distracted by a child who got a nosebleed (yes, I have received this email). I do not know the extent to which this is specific to MTurk or really, any sort of crowdsourcing site. However, there are solutions for inattentive responding and insufficient effort: incentivizing paying attention (with a bonus or following principles of web survey design), excluding participants who don't pay attention, and more (see <a href="#subsec13t2" class="copy-link">Tips and Tricks</a> section). Moreover, a number of MTurk studies have found effects that rely on differences observed at the millisecond level, just as they are in college students (see above), which suggests that inattentive responding is not as large of an issue (for some studies, at least). You also, however, cannot control for uncontrolled internet issues, like if Qualtrics goes down while participants are doing tasks. </p>
 			
 			<p>Third, MTurk allows requesters to pay however much they want (no minimum payment rate). This means that exploitation of workers could be a big thing, and really payment is a large ethical issue that you need to consider when running your study. Moreover, payment can impact how quickly your results appear (i.e., how much participants want to do your study) and potentially your self-selected sample characteristics, although some work has suggested that data quality is independent of reward size (CITATION NEEDED).</p>
 			
@@ -493,13 +511,17 @@ Although effects observed on MTurk usually replicate in nationally representativ
 			
 			<p>Finally, seventh, some participants may get around the requirement for a U.S.-based address. One solution is to collect IP addresses, but some participants may still hide their IP address through virtual private servers (see <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3233954" class="copy-link">Dennis, Goodson, and Pearson, 2018</a>). You will want to have a protocol in place that addresses what to do in these scenarios.</p>		
 			
+			<p>I have also often found MTurk to be stressful in a way that undergraduate students are not, but that may be because I have run rather boring studies that people do not particularly like. Amazon can also sometimes randomly change their policies, which isn't good.</p>
+			
 			<p><b>If I did want to measure Reaction Times (RTs), how accurate can I get?</b></p>
 			
 			<p> ...</p>
 			
 			<h4 id="subsec13t4" class="pad1">Applied Exercise: What did these experiments do wrong?</h4>
 			
-			<p>....</p>
+			<blockquote class="blockquote text-muted pad-l1">"124 Amazon Mechanical Turk (MTurk) workers consented to participate for $5.85 ($0.13/minute), while 134 undergraduate (SONA) students consented to participate for one course credit. 36 MTurk workers were excluded for poor accuracy (<70%) in the learning phase (range [0.25, 68.29]), while 20 undergraduate students were similarly excluded (range [37.04, 69.68]). This resulted in a final sample size of 88 MTurk workers (mean age = 37.85 ± 10.901) and 114 undergraduate students (mean age = 19.24 ± 1.04) for a total N = 202; see Supplementary Table 1 for additional demographics."</blockquote>
+			
+			<p>What is missing from <a href="https://psyarxiv.com/cdpxh" class="copy-link">this study's</a> description?</p>
 			
 			<p>....</p>
 			
@@ -540,6 +562,14 @@ Although effects observed on MTurk usually replicate in nationally representativ
 			In other situations, knowledge about procedures and practice with experimental designs has a clear impact on responses. For example, MTurkers exposed to thesame prescreening questions eventually learn what constitutes the “right” demographic features that enable them to gain entrance to a study and will claim to possess these attributes in subsequent studies (Chandler & Paolacci, 2017, Study 4). Knowing the incentive structure of an economic game might undermine the effectiveness of time pressure manipulations on decision making, as effortful decision making strategies become well learned (Rand et al., 2014). Similarly, Chandler et al. (2015) found a generalized reduction in effect sizes among repeated participants in a series of decision-making studies (see also DeVoe and House 2016), particularly when assigned to different conditions with short time delay. However, Zwaan and colleagues (2017) found no such effect using cognitive paradigms relying on automatic reactions, suggesting that nonnaiveté effects hinge on participants retrieving from memory information learned in previous participations. All in all, more research should be conducted to understand how,when, and why repeated exposure to a research paradigm affects future participationin MTurk as in other samples.
 			
 			This creates concerns that prior exposure to research materials (“non-naivete”) can compromise data quality (Chandler, Paolacci, Peer, Mueller, & Ratliff, 2015; DeVoe & House, 2016; Rand et al., 2014; but see also Bialek & Pennycook, 2018; Zwaan et al., 2017).
+			
+			“The average laboratory samples from a population of about 7300 MTurk workers, with… overlap between the populations accessed by different laboratories. This creates the very real possibility of exhausting the pool of available workers for a particular line of research.”
+			No restrictions on # surveys to complete or how long to be in the pool
+			The median worker does 160 academic studies/month; half of the workers are replaced every seven months, but some remain in the pool for years
+			Most evidence suggests that workers don’t share knowledge about expts with each other on forums or online discussion boards (except mturk features, like payment and experiences with the requester, etc.)
+			Worker experience can affect data/influence future behavior (practice effects); contaminating subject pools for other laboratories, etc.
+			Amazon sometimes randomly changes their policies
+
 			
 			-->
 			
