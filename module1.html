@@ -363,24 +363,36 @@
 			
 			<p>And yes, the MTurk interface is pretty terrible. It is possible their interface is so bad because they want you to use their more expensive features, like Prime Panels and the MTurk Toolkit. Who knows? This tutorial (<a href="https://blog.mturk.com/editing-the-survey-link-project-template-in-the-ui-7c75285105fb" class="copy-link">Editing the Survey Link Project Template</a>) also goes over how to customize the Survey Link template. As you'll note below, there are at least a lot of individual tutorials for particular Survey Link projects. In Module 2, we'll go over some basic design and programming principles as well as how to use Qualtrics with MTurk.</p>
 			
-			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveymonkey-f49c2891ca6f" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Monkey</a>, <a href="https://medium.com/@mechanicalturk/tutorial-getting-great-survey-results-from-mturk-and-qualtrics-f5366f0bd880" class="copy-link">Tutorial: Getting great survey results from MTurk and Qualtrics</a>, <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveygizmo-dee93ff58561" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Gizmo</a>, <a href="https://blog.mturk.com/tutorial-understanding-requirements-and-qualifications-99a26069fba2" class="copy-link">Tutorial: Understanding Requirements and Qualifications</a>, <a href="https://blog.mturk.com/tasks-can-now-scale-to-a-workers-browser-window-size-c6e66f4bdfc9" class="copy-link">Tasks can now scale to a Worker's browser window size</a></p>
+			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveymonkey-f49c2891ca6f" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Monkey</a>, <a href="https://medium.com/@mechanicalturk/tutorial-getting-great-survey-results-from-mturk-and-qualtrics-f5366f0bd880" class="copy-link">Tutorial: Getting great survey results from MTurk and Qualtrics</a>, <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveygizmo-dee93ff58561" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Gizmo</a>, <a href="https://blog.mturk.com/tasks-can-now-scale-to-a-workers-browser-window-size-c6e66f4bdfc9" class="copy-link">Tasks can now scale to a Worker's browser window size</a></p>
 			
 			<h4 id="subsec12t3" class="pad1">Special qualifications and properties on MTurk</h4>
-			
-			<!--Qualifications & Excluding MTurk workers, payments on MTurk
-This is a specific part of the  MTurk  GUI - also, mention that -->
 
 			<p>Let's return to the <a href="files/mturkqualifications.png" class="copy-link">Qualifications page</a> screenshot (shown only on xl screens).</p>
 			
 			<img src="files/mturkqualifications.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="mturkqualifications"></img>
 			
-			<p>.... And let's take a look at the <a href="files/mturkqualifications.png" class="copy-link">Qualifications</a> screenshot implemented on a particular study (shown only on xl screens). </p>
+			<p>Above, you can see the basic properties of any Qualification: the name (which you might need to make memorable, if you're sharing an account), the unique ID associated with that account, the number of active workers who you've given the Qualification to, when you created it, and a description of what the Qualification is. Note that workers can see your description of a Qualification (so don't say insulting things). Shown here are four qualifications. I ran a consolidation study where participants performed a Part 1 and a Part 2, spaced by a 24-hour delay. To do so, I gave everyone who completed Part 1 a particular Qualification and when posting Part 2, only made that HIT available to those participants. Similarly, in another study, I didn't want to include any participants who had done a similar version of my task before - even if it was six months ago. Who knows how that previous knowledge would impact the results? Therefore, I ended up excluding a number of people. And let's take a look at the <a href="files/mturkqualifications1.png" class="copy-link">Qualifications</a> screenshot implemented on a particular study (shown only on xl screens). </p>
 			
-			<img src="files/mturkqualifications1.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="mturkqualifications"></img>
+			<img src="files/mturkqualifications1.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="mturkqualifications1"></img>
 			
-			<p>This is a part of the "Enter Properties" page when editing a project. </p>
+			<p>This is a part of the "Enter Properties" page when editing a project. You can see here that I've applied all the free Basic/System Qualifications that are available: Location, Number of HITS Approved, and the HIT Approval Rate. The particular study that has this was an easy task, yet I was getting a lot of participants who weren't doing better than chance, so I included additional Qualifications in an attempt to improve data quality. The one that you might be most interested in is the qualification that is blocked out and says "has not been granted." Here, I created my own Qualification to ensure that I wasn't going to get duplicate workers. One lab that I know has created a Qualification for all participants they've found give poor data quality. (That's one benefit of the shared account). And let's take a look at how you update <a href="files/mturkqualifications2.png" class="copy-link">Qualifications</a> (shown only on xl screens). </p>
 			
-			<p>An additional note from <a href="https://michaelbuhrmester.wordpress.com/mechanical-turk-guide/" class="copy-link">another MTurk Guide</a>:</p>
+			<img src="files/mturkqualifications2.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="mturkqualifications2"></img>
+			
+			<p>This is a part of the worker file I downloaded. Note that even when you download the .csv file, MTurk gives you instructions:</p>
+			
+			<blockquote class="blockquote text-muted pad-l1">
+			You can analyze your Workers offline and take action.<br />
+			ASSIGN QUALIFICATION TYPE: Indicate which Qualification Type to assign a Worker by putting the Qualification score number under the column with UPDATE and your Qualification Type name. You can assign a Qualification score between 0 and 100.<br />
+			REVOKE QUALIFICATION TYPE: To revoke the Qualification Type, put "Revoke" under the UPDATE column for your Qualification Type.<br />
+			BLOCK OR UNBLOCK: Block or unblock a Worker by putting "Block" or "Unblock" under the column titled "UPDATE BlockStatus." Reason for blocking each Worker must be specified in the column "BlockReason."<br />
+			</blockquote>
+
+			<p>I use a simple system: I give any participant who completed the study associated with a particular Qualification a "1" and I leave all other workers blank (with no Qualification). You can see this in the CURRENT-QualificationName column. When you want to add someone to a Qualification, you add your numbers to the UPDATE-QualificationName column and then "upload" the .csv file. You'll be asked to confirm that you're assigning scores for that Qualification, and you'll hit yes and wait a few minutes for the system to update. Then, on the Enter Properties page of a Project, I put the logic "has not been granted" for that Qualification. This means the system only allows people who do not have a score (i.e., a "1") to participate. You can also give people a "1" for your first batch and a "2" for the second batch and so forth, and then instead of the logic as "has not been granted," put "not equal to" the numbers you've assigned. "Has not been granted" could also work in that scenario too. And if you're ever uncertain whether your Qualification was applied, you can confirm by looking at an individual worker's page. For example, see the <a href="files/mturkqualifications3.png" class="copy-link">screenshot</a> below (shown only on xl screens).</p>
+			
+			<img src="files/mturkqualifications3.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="mturkqualifications3"></img>
+			
+			<p>Here, we can see confirmation that the worker indeed has a qualification applied. An additional note from <a href="https://michaelbuhrmester.wordpress.com/mechanical-turk-guide/" class="copy-link">another MTurk Guide</a>:</p>
 			
 			<blockquote class="blockquote text-muted pad-l1">Can I screen participants who fit my specific criteria?<br /> <br />
 			
@@ -390,7 +402,7 @@ This is a specific part of the  MTurk  GUI - also, mention that -->
 			
 			<p>Which is to say: sometimes there might be additional Qualifications that you want participants to have that doesn't really fit the Premium Qualifications on MTurk, but maybe you still want to run the study yourself rather than outsourcing the study to Prime Panels or Qualtrics Panels or the numerous panel-based platforms that have arisen. To do so, you can mark that as an eligibility criterion on your HIT page, but some participants may lie about that criterion or just miss it and continue to do your study. The above guide suggests adding in a pre-screener or at least disguising the measure that would define your eligibility criterion in the other things you're asking.</p>
 			
-			<p>....</p>
+			<p>Additional resource: <a href="https://blog.mturk.com/tutorial-understanding-requirements-and-qualifications-99a26069fba2" class="copy-link">Tutorial: Understanding Requirements and Qualifications</a></p>
 			
 			<hr>
 			
