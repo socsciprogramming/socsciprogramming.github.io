@@ -396,38 +396,23 @@ This is a specific part of the  MTurk  GUI - also, mention that -->
 			<p>In this final section, we will discuss population effects on your sample, tips and tricks for actually running a study, and additional questions you may have.
 			
 			<h4 id="subsec13t1" class="pad1">Diversity and Inclusion</h4>
-			
-			<!--Discuss WEIRD populations on MTurk and how MTurk does not fully solves this within social science
-Also discuss subject selection within MTurk with the Master workers/# hits done/approval rate %/etc.
-
-WEIRD populations (sarah gaither) + https://royalsocietypublishing.org/doi/full/10.1098/rsos.181386 on generalizability which just supports a blanket statement on how it's important
-
--->
-			<p><a href="https://link.springer.com/article/10.3758/s13428-019-01273-7" class="copy-link">From Chandler, Rosenzweig, Moss, Robinson, and Litman (2019):</a></p>
+	
+			<p>One of the most hailed benefits of MTurk is that it's more diverse than typical participant pools. However, <a href="https://link.springer.com/article/10.3758/s13428-019-01273-7" class="copy-link">from Chandler, Rosenzweig, Moss, Robinson, and Litman (2019):</a></p>
 			
 			<blockquote class="blockquote text-muted pad-l1">"...although MTurk is often celebrated as offering more diverse samples than college student subject pools, this is true primarily because college student samples are extremely homogeneous. Despite increased diversity, MTurk workers still look very little like the US population. MTurk workers are overwhelmingly young, with 70% of the MTurk population being below the age of 40, as compared to just 35% in the United States as a whole. Furthermore, there are very few participants above age 60 on MTurk. Reflecting differences in age and birth cohort, MTurk samples are also more liberal, better educated, less religious, and single without children, when compared to the US population (Casey, Chandler, Levine, Proctor, & Strolovitch, 2017; Huff & Tingley, 2015; Levay, Freese, & Druckman, 2016)."</blockquote>
 			
-			<p>....</p>
+			<p>Which is to say, MTurk is more diverse, but not because it does a particularly good job of recruiting diverse populations. It does not. It, too, suffers from recruiting <a href="https://www.apa.org/monitor/2010/05/weird" class="copy-link">WEIRD (Western, Educated, Industrialized, Rich, and Democratic)</a> populations. Moreover, WEIRD populations can often become <a href="https://twitter.com/melebzepol/status/1329887946418352131" class="copy-link">primarily "white"</a> (not just western) populations. This limits any ability to <a href="https://royalsocietypublishing.org/doi/full/10.1098/rsos.181386" class="copy-link">generalize</a> findings from a sample or subset of a large population to the population itself. That is to say, this lack of diversity may impact our external validity (read more about social science research methods <a href="https://www.sagepub.com/sites/default/files/upm-binaries/43076_2_The_Process_and_Problems_of_Social_Research.pdf" class="copy-link">here</a>, <a href="https://scholarcommons.usf.edu/cgi/viewcontent.cgi?article=1002&context=oa_textbooks" class="copy-link">here</a>, and <a href="https://libguides.usc.edu/writingguide/designflaws" class="copy-link">here</a>).</p>
 			
-			<p>....</p>
+			<p>Moreover, MTurk could worsen this problem given the adoption of Qualifications. For example, if we include the Basic/System Level Qualifications of 95% approval rating and >1000 HITs completed, we're not necessarily getting folks who have just joined MTurk. The more restrictions that are imposed, the more we're making our subset of the population become more "specialized." To what extent do these kinds of Qualifications impact our results? What if you only observe the result in "experts" like this, but not when you remove your Qualifications, or vice versa?</p>
 
-			<p>....</p>
+			<p>Finally, crowdsourcing already has the issue of self-selection bias. That is, participants choose which HITs they will accept and perform, and you have no idea how many participants saw your HIT and didn't want to click on it for XYZ reasons or who clicked on it and didn't want to do or gave up halfway through etc. We only ever see the final result - the people who accepted and submitted the HIT.</p>
 			
-			<p>....</p>
+			<p>All of which is to say: You cannot only use MTurk if you want to claim that your results are generalizable. Ensuring that our experiments are apropriately representative of the population is not only key to good social science experimental design, but also key to ethically designing your own experiments.</p>
 			
 			<h4 id="subsec13t2" class="pad1">Tips for running MTurk participants</h4>
 			
 			<!--Podcast-like interviews across disciplines, get grad students to describe research within 1-2 minutes, then describe issues with running experiments online
 Always replicate regardless of the discipline
-
-Tips from a communication researcher:
-●	Experience MTurk as a worker first; complete a few easy academic HITs to get a feel for the site.
-●	Know and understand the rules about what types of HITs are acceptable to post on MTurk, and adhere to privacy regulations.
-●	Design your study to ensure qualified respondents, either by requesting and paying for specific characteristics in respondents, or by implementing a short screening survey.
-●	Use attention checks to ensure that respondents are real people (and not robots) and to make sure they are adhering to your survey guidelines and paying attention to the questions.
-●	Optimize surveys to slow down respondents and collect more satisfactory and comprehensive responses to open-ended questions.
-●	Pretest all surveys yourself to check functionality and estimated completion times, and adjust as necessary.
-●	Engage with workers who contact you to answer questions they may have about the task, or to fix an issue they may have encountered with the survey – this will build trust between you and the workers. ← this is the only recommendation I’d edit a bit.
 
 Add in comments on being a good requester too.
 
@@ -459,6 +444,17 @@ Attention checks have the potential to improve data quality but also have measur
 			<p>If you want to run a longitudinal study, <a href="https://blog.mturk.com/tutorial-best-practices-for-managing-workers-in-follow-up-surveys-or-longitudinal-studies-4d0732a7319b" class="copy-link">this tutorial</a> goes over best practices.</p>
 			
 			<p>In terms of practical tips, I'd suggest 1) creating a separate email account for MTurk to help you manage any communication with MTurk workers so you won't feel bombarded. Also, whether or not you respond to emails is really up to you. It's the rare case when I've been able to actually communicate with an MTurk worker and turn things around. The helpful times usually have to do with #2. I'd recommend 2) always testing your study extensively before posting studies to the regular Mturk site, because a bad review will stay with you forever, and you'd lose money (to compensate workers when your code doesn't work or work the way you want). You should 3) always explicitly state what you expect of workers for approval/payment; if you want participants to achieve a certain level of accuracy or finish all parts of the task, tell them up front. You should also 4) give Mturk workers a cumulative feedback score or regular feedback related to how they are doing on the task, so they have the chance to improve. Moreover, if you have an accuracy criterion, this lets workers know if they can still achieve that criterion. Finally, you should definitely 5) make sure your instructions are easy to understand and don't come all at once (i.e., make them appear line-by-line so it's not just one block of text). Try to think of every possible way people could misunderstand your instructions, and try to think of every way people could try and not do your task. Run your instructions and study by undergraduates, other folks in lab, or non-science friends sometimes, because you can make helpful edits based on this information.
+			
+			<!-- Tips from a communication researcher:
+●	Experience MTurk as a worker first; complete a few easy academic HITs to get a feel for the site.
+●	Know and understand the rules about what types of HITs are acceptable to post on MTurk, and adhere to privacy regulations.
+●	Design your study to ensure qualified respondents, either by requesting and paying for specific characteristics in respondents, or by implementing a short screening survey.
+●	Use attention checks to ensure that respondents are real people (and not robots) and to make sure they are adhering to your survey guidelines and paying attention to the questions.
+●	Optimize surveys to slow down respondents and collect more satisfactory and comprehensive responses to open-ended questions.
+●	Pretest all surveys yourself to check functionality and estimated completion times, and adjust as necessary.
+●	Engage with workers who contact you to answer questions they may have about the task, or to fix an issue they may have encountered with the survey – this will build trust between you and the workers. ← this is the only recommendation I’d edit a bit.-->
+			
+			<p> </p>
 			
 			<h4 id="subsec13t3" class="pad1">Frequently Asked Questions</h4>
 			
