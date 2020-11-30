@@ -404,8 +404,8 @@
 			
 			<p>Note, however, that you don't have to rely on Qualifications as the only means of Excluding workers. In Module 4, we'll go over basic code that can do this, which can be incorporated into a task OR Qualtrics survey you've coded. Moreover, someone has also already created a script that helps you do this, for the HIT page: <a href="https://uniqueturker.myleott.com/" class="copy-link">Unique Turker</a>. With this particular code, you can use your name for your study as the Unique identifier and put the code Unique Turker generates at the very top of your HIT page.</p>
 			
-			<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;script src="//uniqueturker.myleott.com/lib.js" type="text/javascript"&amp;&lt;/script&amp;<br />
-			&lt;script type="text/javascript"&amp;
+			<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;script src="//uniqueturker.myleott.com/lib.js" type="text/javascript"&gt;&lt;/script&gt;<br />
+			&lt;script type="text/javascript"&gt;
 			(function(){
 				var ut_id = "YOURUNIQUEIDENTIFIERHERE";
 				if (UTWorkerLimitReached(ut_id)) {
@@ -414,13 +414,13 @@
 					"requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
 				}
 			})();
-			&lt;/script&amp; </code></pre></div>
+			&lt;/script&gt; </code></pre></div>
 			
 			<p>This code essentially looks for the worker and if they already exist/have already done the study associated with your unique identifier, then the HIT page will not be shown to them; it will show only the message about returning the HIT. This code would be most effective for when you start a study. The creator suggests that you use Qualifications, but I like to use a combination of Qualifications, excluding workers within my own code, and adding this code to the HIT page. Both excluding workers within your own code or survey and Qualifications rely on what data you receive via MTurk - that is, they exclude folks who've only submitted the HIT. Because this code is on the HIT page, it's possible you have folks who accept a HIT but then don't submit any data, and they could be told they've already participated. In short, it catches some of the attrition folks in a way that only relying on submission does not.</p>
 			
 			<p>Finally, remember that extra 20% fee I mentioned if you publish a batch of greater than 9 assignments? One way to get around that is to simply add:</p>
 			
-			<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;!--${filler}--&amp;</code></pre></div>
+			<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;!--${filler}--&gt;</code></pre></div>
 			
 			<p>...to the end of your HIT page. This means that when you click publish batch, the <a href="files/mturkqualifications4.png" class="copy-link">following screen</a> will appear:</p>
 			
