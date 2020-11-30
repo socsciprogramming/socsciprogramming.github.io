@@ -107,17 +107,6 @@
 						<span class="copy-link">1: Crowdsourced Experiments</span>
 					</div>
 				</a>
-				<div id="submenu1" class="sidebar-submenu collapse">
-					<a href="#subsec11" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 1</span>
-					</a>
-					<a href="#subsec12" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 2</span>
-					</a>
-					<a href="#subsec13" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 3</span>
-					</a>
-				</div>
 				<a href="module2.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
@@ -125,17 +114,6 @@
 						<span class="copy-link">2: Basic Survey Design</span>
 					</div>
 				</a>
-				<div id="submenu2" class="sidebar-submenu collapse">
-					<a href="#subsec21" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 1</span>
-					</a>
-					<a href="#subsec22" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 2</span>
-					</a>
-					<a href="#subsec23" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 3</span>
-					</a>
-				</div>
 				<a href="module3.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
@@ -143,17 +121,6 @@
 						<span class="copy-link">3: Customized Design with JavaScript, HTML, &amp; CSS</span>
 					</div>
 				</a>
-				<div id="submenu3" class="sidebar-submenu collapse">
-					<a href="#subsec31" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 1</span>
-					</a>
-					<a href="#subsec32" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 2</span>
-					</a>
-					<a href="#subsec33" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 3</span>
-					</a>
-				</div>
 				<a href="#submenu4" target="_self" data-toggle="collapse" aria-expanded="true" class="list-group-item flex-column align-items-start">
 					<div class="d-flex w-100 justify-content-start align-items-center">
 						<span class="if-collapsed fas fa-angle-up mr-3"></span>
@@ -163,13 +130,19 @@
 				</a>
 				<div id="submenu4" class="sidebar-submenu">
 					<a href="#subsec41" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 1</span>
+						<span class="copy-link anchor">Common Considerations</span>
 					</a>
 					<a href="#subsec42" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 2</span>
+						<span class="copy-link anchor">Beyond the Basics</span>
 					</a>
-					<a href="#subsec42" target="_self" class="list-group-item">
-						<span class="copy-link anchor">Subsection 3</span>
+					<a href="#subsec43" target="_self" class="list-group-item">
+						<span class="copy-link anchor">Web Development</span>
+					</a>
+					<a href="#subsec44" target="_self" class="list-group-item">
+						<span class="copy-link anchor">More on MTurk</span>
+					</a>
+					<a href="#testyourself" target="_self" class="list-group-item">
+						<span class="copy-link anchor">Test yourself</span>
 					</a>
 				</div>
 			</ul>
@@ -186,7 +159,6 @@
 						<li><i class="fa-li fas fa-database"></i>Apply knowledge of JavaScript, CSS, and HTML to exclude participants, create a website, and address typical concerns about online experiments</li>
 						<li><i class="fa-li fab fa-stack-overflow"></i>Consider limitations of MTurk and who is being tested</li>
 						<li><i class="fa-li fas fa-user-graduate"></i>Communicate the results of a sample demonstration</li>
-						<li><i class="fa-li fas fa-user"></i>One more (these need to be edited)</li>
 					</ul>
 				</div>
 			</div>
@@ -195,13 +167,19 @@
 			
 			<hr>
 
-			<h2 id="subsec41" class="pad1">Subsection 1</h2>
+			<h2 id="subsec41" class="pad1">Common Considerations</h2>
 
 			<p>....</p>
 			
 			<p>....</p>
 			
-			<h4 id="subsec41t1" class="pad1">Tutorial 1</h4>
+			<h4 id="subsec41t1" class="pad1">How much customization do you need?</h4>
+
+			<!--
+			
+			Can talk about the alternative programs that will convert your scripts, etc. (https://www.sona-systems.com/help/ - shows a bunch of different Psych programs like Gorilla). Can also talk about what I did for the Germinator - complicated cognitive tasks within JS, then linked to Qualtrics after submitting that data.
+			
+			-->
 			
 			<p>....</p>
 			
@@ -211,9 +189,36 @@
 
 			<p>....</p>
 			
+			<h4 id="subsec41t2" class="pad1">Storing Data</h4>
+
+			<!--
+			
+			Discuss php scripts, the mturk site link, SQL databases (link to Duke resource on SQL)
+			
+			●	Can give our lab’s example code (make sure to get rid of the user + password + db? Ask Yimin if he’d be comfortable with this) and what constraints this adds to our data collection
+●	Pros/cons of submitting the data via MTurk
+●	Qualtrics will store data for you, but their JS is not meant for complicated functions
+
+			
+			-->
+			
 			<p>....</p>
 			
-			<h4 id="subsec41t2" class="pad1">Tutorial 2</h4>
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec41t3" class="pad1">Checking Inattention</h4>
+
+			<!--
+			
+			Attention checks, multitasking experiment code (in Qualtrics and JavaScript/jquery), check screen size function, data analysis
+			
+			-->
 			
 			<p>....</p>
 			
@@ -225,7 +230,13 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec41t3" class="pad1">Tutorial 3</h4>
+			<h4 id="subsec41t3" class="pad1">Excluding Workers</h4>
+
+			<!--
+			
+			Duplicate workers, clearing the cache; with MTurk qualifications, you can only exclude people who have turned in a HIT. With custom exclusion, you can also exclude people who send you nasty emails saying your task sucks.
+			
+			-->
 			
 			<p>....</p>
 			
@@ -239,13 +250,19 @@
 			
 			<hr>
 
-			<h2 id="subsec42" class="pad1">Subsection 2</h2>
+			<h2 id="subsec42" class="pad1">Beyond the Basics</h2>
 
 			<p>....</p>
 			
 			<p>....</p>
 			
-			<h4 id="subsec42t1" class="pad1">Tutorial 1</h4>
+			<h4 id="subsec42t1" class="pad1">Additional Modification of Basic Demos</h4>
+
+			<!--
+			
+			Add a proportion congruent manipulation to the basic Stroop experiment, add in basic “feedback” for correct responses (depending on listener event), add in an ITI, etc. This is, in some ways, a reminder of the “script” comparisons from the previous module.
+			
+			-->
 			
 			<p>....</p>
 			
@@ -257,7 +274,13 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec42t2" class="pad1">Tutorial 2</h4>
+			<h4 id="subsec42t2" class="pad1">Integrating libraries</h4>
+
+			<!--
+			
+			integrating jsPsych + jquery: making your own plugin
+			
+			-->
 			
 			<p>....</p>
 			
@@ -269,7 +292,13 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec42t3" class="pad1">Tutorial 3</h4>
+			<h4 id="subsec42t3" class="pad1">Additional JavaScript Libraries</h4>
+
+			<!--
+			
+			Jspsych and jquery are not the only JS libraries - can briefly mention react.js, node.js, vue.js, lab.js, etc.
+			
+			-->
 			
 			<p>....</p>
 			
@@ -283,13 +312,19 @@
 			
 			<hr>
 			
-			<h2 id="subsec43" class="pad1">Subsection 3</h2>
+			<h2 id="subsec43" class="pad1">Web Development</h2>
 			
 			<p>....</p>
 			
 			<p>....</p>
 			
-			<h4 id="subsec43t1" class="pad1">Tutorial 1</h4>
+			<h4 id="subsec43t1" class="pad1">Bootstrap</h4>
+
+			<!--
+			
+			Can link to the co-lab resources on making your own website, explaining also what bootstrap CSS is/does, and common thoughts on design
+			
+			-->
 			
 			<p>....</p>
 			
@@ -301,7 +336,13 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec43t2" class="pad1">Tutorial 2</h4>
+			<h4 id="subsec43t2" class="pad1">Applying coding to website</h4>
+
+			<!--
+			
+			Let’s create a fake website and apply a premade theme to the site; how does our knowledge of HTML, CSS, JavaScript come into play here? Can link to co-lab roots courses as resources.
+			
+			-->
 			
 			<p>....</p>
 			
@@ -313,7 +354,23 @@
 			
 			<p>....</p>
 			
-			<h4 id="subsec43t3" class="pad1">Tutorial 3</h4>
+			<h4 id="subsec43t3" class="pad1">Web-scraping</h4>
+
+			<!--
+			
+			Some social science expts involve taking data out from other websites; this involves applying knowledge of HTML - i.e., what elements should I be scraping from a site?
+			
+			Resources to build this tutorial or link for students:
+●	https://www.datacamp.com/community/news/a-complete-guide-to-web-scraping-job-postings-ir2qbqj9f6r
+●	https://towardsdatascience.com/web-scraping-job-postings-from-indeed-com-using-selenium-5ae58d155daf
+●	https://towardsdatascience.com/automating-my-job-search-with-python-ee2b465c6a8f 
+●	https://www.octoparse.com/blog/web-scraping-job-postings
+●	https://medium.com/@msalmon00/web-scraping-job-postings-from-indeed-96bd588dcb4b 
+●	Example on jobs using HTML, JS, and CSS?
+
+●	Web-scraping assignment: https://github.com/ppeyliang/web-scraping-job-postings 
+			
+			-->
 			
 			<p>....</p>
 			
@@ -324,6 +381,119 @@
 			<p>....</p>
 			
 			<p>....</p>
+			
+			<h2 id="subsec44" class="pad1">More on MTurk</h2>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec44t1" class="pad1">MTurk API</h4>
+			
+			<!--
+			
+			You can manage everything from an API linking between MTurk and your own Python script
+			
+			○	For example, they have a tutorial on setting up your HIT using Jupyter notebooks (https://blog.mturk.com/tutorial-mturk-using-python-in-jupyter-notebook-17ba0745a97f) 
+			
+			-->
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+
+			<p>....</p>
+			
+			<p>....</p>
+						
+			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-crowdsourcing-from-the-command-line-a5bee86fdaa0" class="copy-link">Tutorial: Crowdsourcing from the command line</a>, <a href="https://blog.mturk.com/tutorial-using-the-mturk-requester-website-together-with-python-and-boto-4a7ef0264b7e" class="copy-link">Tutorial: Using the MTurk Requester Website together with Python and Boto</a>, <a href="https://blog.mturk.com/tutorial-mturk-using-python-in-jupyter-notebook-17ba0745a97f" class="copy-link">Tutorial: MTurk using Python in Jupyter Notebook</a></p>
+			
+			<h4 id="subsec44t2" class="pad1">Panels Based Research</h4>
+			
+			<!--
+			
+			At the end of the day, you may not want to interact with the API or participants generally. Do you have the money to pay?
+			
+			-->
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec44t3" class="pad1">Applied Scenarios of MTurk Research</h4>
+			
+			<!--
+			
+			●	Take email responses from MTurkers + reviews on MTurk as ways to think about your task
+●	Countdown for a task
+●	“Code froze” emails
+●	Pros/Cons of preventing certain keypresses (i.e., we’ve all been that person who accidentally right clicks and then hits “back” on a webpage)
+●	What kinds of tasks people tend to “hate” the most - is there any way to gamify or make your task more fun?
+
+			
+			-->
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h4 id="subsec44t4" class="pad1">Communicating the results of your study</h4>
+			
+			<!--
+			
+			Sample communication about MTurk, including potential questions that have been raised by reviewers, like ‘high exclusion rate’ - why? Also, perhaps the demo on the Stroop task will average the reaction time, accuracy, etc. which can be further reported here.
+			
+			-->
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<p>....</p>
+			
+			<h2 id="testyourself" class="pad1">Test Yourself:</h2>
+			
+            <!--from: https://codepen.io/teachtyler/pen/raEprM -->
+			<div id="quiz mainfont">
+              <button id="submit-button mainfont">Submit Answers</button>
+              <button id="next-question-button mainfont">Next Question</button>
+              <button id="prev-question-button mainfont">Previous</button>
+
+              <div id="quiz-results mainfont">
+
+                <p id="quiz-results-message mainfont"></p>
+                <p id="quiz-results-score mainfont"></p>
+                <button id="quiz-retry-button mainfont">Retry</button>
+
+              </div>
+            </div>
+			
+			<h2 id="assignments" class="pad1">Assignments:</h2>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-database"></i>One final assignment can also be to look through sample code and have students describe what the experiment is actually about. Have them fill in the parameters and give a general description of the experiment (e.g., what is the timeline? What should people see on screen?)</li>
+				<li><i class="fa-li fab fa-stack-overflow"></i>Can come up with stereotypical “advice” questions or hypothetical scenarios and ask them what they would do or how they would respond (e.g., “You told me to get above X accuracy, but the task didn’t tell me how well I was doing!” 1) give trial-by-trial fb; 2) give cumulative run/block fb; 3) make sure your guidelines for a task match what you have participants do)</li>
+				<li><i class="fa-li fas fa-user-graduate"></i>Test your own task all the way through on sandbox and look at the output: does the output look like you need it to, in order to do your final analyses? Send your code to other peers in your lab or department and get feedback on the task.</li>
+				<li><i class="fa-li fas fa-user"></i>Apply your JavaScript, HTML, and CSS skills to make your own website</li>
+			</ul>
 
 			<div class="scrollstyle mainfont pad1" id="top-scroll" aria-labelledby="scroll-to-top">
 				<a class="copy-link" href="#top" rel="tooltip" data-toggle="tooltip" aria-labelledby="tooltip" data-placement="left" title="Scroll to top">
