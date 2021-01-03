@@ -159,6 +159,10 @@
 					</ul>
 				</div>
 			</div>
+			
+			<p>Welcome!</p>
+			
+			<hr>
 
 			<p>This module will focus on basic survey design as this pertains to <i>online</i> programming. A number of issues arise when it comes to the layout of a survey, hosting a survey, choosing the type of question that would best address your question, and more. For example, because we are discussing surveys on the Web, some things you might want to consider are how web surveys are self-administered, computerized, interactive, distributed, and rich, visual tools. In Module 1, we discussed, for instance, how you ought to run your instructions by other nonexperts to ensure that they can be understood by most: this is merely one consequence of self-administering web surveys and often their anonymous distribution as well.</p>
 
@@ -180,40 +184,29 @@
 
 			<hr>
 			
-			<!-- 
-			Additional resources to link to
-			
-			●	If your institution does not have Qualtrics, think about alternatives: https://mopinion.com/alternatives-and-competitors-of-qualtrics/
-●	Getting started with git guide: http://rogerdudler.github.io/git-guide/ & https://git-scm.com/book/en/v1/Getting-Started & Kevin O’Neill’s recent git workshop
-●	Examples of individual websites hosted on github: https://github.com/jmxpearson/jmxpearson.github.io + nick's + peter + cogpsychduke  + my website
-			-->
-			
-			<p>...</p>
-
 			<h2 id="subsec21" class="pad1">Principles of Online Programming</h2>
 
-			<p>....</p>
-			
-			<p>....</p>
-			
+			<p>Given the fact that the online experience is so different from the in person experience, there are some basic principles that researchers should follow if they want their research to replicate. For one, researchers must ensure that their work is publically available - in the state that it was run - so that other researchers can experience the survey or experiment for themselves. Researchers must also consider what their participants experience when they're doing their survey/experiment, and an online survey/experiment also requires a stable way to host the survey or experiment so that participants can actually answer your questions. We will consider these in more detail below.</p>
+						
 			<h4 id="subsec21t1" class="pad1">The importance of version control</h4>
 			
-			<!--
-			Implementing version control through coding or creating a wiki to document changes you’ve made in your (Qualtrics) script. Analysis plans, etc. Save a PDF of your Qualtrics file and post it somewhere
-			-->
+			<p><a href="https://en.wikipedia.org/wiki/Version_control" class="copy-link">Version control</a> refers to a management system for handling different forms of information. Any time a particular document is modified, revised, or changed, it is marked: whether by creating a new file or merging the same file. For example, academics will often use version control with respect to a manuscript. You might name a document projectname_resultsmethods_v1.docx, indicating the first version of your Results and Methods draft for said project, and then when someone revises or comments on the manuscript, they'll append their initials so the new saved document says _v1_CB and so on. As a Duke student, you may have been encouraged to use Box. When you do, if you upload the same file to the same path/area, Box will save the file under its current name but indicate that the file is now v2, showing that it had already been uploaded previously (and allowing you to access the original version of that old file).</p>
 			
-			<p>....</p>
+			<p>With respect to code and surveys, developers will particularly use version control to help maintain documentation and control over source code. That is, each time the code changes substantially, they will want to upload or make a "commit" or revision to the code on an online repository (such as Github) so that they essentially have notes as to what has changed.</p>
 			
-			<p>....</p>
-			
-			<p>....</p>
+			<p>What exactly version control looks like will depend on what platform is being used for your survey or experiment. For example, if you're using a survey platform such as Qualtrics instead of hard-coding your questionnaire, version control might look like copying your survey whenever you make major changes and renaming it, indicating to yourself what revisions were made. You might even post the survey file or a PDF of the survey file to an open repository - either one private just for yourself or public for other researchers to see - so that you can refer back to what your methods looked like as you continued developing the project or when your participants actually saw the survey. This is particularly helpful given that survey platforms will often autosave your survey if you make a single change, and you may not necessarily want every change you've made to be realized in the final version. If you hardcoded your questionnaire, you would definitely want to post your code to a repository, as it would help save (store) your (currently functioning) code in case you change lines and the codes stops working (i.e., version control in this case helps you make proper revisions).</p>
 
-			<p>....</p>
+			<p>To give an example, you can find the version control for this Github repository here (specifically <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/commits/master/module2.html" class="copy-link">Module 2</a>). Notably, none of these edits are all that good in terms of version control: I should've written what actually changed as a note each time that I uploaded a new version of the website file. Even still, you can see what Github indicates is new for the file when you click on a particular update. You can see when I added new content or when I changed the layout. Because this is Module 2, by that time, I was primarily focused on changing the content, but if you looked up Module 1 or the Index page, the version control would look very different.</p>
+			
+			<p>Because you'll be coding your survey or experiment for an online population, it is especially important to use version control not just for your own sake, but also for your colleagues who may want to replicate your work or use a scale measure or see how exactly you assessed a particular construct. Whether you're coding the survey or experiment yourself or using a survey platform or other aide, you should *always* include some version control system in your research plans.</p>
 			
 			<h4 id="subsec21t2" class="pad1">Design or code with user experience in mind</h4>
 			
 			<!--
 			What measurements do you need in your experiment? How can you reduce the burden of retrieving the output? How can you make things as easy as possible for the participants doing your task?
+			
+			Usability Test
+			
 			-->
 			
 			<p>....</p>
@@ -228,8 +221,19 @@
 			
 			<h4 id="subsec21t3" class="pad1">Hosting your experiment online</h4>
 			
+			<!-- 
+			Additional resources to link to
+			
+			●	If your institution does not have Qualtrics, think about alternatives: https://mopinion.com/alternatives-and-competitors-of-qualtrics/
+●	Getting started with git guide: http://rogerdudler.github.io/git-guide/ & https://git-scm.com/book/en/v1/Getting-Started & Kevin O’Neill’s recent git workshop
+●	Examples of individual websites hosted on github: https://github.com/jmxpearson/jmxpearson.github.io + nick's + peter + cogpsychduke  + my website
+			-->
+			
+			
 			<!--
 			Talk about public hosting domains and show how to host on github, if JavaScript. No need if Qualtrics. Can demonstrate this with the actual Github site. This will show students how to access the resources. Also can go over Duke’s CIFS.
+			
+			Connect back to Qualtrics & other survey platforms
 			-->
 			
 			<p>....</p>
@@ -245,8 +249,6 @@
 			<hr>
 
 			<h2 id="subsec22" class="pad1">Basic Survey Design</h2>
-
-			<p>This entire section will be informed by Couper 2008 + tweet section below.</p>
 			
 			<p>....</p>
 			
