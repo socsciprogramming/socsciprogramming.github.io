@@ -238,25 +238,95 @@
 			
 			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Based on these survey data (from today&#39;s <a href="https://twitter.com/WSJ?ref_src=twsrc%5Etfw">@WSJ</a>), would you say that people in the US are more or less willing than people in China and Japan to take a Covid-19 vaccine? My answer below. (1/N) <a href="https://t.co/LyovdAcPFx">pic.twitter.com/LyovdAcPFx</a></p>&mdash; Martin West (@ProfMartyWest) <a href="https://twitter.com/ProfMartyWest/status/1336309135764287490?ref_src=twsrc%5Etfw">December 8, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			
-			<p>As Professor Martin West points out in this thread, if you look at these bar charts, you might think that the U.S. has a higher proportion of people who would take a COVID-19 vaccine than China. However, this is not the full story. Research suggests that there are cultural differences in how people perceive certain response options, with folks from East Asian cultures, for example, being less likely to endorse "strongly" agree or disagree (the extreme ends of the scale). If you collapse across strongly and somewhat agree, you'd find that China has a higher of proportion of participants who endorse the vaccine than the U.S. As the Professor reveals in the thread, too, another question in the same survey has a more objective framework - how long would you wait before getting the vaccine - and folks in China endorse waiting less time than folks in the U.S. In short, both the question itself and the response options were biased.</p>
+			<p>As Professor Martin West points out in this thread, if you look at these bar charts, you might think that the U.S. has a higher proportion of people who would take a COVID-19 vaccine than China. However, this is not the full story. Research suggests that there are cultural differences in how people perceive certain response options, with folks from East Asian cultures, for example, being less likely to endorse "strongly" agree or disagree (the extreme ends of the scale). If you collapse across strongly and somewhat agree, you'd find that China has a higher of proportion of participants who endorse the vaccine than the U.S. As the Professor reveals in the thread, too, another question in the same survey has a more objective framework - how long would you wait before getting the vaccine - and folks in China endorse waiting less time than folks in the U.S. In short, both the question itself and the response options were biased in subtle ways that changed what we might conclude.</p>
 			
 			<p>The point here isn't the story about vaccines, but rather how survey design can impact both how you interpret your data and the story you can tell with your data. This is where user experience (online programming principle) really comes in: in designing surveys, it will be useful to consider all the ways that participants will want to answer your question. We will go over a number of survey design topics, ranging from layout to response options to distribtuion and more.</p>
 			
 			<h4 id="subsec22t1" class="pad1">Design 1: Survey Layout</h4>
 			
-			<p>....</p>
+			<p>Perhaps at the "highest" level of survey design is the distinction between scrolling vs. paging designs. What do I mean by that? Well, first, we have to talk about the difference between screens, pages, and forms. A page can be the size of one or many screens, and the screen itself is outside the scope of the code governing a webpage - that is more related to your own hardware for interacting with the internet. A form is a type of page with interactive components that allow you to submit information (e.g., demographics, your name, etc.) and then have code that will process the submitted information for later use. You can thus have a single-form, a single-page survey, or a single-question-per-form survey. The single-form and single-page surveys have 1 button to submit your responses, while a single-question-per-form survey has one for each question. Knowing that you can have multiple forms or multiple questions per form means that you have a lot of design options for a survey.</p>
+						
+			<p>This particular website has a "scrolling design." On the Module, at all times, you can skip and browse between parts of the site and go back to previous parts as well. The information is contained on a single page (form if I had an action item -- if this was a survey, it would have an action button (e.g., submit) at the very end of the Module). If I had questions, you would be able to answer the questions in any order, you could change your answers at any point, and you could answer however many you wanted before submitting. And, here, with respect to the internet, your participant will have loaded the entire survey - or this webpage - all at the very beginning, meaning that if there are errors, it would likely occur at the beginning and once the user interacted with the survey by choosing an action (pressing the submit button or choosing a particular answer). Each action could lead to its own error, but because so much is loaded up front, most of the interactivity-related errors should occur earlier. With this interface and the ability to answer questions at will, this design is probably most like an in-person paper survey.</p>
 			
-			<p>This <a href="https://twitter.com/mcxfrank/status/1318300403604205568" class="copy-link">tweet from Maia ten Brink</a> and a <a href="https://twitter.com/Maia_ten_Brink/status/1318364023155404800" class="copy-link">follow-up</a></p>
+			<p>Here are some advantages of a scrolling design:</p>
 			
-			<p>....</p>
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>If you really want to mimic a paper survey and fear differences between online versus in person administration, this might be your jam.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Because participants can scroll through the entire survey (and Module here), they have an idea of how long the survey is. They can even use a heuristic to judge, i.e., looking at the scroll bar and saying "wow, this girl has SO much text, huh?!"</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Allowing participants to answer questions in their preferred order, scroll through and browse the survey, change their answers, and skip questions prioritizes their preferences in the survey experience.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>For you as the researcher, this is about as easy as it can get. You're not making the design or code complicated: e.g., you have no skipping or programming logic, etc. This may result in fewer technical errors or even issues with participants using different browsers to access your survey.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>With perhaps less interactivity - the survey having been loaded all at once - this may mean it loads more quickly overall than another survey that doesn't have this design.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Since there's also only one submit button in these prototypical scrolling designs, that also means potentially fewer data submission errors.</li>
+			</ul>
 			
-			<p>....</p>
+			<p>Here are some disadvantages of a scrolling design:</p>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>You usually have to complete the survey all at once.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Your data could be lost if your participant forgets to press that crucial submit button at the end.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Being able to see all the survey questions at once could be bad too, with participants selectively responding to questions in a strategic way to get through the survey as fast as possible. That may happen with any survey, but this case isn't just participant error; it's also responding based on knowledge of what the set of next questions may look like if you respond in a certain way.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Participants are in charge of the survey flow, which means that they'll make errors or omission or commission (incorrect or additional actions; failing to perform a certain action). In other words, e.g., they might not be deliberately skipping questions; they could've just scrolled past a question.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Depending on your particular code, some of the nice interactive components - like feedback to a participant on how far they are in the survey - cannot be provided.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>If you care about the order in which participants respond, you can't control that here. You might care, for example, if one of your questions was meant to "prime" or give context to the next question.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>This isn't particularly friendly for people who have worse dexterity or hand-eye coordination.</li>
+			</ul>
+			
+			<p>If all that's the case, why did I choose a scrolling design for this site? Well, it seemed highly likely to me that folks would enter this tutorial site with differing levels of knowledge, and it would be best to let people skip around. They may also want to see what is covered in the course before deciding whether looking through this material is worth their time. I thought these outweighed any potential disadvantages of a scrolling design for a webpage -- which has slightly different considerations than for a survey.</p>
 
-			<p>....</p>
+			<img src="files/likertsurvey.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="likertsurvey"></img>
+
+			<p><a href="files/likertsurvey.png" class="copy-link">Above</a> is an example of a "scrolling" design for one questionnaire (the BIS-BAS, Carver & White, 1994) on a specific topic. This particular survey was a sort of "combination," with each questionnaire formatted in a scrolling design but the survey itself comprised of multiple questionnaires.</p>
+
+			<p>What's the alternative to a scrolling? At the other end of design, you could have a paging survey design, whereby the survey "is chunked into several sets of ... forms, each of which contains one or more questions" (Couper, 2008). Here, you could have a single question per form or multiple questions per form, and at the end of each form, there is a submit or next button for participants to press. </p>
 			
-			<p>....</p>
+			<p>Here are some advantages of a paging survey design:</p>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>Not much need to scroll in the survey.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You can usually retain data from a partially completed the survey, and you don't need to complete the survey in a single session.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You can add in more logic to automate skipping from certain parts of the survey to others.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You can give participants feedback on missing data, implausible responses or ones that don't match what the question asks (e.g., # of days and then they submit words, not a #), etc.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You can also provide live feedback to motivate participants to continue or engage them in the survey, without it adding to some long text in the middle of the scrolling design.</li>
+			</ul>
+			
+			<p>Here are some disadvantages of a paging survey design:</p>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>By nature, you're including more submit/next buttons and more interactivity with the code/program, so the survey might take longer to finish and actually submitting the data could be more difficult (parsing together from several timepoints).</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Participants don't typically know where exactly they are in the survey or have a good sense of how far they are in.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Participants don't have the same level of control over which questions they want to fill out first. You'll have to make the decision whether to include a "back" button within the survey, and even if you did, it might be hard for a participant to pick through things as they might in a scrolling design.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You're allowing for more interactivity and customization within the survey, which is more work for you and more difficult programming-wise.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>If you don't include a back button, you run into some of the ethical questions we asked of MTurk in Module 1: what if participants wanted to not consent midway through the survey? Maybe once they've gone through more of the questions, they don't really want to consent to participate anymore. If the questions are on separate pages, it's harder to know upfront what to expect (from the perspective of the participant).</li>
+			</ul>
+			
+			<img src="files/1q1page.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="1q1page"></img>
+
+			<p><a href="files/1q1page.png" class="copy-link">Above</a> is an example of a paging survey design with 1 question per form. It forces the participant to consider that particular item, but does not let the participant see what the others might be even within the same questionnaire.</p>
+			
+			<img src="files/2q1page.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="2q1page"></img>
+
+			<p><a href="files/2q1page.png" class="copy-link">Above</a> is an example of a paging survey design with 2 questions per form. In this case, you can see how having multiple questions in the same form could pose an issue if you think that the second question will influence how the participants answer the first, and the order in which participants answer questions is important to you. For example, in this case, I would want participants to answer how familiar they are with particular material (baseline knowledge) before they tell me how interested they are in that material; it's possible with both on the screen, the participant realizes they're about to be asked questions about that topic and then overestimate their familiarity (dampening its potential for a baseline measure).</p>
+			
+			<p>There are many combinations of these kinds of designs. For instance, it's generally good practice to chunk together related items in a survey (like if you're going to give students exam-related questions, ask them in 1 section instead of randomly interspersing the questions in the survey) and to break the survey up whenever you think there's just too much for the code to do or internet browser to process.</p>
+			
+			<p>Couper (2008) summarizes some research on the difference between these two designs, namely that when participants need to look up information and complete a survey, they were slower to complete a scrolling survey, but they were slowest when they were answering specific questions based on the information they looked up with the paging design. Some key differences may arise less from these two specific designs than the complexity and length of the survey and what exactly participants are expected to do. What is most appropriate for your study will depend on what you expect of your participants. There are also other "general" types of design layouts (e.g., tabbed/user-navigated/menu-driven surveys), but these two are a good "general" introduction to thinking about survey layout broadly.</p>
+			
+			<p>Generally, Couper (2008) suggests the following recommendations:</p>
+			
+			<p>You may want to use a scrolling design when 1) the survey is relatively short; 2) you want everyone to answer all the questions (no skip logic); 3) you aren't worrying about missing data; 4) you may want participants to review their answers to earlier questions; 5) you don't care about the order in which participants complete the questions; 6) you want to make sure the survey is similar to in-person administered surveys; or 7) for some reason, you need to print the questionnaire and have a copy of it stored somewhere.</p>
+			
+			<p>You may want to use a paging survey design when 1) the survey is long; 2) you include questions that have skip logic (e.g., if participants answers X, no need to show Q2), randomization, and other cutomization; 3) your survey has a lot of graphics (needs a lot of "loading" time); 4) you care about the order in which participants answer questions; 5) you want to pre-screen participants (if scrolling design, participants might guess what you're looking for since they can see all the questions); and 6) "The Web survey is used in a mixed-mode design with CATI, interactive voice response, or other modes that tightly control sequence."</p>
+			
+			<p>Of note, as I said earlier, a lot of folks use a sort of "mix" between these two options. For example, it looks like Qualtrics will be adding a new question type that allows a combination of these two designs:</p>
+			
+			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Qualtrics now has this amazing matrix form called &quot;Carousel View&quot;. Now participants can focus on a single item at a time.<br><br>When participants answer, it even auto advances them (they can go back to change an answer if they want to)!<br><br>I&#39;m excited to try it out! <a href="https://t.co/f2HrLrDvL9">pic.twitter.com/f2HrLrDvL9</a></p>&mdash; Sa-kiera T. J. Hudson, PhD 😁😁 (@Sakiera_Hudson) <a href="https://twitter.com/Sakiera_Hudson/status/1337789469966077955?ref_src=twsrc%5Etfw">December 12, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			
+			<p>Here, we're seeing a paging-focused design (focus on 1 question) that also seems to show all the questions like a scrolling design, but within the framework of a slideshow. Moreover, this is a much cleaner version of focusing on one particular survey item within a questionnaire than the previous examples I showed above. If you're at Duke, I don't currently see this option within Qualtrics--but that's for us to discuss in subsection 3 of this Module.</p>
 			
 			<h4 id="subsec22t2" class="pad1">Design 2: Input & Response Options</h4>
+			
+						<p>This <a href="https://twitter.com/mcxfrank/status/1318300403604205568" class="copy-link">tweet from Maia ten Brink</a> and a <a href="https://twitter.com/Maia_ten_Brink/status/1318364023155404800" class="copy-link">follow-up</a></p>
+
 			
 			<p>....</p>
 			
