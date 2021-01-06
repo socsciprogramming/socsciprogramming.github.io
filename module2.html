@@ -315,28 +315,114 @@
 			
 			<p>You may want to use a scrolling design when 1) the survey is relatively short; 2) you want everyone to answer all the questions (no skip logic); 3) you aren't worrying about missing data; 4) you may want participants to review their answers to earlier questions; 5) you don't care about the order in which participants complete the questions; 6) you want to make sure the survey is similar to in-person administered surveys; or 7) for some reason, you need to print the questionnaire and have a copy of it stored somewhere.</p>
 			
-			<p>You may want to use a paging survey design when 1) the survey is long; 2) you include questions that have skip logic (e.g., if participants answers X, no need to show Q2), randomization, and other cutomization; 3) your survey has a lot of graphics (needs a lot of "loading" time); 4) you care about the order in which participants answer questions; 5) you want to pre-screen participants (if scrolling design, participants might guess what you're looking for since they can see all the questions); and 6) "The Web survey is used in a mixed-mode design with CATI, interactive voice response, or other modes that tightly control sequence."</p>
+			<p>You may want to use a paging survey design when 1) the survey is long; 2) you include questions that have skip logic (e.g., if participants answers X, no need to show Q2), randomization, and other cutomization; 3) your survey has a lot of graphics (needs a lot of "loading" time); 4) you care about the order in which participants answer questions; 5) you want to pre-screen participants (if scrolling design, participants might guess what you're looking for since they can see all the questions); or 6) "The Web survey is used in a mixed-mode design with CATI, interactive voice response, or other modes that tightly control sequence."</p>
 			
 			<p>Of note, as I said earlier, a lot of folks use a sort of "mix" between these two options. For example, it looks like Qualtrics will be adding a new question type that allows a combination of these two designs:</p>
 			
 			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Qualtrics now has this amazing matrix form called &quot;Carousel View&quot;. Now participants can focus on a single item at a time.<br><br>When participants answer, it even auto advances them (they can go back to change an answer if they want to)!<br><br>I&#39;m excited to try it out! <a href="https://t.co/f2HrLrDvL9">pic.twitter.com/f2HrLrDvL9</a></p>&mdash; Sa-kiera T. J. Hudson, PhD 😁😁 (@Sakiera_Hudson) <a href="https://twitter.com/Sakiera_Hudson/status/1337789469966077955?ref_src=twsrc%5Etfw">December 12, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			
-			<p>Here, we're seeing a paging-focused design (focus on 1 question) that also seems to show all the questions like a scrolling design, but within the framework of a slideshow. Moreover, this is a much cleaner version of focusing on one particular survey item within a questionnaire than the previous examples I showed above. If you're at Duke, I don't currently see this option within Qualtrics--but that's for us to discuss in subsection 3 of this Module.</p>
+			<p>Here, we're seeing a paging-focused design (focus on 1 question) that also seems to show all the questions like a scrolling design, but within the framework of a slideshow. Moreover, this is a much cleaner version of focusing on one particular survey item within a questionnaire than the previous examples I showed above (i.e., the emphasis on the question is clear relative to the response options). If you're at Duke, I don't currently see this option within Qualtrics--but that's for us to discuss in subsection 3 of this Module.</p>
 			
 			<h4 id="subsec22t2" class="pad1">Design 2: Input & Response Options</h4>
 			
-						<p>This <a href="https://twitter.com/mcxfrank/status/1318300403604205568" class="copy-link">tweet from Maia ten Brink</a> and a <a href="https://twitter.com/Maia_ten_Brink/status/1318364023155404800" class="copy-link">follow-up</a></p>
+			<p>How can response options impact your survey? It depends on what you want to measure with your question. And from a design perspective, the particular way you've formatted responses have their own advantages and disadvantages.</p>
+						
+			<p>First up, we have radio buttons. Here's an example:</p>
+			
+			<p>Please select your student status:</p>
+			<input type="radio" id="undergrad" name="student" value="undergrad">
+			<label for="undergrad">Undergraduate Student</label><br>
+			<input type="radio" id="grad" name="student" value="grad">
+			<label for="grad">Graduate Student</label><br>
+			
+			<p>That's not a great question, but you can see what radio buttons look like--and indeed you can see what these look like when you use specialized design to style their appearance. Remember <a href="files/1q1page.png" class="copy-link">this</a>?</p>
+			
+			<img src="files/1q1page.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="1q1page"></img>
+			
+			<p>Each one of those options is a radio button, but the survey platform, Qualtrics, has made the radio button into something more like an elogated button or filled cell of a table (think Microsoft Word). That gets into the features of radio buttons: 1) they are mutually exclusive (you can only choose one and thus are dependent); 2) once you've selected a single radio button in the set, you cannot unselect it; you can only select another radio button; 3) radio buttons usually can't be resized (but as noted via the Qualtrics example, can instead be styled differently once they're shown to participants). Okay, so what are the advantages or disadvantages of these buttons for survey design?</p>
+			
+			<p>Here are some advantages of radio buttons:</p>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>They work on all browsers.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Most people have seen radio buttons and know what to do w/ them.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>They're simple to code in survey platforms or hard-coding wise.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>If you're testing people on their knowledge or forcing them to have an opinion, you're forcing them to a single choice, which could be useful.</li>
+			</ul>
+			
+			<p>Here are some disadvantages of radio buttons:</p>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>The actual radio button is pretty small to click and can't be resized. Qualtrics isn't changing the radio button itself in the above example - although that questionnaire shows radio buttons when you design the survey, it explicitly changes the presentation of the button to participants because of this strong disadvantage to the user experience w/ radio buttons.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You can't unselect a radio button, so you can't change your mind later and decide that you don't want to answer the question.</li>
+			</ul>
+			
+			<p>OK, so what are some solutions to these issues, especially unselecting the radio button? Well, you can have a preselected "null" response as the default for the radio button (like "Select student status"), but then you might get people just keeping that option (assuming you'd want them to choose that) and/or leaving the question unanswered. You might also include a "choose not to answer" response, but the issue is the same in terms of a default status-quo like behavior. You could include a clear or reset button so that the radio button becomes unselected, but this only works when you've got a paging design. Along that line: you could let participants go "back" or advance in the screen as a way of resetting the page, but again that usually only works with the paging design. Finally, you can also use a "check box" instead of a radio button if you want to let participants uncheck responses.</p>
+			
+			<p>What about checkboxes? Well, each checkbox operates independently so you can choose multiple boxes at once, which means they're good for the "choose all that apply" questions. This is now a common feature of a "race" question on the U.S. Censure, for instance.</p>
+			
+			<p>I identify my race/ethnicity as (select all that apply):</p>
+			<input type="checkbox" id="race1" name="race1" value="Asian">
+			<label for="race1">Asian</label><br>
+			<input type="checkbox" id="race2" name="race2" value="Black">
+			<label for="race2">Black</label><br>
+			<input type="checkbox" id="race3" name="race3" value="HL">
+			<label for="race3">Hispanic/Latino</label><br>
+			<input type="checkbox" id="race4" name="race4" value="Native">
+			<label for="race4">Native American</label><br>
+			<input type="checkbox" id="race5" name="race5" value="W">
+			<label for="race5">White</label><br>
+			<input type="checkbox" id="race6" name="race6" value="PI">
+			<label for="race6">Pacific Islander</label><br>
+			
+			<p>Dealing with mutually exclusive options ("none of the above" and one of the options above e.g.) doesn't work with checkboxes, and it's hard to explicitly restrict the number of options that people do in fact select. Sometimes people replace checkboxes with dropboxes (select lists, select fields, pulldown menus).</p>
+			
+			<img src="files/demographics.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="demographics"></img>
+			
+			<p><a href="files/demographics.png" class="copy-link">Above</a> is an example of a dropdown box for demographics questions instead of a checkbox. Instead of having participants choose multiple boxes to indicate multiracial, one of the dropdown options is Multiracial. The dropdown has a default answer here for most of the questions: "Select Gender". What does this mean? 1) The items that are in that drop-down must be anticipated by the researcher; if it's not there, it can't be chosen by the participant, so the dropdown is most useful when the responses are meant to be closed. 2) You can customize a dropdown to involve scrolling or clicking or searching; there's not just one way to interact with a dropdown menu. In fact, the dropdown menu on my website is triggered when people hover over menu item, which highlights this feature: its user experience can vary extensively. 3) You need participants to select an option in order for data to be recorded, and that's why this example has a "Select" cue to participants. 4) You can also customize dropdowns so that you show a certain number of the response items. In the example above, it's cued to show only 1, which means participants sort of have to guess what the other options will be. This becomes more of an issue if you have A LOT of options in that dropdown. 5) People can also select multiple options from a dropdown. For example, when I'm submitting an article for publication, the journal interface will usually ask what topics the article fits under, and it generally accepts at least 1 response and can accept many from the dropdown.</p>
+			
+			<p>You might want to use these guidelines for dropboxes:</p>
+			
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>If your list is too long to display on the page, the answers are known quantities to the participants, your responses can be meaningfully organized, and selecting the response is easier than typing it, then you could use a dropdown. For example, with regard to "gender" in the above example, people could spell Female, female, or F in an input box, causing a headache for analysis, but one can argue that having participants type out their gender is more meaningful, because some people may not identify with your prespecified response options in that dropdown.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>As noted in the example above, put a "Select one" instruction cue; this will help prevent participants from just going along with whatever the first option is.</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>You should probably avoid multiple selections in drop boxes; it's annoying from a UX perspective. Every time I submit to a journal website, I have to scroll down through all the options to see if they've subsectioned the research topic into separate categories. No one does it the same.</li>
+			</ul>		
 
+			<p>OK, so if you wanted to have an input box instead, you can see one for the "age" example above in the demographics survey. Text boxes are generally good options when you have short, constrained input, like one-word answers or a few numbers. Text *areas* are useful for larger amounts of text like when you want a participant to really think about a question: <a href="https://twitter.com/chbejjani/status/1225904808814469121/photo/2" class="copy-link">"Are you intelligent? Why or Why not?" and "How did come to have your current level of intelligence?"</a>. If you want an opended or narrative response, you should go with a text area, while if you want to restrain how much participants write, you should go with a text box.</p>
 			
-			<p>....</p>
+			<p>Here are some guidelines for text boxes vs. text areas</p>
 			
-			<p>....</p>
+			<ul class="fa-ul">
+				<li><i class="fa-li fas fa-arrow-right"></i>Text boxes for short, constrained answers; text areas for long, narrative answers</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>How large the text field is should reflect the length of the answer you're expecting</li>
+				<li><i class="fa-li fas fa-arrow-right"></i>Label the text box field to show what you're expecting: like how the demographic input tells participants to enter their age (e.g., can use masks so people can only input a numeric input; can use other placeholder text that explicitly says 18 instead of "eighteen" to hint to participants about numeric input).</li>
+			</ul>
 			
-			<p>....</p>
+			<p>OK, what about images? How do they fit? People tend to use images as a question (e.g., did you see this image before?) or as a supplement for another question. Sometimes they might not even be the purpose of the question. If you're including images, you should know that the images might limit people's imaginations regarding the number of categories beyond what you've provided; they might provide additional context (good or bad); they could impact mood or emotion; they could help clarify a concept, making it more concret; or they could make a question harder to understand (what does this image mean?). Using images will slow the loading of a survey, and you'll have to be especially careful of accessibility here, with captions that describe the image for screen readers.</p>
+
+			<p>Putting this all together, Couper (2008) discusses a set of questions that can inform which response options you should choose:</p>
+						
+			<ol class="fa-ul">
+				<li><span class="fa-li"><i class="fas fa-check-square"></i></span>"Is it more natural for the user to type the answer rather than select it?"</li>
+				<li><span class="fa-li"><i class="far fa-square"></i></span>"Are the answers easily mistyped?"</li>
+				<li><span class="fa-li"><i class="fas fa-check-square"></i></span>"Does the user need to review the options to understand the question?"</li>
+				<li><span class="fa-li"><i class="far fa-square"></i></span>"How many options are there?"</li>
+				<li><span class="fa-li"><i class="fas fa-check-square"></i></span>"Is the user allowed to select more than one option?"</li>
+				<li><span class="fa-li"><i class="far fa-square"></i></span>"Are the options visually distinctive?"</li>
+				<li><span class="fa-li"><i class="fas fa-check-square"></i></span>"Is the list of options exhaustive?"</li>
+				<li><span class="fa-li"><i class="far fa-square"></i></span>"Does the organization of the list fit the user's mental model?"</li>
+			</ol>
+		
+			<p>You should focus on WHY you're making a particular design choice. How you choose to style a radio button is less important than actually choosing a radio button because you want to force participants to make only 1 choice for instance. That's in part because 1) browsers will render surveys slightly different and 2) you have to <a href="https://www.pewresearch.org/internet/fact-sheet/internet-broadband/" class="copy-link">think about who your audience is</a>.</p>
 			
-			<p>....</p>
+			<p>Finally, there's more to say on this topic from the <a href="https://t.co/TvqCOhjyiO?amp=1" class="copy-link">research methods literature</a>:</p>
 			
-			<p>....</p>
+			<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Survey measure best practices from <a href="https://twitter.com/Maia_ten_Brink?ref_src=twsrc%5Etfw">@Maia_ten_Brink</a>:<br>* Open-ended numerical resps most valid, hardest to code<br>* Rankings highly valid for choices<br>* Bipolar scales should have 7 pts, w/ neutral middle<br>* Unipolar should have 5 pts, no middle<br>* No sliders, no T/F Qs, no &quot;other&quot; <a href="https://t.co/rIZnEhIEfB">pic.twitter.com/rIZnEhIEfB</a></p>&mdash; Michael C. Frank (@mcxfrank) <a href="https://twitter.com/mcxfrank/status/1318300403604205568?ref_src=twsrc%5Etfw">October 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			
+			<p>OK, that figure is a little hard to understand, but they're suggesting avoiding the use of "sliders" to go from say 1 to 2 to 3 to 4 to 5 etc. when you've got a scale question, instead using radio buttons; avoiding the use of true/false or yes/no options when you're forcing people to choose between options, instead using a ranking; avoiding the use of "other" or "don't know" as a response option; avoiding using agree to disagree response options (e.g., because of cultural differences on the extent to which people endorse the extreme ends). They're suggesting always putting response options *vertically* for ratings rather than *horizontally* (because when participants are viewing surveys on mobile phones, this is better design-wise, allowing for the text to be normal size instead of shrunken to fit on a smaller screen). There's a few more suggestions in there, like a scale with 5 labels for a scale question that involves only one pole (how happy are you? not at all happy, somewhat happy, slightly happy, very happy, extremely happy, etc. - no neutral middle) and a scale with opposing poles with 7 labels and a neutral middle option...I'll leave it to you to look through.</p>
+			
+			<p>In other words, what response options you give to participants should depend on the nature of the response you expect participants to give and the nature of the question that you're asking.</p>
 			
 			<h4 id="subsec22t3" class="pad1">Design 3: Survey Flow & Elements</h4>
 			
