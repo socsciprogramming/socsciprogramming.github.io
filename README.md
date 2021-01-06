@@ -10,4 +10,4 @@ Christina Bejjani, Peter Whitehead, Nick Brosowsky, Jiefeng Jiang
 
 #### Input/Feedback:
 
-Christina Bejjani, Peter Whitehead, Nick Brosowsky, Mikella Green, Matthew Stanley, Learning Innovation Team (Michael Hudson, Quentin Ruis-Esparza)
+Christina Bejjani, Peter Whitehead, Nick Brosowsky, Mikella Green, Matthew Stanley, Learning Innovation Team (Michael Hudson, Michael Blair, Sophia Stone, Quentin Ruis-Esparza)
