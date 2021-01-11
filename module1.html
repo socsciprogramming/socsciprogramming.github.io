@@ -145,9 +145,7 @@
 			</ul>
 		</div>
 		<div class="col py-3" id="page-content">
-			<h1>Module 1: Crowdsourced Experiments</h1>
-
-			<hr>
+			<h1 class="pad1">Module 1: Crowdsourced Experiments</h1>
 			
 			<div class="card">
 				<div class="card-header">Learning Goals</div>
@@ -163,9 +161,9 @@
 
 			<p>Welcome!</p>
 			
-			<hr>
-			
 			<p>This course is designed for any researchers - whether in academia or industry, or PIs, post-doctoral researchers, graduate students, undergraduate students, or post-bac RAs - who wish to use crowdsourced populations to run their social science experiments online. As part of this objective, we will go over the many ways one could program a survey or experiment, but we will not go over the basics of <b>how</b> to design proper surveys (e.g., social science research methods) or what makes for good experiments. We will also not cover every little detail about JavaScript, HTML, and CSS. This course is more applied and advanced than a standard Introductory level course, but we hope to nonetheless interest you in pursuing more advanced customization of experiments, websites, and more.</p>
+			
+			<hr>
 
 			<h2 id="subsec11" class="pad1">What are crowdsourced experiments?</h2>
 
@@ -175,7 +173,7 @@
 			
 			<img src="files/srclogo.png" class="rounded mx-auto d-block" alt="crowdsourcedlogos"></img>
 			
-			<h4 id="subsec11t1" class="pad1">What is and who uses Amazon Mechanical Turk (MTurk)?</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star" aria-hidden="true"></i></span><h4 id="subsec11t1">What is and who uses Amazon Mechanical Turk (MTurk)?</h4></li></ul>	
 			
 			<p><a href="https://pubmed.ncbi.nlm.nih.gov/28803699/" class="copy-link">Stewart, Chandler, and Paolacci (2017)</a> suggest that in 2017, 24% of articles in <i>Cognition</i>, 29% of articles in <i>Cognitive Psychology</i>, 31% of articles in <i>Cognitive Science</i>, and 11% of articles in <i>Journal of Experimental psychology: Learning, Memory, and Cognition</i> mention MTurk or another crowdsourced experiment site, highlighting that there is strong demand for using these platforms to recruit participants. This demand has likely only increased given work-from-home attitudes and the shift to virtual platforms during the COVID-19 pandemic, especially given the large benefits of crowdsourcing studies.</p>
 			
@@ -199,10 +197,8 @@
 			<p>There are also important differences that come specifically from crowdsourcing. When using MTurk or other crowdsourcing platforms, you are usually posting your study/task into the 'ether'. Your study is available on a first come, first served basis, and that incentivizes certain behaviors. For example, some participants have become good at taking advantage of the platforms to find available studies and especially the ones that pay the best. In other words, participants may vary on their level of savviness and connectedness with other site participants, who may inform friends about a well-paying study. They'll definitely also vary in characteristics like personality, ethnicity, mobile phone use, and level of experience as a function of the time of day when a study is posted. Below in the <a href="#subsec13t5" class="copy-link">Unknown Frontiers</a> section, I discuss the impact of COVID-19; one potential impact is the particular demographics of your study. Moreover, as stated above, MTurk has both a U.S. and India population; at certain times of day, the U.S. population is more likely to be asleep, while the Indian population is more likely to be awake and active, and vice versa (see demographic app targeter above for an example). <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2836946" class="copy-link">Arechar, Kraft-Todd, and Rand (2017)</a> have suggested that participants who do studies on the weekend and later in the night are less experienced with online studies. Participants who complete a study early may also differ personality-wise from those who complete this later--although this may not be specific to MTurk or crowdsourcing. I was (informally) told that this is also true of psychology pool participants, who are more conscientious earlier in the semester than later, when we're closer to the deadline for participation.</p>
 
 			<p>You can also imagine ways in which this crowdsourcing behavior might impact design considerations. If participants are searching for tasks to complete, especially ones that are well-paying, they are also likely to prioritize studies that are not long and arduous--and as researchers, we have to take this into account. That means crowdsourcing tasks tend to be shorter. Participants who are doing online studies are also likely to be multitasking (e.g., not being alone, watching TV, etc.). That may differ from in person studies in a lab, but that may also depend on the extent to which a lab enforces a 'no-phone' rule etc. That doesn't mean behavior isn't similar (more on that in a bit). But it does mean that your instructions have to be REALLY clear. In person participants can ask you questions if they don't understand what they're supposed to do; online participants cannot.</p>
-									
-			<h4 id="subsec11t2" class="pad1">How to use Amazon Mechanical Turk</h4>
 			
-			<!--Walk students through the MTurk site and its different components, including MTurk sandbox-->
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star" aria-hidden="true"></i></span><h4 id="subsec11t2">How to use Amazon Mechanical Turk</h4></li></ul>
 			
 			<p>To use MTurk, you will need to become familiar with the lingo of the site.</p>
 			
@@ -279,7 +275,7 @@
 			
 			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-reconciling-worker-responses-280c96f1a696" class="copy-link">Tutorial: Reconciling Worker Responses</a> (showing more of how that output .csv file could also have data); <a href="https://blog.mturk.com/tutorial-managing-results-with-the-requester-website-219f6c809e47" class="copy-link">Tutorial: Managing Results with the Requester Website</a> (more details on interacting with the interface/batches); <a href="https://blog.mturk.com/tutorial-identifying-workers-that-will-be-good-at-your-task-66dccb92b42f" class="copy-link">Tutorial: Identifying Workers That Will Be Good at Your Task</a> (more details on creating qualifications and thinking about reasons for approving/rejecting work); <a href="https://link.springer.com/article/10.3758/s13428-011-0124-6" class="copy-link">Mason and Suri (2012)</a> (for more details on terminology).</p>
 			
-			<h4 id="subsec11t3" class="pad1">Amazon Mechanical Turk accounts</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star" aria-hidden="true"></i></span><h4 id="subsec11t3">Amazon Mechanical Turk accounts</h4></li></ul>
 			
 			<p>How do you sign up for an MTurk account? You will want to sign up as both a requester and worker; you will post your HITs as a requester, but you will also want to test out your own tasks BEFORE that, as a worker (on the developer site). (You may also want to try out a few tasks as a worker to get a feel for what your participants generally experience.)</p>
 			
@@ -304,8 +300,8 @@
 			<h2 id="subsec12" class="pad1">Designing Online Studies</h2>
 
 			<p>This section will primarily go over the ethics of crowdsourced studies and how to post the most common type of social science survey.</p>
-						
-			<h4 id="subsec12t1" class="pad1">Running social science research on MTurk</h4>
+			
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star" aria-hidden="true"></i></span><h4 id="subsec12t1">Running social science research on MTurk</h4></li></ul>
 			
 			<p>One thing you may be wondering is how Amazon is able to host this crowdsourcing site, handling a lot of money. With this crowdsourcing site, workers are considered <a href="https://www.mturk.com/participation-agreement" class="copy-link">independent contractors</a> ("3e"), although payment standards will change according to each country's regulations. Being an independent contractor means that they are not employees of any Requester or MTurk at large and do not get the benefits therein. The ethics of this and how workers are treated has even attracted public press (<a href="https://www.nytimes.com/interactive/2019/11/15/nyregion/amazon-mechanical-turk.html" class="copy-link">New York Times</a>, <a href="https://www.theatlantic.com/business/archive/2018/01/amazon-mechanical-turk/551192/" class="copy-link">The Atlantic</a>; <a href="http://science.sciencemag.org/content/352/6291/1263" class="copy-link">Science</A>, <a href="https://blogs.scientificamerican.com/guilty-planet/httpblogsscientificamericancomguilty-planet20110707the-pros-cons-of-amazon-mechanical-turk-for-scientific-surveys/" class="copy-link">Scientific American</a>, <a href="https://www.behind-the-enemy-lines.com/2019/11/mechanical-turk-97-cents-per-hour-and.html" class="copy-link">blog post</a>).</p>
 			
@@ -340,7 +336,7 @@
 			
 			<p>Additional reading: <a href="https://www.brookings.edu/blog/techtank/2016/02/03/can-crowdsourcing-be-ethical-2/" class="copy-link">Williamson, 2016</a>; <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5541108/" class="copy-link">Gleibs, 2017</a>; <a href="http://www.wearedynamo.org/Guidelines_for_Academic_Requesters.pdf" class="copy-link">“Guidelines for Academic Requesters”</a> provided by the MTurk community (<a href="https://blog.mturk.com/how-to-be-a-great-mturk-requester-3a714d7d7436" class="copy-link">summary</a>). </p>
 			
-			<h4 id="subsec12t2" class="pad1">A typical social science project on MTurk</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star" aria-hidden="true"></i></span><h4 id="subsec12t2">A typical social science project on MTurk</h4></li></ul>
 			
 			<p>In the social sciences, probably the most common projects that we will run on MTurk are the "Survey" and "Survey Link." Survey Link is probably more common, because it's easier to use another platform (e.g., Qualtrics, Google Forms, etc.) to customize the survey than to do that specifically in MTurk. So, let's take a look what "Create -> New Project" looks like. Here is the <a href="files/mturkprojects_part1.png" class="copy-link">first screenshot of that page</a> (shown only on xl screens):</p>
 			
@@ -369,7 +365,7 @@
 			
 			<p>Additional Resources: <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveymonkey-f49c2891ca6f" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Monkey</a>, <a href="https://medium.com/@mechanicalturk/tutorial-getting-great-survey-results-from-mturk-and-qualtrics-f5366f0bd880" class="copy-link">Tutorial: Getting great survey results from MTurk and Qualtrics</a>, <a href="https://blog.mturk.com/tutorial-getting-great-survey-results-from-mturk-and-surveygizmo-dee93ff58561" class="copy-link">Tutorial: Getting great survey results from MTurk and Survey Gizmo</a>, <a href="https://blog.mturk.com/tasks-can-now-scale-to-a-workers-browser-window-size-c6e66f4bdfc9" class="copy-link">Tasks can now scale to a Worker's browser window size</a></p>
 			
-			<h4 id="subsec12t3" class="pad1">Special qualifications and properties on MTurk</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star" aria-hidden="true"></i></span><h4 id="subsec12t3">Special qualifications and properties on MTurk</h4></li></ul>
 
 			<p>Let's return to the <a href="files/mturkqualifications.png" class="copy-link">Qualifications page</a> screenshot (shown only on xl screens).</p>
 			
@@ -408,7 +404,8 @@
 			
 			<p>Note, however, that you don't have to rely on Qualifications as the only means of Excluding workers. In Module 4, we'll go over basic code that can do this, which can be incorporated into a task OR Qualtrics survey you've coded. Moreover, someone has also already created a script that helps you do this, for the HIT page: <a href="https://uniqueturker.myleott.com/" class="copy-link">Unique Turker</a>. With this particular code, you can use your name for your study as the Unique identifier and put the code Unique Turker generates at the very top of your HIT page.</p>
 			
-			<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;script src="//uniqueturker.myleott.com/lib.js" type="text/javascript"&gt;&lt;/script&gt;<br />
+			<div class="highlight"><pre><code class="language-html" data-lang="html">
+			&lt;script src="//uniqueturker.myleott.com/lib.js" type="text/javascript"&gt;&lt;/script&gt;
 			&lt;script type="text/javascript"&gt;
 			(function(){
 				var ut_id = "YOURUNIQUEIDENTIFIERHERE";
@@ -450,7 +447,7 @@
 			
 			<p>In this final section, we will discuss population effects on your sample, tips and tricks for actually running a study, and additional questions you may have.
 			
-			<h4 id="subsec13t1" class="pad1">Diversity and Inclusion</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec13t1">Diversity and Inclusion</h4></li></ul>	
 	
 			<p>One of the most hailed benefits of MTurk is that it's more diverse than typical participant pools. However, <a href="https://link.springer.com/article/10.3758/s13428-019-01273-7" class="copy-link">from Chandler, Rosenzweig, Moss, Robinson, and Litman (2019):</a></p>
 			
@@ -464,7 +461,7 @@
 			
 			<p>All of which is to say: You cannot only use MTurk if you want to claim that your results are generalizable. Ensuring that our experiments are appropriately representative of the population is not only key to good social science experimental design, but also key to ethically designing your own experiments.</p>
 			
-			<h4 id="subsec13t2" class="pad1">Tips for running MTurk participants</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec13t2">Tips for running MTurk participants</h4></li></ul>	
 			
 			<p>Some of these tips and tricks are informed by my own experience and some are informed by various tutorials (<a href="https://link.springer.com/article/10.3758/s13428-011-0124-6" class="copy-link">Mason and Suri (2012)</a>, <a href="https://journals.sagepub.com/doi/full/10.1177/1745691617706516" class="copy-link">Buhrmester, Talaifar, and Gosling (2018)</a>, <a href="https://psyarxiv.com/m78sf/" class="copy-link">Bauer, Larsen, Caulfield, Elder, Jordan, and Capron (2020)</a>, <a href="https://psyarxiv.com/uq45c" class="copy-link">Hauser, Paolacci, and Chandler (2018)</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0226394" class="copy-link">Robinson, Rosenzweig, Moss, and Litman, (2019)</a>, and <a href="https://meridian.allenpress.com/jis/article-abstract/33/1/43/10587" class="copy-link">Hunt and Scheetz (2019)</a>).</p>
 			
@@ -505,7 +502,7 @@
 			
 			<p>Finally, get MTurk worker feedback on your study. A lot of the review sites will include such feedback, but you can also explicitly ask for feedback at the end of your study and see whether anything that you have included is not particularly conducive for your goals. For example, on one study, I saw reviews that said I didn't have a progress bar on a Qualtrics survey I had included, so I edited the survey to include one. It's a simple design choice meant to make the user experience easier.</p>
 			
-			<h4 id="subsec13t3" class="pad1">Frequently Asked Questions</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec13t3">Frequently Asked Questions</h4></li></ul>	
 			
 			<p><b>Is MTurk comparable to traditional samples?</b></p>
 			
@@ -551,13 +548,9 @@
 			
 			<p><b>What is it like to use one of those panel services instead of running studies through MTurk?</b></p>
 			
-			<p>I have talked with a Qualtrics Panels representative and used Prime Panels in a research project, and I can say that if you have the money to do so, it is sometimes nice to hand off worries about recruitment and participation to others. In this project, I specified a target population that I wanted Prime Panels to recruit for a survey based largely in Qualtrics. Based on my experience, the target population is not typically that large on MTurk, so that's why we wanted to use a company that would have a larger database for that demographic group. Also, on my end, it would take less time to have someone else do the study running, while I would have time to focus on the analysis. I reached out via the contact form on the website for Prime Panels and described the study, including estimated completion time, number and description of target population, and study purpose/goal. They gave me an estimate for how much $ per participant that would cost.</p>
+			<p>You can read more about this in Module 4!</p>
 			
-			<p>They piloted the survey to see if they identified anything that would be an issue and told me that "generally, we ask that you take a cursory look for anything noticeably out of place within 3 days. That’s just for the basic speeders, straight liners, etc. so we can remove them from the sample pool quickly. After that, we’d ask for your deeper analysis for anyone that needs replaced to be done within 21 days." They also said that "[w]hen we launch a study, we send out invitations intermittently to account for the different types of attitudinal and behavioral differences in participants that take surveys in the morning, at night, etc. so you do not need to control for that." There may be other differences in how they run surveys.</p>
-			
-			<p>After the survey was finalized (post-piloting), the initial recruitment wasn't going as well as we liked: we had a lot of drop-out, so the survey was paused. We reassesed what could be done to improve the feasibility of the recruitment, both to ensure that we were targeting the right population and designing the survey to decrease the likelihood of drop-out. All in all, the process was relatively smooth, but obviously as noted, you don't necessarily know all the things they've done and the exact characteristics of who they've recruited.</p>
-			
-			<h4 id="subsec13t4" class="pad1">Applied Exercise: What did these experiments do wrong?</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec13t4">Applied Exercise: What did these experiments do wrong?</h4></li></ul>	
 			
 			<p>What is missing from <a href="https://psyarxiv.com/cdpxh" class="copy-link">this study's</a> description?</p>
 			
@@ -571,7 +564,7 @@
 			
 			<img src="files/mturkreviews.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="mturkreviews"></img>
 			
-			<h4 id="subsec13t5" class="pad1">Unknown Frontiers</h4>
+			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec13t5">Unknown Frontiers</h4></li></ul>			
 						
 			<p><i>Outstanding questions:</i></p>
 			
