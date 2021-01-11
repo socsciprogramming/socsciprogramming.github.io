@@ -6,6 +6,7 @@ p, .mainfont {font-family: "Open Sans";}
 .fas, .fab {color: #993399;}
 .scrollstyle {padding-top: 2rem; float: right;}
 hr{background: #E5E5E5; top: 20px; border: none; height: 12px; margin-bottom: none; margin-top: none;}
+#googleForm {text-align: center;}
 .blockquote{line-height: 100%; font-family: "Georgia";}
 
 /*collapse for the module buttons*/
