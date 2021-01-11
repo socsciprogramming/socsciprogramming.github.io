@@ -5,7 +5,7 @@ p, .mainfont {font-family: "Open Sans";}
 /*font awesome icon styling, plus blockquote, line beneath headers, and scroll to top button*/
 .fas, .fab {color: #993399;}
 .scrollstyle {padding-top: 2rem; float: right;}
-hr{color: #E5E5E5;}
+hr{background: #E5E5E5; top: 20px; border: none; height: 12px; margin-bottom: none; margin-top: none;}
 .blockquote{line-height: 100%; font-family: "Georgia";}
 
 /*collapse for the module buttons*/
