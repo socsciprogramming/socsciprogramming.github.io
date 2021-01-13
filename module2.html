@@ -512,28 +512,77 @@
 			
 			<p>One other thing that I would like to point out here is that if you have a simple survey, like a demographics questionnaire, there is no need to go onto a complicated platform. You can use what you've learned from the first two subsections of this Module and then use the Google Forms examples above rather than making a more complicated version. But if you need something more complicated...</p>
 			
-			<p>OK, so now let's take a look at Qualtrics, which is Duke's chosen survey platform. If you're at Duke, you can easily log on by going to <a href="https://duke.qualtrics.com" class="copy-link">https://duke.qualtrics.com</a>. This should take you to a Shibboleth authentication login page with your Duke netID. Once you are logged in, your page should look something like this.</p>
+			<p>OK, so now let's take a look at Qualtrics, which is Duke's chosen survey platform. If you're at Duke, you can easily log on by going to <a href="https://duke.qualtrics.com" class="copy-link">https://duke.qualtrics.com</a>. This should take you to a Shibboleth authentication login page with your Duke netID. Once you are logged in, your page should look <a href="files/qualtricslook.png" class="copy-link">something like this</a>, minus the examples that I've included in my particular folder.</p>
 			
-			<img src="files/googleform2a.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="googleform2a"></img>
-			
-			<!--
-			How to access Duke Qualtrics, why Qualtrics, what are different functions and units within Qualtrics, discuss Qualtrics forum and other tutorials;
-			
-			-->
+			<img src="files/qualtricslook.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricslook"></img>
 
-			<p>We'll need to define some terms here.</p>
+			<p>You'll note <a href="https://www.qualtrics.com/support/survey-platform/my-projects/my-projects-overview/" class="copy-link">project folders</a> on the left sidebar (at the top, there is a button to create a new folder). There is a footer indicating this platform is supported by Duke and a navigation bar with "Projects", "Contacts", "Actions", "Library", "Help", a notifications icon, and a <a href="https://www.qualtrics.com/support/survey-platform/managing-your-account/research-core-account-settings/" class="copy-link">profile icon</a>. Of note, it looks like Projects is already highlighted, indicating that this page is the home page once you log in. We'll need to define some terms here.</p>
 			
-			<p><b>Projects</b> -....</p>
+			<p><b>Projects</b> - Each survey is considered its own project. There are other types of projects that can be created on Qualtrics, but for the purpose of these tutorials, we only look at the "Survey projects" which you can see on my examples - the four leaf-like icon with "Survey" above the title of the project. </p>
 			
-			<p><b>Contacts</b> - ....</p>
+			<p><b>Contacts</b> - <a href="https://www.qualtrics.com/support/survey-platform/contacts/contact-list-overview/" class="copy-link">Contacts</a> are like Excel spreadsheets or comma separated values (.csv) files where you can have columns for name and email, and if you just wanted to send your survey to prespecified folks on a list, this is one way to do it.</p>
 			
-			<p><b>Actions</b> -....</p>
+			<p><b>Actions</b> - To be honest, I have literally never used this functionality. You can <a href="https://www.qualtrics.com/support/survey-platform/actions-module/setting-up-actions/" class="copy-link">read more about it</a> from Qualtrics.</p>
 			
-			<p><b>Library</b> -....</p>
+			<p><b>Library</b> - Within the library, you have a <a href="https://www.qualtrics.com/support/survey-platform/account-library/library-overview/" class="copy-link">Survey Library, Graphics Library, Files Library, and Messages Library</a>. If there is a type of survey that you use frequently, I believe you can just copy it into your survey library. (You can also copy a survey, generally, outside of this Library functionality). The Graphics library allows you to upload the images you may want to refer to in any survey; e.g., on a survey where I wanted to have participants rate the valence (positive/negative) and arousal (intense/mild) of each image, I uploaded them and then just added the graphics within the survey. I have never used the files library, but I imagine it's something similar, where if you have something you consistently refer to, it's worth uploading. In the Messages Library, I have a lot of "End of Survey" messages that I reuse for studies, changing them slightly depending on the survey and population recruited.</p>
 			
-			<p>Different survey options include Editing, Previewing, Translating, & Distributing the survey. There is also Data & Analysis and View Reports as well as Project options like Deleting, Renaming, Copying, Closing, and Collaborating.</p>
+			<p>Different survey options include Editing, Previewing, Translating, & Distributing the survey. These should be relatively straightforward. There is also <a href="https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data-and-analysis-overview/" class="copy-link">Data & Analysis</a> and <a href="https://www.qualtrics.com/support/survey-platform/reports-module/results-vs-reports/" class="copy-link">View Reports</a> as well as Project options like Deleting, Renaming, Copying, Closing, and Collaborating. Collaborating means inviting another user to work on the survey with you, and closing the survey means that you've disallowed people from taking the survey (i.e., you're no longer collecting responses). We won't go over the Reports or Analysis components, only we will think about how what you see in the "data" should be at the forefront of your mind when designing as well.</p>
 			
-			<p>You can organize your projects by creating new folders.</p>
+			<p>Of note, at any time, if you get confused by Qualtrics's layout, they have a support page that goes over each of these individual components, and I have also linked to individual tutorial pages here. If I get stuck on something, I typically Google search with Qualtrics + the feature I'm puzzling over, and I can often find a corresponding tutorial or related section. The purpose of going over Qualtrics is not to provide even more tutorials on how to use the platform, but on how a "typical" survey platform implements some of the very design and programming principles we discussed above. This is a more complex application of what we saw in the Google Forms.</p>
+
+			<p>OK, so now let's take a look at how to create a survey and specifically what sorts of design and programming principles we might see Qualtrics applying. To create a new survey, you'll want to click the blue plus button OR the "create new project" button (on smaller screens, it shows as + and larger screens, it has the description - can you see how this already accomodates different user experiences?). The screen that shows up will <a href="files/qualtricscreate.png" class="copy-link">look like this</a>:</p>
+			
+			<img src="files/qualtricscreate.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricscreate"></img>
+			
+			<p>After you click "survey", the screen <a href="files/qualtricscreate2.png" class="copy-link">transitions to</a>:</p>
+			
+			<img src="files/qualtricscreate2.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricscreate2"></img>
+			
+			<p>Here's where having a survey library or copying other surveys can come in. Or, where you can upload example surveys ("From a file"). Qualtrics surveys come in the extension .qrf and you can upload those files. Indeed, I've <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/tree/master/examples" class="copy-link">curated a few example surveys for you</a> in the webpage Github if you want to play around with them.</p>
+			
+			<p>OK, so now we're in the survey. There are multiple new options at the top: Look & Feel, Survey Flow, Survey Options, Tools, Preview, and Publish under the "Survey" tab. Actions, Distributions, Data & Analysis, and Reports were all things that we could have selected before entering this survey.</p>
+			
+			<p><a href="files/qualtricslookandfeel.png" class="copy-link">Look & Feel</a> looks like this</p>
+			
+			<img src="files/qualtricslookandfeel.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricslookandfeel"></img>
+			
+			<p>This allows you to make those customized choices we went over on typography, buttons - the "secondary" task elements that will support the "primary" task of completing the survey. You could change the arrow button to say "Next" instead of the right arrow. You could add a progress bar. You could change the branding so DukeHealth is not so large. You can set all sorts of larger stylistic guidelines for the entire survey here. In fact, under "Style", you'll see that it asks you about CSS - which is a language that we'll be going over in Module 3. So, already we've seen an example of how Qualtrics is prioritizing user experience and allowing you to apply the very design principles we discussed above. What about <a href="files/qualtricssurveyflow.png" class="copy-link">Survey Flow?</a> Well, Survey Flow is kind of boring when you have nothing in your Survey, so let's look at an example survey instead.</p>
+			
+			<img src="files/qualtricssurveyflow.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricssurveyflow"></img>
+			
+			<p>In this example, you've got a little bit of every element within a Qualtrics Survey Flow. Embedded data is the Qualtrics version of a variable whose value can be dynamically updated. The embedded data I have included here (offTask, onTask, etc.) is part of a tutorial on how to track whether someone is paying attention, which we will discuss more thoroughly in Module 4. Below that, I have a reference to a script that generates a random number between 1000 and 999999. I set the variable (embedded data), mTurkCode, to this random number. That means at the end of the survey, I can pipe/show the mTurkCode to participants, and they can input it into the interface on Mturk as proof of survey completion. Below those elements, we have "survey blocks" and below that we have a randomizer for a few survey blocks, meaning that whether BlockVary_Stroop and ItemVary_Stroop is presented first will be random across participants. Because I selected "2" of the following elements, and there are 2 survey blocks underneath this randomizer element/component, that means that both will be shown, but which is first is random (i.e., if you had a condition where you only wanted to show one of the blocks per participant, you would put 1 here instead of 2). Because I selected "evenly present elements", that also means that I wouldn't be presenting one of those survey blocks more than the other. What <a href="files/qualtricssurveyflow2.png" class="copy-link">other elements</a> might you have in a Survey Flow?</p>
+			
+			<img src="files/qualtricssurveyflow2.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricssurveyflow2"></img>
+			
+			<p>You can have an "End of Survey" element. Typically this is done if you have a pre-screen question. For example, remember in Module 1 how we talked about using pre-screen questions as a means of trying to ensure you have a specific demographic in your questionnaire? Well, you can make it so that if someone is not an undergraduate student (per their response to a question), then you exit them from the survey. This is an example of using a "Branch" element in conjunction with the End of Survey element: If undergraduate after survey block "demographics", then end of survey.  You can also have an "Authenticator" element, which is similar to what you experienced when you went to duke.qualtrics.com. It asked you for Shibboleth authentication, verifying that you have a Duke Net ID. If you wanted to ensure that only Duke students did the survey, you could have an authenticator at the start of the survey that would then automatically capture information like net ID, name, etc. for your to access. You can also include a "Group" element to bring together multiple components. For example, in one survey, I had multiple test questions from different textbook chapters, so I grouped together the questions from each chapter. Why would that be helpful? Well, if I wanted to randomly present which chapter went first, I could use the Group in conjunction with the Randomizer element, ensuring that all items from 1 chapter are presented as a block in time, but which one goes first is random.</p>
+			
+			<p>Now what does this have to do with the design lessons we went over above? We talked about how once you add things like skip logic, you might make more errors. The more complexity, the more variability and the more likely errors will occur. Here's one example. One default of Qualtrics is that when you add a survey block, the survey flow will default to add it exactly where you are. In one study, a collaborator and I added a set of questions at the end, but didn't realize that this block had then been subsumed under the Randomizer that was used in the previous block. It had, though, and Qualtrics didn't update the "Randomly present 2" of the following elements, so one block wasn't shown. We'd run through the text and preview and hadn't noticed this error. Which is just one example of how when things get more complicated, you're more prone to things like this.</p>
+			
+			<p>next section</p>
+			
+			<img src="files/qualtricssurveyoptions.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricssurveyoptions"></img>
+			
+			<img src="files/qualtricssurveyoptions2.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricssurveyoptions2"></img>
+			
+			<p>then tools</p>
+			
+			<img src="files/qualtricstools.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricstools"></img>
+			
+			<p>Now, let's take a peek at what it looks like to add a question on Qualtrics.</p>
+			
+			<img src="files/qualtricsquestions0.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricsquestions0"></img>
+			
+			<img src="files/qualtricsquestions.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricsquestions"></img>
+			
+			<img src="files/qualtricsquestions2.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricsquestions2"></img>
+			
+			<img src="files/qualtricsquestions3.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricsquestions3"></img>
+			
+			<p>OK, so now let's discuss how Qualtrics generally complied with the principles of online programming as discussed above.</p>
+			
+			<p>First, how is Qualtrics prioritizing the user experience in its programming? A lot of the design choices that we talked about are defaults in Qualtrics. For instance, when you merely click to create a multiple choice question, the default layout is to have the radio buttons be vertical, to prioritize the mobile experience for the question. There is also significant styling on Qualtrics's end to make things work better: as noted in the previous example of radio buttons in Subsection 2, you can see how even radio buttons become longer buttons that are much easier to click than a radio button because of their expanded size. The font that they choose for survey links - if you don't edit a survey - is easily readable at a large font size. We could go over multiple examples of how the platform simply makes things easier for participants. I suggest that you play around in Qualtrics to see this for yourself.</p>
+			
+			<p>Second, you can organize your projects by creating new folders. This might be one way of version control. You might, for instance, create one larger project folder like "socsciprogramming" and a subfolder that you drag to "socsciprogramming." You name this subfolder "Module 1." Within "Module 1," you could create more subfolders. If this was an actual experiment, I could do a pre-piloting-RA folder, then a piloting-sub folder, then a experiment-1 folder, indicating two stages of piloting the survey before running it with my population of interest. The copies found within each project folder are then saved to show what sorts of changes you might've made along the way. You can also just mark what changes have been made in the <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-publishing-versions/" class="copy-link">same survey, but more deliberately</a> (scroll down to "Version History" for tutorial).</p>
 			
 			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec23t2">Running Mturk experiments with Qualtrics</h4></li></ul>
 			
@@ -543,10 +592,14 @@
 			(Qualtrics scripts informed by:
 			https://medium.com/@mechanicalturk/tutorial-getting-great-survey-results-from-mturk-and-qualtrics-f5366f0bd880
 			https://www.qualtrics.com/support/survey-platform/common-use-cases-rc/assigning-randomized-ids-to-respondents/ )
+			
+			talk about mturkers and unique worker ids etc.
 
 			-->
 			
-			<p>....</p>
+			<p>This is the only time I ever use the "Force Response" validation on Qualtrics. I need their worker ID information ... Arguably, this should be encompassed in the unique code that they are given at the end of the survey, but in the past, I have seen examples of times when two separate accounts paste the same code. In such circumstances, without collecting a worker ID, I wouldn't know who actually did the survey and who might be copying the code from somewhere else.</p>
+			
+			<img src="files/qualtricssurveyflow.png" class="rounded mx-auto d-none d-xl-block pad-t75 pad-b75" alt="qualtricssurveyflow"></img>
 			
 			<p>....</p>
 			
