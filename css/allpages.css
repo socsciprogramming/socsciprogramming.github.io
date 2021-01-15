@@ -76,7 +76,7 @@ body {padding-top: 56px; overflow:auto;}
 #sidebar-container .anchor.active, #sidebar-container .anchor:active, #sidebar-container .anchor:link, #sidebar-container .anchor:hover, #sidebar-container .anchor:focus{border-bottom: 1px #993399 solid;}
 
 /* restricting the size of particular images */
-img[alt*="mturkinterface"] {height:25vh; }
+/* img[alt*="mturkinterface"] {height:25vh; } 
 img[alt*="mturkworkers"] {height:50vh; }
 img[alt*="mturkpayments"] {height:50vh; }
 img[alt*="mturkqualifications"] {height:50vh; }
@@ -92,7 +92,7 @@ img[alt*="mturkprojects_part6"] {height:40vh; }
 img[alt*="mturkqualifications3"] {height:40vh; }
 img[alt*="mturkqualifications6"] {height:40vh; }
 img[alt*="mturkqualifications7"] {height:40vh; }
-img[alt*="qualtricsquestions0"] {height:40vh; }
+img[alt*="qualtricsquestions0"] {height:40vh; }*/
 
 /* styling the quizzes */
 #quiz {
