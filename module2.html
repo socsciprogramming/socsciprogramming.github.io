@@ -632,43 +632,77 @@
 			
 			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec23t3">Coding within Qualtrics</h4></li></ul>
 			
-			<!--
-			piped text example of showing responses in a survey.
-			Discuss loop and merge, recoding answers, GUI-based questions, adding in randomization in blocks, blocks/page breaks, JavaScript plug-in. Checking output file. Between subjects conditions & survey flow generally. Exporting order information within Qualtrics. Doesn’t collect response times very well.
-			(For loop and merge mention that view block does not work)
-			add piped text into the distribution email section
-			-->
-			
 			<p>One thing you might have noticed earlier is that I didn't go over how to call upon the embedded data (variable) within Qualtrics. I said we'd created this mTurkCode to give back to participants so that they could input a unique identifier into the survey link platform on MTurk. However, I didn't say how you'd call upon these data.</p>
 			
-			<p>Qualtrics has what's known as "Piped Text." This is their version of saying that you're going to call upon some variable.</p>
+			<p>Qualtrics has what's known as "Piped Text." This is their version of saying that you're going to call upon some variable, and within Qualtrics, this usually takes the form of "${e://---}". You can call upon any embedded data within the survey, whether that's how a participant responded on a previous question or just calling upon what your previous question was, an embedded element you created within the Survey Flow, or an element that you created and added via the distribution.</p>
 			
-			<p>....</p>
+			<p>You may be wondering: what does this actually look like? In the <a href="files/qualtricscoding6.png" class="copy-link">below example</a>, you'll see what an example of what the 'final' screen looks like before participants on an MTurk survey submit their data. I let them know what their unique survey code is - SOCSCIPROGRAMMING + some random number (generated via the Survey Flow, as we discussed earlier) + 0113. Within Qualtrics surveys, I usually put an identifier like initials at the front and the same numbers at the end so I can skim through the codes and see ones that don't even follow the correct pattern on the MTurk interface.</p>
+			
+			<img src="files/qualtricscoding6.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding mturk code piped text"></img>
+			
+			<p>You can also see piped text in action in <a href="files/qualtricscoding.png" class="copy-link">this next screenshot</a>, where within the same survey, I refer to a) what the participant chose on a particular question, b) what the actual question text said, and c) what the actual response options were for that question.</p>
 			
 			<img src="files/qualtricscoding.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding previous answer piped text"></img>
+			
+			<p>You can even see the effect of piped text by referring to answers from a previous survey. I've typically done this with respect to distributing via email (see section below), creating an embedded data element that has the same name as columns within a comma separated values (.csv) file. This file has contact information and names for particular students and is uploaded as a Contact list that is used for survey distribution. Then the survey has all the information from the previous survey under those columns (simply by matching up the information - like netid/name), and you can refer to these answers with piped text, as shown in <a href="files/qualtricscoding4.png" class="copy-link">Part I</a> and <a href="files/qualtricscoding5.png" class="copy-link">Part II</a> below.</p>
 			
 			<img src="files/qualtricscoding4.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding previous survey piped text"></img>
 
 			<img src="files/qualtricscoding5.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding previous survey piped text second"></img>
 
-			<img src="files/qualtricscoding6.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding mturk code piped text"></img>
+			<p>How do you access Piped Text? Well, <a href="files/qualtricscoding14.png" class="copy-link">when editing a question</a>, you'll see a Piped Text tab, that when you click it, has a number of options for what exactly you're referring. The best way to understand the different fields here would be if you played around in Qualtrics to see what each field does. I've already shown you survey questions and embedded data fields, and the email distribution (section below) will make use of survey links as piped text.</p>
 
-			<img src="files/qualtricscoding1.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding loop and merge questions"></img>
+			<img src="files/qualtricscoding14.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding piped text tab"></img>
 
-			<img src="files/qualtricscoding7.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding loop and merge logic based off question"></img>
-			
-			<img src="files/qualtricscoding8.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding loop and merge logic with all questions"></img>
+			<p>Piped text can also show up within the coding of questions. First, I want you to take a look at the two images below (<a href="files/qualtricscoding2.png" class="copy-link">Part I</a>, <a href="files/qualtricscoding3.png" class="copy-link">Part II</a>).</p>
 			
 			<img src="files/qualtricscoding2.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding problems with matrix bottom headers"></img>
 			
 			<img src="files/qualtricscoding3.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding problems with matrix center headers"></img>
 			
+			<p>These images demonstrate the problem of using a "matrix-like" design (a version of the scrolling design we discussed), with the multiple columns and multiple rows for a single questionnaire and multiple items within this overarching construct. One immediate question within this format relates to the header for the column. Without the header, if there are enough questions, as participants scroll down, it becomes less clear what each of the radio buttons would mean. If you do use a reminder of the header, which is better: the header at the bottom? The header repeated in the middle? Another issue here is that this is bad for mobile design, which Qualtrics even highlights with the orange "iQ" label on the side. Resizing matrix tables is hard, so on a mobile screen, to make sure that there is space for the labels and the radio buttons, you'll usually end up with a horizontal scrollbar, which can impact your survey in unknown ways (e.g., encouraging participants to just left the leftmost option, because it's the most accessible option).</p>
 			
+			<p>One alternate to the matrix-like format is to create individual multiple choice questions. This is pretty easy if you have only a few questions. If you have multiple, you might want to use the Qualtrics version of a "for loop", i.e., the Loop & Merge function available under the "Block Options".</p>
+
+			<img src="files/qualtricscoding1.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding loop and merge questions"></img>
+
+			<p>In the <a href="files/qualtricscoding1.png" class="copy-link">above screenshot</a>, you can see how the Loop & Merge functionality works at a basic level: it is like calling on the piped text functionality, but with preloaded fields for "${lm:///}" - that is, instead of the usual "e" to indicate embedded data, this code looks within the "lm" or loop and merge block for what it will input into those fields.</p>
+
+			<p>	In the <a href="files/qualtricscoding7.png" class="copy-link">below screenshot</a>, you can see the exact fields that are input into the Loop & Merge functionality. That is, based on responses to a previous question asking students to choose an instructor who is most responsible for their success in the course, the students are then asked what they believe this instructor thinks about their intelligence. "Field 1" is whatever the "selected choice" was from that question, and because that question involved a checkbox - which, if you remember, is not an exclusive choice - this loop and merge block could repeat more than once. It would repeat for anyone who is selected: Dr. A, Dr. B, etc. Notably, which selected response is shown first is randomized, with the checkbox to randomize loop order selected.</p>		
 			
+			<img src="files/qualtricscoding7.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding loop and merge logic based off question"></img>
 			
-			<p>....</p>
+			<p>Loop & Merge doesn't just work with previous questions; it also works with multiple stimulus question items. In the <a href="files/qualtricscoding8.png" class="copy-link">below screenshot</a>, you can see in the background that there is a sort of bold paragraph text instruction to participants to respond, thinking of symptomatology over the past year. Then there is a question text that says "${lm://Field/1}" with multiple choice radio buttons. Here in the actual Loop & Merge, you can see that I've listed all the stimulus items that are going to have the same response items, and these will be inserted into the place where I've called upon the Loop & Merge. Additionally, what is not shown here is that I've clicked the checkbox to randomize loop order, so it'll randomly insert the items (order-wise) for participants.</p>
 			
-			<p>....</p>
+			<p>How does Loop & Merge fit with our previous discussion on design as well? Well, this functionality will depend on how you use it. In the last example, I would only be showing one question per page, but in the previous example with the instructor, I'm inserting in the instructor selected choice for four questions of a questionnaire on the same page. It essentially has the design that you make of it when you call upon it, only being constrained with respect to the block level element in Qualtrics.</p>
+			
+			<img src="files/qualtricscoding8.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding loop and merge logic with all questions"></img>
+			
+			<p>Now, usually you can click the "preview" button within Qualtrics to get a sense of what your survey looks like as you go along, but for some reason, Preview does not work very well with the Loop & Merge functionality, so you'll want to test out the survey with the anonymous link option as I mentioned earlier, especially when thinking about the principles of online programming. </p>
+			
+			<p>Note that we've also already gone over some examples of coding within Qualtrics: whether that's including a between-participants condition (i.e., one group of participants experiences only the X set of questions while the other group or groups experiences the Y set of questions, etc.) via the Survey Flow, or adding in randomization via blocks or changing design with the sidebar and page breaks, etc. Of note, some of these functions don't work as well in tandem - that is, randomizing the questions at the block level works best when there's not a page break element; if so, it may not work as you expect. If you're ever uncertain whether your randomization isn't working, you should always preview the survey or take it using the anonymous distribution link (see section below).</p>
+			
+			<p>There are a few more important things of note with respect to code. For instance, you can actually recode your answers so that, e.g., 1 indicates the right answer and 0 is the wrong answer. You can see this in the <a href="files/qualtricscoding9.png" class="copy-link">example below</a>, where we've clicked the "cog icon" indicating the settings for an individual question. After clicking "recode values", we're then shown <a href="files/qualtricscoding10.png" class="copy-link">the next screen</a>, which presented all the answers to the question (which I blocked out) and input fields to their left. Here I've thus indicated that answer "D" would be correct.</p>
+			
+			<img src="files/qualtricscoding9.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding settings per question"></img>
+			
+			<img src="files/qualtricscoding10.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics coding recode values"></img>
+			
+			<p>To extract the recoded answers, you would want to export the data. You'd do this by either clicking the three dots on the survey (i.e., the interface when you open Qualtrics, your home screen) and going to <a href="files/qualtricscoding11.png" class="copy-link">Data & Analysis"</a> or doing so within the Survey itself.</p>
+			
+			<img src="files/qualtricscoding11.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics data and analysis"></img>
+			
+			<p>Here you'd then click "Export & Import" and then click "Export Data" to get to <a href="files/qualtricscoding12.png" class="copy-link">this next screen</a>.</p>
+			
+			<img src="files/qualtricscoding12.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics export data"></img>
+			
+			<p>You can then export to a number of formats. I typically use .csv files in my analysis, but your mileage may vary. If you're looking to download your recoded answers, you will want to click the 'use numeric values' option (if you've recoded to 1s and 0s, for example). If you've recoded the responses to text, then use 'use choice text.' I typically use a combination of the two, with text for my demographics questions and recoded numbers for various test-like answers. The other important thing here, especially if you've added in randomization sequences within your Survey Flow, is to click <a href="files/qualtricscoding13.png" class="copy-link">"More Options."</a></p>
+			
+			<img src="files/qualtricscoding13.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics export data more options"></img>
+			
+			<p>You'd want to check "Export viewing order data for randomized surveys" here. Qualtrics will create an entire column for different questions where you've randomized the order, and in theory you can add this to your analysis, investigating whether the exact order in which things were presented had any effect. It's not organized in a manner that is particularly conducive for analysis, but you can retrieve this information here.</p>
+			
+			<p>It is generally good practice when coding, whether a survey in Qualtrics or your own experiment with HTML/JavaScript/CSS, to make sure that the data aligns with what you expected, given your code, and that this output can be cleaned and analyzed properly. Of note, we will actually return to the "settings" option on each individual question within Module 3, particularly with respect to its JavaScript option. Along that line, most of the people I know who use Qualtrics on a regular basis have told me that Qualtrics is not particularly good at collecting response times very well, so if that's your goal, that might be yet another reason to tune into Module 3 and consider taking more control over your survey.</p>
 
 			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec23t4">Distribution within Qualtrics</h4></li></ul>
 			
@@ -690,51 +724,41 @@
 			
 			<img src="files/qualtricssurveyoptions2.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics survey options second screenshot"></img>
 			
-			<p>For instance, the "survey protection" section has a number of options related to the anonymous link and survey distribution, such as where exactly people are coming from when they click the link, etc. I wouldn't recommend changing any of these, but you can if you want. I often take the anonymous link myself or send it to other people who I want to test my survey, too, because it gives you the direct experience that your participants would have.</p>
+			<p>For instance, the "survey protection" section has a number of options related to the anonymous link and survey distribution, such as where exactly people are coming from when they click the link, etc. I wouldn't recommend changing any of these, but you can if you want. I often take the anonymous link myself or send it to other people who I want to test my survey, too, because it gives you the direct experience that your participants would have. This is in particular what I was recommending you test for things like Loop & Merge, where the "preview" button that is right next to the "publish" survey button will not work as you might expect.</p>
 			
 			<p>Another distribution method that might be of interest to you is through email. For instance, in classroom research, I've used the email distribution method, because students are accustomed to emails from their professors. To use the email distribution method, you may want to take advantage of the <a href="https://www.qualtrics.com/support/survey-platform/contacts/contact-list-overview/" class="copy-link">Contacts</a> tab we discussed <a href="files/qualtricslook.png" class="copy-link">earlier</a>.</p>
 			
 			<img src="files/qualtricslook.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics first look"></img>
 			
-			<img src="files/qualtricscontacts.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics contacts first screenshot"></img>
+			<p>This is what my <a href="files/qualtricscontacts.png" class="copy-link">Contacts tab</a> looks like. You can see that I've "created contact list" a number of times - all with a varying number of members.</p>
 			
-			<img src="files/qualtricscontacts2.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics contacts second screenshot"></img>
+			<img src="files/qualtricscontacts.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics contacts tab list"></img>
 			
-			<img src="files/qualtricsemail2.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics email second screenshot"></img>
+			<p>If you go to create a contact list, it will ask you for a name and folder under which to put the list. I put something like "test" and many of mine are not organized here. Next, you'll see <a href="files/qualtricscontacts2.png" class="copy-link">this screen</a>. Essentially, here you're either manually entering the information for your list or just importing in a class roster or other .csv (comma separated values) file. What Qualtrics will need to "add contacts" in this step is a field that says "Email" (as noted in the "File Requirements" section).</p>
 			
-			<p> </p>
+			<img src="files/qualtricscontacts2.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics contacts create list"></img>
+			
+			<p>Ok, so let's say that you've created a contact list by now. The next step is to then go back to Distribution and go to emails. To click, <a href="files/qualtricsemail.png" class="copy-link">Compose email</a>.</p>
+			
+			<img src="files/qualtricsemail.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics compose email"></img>
+			
+			<img src="files/qualtricsemail1.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics compose email end"></img>
+			
+			<p>As you can see from this example (and the <a href="files/qualtricsemail1.png" class="copy-link">rest of the email below</a>), this is similar to what we went over design-wise, in thinking about distribution. It describes the incentive for the survey, how long the survey takes, what the purpose is of the survey, and includes a link to the survey as well as the signature from the instructor. Unlike what we discussed earlier, this doesn't include a personal address to each individual student, but note that even here, we are using Piped Text, because with this distribution method, that piped text will provide a unique survey link for each person on that contact list. In this example, since this is old and this email already went through, I'm merely viewing the email, but if this were an active survey, the "close" button would say "preview" and "schedule" with espect to the email.</p>
+			
+			<img src="files/qualtricsemail2.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="qualtrics email distribution and reminders"></img>
+			
+			<p>And, once you've clicked to "schedule email", you can even schedule reminders as shown in the <a href="files/qualtricsemail2.png" class="copy-link">above screenshot</a>. Because of the piped text providing links to each person on the contact list, Qualtrics can then keep track of everyone who has already done the survey (which links resulted in completion), and can then make the reminders targeted to only participants who haven't finished the survey yet. I usually only schedule 2-3 reminders, and here I scheduled a lot because as you can see, there was a big drop-off in the # of students and those who actually finished this survey (yay data collection during COVID-19!).</p>
 			
 			<p>Finally, have I gone over everything there is to know about Qualtrics? No. Definitely not. I've meant to use Qualtrics as an example for the design principles that we went over before, but if you're interested in using Qualtrics for your surveys, you can play around in the program, look at the examples in the Github repository, and Google anything you can't figure out (which will probably take you to the Qualtrics site/forum). If you can't find an answer on their tutorial site and forums, because Duke pays for us to use Qualtrics, you can also email the support team for help.</p>
 			
 			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec23t5">Applied Exercises</h4></li></ul>			
 			
-			<!--
-			-show likert from nick vs. what happens with loop and merge on Qualtrics
--ask pple to identify what is happening in each & some advantages and disadvantages of both
-
-Apply this to the HIT page on MTurk as an applied exercise
-
-Can also take a picture of the Likert Scale that I’ve coded in task and ask people what’s wrong design-wise with it
-
-Can also take from the Germinator task and the family history questions
-
-Honestly, can take from any number of my surveys and find something wrong*
-
-*maybe one point is that nothing will be perfect.
-
-Review the library of example surveys and see what you would do differently and what the survey does well
-
-			-->
+			<p>Identify the advantages and disadvantages of coding surveys like <a href="files/likertsurvey.png" class="copy-link">this Likert survey</a> versus using the Loop & Merge function within Qualtrics for the same questions, applying what you learned about survey design and online programming principles.</p>
 			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
+			<p>What is wrong with the <a href="files/surveyapplied1.png" class="copy-link">following question</a>? What would you do differently?</p>
+						
+			<p>Review the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/tree/master/examples" class="copy-link">library of example surveys</a> and see what you like and do not. You can import in these .qsf files by creating a survey, but instead of making a "blank file", choosing to create "from a file" and clicking a .qsf file as your start. You can use the Github examples, or the ones that Qualtrics already offers as examples.</p>
 			
 			<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1l1ROznBRGNtm7K7bxJgrwIqpXxvoxywZw2A_aj8SB4k/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
 			
