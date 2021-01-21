@@ -1,6 +1,6 @@
 /*font styling - headers serif, regular sans serif*/
 h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}
-p, .mainfont {font-family: "Open Sans";}
+p, .mainfont {font-family: "Open Sans";  color: #262626;}
 
 /*font awesome icon styling, plus blockquote, line beneath headers, and scroll to top button*/
 .fas, .fab {color: #993399;}
