@@ -20,7 +20,7 @@ iframe{height: 100%;}
 
 /*links and button styling - colors informed by https://brand.duke.edu/colors/ */
 .copy-link, .copy-link:link {color: #012169;}
-p .copy-link{text-decoration: underline;}
+a.copy-link{text-decoration: underline;}
 .alert {background-color: #012169; color: #E5E5E5; border: none; outline: none;}
 .navb-link, .navb-link:link {color: #E5E5E5; outline:none;}
 .copy-link:hover, .copy-link:active, .copy-link:focus, .copy-link:visited {color: #993399;}
