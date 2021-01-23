@@ -48,7 +48,8 @@ a.copy-link{text-decoration: underline;}
 .bg-grey{background-color: #E5E5E5}
 
 /* padding - leaving for now */
-p, div{padding-top: 0.35rem; padding-bottom: 0.35rem;}
+p{padding-top: 0.35rem; padding-bottom: 0.35rem;}
+section div{padding-top: 0.7rem; padding-bottom: 0.7rem;}
 .pv2{padding-top:.5rem;padding-bottom:.5rem}
 .pad1{padding: 1rem;}
 .pad75{padding: 0.75rem;}
