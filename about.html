@@ -98,7 +98,7 @@
 		<div id="sidebar-container" class="d-none d-md-block col-2 bg-grey">
 			<ul class="list-group sticky-top sticky-offset">
 				<li class="list-group-item text-muted d-flex align-items-center">
-					<small>MODULES</small>
+					<small><b>MODULES</b></small>
 				</li>
 				<!-- Normally, this would say #submenu1 as the href & data-toggle = "collapse" & class = "collapsed" & the span class would not be hidden, but I want to link to each module page and then allow people to collapse there. Therefore I'm keeping this infastructure here for other pages to use too & just adjust then.-->
 				<a href="module1.html" target="_self" aria-expanded="false" class="list-group-item flex-column align-items-start">
@@ -132,9 +132,9 @@
 			</ul>
 		</div>
 		<div class="col py-3" id="page-content">
+		<main>
+		<section>
 			<h1>About the Course</h1>
-
-			<hr>
 
 			<p>"Introductory Programming for Online Social Science Experiments" first started as a workshop taught by Dr. Jiefeng Jiang (<a href="https://myweb.uiowa.edu/jiefjiang/index.html" class="copy-link">now at UIowa</a>). Dr. Jiang taught his (then) fellow labmates (Drs. Anastasia Kiynoaga, Emma Wu-Dowd, Hanna Oh-Descher, Yu-Chin Chiu, Anthony Sali, Paul Muhle-Karbe, etc.) in <a href="http://www.egnerlab.org/" class="copy-link">Tobias Egner's lab</a> how to code in JavaScript, HTML, and CSS and how to post online experiments on Amazon Mechanical Turk. He also created the lab's server database so that the data collected online could be transformed into text files for data analysis.</p>
 
@@ -142,17 +142,17 @@
 
 			<p>With the help of this course, students should be able to participate in social science research more readily. Moreover, the skills obtained in this course should transfer over to research outside of academia: for instance, jobs in web development require HTML/CSS/JS skills, as do some UX researcher/design roles.</p>
 
-			<h3 class="pad1">Duke University Bass Digital Education Fellowship</h3>
-			
+			</section>
 			<hr>
-
+			<section>
+			<h2 class="pad1">Duke University Bass Digital Education Fellowship</h2>
+			
 			<p>Through the generous support of the <a href="https://gradschool.duke.edu/professional-development/programs/bass-instructional-fellowships/bass-digital-education-fellowships" class="copy-link">Bass Digital Education Fellowship</a> at Duke University, Christina was able to convert and expand her prior experience and tutorial work into a fuller course.</p>
 
 			<p>To reflect the origins and funding from Duke, you will note that the fonts and color scheme adhere to the <a href="https://brand.duke.edu/" class="copy-link">Duke University brand guide</a> while following a basic tutorial-like design (cc: <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/" class="copy-link">Bootstrap</a>).</p>
-			
-			<h3 class="pad1">About Christina</h3>
-			
-			<hr>
+			</section>
+			<section>
+			<h2 class="pad1">About Christina</h2>
 			
 			<p><a href="https://christinabejjani.github.io" class="copy-link">Christina</a> created this website and course in her fifth-year as a PhD student. To find out more about her, please visit her website.</p>
 			
@@ -164,6 +164,8 @@
 				</a>
 			</div>
 			<div class="row pad-l1 pad-b75 pad-t75"></div>
+			</section>
+			</main>
 		</div>
 	</div>	
     <!-- Bootstrap core JavaScript-->
