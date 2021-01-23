@@ -145,429 +145,446 @@
 			</ul>
 		</div>
 		<div class="col py-3" id="page-content">
-		<main>
-			<h1>Module 3: Customized Design with JavaScript, HTML, &amp; CSS</h1>
-			
-			<div class="card">
-				<div class="card-header">Learning Goals</div>
-				<div class="card-body">
-					<ul class="fa-ul card-text">
-						<li><i class="fa-li fab fa-firefox"></i>Acquire basic Javascript skills for presenting randomized stimuli, debugging, and recording responses</li>
-						<li><i class="fa-li fab fa-html5"></i>Describe how HTML, CSS, and JavaScript relate</li>
-						<li><i class="fa-li fab fa-chrome"></i>Identify the differences between JavaScript libraries and how they affect coding strategies</li>
-						<li><i class="fa-li fab fa-css3"></i>Compare and contrast the efficiency and coding of different sample JavaScript scripts</li>
-					</ul>
-				</div>
-			</div>
-			
-			<section>
-
-			<p>Why learn JavaScript, HTML, and CSS? Well, if you need to manipulate variables at a deeper level than can be done in a survey platform, you may want to do this yourself. You may want to learn how to code your own website. You may need to scrape a website or deal with a large amount of information from social media sites (e.g., studies that look at what people are tweeting). You may want to collect reaction time data in a more consistent manner than some other survey platforms do. Whatever the reason, you've now ended up here on the Module aimed at teaching basic skills for these languages that are the basis of world wide web pages.</p>
-			
-			<p>Of note, there are a LOT of additional resources for HTML, CSS, and JavaScript. Every time I look at Google on my phone, it knows that I've been writing about JavaScript, HTML, and CSS and suggests some article to that effect - there are entire communities that focus on creating packages and functionality within these languages. Here are some resources for you to peruse:
-			
-			<ul class="fa-ul">
-				<li><i class="fa-li fas fa-arrow-right"></i>Chapter 9 of <a href="https://crumplab.github.io/programmingforpsych/web-experiments.html" class="copy-link">Matthew Crump's "Programming for Psychologists"</a> goes over programming for Web Experiments and Chapter 8 goes over another site that helps generate source code for you to run online experiments.</li>
-				<li><i class="fa-li fas fa-arrow-right"></i>Code Academy has an <a href="https://www.codecademy.com/learn/introduction-to-javascript" class="copy-link">Introduction to JavaScript</a>.</li>
-				<li><i class="fa-li fas fa-arrow-right"></i>May I recommend yet another <a href="https://javascript.info/" class="copy-link">JavaScript tutorial</a> and <a href="https://www.youtube.com/watch?v=j59qQ7YWLxw" class="copy-link">set of videos oriented to giving you a project using JavasScript</a>? Similarly, there is an entire set of <a href="https://www.youtube.com/playlist?list=PLr6-GrHUlVf8JIgLcu3sHigvQjTw_aC9C" class="copy-link">video tutorials for beginners on CSS</a>, and an <a href="https://www.youtube.com/embed/w-kBRUXsuSQ?start=1&end=147" class="copy-link">intro to HTML and CSS video</a> for beginners in thinking about websites generally.</li>
-				<li><i class="fa-li fas fa-arrow-right"></i>W3Schools is your friend. Every time I forget a particular element for code, I search on Google for what I need, and the most frequent site that pops up with the answer is undoubtedly W3Schools. They have a tutorial on <a href="https://www.w3schools.com/html/default.asp" class="copy-link">HTML</a>, <a href="https://www.w3schools.com/css/default.asp" class="copy-link">CSS</a>, and <a href="https://www.w3schools.com/js/default.asp" class="copy-link">JavaScript</a>. The MDN Web Docs are also your friend: Mozilla has <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials" class="open-link">open-source resources on these languages</a> for web developers at all stages of expertise. Similarly, <a href="https://stackoverflow.com/" class="copy-link">StackOverflow</a> and <a href="https://stackexchange.com/" class="copy-link">StackExchange</a> are your friends when you're coding. Someone else has likely had the same issue you've had and posted their error to StackOverflow, where other kind folks will respond with crowdsourced solutions. Make sure to be specific in your Google Search for what you're looking for, and then you'll likely find a solution (unless you're doing something highly, highly specialized, like creating your own package or library).</li>
-				<li><i class="fa-li fas fa-arrow-right"></i>Raphael Geddert in the Egner Lab also compiled a list of resources on <a href="https://github.com/egnerlab/Lab-Manual/blob/master/Programming/JavaScript-HTML-CSS/README.md" class="copy-link">JavaScript, HTML, and CSS</a>; some are already listed here.</li>
-				<li><i class="fa-li fas fa-arrow-right"></i>If you're a Duke student, you can also access the <a href="https://www.coursera.org/learn/duke-programming-web" class="copy-link">"Programming Foundations with JavaScript, HTML, and CSS" coursera</a> and the co-lab <a href="https://colab.duke.edu/roots/track?id=3" class="copy-link">roots courses on the Web Development track</a>, which include courses on HTML and CSS.</li>
-			</ul>
-			
-			<p>This course differs from those resources in that we're taking an applied perspective. If you want to know the fundamentals from a computer science perspective, you may be better off looking through the coursera or going through the other tutorials that have a more of a strict programming lens. My perspective is that of an applied scientist: I understand what is going on with the code, and I am teaching you the basics and how people use the basics to create experiments. I will not comment on whether certain scripts have the "right" structure or formatting. In other words, I don't care if you get the right answer within 100 lines of code or 10: I care that you know what your code is doing and have checked and tested the code properly, but anything else will be beyond the scope of this course. Using 100 lines of code will of course take longer to load than 10, but with the tools you'll learn in bugging and testing, you can see whether your code formatting will pose an issue for the User Experience.</p>
-			
-			<p>Of course, one other question that you might have is whether you even need to code your experiment in JavaScript, HTML, and CSS. For example, if you have already coded your experiment in PsychoPy (a Python-based framework), you should check out <a href="https://pavlovia.org" class="copy-link">Pavlovia</a>, a tool to help convert your already existing code. Similarly, you may find that some of the experiments (within psychology) that you're looking for are already coded, via the <a href="https://github.com/expfactory/expfactory-experiments" class="copy-link">Expfactory Github</a>. But, if you're not among that group...</p>
-
-			<p>For the purpose of this module and writing code using JavaScript, HTML, and CSS, you will need a good text editor. Some options include: <a href="https://notepad-plus-plus.org/downloads/" class="copy-link">Notepad++</a>, <a href="https://atom.io/" class="copy-link">Atom</a>, <a href="http://brackets.io/" class="copy-link">Brackets</a>, and <a href="http://www.barebones.com/products/textwrangler/download.html" class="copy-link">Textwrangler</a>. (Undoubtedly, there are more, like <a href="https://www.sublimetext.com/" class="copy-link">Sublime</a>, but here is a small selection). I personally use Notepad++ because it has a very simple interface, and I like that when I'm coding. Atom has additional packages that can color each language (show when you're using HTML vs. JavaScript vs. CSS), auto-indent and oraganize your code, and link directly to Github, and to my knowledge, Textwrangler also does this. Brackets has that functionality, but also employs the ability to live test your HTML out, because it creates a local copy that can get published for a 'preview.' Moreover, Brackets employs a JavaScript library (that we'll go over in <a href="module4.html" class="copy-link">Module 4</a>) that checks your code for what it thinks are errors. Outside of Brackets, you can also preview what your code looks like using places like <a href="https://jsfiddle.net/" class="copy-link">JSFiddle</a> and <a href="https://codepen.io/" class="copy-link">CodePen</a>. So, the simplest option is Notepad++, then Atom or Textwrangler, and then Brackets. Once you've gotten your text editor program downloaded, then join me on the journey to get into the basics of these languages!</p>
-
-			</section>
-
-			<hr>
-
-			<section>
-			
-			<h2 id="subsec31" class="pad1">Basics of HTML, CSS, and JavaScript</h2>
-
-			<p>Okay, first, let's define what HTML, CSS, and JavaScript even are.</p>
-			
-			<p>HTML stands for Hyper Text Markup Language. As a Markup language, HTML will process certain "tags" (elements) that will communicate with the browser. All browsers can recognize HTML and have been designed to do so: HTML is is the foundation and structure of the content that you will see on websites. If you were to look at <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/module3.html" class="copy-link">the code for Module 3</a> - which we will do in more detail below - you would see a whole lot of HTML. HTML files naturally have the extension ".html". </p>
-			
-			<p>CSS stands for Cascading Style Sheet. It is a styling language, used primarily to impose display rules and properties on the HTML content of websites, changing their layout and look (e.g., the font-family used on a site, the color of links, display properties of buttons and text, etc.). In the sections below, we will also look at the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/css/allpages.css" class="copy-link">custom CSS sheet</a> used for this module. CSS files naturally have the extension ".css".</p>
-			
-			<p>Finally, JavaScript is a programming language that is primarily used to interact with the HTML - it runs on its own, runs computations, controls the behavior of the website, etc. At the bottom of this tutorial site, there is an up arrow colored in purple. When you click the up arrow, it will scroll you all the way back to the top of the site via JavaScript. It also uses an interactive element called a "tooltip" that will appear when you hover on the arrow, the hover being a "trigger event" that is dictated by JavaScript. JavaScript files have the extension ".js".</p>
+			<main>
+				<section>
+					<h1>Module 3: Customized Design with JavaScript, HTML, &amp; CSS</h1>
+					<div class="card">
+						<div class="card-header">Learning Goals</div>
+						<div class="card-body">
+							<ul class="fa-ul card-text">
+								<li><i class="fa-li fab fa-firefox"></i>Acquire basic Javascript skills for presenting randomized stimuli, debugging, and recording responses</li>
+								<li><i class="fa-li fab fa-html5"></i>Describe how HTML, CSS, and JavaScript relate</li>
+								<li><i class="fa-li fab fa-chrome"></i>Identify the differences between JavaScript libraries and how they affect coding strategies</li>
+								<li><i class="fa-li fab fa-css3"></i>Compare and contrast the efficiency and coding of different sample JavaScript scripts</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<p>Why learn JavaScript, HTML, and CSS? Well, if you need to manipulate variables at a deeper level than can be done in a survey platform, you may want to do this yourself. You may want to learn how to code your own website. You may need to scrape a website or deal with a large amount of information from social media sites (e.g., studies that look at what people are tweeting). You may want to collect reaction time data in a more consistent manner than some other survey platforms do. Whatever the reason, you've now ended up here on the Module aimed at teaching basic skills for these languages that are the basis of world wide web pages.</p>
 						
-			<p>So, now let's more fully explore how HTML provides the structure that is styled by CSS and that is guided by JavaScript.</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t1">Providing structure with HTML</h4></li></ul>
-			
-			<!--
-			I'm not sure how long these modules are, but I typically like starting with HTML/CSS building static websites. Maybe even a little assignment where they build a single-page personal website. Then moving on to JS, which you can teach as the tool for manipulating the HTML/CSS you see on the screen.
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
+						<p>Of note, there are a LOT of additional resources for HTML, CSS, and JavaScript. Every time I look at Google on my phone, it knows that I've been writing about JavaScript, HTML, and CSS and suggests some article to that effect - there are entire communities that focus on creating packages and functionality within these languages. Here are some resources for you to peruse:
+						
+						<ul class="fa-ul">
+							<li><i class="fa-li fas fa-arrow-right"></i>Chapter 9 of <a href="https://crumplab.github.io/programmingforpsych/web-experiments.html" class="copy-link">Matthew Crump's "Programming for Psychologists"</a> goes over programming for Web Experiments and Chapter 8 goes over another site that helps generate source code for you to run online experiments.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>Code Academy has an <a href="https://www.codecademy.com/learn/introduction-to-javascript" class="copy-link">Introduction to JavaScript</a>.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>May I recommend yet another <a href="https://javascript.info/" class="copy-link">JavaScript tutorial</a> and <a href="https://www.youtube.com/watch?v=j59qQ7YWLxw" class="copy-link">set of videos oriented to giving you a project using JavasScript</a>? Similarly, there is an entire set of <a href="https://www.youtube.com/playlist?list=PLr6-GrHUlVf8JIgLcu3sHigvQjTw_aC9C" class="copy-link">video tutorials for beginners on CSS</a>, and an <a href="https://www.youtube.com/embed/w-kBRUXsuSQ?start=1&end=147" class="copy-link">intro to HTML and CSS video</a> for beginners in thinking about websites generally.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>W3Schools is your friend. Every time I forget a particular element for code, I search on Google for what I need, and the most frequent site that pops up with the answer is undoubtedly W3Schools. They have a tutorial on <a href="https://www.w3schools.com/html/default.asp" class="copy-link">HTML</a>, <a href="https://www.w3schools.com/css/default.asp" class="copy-link">CSS</a>, and <a href="https://www.w3schools.com/js/default.asp" class="copy-link">JavaScript</a>. The MDN Web Docs are also your friend: Mozilla has <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials" class="open-link">open-source resources on these languages</a> for web developers at all stages of expertise. Similarly, <a href="https://stackoverflow.com/" class="copy-link">StackOverflow</a> and <a href="https://stackexchange.com/" class="copy-link">StackExchange</a> are your friends when you're coding. Someone else has likely had the same issue you've had and posted their error to StackOverflow, where other kind folks will respond with crowdsourced solutions. Make sure to be specific in your Google Search for what you're looking for, and then you'll likely find a solution (unless you're doing something highly, highly specialized, like creating your own package or library).</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>Raphael Geddert in the Egner Lab also compiled a list of resources on <a href="https://github.com/egnerlab/Lab-Manual/blob/master/Programming/JavaScript-HTML-CSS/README.md" class="copy-link">JavaScript, HTML, and CSS</a>; some are already listed here.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>If you're a Duke student, you can also access the <a href="https://www.coursera.org/learn/duke-programming-web" class="copy-link">"Programming Foundations with JavaScript, HTML, and CSS" coursera</a> and the co-lab <a href="https://colab.duke.edu/roots/track?id=3" class="copy-link">roots courses on the Web Development track</a>, which include courses on HTML and CSS.</li>
+						</ul>
+						
+						<p>This course differs from those resources in that we're taking an applied perspective. If you want to know the fundamentals from a computer science perspective, you may be better off looking through the coursera or going through the other tutorials that have a more of a strict programming lens. My perspective is that of an applied scientist: I understand what is going on with the code, and I am teaching you the basics and how people use the basics to create experiments. I will not comment on whether certain scripts have the "right" structure or formatting. In other words, I don't care if you get the right answer within 100 lines of code or 10: I care that you know what your code is doing and have checked and tested the code properly, but anything else will be beyond the scope of this course. Using 100 lines of code will of course take longer to load than 10, but with the tools you'll learn in bugging and testing, you can see whether your code formatting will pose an issue for the User Experience.</p>
+						
+						<p>Of course, one other question that you might have is whether you even need to code your experiment in JavaScript, HTML, and CSS. For example, if you have already coded your experiment in PsychoPy (a Python-based framework), you should check out <a href="https://pavlovia.org" class="copy-link">Pavlovia</a>, a tool to help convert your already existing code. Similarly, you may find that some of the experiments (within psychology) that you're looking for are already coded, via the <a href="https://github.com/expfactory/expfactory-experiments" class="copy-link">Expfactory Github</a>. But, if you're not among that group...</p>
 
-			<p>Now let's look at the basics of one of these subsections:</p>
-			
-			<div class="highlight"><pre><code class="language-html" data-lang="html">
-			&lt;ul class="fa-ul"&gt;&lt;li&gt;&lt;span class="fa-li"&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;/span&gt;&lt;h4 id="subsec31t1"&gt;Providing structure with HTML&lt;/h4&gt;&lt;/li&gt;&lt;/ul&gt;
-			</code></pre></div>
-			
-			<p>This is the code that creates the subsection/tutorial header "Providing structure with HTML". <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" class="copy-link">UL</a> stands for "unordered list" and is a type of HTML element used to create bullet-point lists. The class "fa-ul" is special, referring to the CSS package I load in from <a href="https://fontawesome.com/icons?d=gallery" class="copy-link">Font Awesome</a>, which has an entire library of free icons that people can use on their webpages. We will get to "classes" more <a href="#subsec31t2" class="copy-link">in the next subsection on CSS</a>, but this class is "fa-ul", indicating it's the Font Awesome Unordered List (class). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" class="copy-link">LI</a> stands for "list item" and is often a bullet point within the "UL". Notably, you can also have "ordered lists" or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" class="copy-link">OL</a> (e.g., 1, 2, 3, 4, etc.) and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" class="copy-link">menus</a> (<code class="language-html" data-lang="html" style="color:black">&lt;menu&gt;</code>), which are also composed of LI elements. Next up in the header code is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" class="copy-link">"span"</a>, which doesn't necessarily stand for anything, but is often used to group together elements for styling in a particular line. (In this case, we're saying that the span element is of the "fa-li" class, or Font Awesome List Item (class); one thing to note here is that it's important to be able to read and mark other code, and the Font Awesome folks have made that possible: anything that is fa- or fas/fab is likely a Font Awesome styled element). So, after specifying the styling for the list element via the span element and its class, we use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="copy-link">"i" element</a>, or idiomatic text element, which here is of the Font Awesome Solid and Font Awesome Star (classes), i.e., the star icon that you see next to the header. Essentially, I wanted to use a marker besides the indent that I have set (in CSS) for the header classes and thus created star bullet points to indicate each new subsection. After styling, we see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">"h4" element</a>, which stands for the 4th header element. There are h1, h2, h3, h4, h5, and h6 header elements, and they differ in designation, with 1 being the highest section level and 6 the lowest (often shown in differing sizes). On this site, I use the h1 element for the Module Title, the h2 element for each Section Title (e.g., <a href="#subsec31" class="copy-link">Basics of JavaScript, HTML, and CSS</a>), and the h4 element for any subsection/tutorial. It is particularly important to follow a sort of hierarchical designation as a means of ensuring accessibility: screen readers rely on sites being designated in a hierarchical fashion, with headers indicated by these h elements, sections indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section elements</a>, navigation links indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">nav elements</a>, and paragraph elements like this text being indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" class="copy-link">p elements</a>. We put the header as part of the LI element and UL list to make sure that they're aligned at the same level (otherwise the code will not group together the elements).</p>
-			
-			<p>And voila! That is one line of code within this particular site.</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t2">Designing with CSS</h4></li></ul>
+						<p>For the purpose of this module and writing code using JavaScript, HTML, and CSS, you will need a good text editor. Some options include: <a href="https://notepad-plus-plus.org/downloads/" class="copy-link">Notepad++</a>, <a href="https://atom.io/" class="copy-link">Atom</a>, <a href="http://brackets.io/" class="copy-link">Brackets</a>, and <a href="http://www.barebones.com/products/textwrangler/download.html" class="copy-link">Textwrangler</a>. (Undoubtedly, there are more, like <a href="https://www.sublimetext.com/" class="copy-link">Sublime</a>, but here is a small selection). I personally use Notepad++ because it has a very simple interface, and I like that when I'm coding. Atom has additional packages that can color each language (show when you're using HTML vs. JavaScript vs. CSS), auto-indent and oraganize your code, and link directly to Github, and to my knowledge, Textwrangler also does this. Brackets has that functionality, but also employs the ability to live test your HTML out, because it creates a local copy that can get published for a 'preview.' Moreover, Brackets employs a JavaScript library (that we'll go over in <a href="module4.html" class="copy-link">Module 4</a>) that checks your code for what it thinks are errors. Outside of Brackets, you can also preview what your code looks like using places like <a href="https://jsfiddle.net/" class="copy-link">JSFiddle</a> and <a href="https://codepen.io/" class="copy-link">CodePen</a>. So, the simplest option is Notepad++, then Atom or Textwrangler, and then Brackets. Once you've gotten your text editor program downloaded, then join me on the journey to get into the basics of these languages!</p>
+					</div>
+				</section>
+				<hr>
+				<section>
+					<h2 id="subsec31" class="pad1">Basics of HTML, CSS, and JavaScript</h2>
+					<div>
+						<p>Okay, first, let's define what HTML, CSS, and JavaScript even are.</p>
+						
+						<p>HTML stands for Hyper Text Markup Language. As a Markup language, HTML will process certain "tags" (elements) that will communicate with the browser. All browsers can recognize HTML and have been designed to do so: HTML is is the foundation and structure of the content that you will see on websites. If you were to look at <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/module3.html" class="copy-link">the code for Module 3</a> - which we will do in more detail below - you would see a whole lot of HTML. HTML files naturally have the extension ".html". </p>
+						
+						<p>CSS stands for Cascading Style Sheet. It is a styling language, used primarily to impose display rules and properties on the HTML content of websites, changing their layout and look (e.g., the font-family used on a site, the color of links, display properties of buttons and text, etc.). In the sections below, we will also look at the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/css/allpages.css" class="copy-link">custom CSS sheet</a> used for this module. CSS files naturally have the extension ".css".</p>
+						
+						<p>Finally, JavaScript is a programming language that is primarily used to interact with the HTML - it runs on its own, runs computations, controls the behavior of the website, etc. At the bottom of this tutorial site, there is an up arrow colored in purple. When you click the up arrow, it will scroll you all the way back to the top of the site via JavaScript. It also uses an interactive element called a "tooltip" that will appear when you hover on the arrow, the hover being a "trigger event" that is dictated by JavaScript. JavaScript files have the extension ".js".</p>
+									
+						<p>So, now let's more fully explore how HTML provides the structure that is styled by CSS and that is guided by JavaScript.</p>
+					</div>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t1">Providing structure with HTML</h4></li></ul>
+					<div>
+						<!--
+						I'm not sure how long these modules are, but I typically like starting with HTML/CSS building static websites. Maybe even a little assignment where they build a single-page personal website. Then moving on to JS, which you can teach as the tool for manipulating the HTML/CSS you see on the screen.
+						-->
+						
+						<p>As a markup language, HTML renders its tags with the carrot icons: < and >.  </p>
+						
+						<p>The basics of most HTML files are as follows:</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
 
-			<!--
-			Can’t discuss JavaScript without mentioning HTML & CSS. Can use actual github website code as the framework for this particular discussion. Also use the HTML editor within Qualtrics as an example.
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t3">JavaScript basics</h4></li></ul>
+						<p>Now let's look at the basics of one of these subsections:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;ul class="fa-ul"&gt;&lt;li&gt;&lt;span class="fa-li"&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;/span&gt;&lt;h4 id="subsec31t1"&gt;Providing structure with HTML&lt;/h4&gt;&lt;/li&gt;&lt;/ul&gt;
+						</code></pre></div>
+						
+						<p>This is the code that creates the subsection/tutorial header "Providing structure with HTML". <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" class="copy-link">UL</a> stands for "unordered list" and is a type of HTML element used to create bullet-point lists. The class "fa-ul" is special, referring to the CSS package I load in from <a href="https://fontawesome.com/icons?d=gallery" class="copy-link">Font Awesome</a>, which has an entire library of free icons that people can use on their webpages. We will get to "classes" more <a href="#subsec31t2" class="copy-link">in the next subsection on CSS</a>, but this class is "fa-ul", indicating it's the Font Awesome Unordered List (class). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" class="copy-link">LI</a> stands for "list item" and is often a bullet point within the "UL". Notably, you can also have "ordered lists" or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" class="copy-link">OL</a> (e.g., 1, 2, 3, 4, etc.) and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" class="copy-link">menus</a> (<code class="language-html" data-lang="html" style="color:black">&lt;menu&gt;</code>), which are also composed of LI elements. Next up in the header code is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" class="copy-link">"span"</a>, which doesn't necessarily stand for anything, but is often used to group together elements for styling in a particular line. (In this case, we're saying that the span element is of the "fa-li" class, or Font Awesome List Item (class); one thing to note here is that it's important to be able to read and mark other code, and the Font Awesome folks have made that possible: anything that is fa- or fas/fab is likely a Font Awesome styled element). So, after specifying the styling for the list element via the span element and its class, we use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="copy-link">"i" element</a>, or idiomatic text element, which here is of the Font Awesome Solid and Font Awesome Star (classes), i.e., the star icon that you see next to the header. Essentially, I wanted to use a marker besides the indent that I have set (in CSS) for the header classes and thus created star bullet points to indicate each new subsection. After styling, we see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">"h4" element</a>, which stands for the 4th header element. There are h1, h2, h3, h4, h5, and h6 header elements, and they differ in designation, with 1 being the highest section level and 6 the lowest (often shown in differing sizes). On this site, I use the h1 element for the Module Title, the h2 element for each Section Title (e.g., <a href="#subsec31" class="copy-link">Basics of JavaScript, HTML, and CSS</a>), and the h4 element for any subsection/tutorial. It is particularly important to follow a sort of hierarchical designation as a means of ensuring accessibility: screen readers rely on sites being designated in a hierarchical fashion, with headers indicated by these h elements, sections indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section elements</a>, navigation links indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">nav elements</a>, and paragraph elements like this text being indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" class="copy-link">p elements</a>. We put the header as part of the LI element and UL list to make sure that they're aligned at the same level (otherwise the code will not group together the elements).</p>
+						
+						<p>And voila! That is one line of code within this particular site.</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t2">Designing with CSS</h4></li></ul>
+					<div>
+						<!--
+						Can’t discuss JavaScript without mentioning HTML & CSS. Can use actual github website code as the framework for this particular discussion. Also use the HTML editor within Qualtrics as an example.
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t3">JavaScript basics</h4></li></ul>
+					<div>
+						<!--
+						What does a JavaScript task look like, go over document ready function and can describe some of the HTML tweaks more closely that are mentioned above in caveats and tweaks
+						Also mention “good principles” for coding here, like define global then local variables, etc.
+						
+						<p>There are a number of tools that you can use. As listed in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">Kochari et al. (2019)</a>:</p>
+						
+						<table>
+							<tr>
+								<td>Name</td>
+								<td>Website</td>
+								<td>Free</td>
+								<td>Graphical interface</td>
+								<td>Introduction paper</td>
+							</tr>
+							<tr>
+								<td>jsPsych</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>lab.js</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>PsychoPy/PsychoJS</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>PsyToolkit</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Gorilla</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>LabVanced</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+						
+						<p> There is also ....</p>
 
-			<!--
-			What does a JavaScript task look like, go over document ready function and can describe some of the HTML tweaks more closely that are mentioned above in caveats and tweaks
-			Also mention “good principles” for coding here, like define global then local variables, etc.
-			
-			<p>There are a number of tools that you can use. As listed in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">Kochari et al. (2019)</a>:</p>
-			
-			<table>
-				<tr>
-					<td>Name</td>
-					<td>Website</td>
-					<td>Free</td>
-					<td>Graphical interface</td>
-					<td>Introduction paper</td>
-				</tr>
-				<tr>
-					<td>jsPsych</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>lab.js</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>PsychoPy/PsychoJS</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>PsyToolkit</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Gorilla</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>LabVanced</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-			
-			<p> There is also ....</p>
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<hr>	
+				<section>
+					<h2 id="subsec32" class="pad1">Experimental Tutorials</h2>
+					<div>
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t1">Basic JavaScript functions</h4></li></ul>
+					<div>
+						<!--
+						Go over some basic functionality within JavaScript
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
 
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t2">Presenting Stimuli</h4></li></ul>
+					<div>
+						<!--
+						Presenting in HTML and JavasScript, how to customize w/ CSS, images and words, clearing the screen, defining the canvas, etc.
+						I do like your progression:
+						1. How do you build a static website?
+						2. How do you manipulate that website with JS? e.g. how would you display a series of words one at a time?
+						3. How do you record responses?
+						4. How do you store data?
 
-			</section>
-			
-			<hr>
-			
-			<section>
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t3">Recording Responses</h4></li></ul>
+					<div>
+						<!--
+						Listener events within JavaScript - detecting a key press, detecting a mouse click
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t4">Randomization</h4></li></ul>
+					<div>
+						<!--
+						How to randomize arrays for stimulus sequences
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t5">Debugging</h4></li></ul>
+					<div>
+						<!--
+						How do I debug my task code, Brackets is good for HTML as an editor program
+						https://eslint.org/
 
-			<h2 id="subsec32" class="pad1">Experimental Tutorials</h2>
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t6">Differences between JavaScript libraries</h4></li></ul>
+					<div>
+						<!--
+						Discuss differences with JsPsych & jQuery & how most of the videos this week are using jQuery; do you have to use a JavaScript library?
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>	
+				<hr>
+				<section>
+					<h2 id="subsec33" class="pad1">Demos and Scripts</h2>
+					<div>
+						<p>...</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t1">Basic Stroop task demo</h4></li></ul>
+					<div>
+						<!--
+						Go over basic demonstration of how to code a Stroop task (here’s Jiefeng’s workshop code - compare Nick’s with mine)
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
 
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t1">Basic JavaScript functions</h4></li></ul>
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t2">How does Qualtrics use JavaScript, HTML, CSS?</h4></li></ul>
+					<div>
+						<!--
+						Can connect to module 2 by discussing more about Qualtrics’s use of JS/HTML/CSS
+			https://www.qualtrics.com/community/discussion/1795/images-from-library-in-loop-and-merge-fields
+			making the user experience a little better with javascript tweaks. for example, you can customize the words on the 'next' button on individual pages to say stuff like "proceed to experiment" or "view consent" to cue people. or if you have a text box, you can put dummy text in it that disappears when you click on it that provides an example of the type of response you're thinking of - I would describe this as thinking with an `ux copy` mind for experiments
 
-			<!--
-			Go over some basic functionality within JavaScript
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t4">How does MTurk use JavaScript, HTML, CSS?</h4></li></ul>
+					<div>
+						<!--
+						Connect back to module 1 and editing the HIT page
+						
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t5">Going over a script, Part I</h4></li></ul>
+					<div>
+						<!--
+						Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t6">Going over a script, Part II</h4></li></ul>
+					<div>
+						<!--
+						Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
+						-->
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t7">Applied Exercises</h4></li></ul>
+					<div>
+						<p>If you want to "explore" on your own, let me suggest opening the JavaScript Developer Console on this site. Then edit whatever HTML you'd like and see what happens - live - to the site itself. What does each CSS styling correspond to? What does each element correspond to? What happens if you add more JavaScript to the site? One of the best ways to learn how to code is to take something that already exists and mess with it until you see what your changes do. Then you'll have a framework to work with when you are coding on your own.</p>
+						
+						<p>Find one of your favorite websites and open the Developer console. For example, why not take a look at the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" class="copy-link">Mozilla Developer site for HTML</a>? It's beautifully styled, with a clear hierarchy of information and tables to define particular elements. You can learn more about all the possible HTML elements while looking at how they've coded the structure of the site and how their CSS has styled the site with an almost magazine-like modern, clean look. Poke around and see how they've defined everything.</p>
+					</div>
+				</section>	
+				<hr>	
+				<section>
+					<h2 id="testyourself" class="pad1">Test Yourself:</h2>
+					<!--from: https://codepen.io/teachtyler/pen/raEprM -->
+					<div id="quiz mainfont">
+					  <button id="submit-button mainfont">Submit Answers</button>
+					  <button id="next-question-button mainfont">Next Question</button>
+					  <button id="prev-question-button mainfont">Previous</button>
 
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t2">Presenting Stimuli</h4></li></ul>
+					  <div id="quiz-results mainfont">
 
-			<!--
-			Presenting in HTML and JavasScript, how to customize w/ CSS, images and words, clearing the screen, defining the canvas, etc.
-			I do like your progression:
-			1. How do you build a static website?
-			2. How do you manipulate that website with JS? e.g. how would you display a series of words one at a time?
-			3. How do you record responses?
-			4. How do you store data?
+						<p id="quiz-results-message mainfont"></p>
+						<p id="quiz-results-score mainfont"></p>
+						<button id="quiz-retry-button mainfont">Retry</button>
 
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t3">Recording Responses</h4></li></ul>
-			<!--
-			Listener events within JavaScript - detecting a key press, detecting a mouse click
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t4">Randomization</h4></li></ul>
-
-			<!--
-			How to randomize arrays for stimulus sequences
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t5">Debugging</h4></li></ul>
-
-			<!--
-			How do I debug my task code, Brackets is good for HTML as an editor program
-			https://eslint.org/
-
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t6">Differences between JavaScript libraries</h4></li></ul>
-
-			<!--
-			Discuss differences with JsPsych & jQuery & how most of the videos this week are using jQuery; do you have to use a JavaScript library?
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			</section>
-			
-			<hr>
-			
-			<section>
-			
-			<h2 id="subsec33" class="pad1">Demos and Scripts</h2>
-			
-			<p>...</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t1">Basic Stroop task demo</h4></li></ul>
-
-			<!--
-			Go over basic demonstration of how to code a Stroop task (here’s Jiefeng’s workshop code - compare Nick’s with mine)
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t2">How does Qualtrics use JavaScript, HTML, CSS?</h4></li></ul>
-
-			<!--
-			Can connect to module 2 by discussing more about Qualtrics’s use of JS/HTML/CSS
-https://www.qualtrics.com/community/discussion/1795/images-from-library-in-loop-and-merge-fields
-making the user experience a little better with javascript tweaks. for example, you can customize the words on the 'next' button on individual pages to say stuff like "proceed to experiment" or "view consent" to cue people. or if you have a text box, you can put dummy text in it that disappears when you click on it that provides an example of the type of response you're thinking of - I would describe this as thinking with an `ux copy` mind for experiments
-
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t4">How does MTurk use JavaScript, HTML, CSS?</h4></li></ul>
-
-			<!--
-			Connect back to module 1 and editing the HIT page
-			
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t5">Going over a script, Part I</h4></li></ul>
-
-			<!--
-			Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t6">Going over a script, Part II</h4></li></ul>
-
-			<!--
-			Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
-			-->
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<p>....</p>
-			
-			<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t7">Applied Exercises</h4></li></ul>
-			
-			<p>If you want to "explore" on your own, let me suggest opening the JavaScript Developer Console on this site. Then edit whatever HTML you'd like and see what happens - live - to the site itself. What does each CSS styling correspond to? What does each element correspond to? What happens if you add more JavaScript to the site? One of the best ways to learn how to code is to take something that already exists and mess with it until you see what your changes do. Then you'll have a framework to work with when you are coding on your own.</p>
-			
-			<p> </p>
-			
-			</section>
-			
-			<hr>
-			
-			<section>
-			
-			<h2 id="testyourself" class="pad1">Test Yourself:</h2>
-			
-            <!--from: https://codepen.io/teachtyler/pen/raEprM -->
-			<div id="quiz mainfont">
-              <button id="submit-button mainfont">Submit Answers</button>
-              <button id="next-question-button mainfont">Next Question</button>
-              <button id="prev-question-button mainfont">Previous</button>
-
-              <div id="quiz-results mainfont">
-
-                <p id="quiz-results-message mainfont"></p>
-                <p id="quiz-results-score mainfont"></p>
-                <button id="quiz-retry-button mainfont">Retry</button>
-
-              </div>
-            </div>
-			
-			<h2 id="assignments" class="pad1">Continue Learning:</h2>
-	
-			<ul class="fa-ul">
-				<li><i class="fa-li fab fa-firefox"></i>Program a basic task that I give a description of, w/ four trials. Can have a sample version of this, like a task-switching experiment.</li>
-				<li><i class="fa-li fab fa-html5"></i>Program a basic version of whatever task you’re doing, with say four trials. No need for randomization, just build the stimuli matrices, timelines or callbacks, etc.</li>
-				<li><i class="fa-li fab fa-chrome"></i>Program an experiment that displays images, program an experiment that displays text, and program a survey-style study.<li>
-				<li><i class="fa-li fab fa-css3"></i>Read through [instructor link/name of code], figure out what each line of code is doing, and comment the script. Check your comments against this other explanation script.</li>
-			</ul>
-
-			<div class="scrollstyle mainfont pad1" id="top-scroll" aria-labelledby="scroll-to-top">
-				<a class="copy-link" href="#top" rel="tooltip" data-toggle="tooltip" aria-labelledby="tooltip" data-placement="left" title="Scroll to top">
-					<i class="fas fa-angle-up fa-3x"></i>
-				</a>
-			</div>
-			<div class="row pad-l1 pad-b75 pad-t75"></div>
-			
-			</section>
+					  </div>
+					</div>
+				</section>
+				<section>
+					<h2 id="assignments" class="pad1">Continue Learning:</h2>
+					<div>
+						<ul class="fa-ul">
+							<li><i class="fa-li fab fa-firefox"></i>Program a basic task that I give a description of, w/ four trials. Can have a sample version of this, like a task-switching experiment.</li>
+							<li><i class="fa-li fab fa-html5"></i>Program a basic version of whatever task you’re doing, with say four trials. No need for randomization, just build the stimuli matrices, timelines or callbacks, etc.</li>
+							<li><i class="fa-li fab fa-chrome"></i>Program an experiment that displays images, program an experiment that displays text, and program a survey-style study.<li>
+							<li><i class="fa-li fab fa-css3"></i>Read through [instructor link/name of code], figure out what each line of code is doing, and comment the script. Check your comments against this other explanation script.</li>
+						</ul>
+					</div>
+					<div class="scrollstyle mainfont pad1" id="top-scroll" aria-labelledby="scroll-to-top">
+						<a class="copy-link" href="#top" rel="tooltip" data-toggle="tooltip" aria-labelledby="tooltip" data-placement="left" title="Scroll to top">
+							<i class="fas fa-angle-up fa-3x"></i>
+						</a>
+					</div>
+					<div class="row pad-l1 pad-b75 pad-t75"></div>				
+				</section>
 			</main>
 		</div>
 	</div>	
