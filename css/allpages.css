@@ -1,6 +1,12 @@
 /*font styling - headers serif, regular sans serif*/
 h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}
-p, .mainfont {font-family: "Open Sans";  color: #262626;}
+p, .mainfont, code, pre {font-family: "Open Sans";  color: #262626;}
+
+/*code blocks*/
+code,pre{background-color:#E5E5E5}
+code{-webkit-box-decoration-break:clone;box-decoration-break:clone;word-wrap:break-word}
+code[class*=language-],pre[class*=language-]{-moz-tab-size:1.5;tab-size:1.5;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none; background-color:#E5E5E5; color: #012169; font-weight: bold; }
+pre{border-left: thick solid #012169;}
 
 /*font awesome icon styling, plus blockquote, line beneath headers, and scroll to top button*/
 .fas, .fab {color: #993399;}
@@ -73,27 +79,8 @@ body {padding-top: 56px; overflow:auto;}
 #sidebar-container .list-group .sidebar-submenu a {padding-left: 30px;}
 .sidebar-submenu {font-size: 0.9rem;}
 
-/* Submenu links that turn to underline when you scroll to that section*/
-#sidebar-container .anchor.active, #sidebar-container .anchor:active, #sidebar-container .anchor:link, #sidebar-container .anchor:hover, #sidebar-container .anchor:focus{border-bottom: 1px #993399 solid;}
-
-/* restricting the size of particular images */
-/* img[alt*="mturkinterface"] {height:25vh; } 
-img[alt*="mturkworkers"] {height:50vh; }
-img[alt*="mturkpayments"] {height:50vh; }
-img[alt*="mturkqualifications"] {height:50vh; }
-img[alt*="mturkprojects"] {height:50vh; }
-img[alt*="mturkcreate"] {height:35vh; }
-img[alt*="mturkbatches"] {height:50vh; }
-img[alt*="mturkprojects_part1"] {height:35vh; }
-img[alt*="mturkprojects_part2"] {height:35vh; }
-img[alt*="mturkprojects_part3"] {height:25vh; }
-img[alt*="mturkprojects_part4"] {height:40vh; }
-img[alt*="mturkprojects_part5"] {height:40vh; }
-img[alt*="mturkprojects_part6"] {height:40vh; }
-img[alt*="mturkqualifications3"] {height:40vh; }
-img[alt*="mturkqualifications6"] {height:40vh; }
-img[alt*="mturkqualifications7"] {height:40vh; }
-img[alt*="qualtricsquestions0"] {height:40vh; }*/
+/* restricting the size of particular images - example */
+/* img[alt*="mturkinterface"] {height:25vh; } */
 
 /* styling the quizzes */
 #quiz {
