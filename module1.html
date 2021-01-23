@@ -431,7 +431,8 @@
 								"requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
 							}
 						})();
-						&lt;/script&gt; </code></pre></div>
+						&lt;/script&gt; 
+						</code></pre></div>
 						
 						<p>This code essentially looks for the worker and if they already exist/have already done the study associated with your unique identifier, then the HIT page will not be shown to them; it will show only the message about returning the HIT. This code would be most effective for when you start a study. The creator suggests that you use Qualifications, but I like to use a combination of Qualifications, excluding workers within my own code, and adding this code to the HIT page. Both excluding workers within your own code or survey and Qualifications rely on what data you receive via MTurk - that is, they exclude folks who've only submitted the HIT. Because the Unique Turker code is on the HIT page, it's possible you have folks who accept a HIT but then don't submit any data, and they could be told they've already participated. In short, it catches some of the attrition folks in a way that only relying on submission does not.</p>
 						
