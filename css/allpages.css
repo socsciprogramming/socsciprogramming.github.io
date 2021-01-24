@@ -10,6 +10,7 @@ pre{border-left: thick solid #012169;}
 
 /*font awesome icon styling, plus blockquote, line beneath headers, and scroll to top button*/
 .fas, .fab {color: #993399;}
+.fa-bars{color: #E5E5E5;}
 .scrollstyle {padding-top: 2rem; float: right;}
 hr{background: #E5E5E5; top: 20px; border: none; height: 12px; margin-bottom: none; margin-top: none;}
 #googleForm {text-align: center; height: 100vh;}
