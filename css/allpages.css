@@ -106,11 +106,13 @@ body {padding-top: 56px; overflow:auto;}
 }
 .compsci {
     background-color: rgba(153, 51, 153, 0.7);
-    transform: translate(35%, -130%);
+    transform: translate(35%, -135%);
+    position: absolute;
 }
 .researchmethod {
     background-color: rgba(102, 102, 102, 0.7);
-    transform: translate(100%, -230%);
+    transform: translate(100%, -135%);
+    position: absolute;
 }
 
 /* styling the quizzes */
