@@ -201,11 +201,7 @@
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t1">Providing structure and content with HTML</h4></li></ul>
 					<div>
-						<!--
-						I'm not sure how long these modules are, but I typically like starting with HTML/CSS building static websites. Maybe even a little assignment where they build a single-page personal website. Then moving on to JS, which you can teach as the tool for manipulating the HTML/CSS you see on the screen.
-						-->
-						
-						<p>As a markup language, HTML is made of elements that are composed of opening and closing tags marked by these carrot keypresses: < and >.  In both the opening and closing tag, you'll wrap the name of the element (p for paragraph text, b for bold text, etc.) in these opening and closing carrot keypresses (or angle brackets), marking both where the element starts and ends. In short, an HTML element is the opening tag (<code>&lt;p&gt;</code>) + content (paragraph (p) text here!) + closing tag <code>&lt;/p&gt;</code>. Note that the closing tag is almost exactly like the opening tag, but includes a forward slash to indicte the end of the tag (and element).</p>
+						<p>As a markup language, HTML is made of elements that are composed of opening and closing tags marked by these carrot keypresses: < and >.  In both the opening and closing tag, you'll wrap the name of the element (p for paragraph text, b for bold text, etc.) in these opening and closing carrot keypresses (or angle brackets), marking both where the element starts and ends. In short, an HTML element is the opening tag (<code>&lt;p&gt;</code>) + content (paragraph (p) text here!) + closing tag (<code>&lt;/p&gt;</code>). Note that the closing tag is almost exactly like the opening tag, but includes a forward slash to indicte the end of the tag (and element).</p>
 
 						<p>If you only have an opening tag or only have a closing tag, your stuff may go haywire. For example, I sometimes forget to include a closing tag when I'm linking off site, and because of the styling rules on this site, all the text then turns purple or blue to indicate a link. That is, I broke the syntax of HTML by not including a closing tag, and the HTML tag will assume that the rest of the content is a part of the element until it reaches the next closing tag. Here's what this paragraph looks like in the code!</p>
 
@@ -213,133 +209,170 @@
 						&lt;p&gt; If you only have an opening tag or only have a closing tag, your stuff may go haywire. For example, I sometimes forget to include a closing tag when I'm linking off site, and because of the styling rules on this site, all the text then turns purple or blue to indicate a link. That is, I broke the syntax of HTML by not including a closing tag, and the HTML tag will assume that the rest of the content is a part of the element until it reaches the next closing tag. Here's what this paragraph looks like in the code! &lt;/p&gt;
 						</code></pre></div>						
 						
+						<p>Despite what I said about breaking HTML syntax, note that tags are case-insensitive, meaning that you can spell a tag like <code>&lt;span&gt;</code> or <code>&lt;SPAN&gt;</code> or <code>&lt;Span&gt;</code> or <code>&lt;SpAn&gt;</code>, etc. However, most folks use all lower-case for tags: this is what's consistent in other code and it's just more readable - all caps looks like you're shouting, and a mix of upper and lower case is confusing.</p>
+						
 						<p>You can place elements within other elements, otherwise known as nesting. I can <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" class="copy-link">create a hyperlink</a> to another site with an "a" tag within a paragraph text element. You're probably most familiar with nested elements with respect to <b>bolding</b>, <i>italicizing</i>, <em>emphasizing</em>, <u>underlining</u>, or <s>striking through</s> text.</p>
 
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;p&gt; You can place elements within other elements, otherwise known as nesting. I can &lt;a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" class="copy-link"&gt; create a hyperlink&lt;/a&gt; to another site with an "a" tag within a paragraph text element. You're probably most familiar with nested elements with respect to &lt;b&gt;bolding&lt;/b&gt;, &lt;i&gt;italicizing&lt;/i&gt;, &lt;em&gt;emphasizing&lt;/em&gt;, &lt;u&gt;underlining&lt;/u&gt;, or &lt;s&gt;striking through&lt;/s&gt; text. &lt;/p&gt;
 						</code></pre></div>
 						
-<!--						<p>It'd be impractical to go over all the <a href="https://html.spec.whatwg.org/multipage/indices.html#elements-3" class="copy-link">HTML elements</a>. Here's where to put.. </p> 
+						<p>It'd be impractical to go over all the <a href="https://html.spec.whatwg.org/multipage/indices.html#elements-3" class="copy-link">HTML elements</a>. To this day, I sometimes will still look up details of an HTML tag because it's hard keeping track of all the different details of each programming language you learn. Don't feel bad about Googling.</p>
 
-						<p>Every HTML is 
+						<p>OK, so now you know the basic syntax of HTML. What is each element like?</p>
+
+						<p>Each HTML element is contained within a box. We already talked about nesting elements - this nesting can actually create what's known as a <a href="https://www.w3schools.com/js/js_htmldom_navigation.asp" class="copy-link">parent-child relationship</a>. For example, the bold, italics, etc. tags are children of the (parent) paragraph tag in the previous code block, and you can extrapolate that relationship to most of the structure provided by HTML. Within the boxes for each HTML element, you can create space within the box (padding, border) or outside the box (margin). <a href="https://www.w3schools.com/css/css_boxmodel.asp" class="copy-link">See the following model - the code for which I took from W3 schools</a>.</p>
 						
-						Every element in HTML is contained inside a box.
+						<div class="w3-boxmodel mainfont">
+							<div class="margin">
+							  <div class="border">
+								<div class="padding">
+								  <div class="content"></div>
+								 </div>
+							  </div>
+							</div>
+						</div>
 
-Boxes can be nested inside of other boxes creating a parent-child relationship
-between the boxes.
+						<style>
+							.w3-boxmodel {margin: 30px 0;}
+							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; position: relative; border: 2px dashed #bbb;}
+							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; top: 1.8%; width: 100%; text-align: center;}
+							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; position: relative;}
+							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; left: 0; top: 2.5%; width: 100%; text-align: center;}
+							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: relative; background: #E5E5E5;}
+							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; left: 0.5%; top:3.7%; width: 100%; text-align: center;}
+							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; background: white; border: 2px dashed #bbb;}
+							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; text-align: center; line-height: 3.5;}
 
-Space can be created within the box (padding) and outside the box (margin).
+							@media screen and (max-width: 450px) {
+							.w3-boxmodel .margin {padding: 35px;}
+							.w3-boxmodel .margin:before {font-size: 1em; left: 0; top: 2.5%;}
+							.w3-boxmodel .border {padding: 35px;}
+							.w3-boxmodel .border:before {font-size: 1em; left: 0; top: 3.2%;}
+							.w3-boxmodel .padding {padding: 35px;}
+							.w3-boxmodel .padding:before {font-size: 1em; left: 0.5%; top:4.5%;}
+							.w3-boxmodel .content {padding: 20px;}
+							.w3-boxmodel .content:before {font-size: 1em;}
+							}
 
-[show image of margin, border, padding]
+							@media screen and (max-width: 360px) {
+							.w3-boxmodel .margin {padding: 25px;}
+							.w3-boxmodel .margin:before {font-size: 0.9em; left: 0; top: 1.5%;}
+							.w3-boxmodel .border {padding: 25px;}
+							.w3-boxmodel .border:before {font-size: 0.9em; left: 0; top: 2.2%;}
+							.w3-boxmodel .padding {padding: 25px;}
+							.w3-boxmodel .padding:before {font-size: 0.9em; left: 0.5%; top:2.5%;}
+							.w3-boxmodel .content {padding: 15px;}
+							.w3-boxmodel .content:before {font-size: 0.9em;}
+							}
+						</style>
 
-						<p> </p>
+						<p>Margin, border, and padding can be modified on all axes - left, right, top, and bottom. One example of this very box model concept is demonstrated in these code blocks. Which do you think was modified to get the background to be fully grey, and which do you think was modified for the left aligned blue line? Can you see how these will be useful for you when coding an experiment? Of note, previously I mentioned that while designing this site, I recognized I had put a lot of text on one page, so I tried to compensate by... increasing the top and bottom padding for the paragraph (p) elements!</p>
 						
-						DISPLAYS
-
-HTML elements are also given default displays which dictate their behavior in
-relation to other elements.
-
-Display Block forces the element’s box to take on 100% of the width of the
-available space.
-
-Most Display Inline elements ignore all width and height styling and display
-inline with their other Inline surroundings.
-
-The block versus inline elements of HTML discussion & how that's changed
-
-https://html.spec.whatwg.org/multipage/indices.html#element-content-categories
+						<p>One other distinction that can be made about HTML elements refers to their default display. Are they considered block-level or inline elements? A typical inline element is contained within a block-level element, being a part of a line rather than causing a new line to appear (e.g., bolding text, creating hyperlinks). A block-level element is one that can create a new line and is often a structural element, like the paragraph text (p) element, headers, etc. You can still nest block-level elements, but they'd only be nested within more block-level elements (like all the p tags that are all nested here within the main text of this webpage!). Notably, <a href="https://html.spec.whatwg.org/multipage/indices.html#element-content-categories" class="copy-link">recent updates to HTML</a> suggest this kind of distinction may not survive future iterations/edits, but it's useful for now.</p>
 						
-						<p>Some HTML tags don't involve a closing tag. These are special cases, called <a href="https://developer.mozilla.org/en-US/docs/Glossary/Empty_element" class="copy-link">Empty Elements</a>.  </p>
+						<p>Remember how we established the basic syntax of HTML as opening tag + content + closing tag? Well, some HTML tags don't <em>need</em> a closing tag. These are special cases, called <a href="https://developer.mozilla.org/en-US/docs/Glossary/Empty_element" class="copy-link">Empty/Void Elements</a>. They often involve defining certain information associated with the webpage or embedding information. For example, here are some (but not all of the possible) Empty Elements...</p>
 						
-						<meta>
-						<img>
-						<link>
-						<hr>
+						<p><code>&lt;meta&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;hr&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;col&gt;</code>, <code>&lt;base&gt;</code></p>
+						
+						<p>Some of these you've actually already seen used here, like the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr" class="copy-link">hr (Horizontal Rule) element</a>, which forms the thick grey line that I use to separate between Module sections. Images? You've already seen a number of images loaded on this site - and get this, HTML is so flexible that you can still include a closing tag. In my code, even though image is an Empty Element, there is still the <code>&lt;/img&gt;</code> tag. Some of these other elemnts might be more obscure to you: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col" class="copy-link">col</a> is for creating a column within a table; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br" class="copy-link">br</a> is for creating a break/new line (would not suggest using this all the time! can use padding styling instead!). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta" class="copy-link">Meta</a> refers to the metadata of a site, which includes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base" class="copy-link">Base</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link" class="copy-link">Link</a>. Let's look at this with reference to our site:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;base target='_blank'/&gt;<br>
+						&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"/&gt;<br>
+						&lt;meta name="description" content="An online course/workshop for learning how to program online social science experiments."/&gt;<br>
+						&lt;meta name="keywords" content="Social Science, JavaScript, HTML, CSS, Qualtrics, Amazon Mechanical Turk"/&gt; <br>
 						<br>
-						<col>
-						<base>
+						...<br>
+						<br>
+						&lt;title&gt;Module 3 of Introductory Programming for Online Social Science Experiments&lt;/title&gt; <br>
+						<br>
+						&lt;!-- These are the HTML version of Comments: Favicons--&gt;<br>
+						&lt;link href="files/favi_icon_website.png" rel="icon" type="image/x-icon" /&gt; <br>
+						<br>
+						...<br>
+						<br>
+						&lt;!--These comments do not impact the code: This is for those little thumbnails when the link is shared on twitter --&gt;<br>
+						&lt;meta name='twitter:card' content='summary'/&gt;<br>
+						&lt;meta name='twitter:creator' content='@chbejjani'/&gt;<br>
+						&lt;meta name='twitter:url' content='https://socsciprogramming.github.io/module3.html'/&gt;<br>
+						&lt;meta name='twitter:image' content='files/twittercard.png'/&gt;<br>
+						&lt;meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments.'/&gt;<br>
+						&lt;meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/&gt; <br>
+						<br>
+						&lt;!-- But it is good practice to comment your code: Bootstrap core CSS --&gt;<br>
+						&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt; <br>
+						<br>
+						&lt;!-- So that other people can understand what you're doing: Custom CSS --&gt;<br>
+						&lt;link href="css/allpages.css" rel="stylesheet"&gt;<br>
+						</code></pre></div>
 						
-
-When an element doesn’t respect the previous rule, it is called an Empty
-Element (example: images, line breaks).
+						<p>There's a lot to process in this last little blurb. At the simple end, you now know how to "comment" in HTML code, and you can see that I interchangeably am using "" and ''. However, I am never mixing ' and " in the same phrase, because that would not render any code/would cause an error. Sometimes you might see something like <code>&lt;input required&gt;</code>, and that essentially means a "blank" value for required= instead of writing out required="" or required=''.</p>
+						
+						<p>OK, but what is this metadata stuff? Well, you know how you can Google almost anything? The description meta tag above is what you would be shown as the description of this site, especially if you were Google searching the meta keywords that I defined. I'm essentially telling Search Engines this is what I think is important, this is how you should bookmark the site. Metadata is meant to help with Search Engine Optimization, much like how I even have meta tags here for what the twitter thumbnail and description should look like. Similarly, you know how each browser can have multiple tabs? Each tab has a title tag, like Accessibility Statement | The White House or Overview * Bootstrap. We define ours (which probably could be better, oops), and we also define the "favicon" with the link tag; the favicon is the little picture logo/icon you can see representing the website in the tab. Some of this you might not need for an Experiment: you would for defining the CSS sheets (more below on CSS!) and probably the title tag in case your participants click out of your browser/tab and want to return, but some of the other information, maybe not.</p>
+						
+						<p>But, what's the deal with that target= thing in the element? Haven't we seen this before... like with the hyperlink also showing href= and class= ....?</p>
 												
-						<p>HTML elements also have predefined attributes. Without these, you will ....</p>
+						<p>Indeed you have! HTML elements also have <a href="https://developer.mozilla.org/en-US/docs/Glossary/Attribute" class="copy-link">predefined attributes</a>. These can differentiate elements even without having any applied stylistic guidelines (like the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id" class="copy-link">id="" global attribute</a>, which means you're giving that particular tag an identification). Often these attributes are used so you can apply particular rule or stylistic guidelines (via CSS and JavaScript).</p>
 						
+						<p>In the above example, regarding attributes, as part of the base tag, I have set "default" to be that I want hyperlinks to open in a new tab, unless otherwise specified. The target attribute defines where to display the linked URL: in the same page (_self) or current context; a new tab (_blank), etc. "href" as an attribute refers to the explicit URL you want to link to; for example, you can include an email with mailto:... as the href= or a full URL or the way that I've referred to files, like css/allpages.css. It's understood from basic file organization that that means a folder CSS that is higher than where this module3.html file is and the allpages.css file within that CSS folder. And the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class" class="copy-link">class global attribute</a> is one of the most frequently used attributes to indicate particular styling rules. I usually apply "copy-link" to all my links within these paragraph texts so that they'll be colored blue and underlined until you've visited or hovered over a link, at which point the link is colored purple, in line with the color branding of the site. Font size, text decorations, margins--so much can be altered with these classes! See the <a href="https://html.spec.whatwg.org/multipage/indices.html#attributes-3" class="copy-link">full list of attributes</a> here.</p>
 
-
-<p>Predefined attributes </p>
-
-HTML elements come with predefined qualities or attributes which help
-differentiate them when no styling has been applied yet.
-
-Font size, text decorations, and margins are given default values for most
-elements.
-
-https://html.spec.whatwg.org/multipage/indices.html#attributes-3
-
-give example of my hyperlink that was shown in the above example... compare & contrast module link versus out of site... mention that hyperlinks in particular are useful to understand given that's what you'd be working with on mturk interface
-
-show also the example of accidentally not including quotes around my attributes... and single and double quotes both work, but have to be paired within class (single with single, double with double. It's like English grammar, too: if you're already showing dialogue with someone speaking and you want to show a string in between, you'd need to use a single quote nested in the double quote (or a double quote nested within the single)).).
-
-						<p>The basic structure of most HTML files are as follows:</p>
+						<p>OK, so we've gone over the syntax and basic HTML elements and their attributes. What does the basic structure look like? Here's what this website looks like:</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!doctype html&gt;<br>
+						&lt;html lang="en"&gt;<br>
+						&lt;head&gt;<br>
+						&lt;!--Within the head element tag, you typically load in CSS style sheets or other scripts... like: --&gt; <br>
+						<br>
+						...<br>
+						<br>
+						&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt; <br>
+						&lt;script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous"&gt; &lt;/script&gt; <br>
+						<br>
+						...<br>
+						<br>
+						&lt;body&gt;
+						&lt;!--Within the body element tag, you typically put the content of the HTML document... --&gt;
+						<br>
+						&lt;!--Usually for webpages, the navigation elements are shown next after you specify the body tag--&gt;<br>
+						<br>
+						&lt;nav class="navbar navbar-expand-md fixed-top bg-blue"&gt;<br>
+						&lt;button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"&gt;<br>
+						&lt;span class="fas fa-bars"&gt; &lt;/span&gt; <br>
+						&lt;/button&gt; <br>
+						<br>
+						&lt;!--One thing to note is that whitespace within an HTML element does not matter. As long as you're using the carrot/angular brackets, you're good --&gt;<br>
+						&lt;div class="row" id="body-row"       &gt; <br>
+						&lt;div id="sidebar-container" class="d-none d-md-block col-2 bg-grey"&gt; <br>
+						<br>
+						&lt;!--After the navigation bar, I define the sidebar on this sight... and after that, we get to the main content... --&gt;<br>
+						<br>
+						&lt;div class="col py-3" id="page-content"&gt;<br>
+						&lt;main&gt; <br>
+						&lt;section&gt;<br>
+						&lt;h1&gt;Module 3: Customized Design with JavaScript, HTML, &amp; CSS&lt;/h1&gt;<br>
+						...<br>
+						&lt;div&gt;<br>
+						&lt;p&gt;Why learn JavaScript...&lt;/p&gt;<br>
+						&lt;/div&gt;<br>
+						&lt;/section&gt;<br>
+						&lt;/main&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
 						
-shows a very simple webpage displaying a few html elements. The code reads:
-
-<html>
-<head>
- 
-</head>
- 
-<body>
-this is a comment, not shown on page
-<p>A new paragraph for text</p>
-<p id="p1">A new paragraph for text</p>
-<button>A button</button>
-<a href="http://www.google.com">A link</a>
-<br /> <!-- this is a line break
-<p id="p2" align="center" style="color:red">A new paragraph for text</p>
-</body>
-</html>
-
--talk about whitespace in HTML-
-https://html.spec.whatwg.org/multipage/indices.html#elements-3 -- the special characters
-
-List of common HTML elements
-
-<p> paragraph
-<button>
-<input> defines input controls
-<textarea> multi line text input
-<br> line break
-<div> define sections
-<head> header for javascript
-<body> main page
-<script> embed scripts
-<iframe> inline webpage
-<canvas> for drawing
-Let’s look more closely at the code block above. All html documents begin with <html> and end with </html>. This is a general rule for all html statements (although there are some exceptions), they all start with < >, and end with </ >. For example,
-
-Important: HTML elements can each be assigned a unique id. This allows the element to act as a variable that can be controlled by Javascript. Notice the second paragraph states:
-
-This paragraph has the id, p1. We will be able to use Javascript to refer to this pargraph and control it’s behavior (hide and show, change contents etc.).
-
-How do you comment out text in html?
-
-(below metadata, styling, etc.) -->
-
-						<p>Now let's look at the basics of one of these subsections:</p>
+						<p>As you can see from the code above, the file starts out with an HTML tag, within which all other tags are nested. We then go to a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head" class="copy-link">head</a> tag, define styling rules and load in other JavaScript (more below!) and then get into the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body" class="copy-link">body</a> meat of the document. You can see even in this brief example the consistent use of id and class attributes. You can even see how each of these modules is structured, with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">"nav" element</a> showing how to navigate the site, a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" class="copy-link">"main" element tag</a> that then goes to each <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section</a>, which has its <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">own header</a> (just like in a newspaper!), and then has a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div" class="copy-link">div element</a> to group together all the paragraph text elements that are under that particular header... Oh, wow, that's a lot, huh? So let's look at the basics of one of these subsections in more detail, too:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;ul class="fa-ul"&gt; &lt;li&gt; &lt;span class="fa-li"&gt; &lt;i class="fas fa-star"&gt; &lt;/i&gt; &lt;/span&gt; &lt;h4 id="subsec31t1"&gt; Providing structure and content with HTML &lt;/h4&gt; &lt;/li&gt; &lt;/ul&gt;
 						</code></pre></div>
 						
-						<p>This is the code that creates the subsection/tutorial header "Providing structure and content with HTML". <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" class="copy-link">UL</a> stands for "unordered list" and is a type of HTML element used to create bullet-point lists. The class "fa-ul" is special, referring to the CSS package I load in from <a href="https://fontawesome.com/icons?d=gallery" class="copy-link">Font Awesome</a>, which has an entire library of free icons that people can use on their webpages. We will get to "classes" more <a href="#subsec31t2" class="copy-link">in the next subsection on CSS</a>, but this class is "fa-ul", indicating it's the Font Awesome Unordered List (class). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" class="copy-link">LI</a> stands for "list item" and is often a bullet point within the "UL". Notably, you can also have "ordered lists" or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" class="copy-link">OL</a> (e.g., 1, 2, 3, 4, etc.) and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" class="copy-link">menus</a>, which are also composed of LI elements. Next up in the header code is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" class="copy-link">"span"</a>, which doesn't necessarily stand for anything, but is often used to group together elements for styling in a particular line. (In this case, we're saying that the span element is of the "fa-li" class, or Font Awesome List Item (class); one thing to note here is that it's important to be able to read and mark other code, and the Font Awesome folks have made that possible: anything that is fa- or fas/fab is likely a Font Awesome styled element). So, after specifying the styling for the list element via the span element and its class, we use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="copy-link">"i" element</a>, or idiomatic text element, which here is of the Font Awesome Solid and Font Awesome Star (classes), i.e., the star icon that you see next to the header. Essentially, I wanted to use a marker besides the indent that I have set (in CSS) for the header classes and thus created star bullet points to indicate each new subsection. After styling, we see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">"h4" element</a>, which stands for the 4th header element. There are h1, h2, h3, h4, h5, and h6 header elements, and they differ in designation, with 1 being the highest section level and 6 the lowest (often shown in differing sizes). On this site, I use the h1 element for the Module Title, the h2 element for each Section Title (e.g., <a href="#subsec31" class="copy-link">Basics of JavaScript, HTML, and CSS</a>), and the h4 element for any subsection/tutorial. It is particularly important to follow a sort of hierarchical designation as a means of ensuring accessibility: screen readers rely on sites being designated in a hierarchical fashion, with headers indicated by these h elements, sections indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section elements</a>, navigation links indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">nav elements</a>, and paragraph elements like this text being indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" class="copy-link">p elements</a>. We put the header as part of the LI element and UL list to make sure that they're aligned at the same level (otherwise the code will not group together the elements). I also gave the header the id of subsec31t1, representing module 3, section 1, tutorial 1 and that it is a subsection. Each section or subsection has its own id so that if I wanted to link you there, I could easily do that, since ids should be unique to elements you'll navigate to.</p>
+						<p>This is the code that creates the subsection/tutorial header "Providing structure and content with HTML". <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" class="copy-link">UL</a> stands for "unordered list" and is a type of HTML element used to create bullet-point lists. The class "fa-ul" is special, referring to the CSS package I load in from <a href="https://fontawesome.com/icons?d=gallery" class="copy-link">Font Awesome</a>, which has an entire library of free icons that people can use on their webpages. We've already talked about the class attribute, and this class is "fa-ul", indicating it's the Font Awesome Unordered List (class). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" class="copy-link">LI</a> stands for "list item" and is often a bullet point within the "UL". Notably, you can also have "ordered lists" or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" class="copy-link">OL</a> (e.g., 1, 2, 3, 4, etc.) and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" class="copy-link">menus</a>, which are also composed of LI elements. Next up in the header code is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" class="copy-link">"span"</a>, which doesn't necessarily stand for anything, but is often used to group together elements for styling in a particular line. (In this case, we're saying that the span element is of the "fa-li" class, or Font Awesome List Item (class); one thing to note here is that it's important to be able to read and mark other code, and the Font Awesome folks have made that possible: anything that is fa- or fas/fab is likely a Font Awesome styled element). So, after specifying the styling for the list element via the span element and its class, we use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="copy-link">"i" element</a>, or idiomatic text element, which here is of the Font Awesome Solid and Font Awesome Star (classes), i.e., the star icon that you see next to the header. Essentially, I wanted to use a marker besides the indent that I have set (in CSS) for the header classes and thus created star bullet points to indicate each new subsection. After styling, we see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">"h4" element</a>, which stands for the 4th header element. There are h1, h2, h3, h4, h5, and h6 header elements, and they differ in designation, with 1 being the highest section level and 6 the lowest (often shown in differing sizes). On this site, I use the h1 element for the Module Title, the h2 element for each Section Title (e.g., <a href="#subsec31" class="copy-link">Basics of JavaScript, HTML, and CSS</a>), and the h4 element for any subsection/tutorial. It is particularly important to follow a sort of hierarchical designation as a means of ensuring accessibility: screen readers rely on sites being designated in a hierarchical fashion, with headers indicated by these h elements, sections indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section elements</a>, navigation links indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">nav elements</a>, and paragraph elements like this text being indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" class="copy-link">p elements</a>, which we discussed above. We put the header as part of the LI element and UL list to make sure that they're aligned at the same level (otherwise the code will not group together the elements). I also gave the header the id of subsec31t1, representing module 3, section 1, tutorial 1 and that it is a subsection. Each section or subsection has its own id so that if I wanted to link you there, I could easily do that, since ids should be unique to elements you'll navigate to.</p>
 						
-						<p>And voila! That is one line of code within this particular site. In your experiments, you may not really need to use bullet points (LI, UL, OL) - that probably depends on how you like to give instructions - but you should abide by standard guidelines for header and page elements, at the very least. We can take a look at the basic organization of this site as an example:</p>
+						<p>And voila! That is one line of code within this particular site, and we've gone over the general site structure too. In your experiments, you may not really need to use bullet points (LI, UL, OL) - that probably depends on how you like to give instructions - but you should abide by standard guidelines for header and page elements, at the very least. Part of the reason you have this kind of organization is to be consistent in how you direct people's attention. It's like how when we read a newspaper, we see their headlines, and then the titles of the different articles, and where our eyes go will depend on how everything is laid out, right? And then there's also the accesibility part of this, too: some folks use screan readers to listen to how a webpage is rendered, and these screen readers rely on consistent structure like this to work well.</p>
 						
-						<p>I create a new section for every one of these tutorials, because I do tend to think of them as subsections within a larger section, which is... </p>
+						<p>You've learned quite a lot about HTML! From the syntax to various elements to their attributes and file structure and more, we've gone at a pretty rapid pace--and would you believe me if I said that's not even the tip of the iceberg? But it should be enough for you to understand the basics and how we will manipulate these for our applied social science experiments.</p>
 						
 						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" class="copy-link">multiple tutorials on HTML</a>. This may be more detail than you want, but if you really want to delve into HTML and web development, it's a great resource.</p>
 						
