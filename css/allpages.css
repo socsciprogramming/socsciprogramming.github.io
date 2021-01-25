@@ -84,6 +84,34 @@ body {padding-top: 56px; overflow:auto;}
 /* restricting the size of particular images - example */
 /* img[alt*="mturkinterface"] {height:25vh; } */
 
+/* venn diagram on index page*/
+.one {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    color: white;
+    font: bold 30px Open Sans;
+    display: inline-flex; /* or inline-flex */
+    align-items: center; 
+    justify-content: center;
+}
+.design {
+    background-color: rgba(1, 33, 105, 0.7);
+    transform: translate(35%, 0%);
+}
+.webdev {
+    background-color: rgba(0, 83, 155, 0.7);
+    transform: translate(0%, 0%);
+}
+.compsci {
+    background-color: rgba(153, 51, 153, 0.7);
+    transform: translate(-170%, 65%);
+}
+.researchmethod {
+    background-color: rgba(102, 102, 102, 0.7);
+    transform: translate(-205%, 60%);
+}
+
 /* styling the quizzes */
 #quiz {
   margin: -44px 50px 0px;
