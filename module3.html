@@ -177,75 +177,218 @@
 						
 						<p>Of course, one other question that you might have is whether you even need to code your experiment in JavaScript, HTML, and CSS. For example, if you have already coded your experiment in PsychoPy (a Python-based framework), you should check out <a href="https://pavlovia.org" class="copy-link">Pavlovia</a>, a tool to help convert your already existing code. Similarly, you may find that some of the experiments (within psychology) that you're looking for are already coded, via the <a href="https://github.com/expfactory/expfactory-experiments" class="copy-link">Expfactory Github</a>. But, if you're not among that group...</p>
 
-						<p>For the purpose of this module and writing code using JavaScript, HTML, and CSS, you will need a good text editor. Some options include: <a href="https://notepad-plus-plus.org/downloads/" class="copy-link">Notepad++</a>, <a href="https://atom.io/" class="copy-link">Atom</a>, <a href="http://brackets.io/" class="copy-link">Brackets</a>, and <a href="http://www.barebones.com/products/textwrangler/download.html" class="copy-link">Textwrangler</a>. (Undoubtedly, there are more, like <a href="https://www.sublimetext.com/" class="copy-link">Sublime</a>, but here is a small selection). I personally use Notepad++ because it has a very simple interface, and I like that when I'm coding. Atom has additional packages that can color each language (show when you're using HTML vs. JavaScript vs. CSS), auto-indent and oraganize your code, and link directly to Github, and to my knowledge, Textwrangler also does this. Brackets has that functionality, but also employs the ability to live test your HTML out, because it creates a local copy that can get published for a 'preview.' Moreover, Brackets employs a JavaScript library (that we'll go over in <a href="module4.html" class="copy-link">Module 4</a>) that checks your code for what it thinks are errors. Outside of Brackets, you can also preview what your code looks like using places like <a href="https://jsfiddle.net/" class="copy-link">JSFiddle</a> and <a href="https://codepen.io/" class="copy-link">CodePen</a>. So, the simplest option is Notepad++, then Atom or Textwrangler, and then Brackets. Once you've gotten your text editor program downloaded, then join me on the journey to get into the basics of these languages!</p>
+						<p>For the purpose of this module and writing code using JavaScript, HTML, and CSS, you will need a good text editor. Some options include: <a href="https://notepad-plus-plus.org/downloads/" class="copy-link">Notepad++</a>, <a href="https://atom.io/" class="copy-link">Atom</a>, <a href="http://brackets.io/" class="copy-link">Brackets</a>, and <a href="http://www.barebones.com/products/textwrangler/download.html" class="copy-link">Textwrangler</a>. (Undoubtedly, there are more, like <a href="https://www.sublimetext.com/" class="copy-link">Sublime</a>, but here is a small selection). I personally use Notepad++ because it has a very simple interface, and I like that when I'm coding. Atom has additional packages that can color each language (show when you're using HTML vs. JavaScript vs. CSS), auto-indent and oraganize your code, and link directly to Github, and to my knowledge, Textwrangler also does this. Brackets has that functionality, but also employs the ability to live test your HTML out, because it creates a local copy that can get published for a 'preview.' Moreover, Brackets employs a JavaScript library (that we'll go over in <a href="module4.html" class="copy-link">Module 4</a>) that checks your code for what it thinks are errors. Outside of Brackets, you can also preview what your code looks like using places like <a href="https://jsfiddle.net/" class="copy-link">JSFiddle</a>, <a href="https://glitch.com/" class="copy-link">Glitch</a>, <a href="https://jsbin.com/?html,output" class="copy-link">JSBin</a>, and <a href="https://codepen.io/" class="copy-link">CodePen</a>. So, the simplest option is Notepad++, then Atom or Textwrangler, and then Brackets. (If you really want the local testing of Bracekts but to use another text editor, you can set up your own <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server" class="copy-link">local testing server</a>). Once you've gotten your text editor program downloaded, and presuming you've already got version control in place after <a href="module2.html" class="copy-link" target="_self">Module 2</a>, then join me on the journey to get into the basics of these languages!</p>
 					</div>
 				</section>
 				<hr>
 				<section>
 					<h2 id="subsec31" class="pad1">Basics of HTML, CSS, and JavaScript</h2>
 					<div>
-						<p>Okay, first, let's define what HTML, CSS, and JavaScript even are.</p>
+						<p>When you load a webpage, your browser looks at the code and renders web content according to its internal guidelines. If you want to see what I mean by the latter, you can load this exact webpage in both Chrome and Firefox. It looks a little different, right? It's the same code, but the way each browser interacts with the code differs.</p>
 						
-						<p>HTML stands for Hyper Text Markup Language. As a Markup language, HTML will process certain "tags" (elements) that will communicate with the browser. All browsers can recognize HTML and have been designed to do so: HTML is is the foundation and structure of the content that you will see on websites. If you were to look at <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/module3.html" class="copy-link">the code for Module 3</a> - which we will do in more detail below - you would see a whole lot of HTML. HTML files naturally have the extension ".html". </p>
+						<img src="files/firefox_chrome_example.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Comparing Firefox and Chrome Browser Rendering"></img>
 						
-						<p>CSS stands for Cascading Style Sheet. It is a styling language, used primarily to impose display rules and properties on the HTML content of websites, changing their layout and look (e.g., the font-family used on a site, the color of links, display properties of buttons and text, etc.). In the sections below, we will also look at the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/css/allpages.css" class="copy-link">custom CSS sheet</a> used for this module. CSS files naturally have the extension ".css".</p>
+						<p>In the <a href="files/firefox_chrome_example.png" class="copy-link">example above</a>, Firefox is on the left and Chrome is on the right, loading the initial view of this webpage on the same exact screen at the same browser size, and yet you can notice a slight difference between the two. But isn't that also the genius of the code? No matter what browser this code is read on, it looks almost exactly the same. So, let's define what HTML, CSS, and JavaScript even are.</p>
 						
-						<p>Finally, JavaScript is a programming language that is primarily used to interact with the HTML - it runs on its own, runs computations, controls the behavior of the website, etc. At the bottom of this tutorial site, there is an up arrow colored in purple. When you click the up arrow, it will scroll you all the way back to the top of the site via JavaScript. It also uses an interactive element called a "tooltip" that will appear when you hover on the arrow, the hover being a "trigger event" that is dictated by JavaScript. JavaScript files have the extension ".js".</p>
+						<p>HTML stands for Hyper Text Markup Language. As a Markup language, HTML will process certain "tags" (elements) that will communicate with the browser. All browsers can recognize HTML and have been designed to do so: HTML is the foundation and structure of the content that you will see on websites. As the <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" class="copy-link">Mozilla Developer Guide</a> says, HTML can "give [pieces of text] different meaning in a document (Is it a paragraph? Is it a bulleted list? Is it part of a table?), structure a document into logical sections (Does it have a header? Three columns of content? A navigation menu?), and embed content such as images and videos into a page." If you were to look at <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/module3.html" class="copy-link">the code for Module 3</a> - which we will do in more detail below - you would see a whole lot of HTML with our website content and a standard structure. HTML files naturally have the extension ".html". </p>
+						
+						<p>CSS stands for Cascading Style Sheet. It is a styling language, used primarily to impose display rules and properties on the HTML content of websites, changing their layout and look (e.g., font, color and size of any element, spacing, animations, columns for content, etc.). In the sections below, we will also look at the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/css/allpages.css" class="copy-link">custom CSS sheet</a> used for this module. CSS files naturally have the extension ".css". While learning HTML and CSS, people will often move back and forth between the two languages because they work well together, and you can get by on a webpage without using JavaScript, but typically use HTML and CSS together for any webpage.</p>
+						
+						<p>Finally, JavaScript is a programming language that is primarily used to interact with the HTML (and CSS) - it runs on its own, runs computations, controls the behavior of the website, etc. At the bottom of this tutorial site, there is an up arrow colored in purple. When you click the up arrow, it will scroll you all the way back to the top of the site via JavaScript. It also uses an interactive element called a "tooltip" that will appear when you hover on the arrow, the hover being a "trigger event" that is dictated by JavaScript. JavaScript helps a webpage do more than display static information. JavaScript files have the extension ".js".</p>
 									
-						<p>So, now let's more fully explore how HTML provides the structure that is styled by CSS and that is guided by JavaScript.</p>
+						<p>So, now let's more fully explore how HTML provides the structure and content that is styled by CSS and that interacts with JavaScript.</p>
 					</div>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t1">Providing structure with HTML</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t1">Providing structure and content with HTML</h4></li></ul>
 					<div>
 						<!--
 						I'm not sure how long these modules are, but I typically like starting with HTML/CSS building static websites. Maybe even a little assignment where they build a single-page personal website. Then moving on to JS, which you can teach as the tool for manipulating the HTML/CSS you see on the screen.
 						-->
 						
-						<p>As a markup language, HTML renders its tags with the carrot icons: < and >.  </p>
+						<p>As a markup language, HTML is made of elements that are composed of opening and closing tags marked by these carrot keypresses: < and >.  In both the opening and closing tag, you'll wrap the name of the element (p for paragraph text, b for bold text, etc.) in these opening and closing carrot keypresses (or angle brackets), marking both where the element starts and ends. In short, an HTML element is the opening tag (<code><p></code>) + content (paragraph (p) text here!) + closing tag <code></p></code>. Note that the closing tag is almost exactly like the opening tag, but includes a forward slash to indicte the end of the tag (and element).</p>
+
+						<p>If you only have an opening tag or only have a closing tag, your stuff may go haywire. For example, I sometimes forget to include a closing tag when I'm linking off site, and because of the styling rules on this site, all the text then turns purple or blue to indicate a link. That is, I broke the syntax of HTML by not including a closing tag, and the HTML tag will assume that the rest of the content is a part of the element until it reaches the next closing tag. Here's what this paragraph looks like in the code!</p>
+
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;p&gt; If you only have an opening tag or only have a closing tag, your stuff may go haywire. For example, I sometimes forget to include a closing tag when I'm linking off site, and because of the styling rules on this site, all the text then turns purple or blue to indicate a link. That is, I broke the syntax of HTML by not including a closing tag, and the HTML tag will assume that the rest of the content is a part of the element until it reaches the next closing tag. Here's what this paragraph looks like in the code! &lt;/p&gt;
+						</code></pre></div>						
 						
-						<p>The basics of most HTML files are as follows:</p>
+						<p>You can place elements within other elements, otherwise known as nesting. I can <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" class="copy-link">create a hyperlink</a> to another site with an "a" tag within a paragraph text element. You're probably most familiar with nested elements with respect to <b>bolding</b>, <i>italicizing</i>, <em>emphasizing</em>, <u>underlining</u>, or <s>striking through</s> text.</p>
+
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;p&gt; You can place elements within other elements, otherwise known as nesting. I can &lt;a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" class="copy-link"&gt; create a hyperlink&lt;/a&gt; to another site with an "a" tag within a paragraph text element. You're probably most familiar with nested elements with respect to &lt;b&gt;bolding&lt;/b&gt;, &lt;i&gt;italicizing&lt;/i&gt;, &lt;em&gt;emphasizing&lt;/em&gt;, &lt;u&gt;underlining&lt;/u&gt;, or &lt;s&gt;striking through&lt;/s&gt; text. &lt;/p&gt;
+						</code></pre></div>
+						
+<!--						<p>It'd be impractical to go over all the <a href="https://html.spec.whatwg.org/multipage/indices.html#elements-3" class="copy-link">HTML elements</a>. Here's where to put.. </p> 
+
+						<p>Every HTML is 
+						
+						Every element in HTML is contained inside a box.
+
+Boxes can be nested inside of other boxes creating a parent-child relationship
+between the boxes.
+
+Space can be created within the box (padding) and outside the box (margin).
+
+[show image of margin, border, padding]
+
+						<p> </p>
+						
+						DISPLAYS
+
+HTML elements are also given default displays which dictate their behavior in
+relation to other elements.
+
+Display Block forces the element’s box to take on 100% of the width of the
+available space.
+
+Most Display Inline elements ignore all width and height styling and display
+inline with their other Inline surroundings.
+
+The block versus inline elements of HTML discussion & how that's changed
+
+https://html.spec.whatwg.org/multipage/indices.html#element-content-categories
+						
+						<p>Some HTML tags don't involve a closing tag. These are special cases, called <a href="https://developer.mozilla.org/en-US/docs/Glossary/Empty_element" class="copy-link">Empty Elements</a>.  </p>
+						
+						<meta>
+						<img>
+						<link>
+						<hr>
+						<br>
+						<col>
+						<base>
+						
+
+When an element doesn’t respect the previous rule, it is called an Empty
+Element (example: images, line breaks).
+												
+						<p>HTML elements also have predefined attributes. Without these, you will ....</p>
+						
+
+
+<p>Predefined attributes </p>
+
+HTML elements come with predefined qualities or attributes which help
+differentiate them when no styling has been applied yet.
+
+Font size, text decorations, and margins are given default values for most
+elements.
+
+https://html.spec.whatwg.org/multipage/indices.html#attributes-3
+
+give example of my hyperlink that was shown in the above example... compare & contrast module link versus out of site... mention that hyperlinks in particular are useful to understand given that's what you'd be working with on mturk interface
+
+show also the example of accidentally not including quotes around my attributes... and single and double quotes both work, but have to be paired within class (single with single, double with double. It's like English grammar, too: if you're already showing dialogue with someone speaking and you want to show a string in between, you'd need to use a single quote nested in the double quote (or a double quote nested within the single)).).
+
+						<p>The basic structure of most HTML files are as follows:</p>
 						
 						<p>....</p>
 						
-						<p>....</p>
+shows a very simple webpage displaying a few html elements. The code reads:
+
+<html>
+<head>
+ 
+</head>
+ 
+<body>
+this is a comment, not shown on page
+<p>A new paragraph for text</p>
+<p id="p1">A new paragraph for text</p>
+<button>A button</button>
+<a href="http://www.google.com">A link</a>
+<br /> <!-- this is a line break
+<p id="p2" align="center" style="color:red">A new paragraph for text</p>
+</body>
+</html>
+
+-talk about whitespace in HTML-
+https://html.spec.whatwg.org/multipage/indices.html#elements-3 -- the special characters
+
+List of common HTML elements
+
+<p> paragraph
+<button>
+<input> defines input controls
+<textarea> multi line text input
+<br> line break
+<div> define sections
+<head> header for javascript
+<body> main page
+<script> embed scripts
+<iframe> inline webpage
+<canvas> for drawing
+Let’s look more closely at the code block above. All html documents begin with <html> and end with </html>. This is a general rule for all html statements (although there are some exceptions), they all start with < >, and end with </ >. For example,
+
+Important: HTML elements can each be assigned a unique id. This allows the element to act as a variable that can be controlled by Javascript. Notice the second paragraph states:
+
+This paragraph has the id, p1. We will be able to use Javascript to refer to this pargraph and control it’s behavior (hide and show, change contents etc.).
+
+How do you comment out text in html?
+
+(below metadata, styling, etc.) -->
 
 						<p>Now let's look at the basics of one of these subsections:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						&lt;ul class="fa-ul"&gt;&lt;li&gt;&lt;span class="fa-li"&gt;&lt;i class="fas fa-star"&gt;&lt;/i&gt;&lt;/span&gt;&lt;h4 id="subsec31t1"&gt;Providing structure with HTML&lt;/h4&gt;&lt;/li&gt;&lt;/ul&gt;
+						&lt;ul class="fa-ul"&gt; &lt;li&gt; &lt;span class="fa-li"&gt; &lt;i class="fas fa-star"&gt; &lt;/i&gt; &lt;/span&gt; &lt;h4 id="subsec31t1"&gt; Providing structure and content with HTML &lt;/h4&gt; &lt;/li&gt; &lt;/ul&gt;
 						</code></pre></div>
 						
-						<p>This is the code that creates the subsection/tutorial header "Providing structure with HTML". <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" class="copy-link">UL</a> stands for "unordered list" and is a type of HTML element used to create bullet-point lists. The class "fa-ul" is special, referring to the CSS package I load in from <a href="https://fontawesome.com/icons?d=gallery" class="copy-link">Font Awesome</a>, which has an entire library of free icons that people can use on their webpages. We will get to "classes" more <a href="#subsec31t2" class="copy-link">in the next subsection on CSS</a>, but this class is "fa-ul", indicating it's the Font Awesome Unordered List (class). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" class="copy-link">LI</a> stands for "list item" and is often a bullet point within the "UL". Notably, you can also have "ordered lists" or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" class="copy-link">OL</a> (e.g., 1, 2, 3, 4, etc.) and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" class="copy-link">menus</a>, which are also composed of LI elements. Next up in the header code is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" class="copy-link">"span"</a>, which doesn't necessarily stand for anything, but is often used to group together elements for styling in a particular line. (In this case, we're saying that the span element is of the "fa-li" class, or Font Awesome List Item (class); one thing to note here is that it's important to be able to read and mark other code, and the Font Awesome folks have made that possible: anything that is fa- or fas/fab is likely a Font Awesome styled element). So, after specifying the styling for the list element via the span element and its class, we use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="copy-link">"i" element</a>, or idiomatic text element, which here is of the Font Awesome Solid and Font Awesome Star (classes), i.e., the star icon that you see next to the header. Essentially, I wanted to use a marker besides the indent that I have set (in CSS) for the header classes and thus created star bullet points to indicate each new subsection. After styling, we see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">"h4" element</a>, which stands for the 4th header element. There are h1, h2, h3, h4, h5, and h6 header elements, and they differ in designation, with 1 being the highest section level and 6 the lowest (often shown in differing sizes). On this site, I use the h1 element for the Module Title, the h2 element for each Section Title (e.g., <a href="#subsec31" class="copy-link">Basics of JavaScript, HTML, and CSS</a>), and the h4 element for any subsection/tutorial. It is particularly important to follow a sort of hierarchical designation as a means of ensuring accessibility: screen readers rely on sites being designated in a hierarchical fashion, with headers indicated by these h elements, sections indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section elements</a>, navigation links indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">nav elements</a>, and paragraph elements like this text being indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" class="copy-link">p elements</a>. We put the header as part of the LI element and UL list to make sure that they're aligned at the same level (otherwise the code will not group together the elements).</p>
+						<p>This is the code that creates the subsection/tutorial header "Providing structure and content with HTML". <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" class="copy-link">UL</a> stands for "unordered list" and is a type of HTML element used to create bullet-point lists. The class "fa-ul" is special, referring to the CSS package I load in from <a href="https://fontawesome.com/icons?d=gallery" class="copy-link">Font Awesome</a>, which has an entire library of free icons that people can use on their webpages. We will get to "classes" more <a href="#subsec31t2" class="copy-link">in the next subsection on CSS</a>, but this class is "fa-ul", indicating it's the Font Awesome Unordered List (class). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" class="copy-link">LI</a> stands for "list item" and is often a bullet point within the "UL". Notably, you can also have "ordered lists" or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" class="copy-link">OL</a> (e.g., 1, 2, 3, 4, etc.) and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" class="copy-link">menus</a>, which are also composed of LI elements. Next up in the header code is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" class="copy-link">"span"</a>, which doesn't necessarily stand for anything, but is often used to group together elements for styling in a particular line. (In this case, we're saying that the span element is of the "fa-li" class, or Font Awesome List Item (class); one thing to note here is that it's important to be able to read and mark other code, and the Font Awesome folks have made that possible: anything that is fa- or fas/fab is likely a Font Awesome styled element). So, after specifying the styling for the list element via the span element and its class, we use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i" class="copy-link">"i" element</a>, or idiomatic text element, which here is of the Font Awesome Solid and Font Awesome Star (classes), i.e., the star icon that you see next to the header. Essentially, I wanted to use a marker besides the indent that I have set (in CSS) for the header classes and thus created star bullet points to indicate each new subsection. After styling, we see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" class="copy-link">"h4" element</a>, which stands for the 4th header element. There are h1, h2, h3, h4, h5, and h6 header elements, and they differ in designation, with 1 being the highest section level and 6 the lowest (often shown in differing sizes). On this site, I use the h1 element for the Module Title, the h2 element for each Section Title (e.g., <a href="#subsec31" class="copy-link">Basics of JavaScript, HTML, and CSS</a>), and the h4 element for any subsection/tutorial. It is particularly important to follow a sort of hierarchical designation as a means of ensuring accessibility: screen readers rely on sites being designated in a hierarchical fashion, with headers indicated by these h elements, sections indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" class="copy-link">section elements</a>, navigation links indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" class="copy-link">nav elements</a>, and paragraph elements like this text being indicated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" class="copy-link">p elements</a>. We put the header as part of the LI element and UL list to make sure that they're aligned at the same level (otherwise the code will not group together the elements). I also gave the header the id of subsec31t1, representing module 3, section 1, tutorial 1 and that it is a subsection. Each section or subsection has its own id so that if I wanted to link you there, I could easily do that, since ids should be unique to elements you'll navigate to.</p>
 						
-						<p>And voila! That is one line of code within this particular site.</p>
+						<p>And voila! That is one line of code within this particular site. In your experiments, you may not really need to use bullet points (LI, UL, OL) - that probably depends on how you like to give instructions - but you should abide by standard guidelines for header and page elements, at the very least. We can take a look at the basic organization of this site as an example:</p>
 						
-						<!--discuss the infamous trump resigned example with source code, plus  
+						<p>I create a new section for every one of these tutorials, because I do tend to think of them as subsections within a larger section, which is... </p>
 						
-						https://twitter.com/digiphile/status/1351939210018750469/photo/2
-						
-						-->
+						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" class="copy-link">multiple tutorials on HTML</a>. This may be more detail than you want, but if you really want to delve into HTML and web development, it's a great resource.</p>
 						
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t2">Designing with CSS</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t2">Designing and Styling with CSS</h4></li></ul>
 					<div>
 						<!--
 						Can’t discuss JavaScript without mentioning HTML & CSS. Can use actual github website code as the framework for this particular discussion. Also use the HTML editor within Qualtrics as an example.
 						https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 						<style> </style>
 						
+						You could even do all this in HTML!
+						
+						The Cascading Model
+						
+						CSS follows a cascading model, which means that the latest rule takes
+precedence over the previous rule.
+
+CSS also follows a specificity model in which the most unique selector takes
+precedence over the less unique selectors (ID > Classes > Tags).
+
+The syntax
+
+CSS is made of rules.
+
+Rules are made of selectors and declarations.
+
+Declarations are made of one or more properties and their matching values
+placed inside curly brackets.
+
+All properties must be closed by a semi-colon.
+
+[give example of selector, property, value, and the declaration]
+						
 						-->
 						
 						<p>....</p>
 						
 						<p>....</p>
 						
-						<p>....</p>
+						<p>In most experiments, I don't use as much CSS as I do with styling webpages like this or my own personal website. I try to use CSS as a framework that guides User Experience, like making buttons a certain color and shape to be consistent across the entire experiment. I specify Arial as the font for basically everything, since it's a pretty standard (i.e., on most computers) and easy to read font.</p>
 						
 						<p>....</p>
 						
 						<p>....</p>
+						
+						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" class="copy-link">multiple tutorials on CSS</a>. This may be more detail than you want, but if you really want to delve into CSS and web development, it's a great resource.</p>						
 					</div>
 				</section>
 				<section>
@@ -255,62 +398,8 @@
 						What does a JavaScript task look like, go over document ready function and can describe some of the HTML tweaks more closely that are mentioned above in caveats and tweaks
 						Also mention “good principles” for coding here, like define global then local variables, etc.
 						
-						<p>There are a number of tools that you can use. As listed in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">Kochari et al. (2019)</a>:</p>
+						https://crumplab.github.io/programmingforpsych/web-experiments.html#javascript-basics
 						
-						<table>
-							<tr>
-								<td>Name</td>
-								<td>Website</td>
-								<td>Free</td>
-								<td>Graphical interface</td>
-								<td>Introduction paper</td>
-							</tr>
-							<tr>
-								<td>jsPsych</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>lab.js</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>PsychoPy/PsychoJS</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>PsyToolkit</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Gorilla</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>LabVanced</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>
-						
-						<p> There is also ....</p>
-
 						-->
 						
 						<p>....</p>
@@ -322,6 +411,9 @@
 						<p>....</p>
 						
 						<p>....</p>
+
+						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript" class="copy-link">multiple tutorials on JavaScript</a>. This may be more detail than you want, but if you really want to delve into JavaScript and web development, it's a great resource.</p>
+
 					</div>
 				</section>
 				<hr>	
@@ -417,6 +509,16 @@
 						<!--
 						How do I debug my task code, Brackets is good for HTML as an editor program
 						https://eslint.org/
+						
+												<!--discuss the infamous trump resigned example with source code, plus  
+						
+						https://twitter.com/digiphile/status/1351939210018750469/photo/2
+						
+						https://www.w3schools.com/js/js_debugging.asp
+						
+						https://raygun.com/learn/javascript-debugging-tools
+						
+						-->
 
 						-->
 						
@@ -436,6 +538,64 @@
 					<div>
 						<!--
 						Discuss differences with JsPsych & jQuery & how most of the videos this week are using jQuery; do you have to use a JavaScript library?
+						use the styling here from mozilla
+						<p>There are a number of tools that you can use. As listed in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">Kochari et al. (2019)</a>:</p>
+						
+						<table>
+							<tr>
+								<td>Name</td>
+								<td>Website</td>
+								<td>Free</td>
+								<td>Graphical interface</td>
+								<td>Introduction paper</td>
+							</tr>
+							<tr>
+								<td>jsPsych</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>lab.js</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>PsychoPy/PsychoJS</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>PsyToolkit</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Gorilla</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>LabVanced</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+						
+						<p> There is also ....</p>
+
+						
 						-->
 						
 						<p>....</p>
@@ -584,10 +744,10 @@
 					<h2 id="assignments" class="pad1">Continue Learning:</h2>
 					<div>
 						<ul class="fa-ul">
-							<li><i class="fa-li fab fa-firefox"></i>Program a basic task that I give a description of, w/ four trials. Can have a sample version of this, like a task-switching experiment.</li>
-							<li><i class="fa-li fab fa-html5"></i>Program a basic version of whatever task you’re doing, with say four trials. No need for randomization, just build the stimuli matrices, timelines or callbacks, etc.</li>
-							<li><i class="fa-li fab fa-chrome"></i>Program an experiment that displays images, program an experiment that displays text, and program a survey-style study.<li>
-							<li><i class="fa-li fab fa-css3"></i>Read through [instructor link/name of code], figure out what each line of code is doing, and comment the script. Check your comments against this other explanation script.</li>
+							<li><i class="fa-li fab fa-firefox"></i>Program a basic task-switching experiment, with ten trials per block and 2 blocks. Have participants switch between categorizing numbers as odd/even and images as outdoors/indoors. No need for randomization, just build the stimuli matrices, timelines or callbacks, etc.</li>
+							<li><i class="fa-li fab fa-html5"></i>Program a basic personal webpage that can navigate from an about page to a research page.</li>
+							<li><i class="fa-li fab fa-chrome"></i>Program an experiment that displays images, program an experiment that displays text, and program a survey-style study, like the <a href="files/demographicssurvey.png" class="copy-link">demographics</a> and <a href="files/likertsurvey.png" class="copy-link">BIS-BAS Likert survey</a> shown in Module 2.<li>
+							<li><i class="fa-li fab fa-css3"></i>Read through the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/tree/master/examples" class="copy-link">code examples</a>, figure out what each line of code is doing, and comment the script. Test out the script to see whether your comments correctly mark what each line of code is doing.</li>
 						</ul>
 					</div>
 					<div class="scrollstyle mainfont pad1" id="top-scroll" aria-labelledby="scroll-to-top">
