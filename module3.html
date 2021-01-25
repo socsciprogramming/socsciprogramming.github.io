@@ -275,7 +275,7 @@
 						
 						<p><code>&lt;meta&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;hr&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;col&gt;</code>, <code>&lt;base&gt;</code></p>
 						
-						<p>Some of these you've actually already seen used here, like the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr" class="copy-link">hr (Horizontal Rule) element</a>, which forms the thick grey line that I use to separate between Module sections. Images? You've already seen a number of images loaded on this site - and get this, HTML is so flexible that you can still include a closing tag. In my code, even though image is an Empty Element, there is still the <code>&lt;/img&gt;</code> tag. Some of these other elemnts might be more obscure to you: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col" class="copy-link">col</a> is for creating a column within a table; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br" class="copy-link">br</a> is for creating a break/new line (would not suggest using this all the time! can use padding styling instead!). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta" class="copy-link">Meta</a> refers to the metadata of a site, which includes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base" class="copy-link">Base</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link" class="copy-link">Link</a>. Let's look at this with reference to our site:</p>
+						<p>Some of these you've actually already seen used here, like the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr" class="copy-link">hr (Horizontal Rule) element</a>, which forms the thick grey line that I use to separate between Module sections. Images? You've already seen a number of images loaded on this site - and get this, HTML is so flexible that you can still include a closing tag. In my code, even though image is an Empty Element, there is still the <code>&lt;/img&gt;</code> tag. Some of these other elements might be more obscure to you: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col" class="copy-link">col</a> is for creating a column within a table; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br" class="copy-link">br</a> is for creating a break/new line (would not suggest using this all the time! can use padding styling instead!). <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta" class="copy-link">Meta</a> refers to the metadata of a site, which includes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base" class="copy-link">Base</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link" class="copy-link">Link</a>. Let's look at this with reference to our site:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;base target='_blank'/&gt;<br>
@@ -287,12 +287,12 @@
 						<br>
 						&lt;title&gt;Module 3 of Introductory Programming for Online Social Science Experiments&lt;/title&gt; <br>
 						<br>
-						&lt;!-- These are the HTML version of Comments: Favicons--&gt;<br>
+						<div style="color:#1D6363">&lt;!-- These are the HTML version of Comments: Favicons--&gt;</div> <br>
 						&lt;link href="files/favi_icon_website.png" rel="icon" type="image/x-icon" /&gt; <br>
 						<br>
 						...<br>
 						<br>
-						&lt;!--These comments do not impact the code: This is for those little thumbnails when the link is shared on twitter --&gt;<br>
+						<div style="color:#1D6363">&lt;!--These comments do not impact the code: This is for those little thumbnails when the link is shared on twitter --&gt;</div> <br>
 						&lt;meta name='twitter:card' content='summary'/&gt;<br>
 						&lt;meta name='twitter:creator' content='@chbejjani'/&gt;<br>
 						&lt;meta name='twitter:url' content='https://socsciprogramming.github.io/module3.html'/&gt;<br>
@@ -300,10 +300,10 @@
 						&lt;meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments.'/&gt;<br>
 						&lt;meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/&gt; <br>
 						<br>
-						&lt;!-- But it is good practice to comment your code: Bootstrap core CSS --&gt;<br>
+						<div style="color:#1D6363">&lt;!-- But it is good practice to comment your code: Bootstrap core CSS --&gt;</div> <br>
 						&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt; <br>
 						<br>
-						&lt;!-- So that other people can understand what you're doing: Custom CSS --&gt;<br>
+						<div style="color:#1D6363">&lt;!-- So that other people can understand what you're doing: Custom CSS --&gt;</div> <br>
 						&lt;link href="css/allpages.css" rel="stylesheet"&gt;<br>
 						</code></pre></div>
 						
@@ -323,7 +323,7 @@
 						&lt;!doctype html&gt;<br>
 						&lt;html lang="en"&gt;<br>
 						&lt;head&gt;<br>
-						&lt;!--Within the head element tag, you typically load in CSS style sheets or other scripts... like: --&gt; <br>
+						<div style="color:#1D6363">&lt;!--Within the head element tag, you typically load in CSS style sheets or other scripts... like: --&gt;</div> <br>
 						<br>
 						...<br>
 						<br>
@@ -332,21 +332,21 @@
 						<br>
 						...<br>
 						<br>
-						&lt;body&gt;
-						&lt;!--Within the body element tag, you typically put the content of the HTML document... --&gt;
+						&lt;body&gt;<br>
+						<div style="color:#1D6363">&lt;!--Within the body element tag, you typically put the content of the HTML document... --&gt;</div> <br>
 						<br>
-						&lt;!--Usually for webpages, the navigation elements are shown next after you specify the body tag--&gt;<br>
+						<div style="color:#1D6363">&lt;!--Usually for webpages, the navigation elements are shown next after you specify the body tag--&gt;</div> <br>
 						<br>
 						&lt;nav class="navbar navbar-expand-md fixed-top bg-blue"&gt;<br>
 						&lt;button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"&gt;<br>
 						&lt;span class="fas fa-bars"&gt; &lt;/span&gt; <br>
 						&lt;/button&gt; <br>
 						<br>
-						&lt;!--One thing to note is that whitespace within an HTML element does not matter. As long as you're using the carrot/angular brackets, you're good --&gt;<br>
-						&lt;div class="row" id="body-row"       &gt; <br>
+						<div style="color:#1D6363">&lt;!--One thing to note is that whitespace within an HTML element does not matter. As long as you're using the carrot/angular brackets, you're good        --&gt;</div> <br>
+						&lt;div class="row" id="body-row"             &gt; <br>
 						&lt;div id="sidebar-container" class="d-none d-md-block col-2 bg-grey"&gt; <br>
 						<br>
-						&lt;!--After the navigation bar, I define the sidebar on this sight... and after that, we get to the main content... --&gt;<br>
+						<div style="color:#1D6363">&lt;!--After the navigation bar, I define the sidebar on this site... and after that, we get to the main content... --&gt;</div> <br>
 						<br>
 						&lt;div class="col py-3" id="page-content"&gt;<br>
 						&lt;main&gt; <br>
