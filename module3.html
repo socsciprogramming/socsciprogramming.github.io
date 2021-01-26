@@ -375,19 +375,17 @@
 						
 						<p>And voila! That is one line of code within this particular site, and we've gone over the general site structure too. In your experiments, you may not really need to use bullet points (LI, UL, OL) - that probably depends on how you like to give instructions - but you should abide by standard guidelines for header and page elements, at the very least. Part of the reason you have this kind of organization is to be consistent in how you direct people's attention. It's like how when we read a newspaper, we see their headlines, and then the titles of the different articles, and where our eyes go will depend on how everything is laid out, right? And then there's also the accesibility part of this, too: some folks use screan readers to listen to how a webpage is rendered, and these screen readers rely on consistent structure like this to work well.</p>
 						
-						<p>The last thing to know... How do you know when something has gone wrong? How can you debug HTML? There are two types of errors: syntax errors, where you have spelling errors in the code, or logic errors, where the code is not running how you've intended for whatever reason. A syntax error usually produces an error message of some kind, but HTML has what's known as "permissive" code so it'll still run, despite the spelling error. It will be very evident though that something has gone wrong. For example, remember when I mentioned forgetting to close an "a" tag and having an entire paragraph underlined and in blue/purple, as though a link? If you've got your text editor program open, try typing some HTML. Try putting in an attribute, but don't close the tag. Do you see what happens to the code? Your text editor program - even if it's as basic as mine is, Notepad++ - will show different colors to indicate oh no! error! please fix the opening tag! Let's actually look at some examples though.</p>
+						<p>The last thing to know... How do you know when something has gone wrong? How can you debug HTML? There are two types of errors: syntax errors, where you have spelling errors in the code, or logic errors, where the code is not running how you've intended for whatever reason. A syntax error usually produces an error message of some kind, but HTML has what's known as "permissive" code so it'll still run, despite the spelling error. It will be very evident though that something has gone wrong. For example, remember when I mentioned forgetting to close an "a" tag and having an entire paragraph underlined and in blue/purple, as though a link? If you've got your text editor program open, try typing some HTML. Try putting in an attribute, but don't close the tag. Do you see what happens to the code? Your text editor program - even if it's as basic as mine is, Notepad++ - will show different colors to indicate oh no! error! please fix the opening tag! I can't show you explicit examples on this webpage without messing up my formatting, so <a href="https://github.com/mdn/learning-area/blob/master/html/introduction-to-html/debugging-html/debug-example.html" class="copy-link">try this example out</a> in your Text Editor.</p>
 						
-						<h6>An error-related demo!</h6>
-
-						<p>There are so many ways to have errors in HTML...
+						<p>Here are some error "types" you might run into:</p>
 
 						<ul>
-						  <li>Unclosed elements: Make sure to CLOSE your <strong>tags, until you want the effects to spread to other elements...
-						  <li>Badly nested elements: Remember our discussion of <strong>strong <em>strong emphasised?</strong> and the subsection header with LI elements? What if you flipped around the titles?</em>
-						  <li>Unclosed attributes: Remember what I said about links? What if I linked <a href="https://socsciprogramming.github.io/>to our site</a> but forgot the second "? What do you see happening here?
+						  <li>Unclosed elements: Make sure to CLOSE your tags, until you want the effects to spread to other elements...
+						  <li>Badly nested elements: Remember our discussion of the subsection header with LI elements? What if you flipped around the elements?</em>
+						  <li>Unclosed attributes: Remember what I said about links? What if I linked <a href="https://socsciprogramming.github.io/">to our site</a> but forgot the second "?
 						</ul>
 						
-						<p>Oh, man, it's taking everything in me not to fix these, but take a look at the error-demo in the code section below and see if you can spot the issues...</p>
+						<p>Here are some examples of that in the code section below!</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;h6&gt; An error-related demo!&lt;/h6&gt;<br>
