@@ -495,52 +495,52 @@
 						<p>OK, so I actually only showed you one way of linking to a stylesheet. That way was the 'external' stylesheet reference. You can actually refer to the styling of an HTML document within internal tags as well. We also do it on this site for...</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						&lt;div class="w3-boxmodel mainfont"&gt;
-							&lt;div class="margin"&gt;
-							  &lt;div class="border"&gt;
-								&lt;div class="padding"&gt;
-								  &lt;div class="content"&gt;&lt;/div&gt;
-								 &lt;/div&gt;
-							  &lt;/div&gt;
-							&lt;/div&gt;
-						&lt;/div&gt;
+						&lt;div class="w3-boxmodel mainfont"&gt;<br>
+							&lt;div class="margin"&gt;<br>
+							  &lt;div class="border"&gt;<br>
+								&lt;div class="padding"&gt;<br>
+								  &lt;div class="content"&gt;&lt;/div&gt;<br>
+								 &lt;/div&gt;<br>
+							  &lt;/div&gt;<br>
+							&lt;/div&gt;<br>
+						&lt;/div&gt;<br>
 
-						&lt;style&gt;
-							.w3-boxmodel {margin: 30px 0;}
-							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; position: relative; border: 2px dashed #bbb;}
-							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; top: 1.8%; width: 100%; text-align: center;}
-							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; position: relative;}
-							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; left: 0; top: 2.5%; width: 100%; text-align: center;}
-							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: relative; background: #E5E5E5;}
-							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; left: 0.5%; top:3.7%; width: 100%; text-align: center;}
-							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; background: white; border: 2px dashed #bbb;}
-							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; text-align: center; line-height: 3.5;}
-
-							@media screen and (max-width: 450px) {
-							.w3-boxmodel .margin {padding: 35px;}
-							.w3-boxmodel .margin:before {font-size: 1em; left: 0; top: 2.5%;}
-							.w3-boxmodel .border {padding: 35px;}
-							.w3-boxmodel .border:before {font-size: 1em; left: 0; top: 3.2%;}
-							.w3-boxmodel .padding {padding: 35px;}
-							.w3-boxmodel .padding:before {font-size: 1em; left: 0.5%; top:4.5%;}
-							.w3-boxmodel .content {padding: 20px;}
-							.w3-boxmodel .content:before {font-size: 1em;}
-							}
-
-							@media screen and (max-width: 360px) {
-							.w3-boxmodel .margin {padding: 25px;}
-							.w3-boxmodel .margin:before {font-size: 0.9em; left: 0; top: 1.5%;}
-							.w3-boxmodel .border {padding: 25px;}
-							.w3-boxmodel .border:before {font-size: 0.9em; left: 0; top: 2.2%;}
-							.w3-boxmodel .padding {padding: 25px;}
-							.w3-boxmodel .padding:before {font-size: 0.9em; left: 0.5%; top:2.5%;}
-							.w3-boxmodel .content {padding: 15px;}
-							.w3-boxmodel .content:before {font-size: 0.9em;}
-							}
-						&lt;/style&gt;
+						&lt;style&gt;<br>
+							.w3-boxmodel {margin: 30px 0;}<br>
+							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; position: relative; border: 2px dashed #bbb;}<br>
+							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; top: 1.8%; width: 100%; text-align: center;}<br>
+							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; position: relative;}<br>
+							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; left: 0; top: 2.5%; width: 100%; text-align: center;}<br>
+							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: relative; background: #E5E5E5;}<br>
+							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; left: 0.5%; top:3.7%; width: 100%; text-align: center;}<br>
+							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; background: white; border: 2px dashed #bbb;}<br>
+							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; text-align: center; line-height: 3.5;}<br>
+							<br>
+							@media screen and (max-width: 450px) {<br>
+							.w3-boxmodel .margin {padding: 35px;}<br>
+							.w3-boxmodel .margin:before {font-size: 1em; left: 0; top: 2.5%;}<br>
+							.w3-boxmodel .border {padding: 35px;}<br>
+							.w3-boxmodel .border:before {font-size: 1em; left: 0; top: 3.2%;}<br>
+							.w3-boxmodel .padding {padding: 35px;}<br>
+							.w3-boxmodel .padding:before {font-size: 1em; left: 0.5%; top:4.5%;}<br>
+							.w3-boxmodel .content {padding: 20px;}<br>
+							.w3-boxmodel .content:before {font-size: 1em;}<br>
+							}<br>
+							<br>
+							@media screen and (max-width: 360px) {<br>
+							.w3-boxmodel .margin {padding: 25px;}<br>
+							.w3-boxmodel .margin:before {font-size: 0.9em; left: 0; top: 1.5%;}<br>
+							.w3-boxmodel .border {padding: 25px;}<br>
+							.w3-boxmodel .border:before {font-size: 0.9em; left: 0; top: 2.2%;}<br>
+							.w3-boxmodel .padding {padding: 25px;}<br>
+							.w3-boxmodel .padding:before {font-size: 0.9em; left: 0.5%; top:2.5%;}<br>
+							.w3-boxmodel .content {padding: 15px;}<br>
+							.w3-boxmodel .content:before {font-size: 0.9em;}<br>
+							}<br>
+						&lt;/style&gt;<br>
 						</code></pre></div>
 						
-						<p><a href="https://www.w3schools.com/css/css_boxmodel.asp" class="copy-link">The W3Schools box model</a>! You can create an internal style sheet by linking to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style" class="copy-link">HTML tags for style</a> within your document.</p>
+						<p><a href="https://www.w3schools.com/css/css_boxmodel.asp" class="copy-link">The W3Schools box model</a>! You can create an internal stylesheet by linking to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style" class="copy-link">HTML tags for style</a> within your document. Of note, regardless of whether you're using an internal or external stylesheet, spaces don't really matter that much within CSS. That is, you'll see in a lot of premade CSS stylesheets selectors and declarations like the following: .w3-boxmodel {margin: 30px 0;} .w3-boxmodel .margin {padding: 25px;}. The fact that there's not a separate line between the two will not affect the running of the style rules involved here.</p>
 						
 						<p>OK, so how can you tell your CSS isn't working out? The most likely scenario is that your selectors are not matching the way you think. I often forget the specific way that I have to refer to a class versus a state (versus some other selectors we will discuss) and will Google this and play around until I get a site to look the way I want.</p>
 						
