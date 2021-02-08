@@ -461,6 +461,10 @@
 						
 						<p>One thing you may have also noticed about this site is that when you load it for the first time, it takes a few seconds for the CSS to be applied. You may wonder, how did Firefox and Chrome render the same content in slightly different ways? Well, each browser also has its own set of default styles, and if I'm changing part of that - like a particular font - it will take a little for the browser to load in that information and change that style. <a href="https://superuser.com/questions/1397485/the-chrome-browser-default-setting-of-fonts" class="copy-link">The default font on Chrome</a> is "Font size: 16; Standard font, Serif font: Times New Roman; Sans-serif font: Arial; Fixed-width font: Consolas." And here on this site, I change those default fonts. If you ever are curious about all the CSS properties and their defaults, you can take a look at the MDN guide.</p>
 						
+						<p>Why does that delay happen? Well, first the browser loads the HTML and then converts the HTML into a <a href="https://developer.mozilla.org/en-US/docs/Glossary/DOM" class="copy-link">"Document Object Model"</a>. (Remember how we consider HTML as the structure of the webpage? Consistent with that, HTML is loaded first, before applying any styling or design rules). The DOM uses your computer's memory, as allocated to the browser you've loaded the site in. Remember what I said above, with link href=css sheet? Well, after converting the HTML into the DOM, the browser then looks at what you've loaded from elsewhere, like your linked CSS.</p>
+						
+						<p>Remember when we were talking about parent-child relationships within HTML? Well, it turns out that's important here too. Now that the browser has loaded in your CSS, it looks to see what elements have each classes, whether certain parent-child relationships need to have particular styles applied - examines all the selectors, etc. All those changes are then rendered in an interactive way... And if there's something the browser doesn't understand within the CSS, it will just ignore this. Whether your line has a misspelled property or an invalid value, the rest will be applied and that line ignored.</p>
+						
 						<p>Earlier, I mentioned the CSS classes of "headerfont" and "mainfont." You can tell in the CSS that I'm referring to a class, because it's preceded by a period ("full stop character"). Each selector will have its own way of being selected - standard HTML elements like the paragraph text, p tag, can be selected without specifying the full stop character. We'll go over different selectors little by little. So, let's take a look at a class that has been applyied to a lot of places. Here's the CSS code.</p>
 						
 						<div class="highlight"><pre><code class="language-css" data-lang="css">
@@ -546,9 +550,97 @@
 						
 						<p>One way that you might run into an error is simply because of how CSS is organized. That is, why it's called a Cascading Style Sheet.</p>
 						
-						<p>The cascading model means that 1) the latest rule takes precedence over the previous rule. If you declare a value for a property twice in the stylesheet, the one that will be applied is the later rule. If you're applying multiple classes to an HTML element that have conflicting property values in their declarations, what do you think will happen? And 2) there's also specificity in the cascading model, where the most unique selectors take precedence over the less unique selectors. As you might guess, that means an ID (which should be specific to certain elements) takes precedence over a Class which takes precedence over Tags (i.e., inline styling).</p>
+						<p>The cascading model means that 1) the latest rule takes precedence over the previous rule. If you declare a value for a property twice in the stylesheet, the one that will be applied is the later rule. If you're applying multiple classes to an HTML element that have conflicting property values in their declarations, what do you think will happen?</p> 
+						
+						<p>And 2) there's also specificity in the cascading model, where the most unique selectors take precedence over the less unique selectors. As you might guess, that means an ID (which should be specific to certain elements) takes precedence over a Class which takes precedence over Elements/Tags (i.e., inline styling or applying all styling to the h1 element). Applying both #1 and #2, in the case of conflicting property values with the same specificity (i.e., both classes with conflicting 'font-family' e.g., values), then the one that came later in the CSS is the rule that applies here. In cases of higher specificity, like a selector for an ID earlier versus a selector for a class that is also on the ID element, the earlier, higher specificity will apply its rule.</p> 
+						
+						<p>Finally, there's also the property of inheritance to take into account. Inheritance refers to the parent-child relationships we discussed with respect to HTML, and even above with "div" being an immediate child of the parent "section" (in the website code) - here, some CSS properties will also - by default - inherit values set on the current parent's element. If I had set a selector on section, then the div element that is a child of section would inherit the properties on section. So, if one of your elements inherits a value and you've specified its value earlier in the style sheet, then you might still have an issue with the later rule - and the inheritance of that value. Some properties are an exception to the rule of inheritance, like widths, margins, padding, and borders, since that'd make everything less flexible.</p>
+						
+						<p>If you want to control the inheritance of a particular element, you can indicate one of four property values: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inherit" class="copy-link">inherit</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/initial" class="copy-link">initial</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/unset" class="copy-link">unset</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/revert" class="copy-link">revert</a>. So, if you've got  </p>
+						
+						<p>Finally, if you want to override all the other rules, you can use the !important special piece of CSS. This text makes the CSS property and value the highest/most specific thing and overrules all else.</p>
 
-						<p>Most values for properties are keywords or numeric values. Sometimes, they are not. One example comes from the pie chart on the home page of this site.</p>
+						<p>Most values for properties are keywords or numeric values. Sometimes, they are not. One example comes from the pie chart on the <a href="index.html" class="copy-link">home page of this site</a>.</p>
+						
+						<div class="highlight"><pre><code class="language-css" data-lang="css">
+						.design {<br>
+							background-color: rgba(1, 33, 105, 0.7);<br>
+							transform: translate(35%, 0%);<br>
+						}<br>
+						.webdev {<br>
+							background-color: rgba(0, 83, 155, 0.7);<br>
+							transform: translate(100%, -100%);<br>
+						}<br>
+						.compsci {<br>
+							background-color: rgba(153, 51, 153, 0.7);<br>
+							transform: translate(35%, -135%);<br>
+							position: absolute;<br>
+						}<br>
+						.researchmethod {<br>
+							background-color: rgba(102, 102, 102, 0.7);<br>
+							transform: translate(100%, -135%);<br>
+							position: absolute;<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>Translate here is a function that is applying math within the CSS for the property of transform. It has its own name and parentheses with the values for the function. Within the transform property, there are multiple other functions, like rotate, that could be applied. There is also a "calc" function that could do simple subtraction.</p>
+						
+						<p>Another type of CSS statement you'll get is an "@rule" indicating an instruction/rule for the CSS. Probably the most frequent one, which I used on <a href="https://christinabejjani.com/css/allpages.css" class="copy-link">my personal website</a>, is the @media rule.</p>
+						
+						<div class="highlight"><pre><code class="language-css" data-lang="css">
+						@media (min-width: 768px) {<br>
+						  .dropdown-menu-arrow {<br>
+							top: -25px;<br>
+							right: auto;<br>
+							left: 50%;
+							position: relative;<br>
+							-webkit-transform: translate(-50%, 0);<br>
+							-o-transform: translate(-50%, 0);<br>
+							transform: translate(-50%, 0);<br>
+						  }<br>
+						  .dropdown-menu-arrow:before,<br>
+						  .dropdown-menu-arrow:after {<br>
+							content: "";<br>
+							position: absolute;<br>
+							display: block;<br>
+							border-width: 10px 11px;<br>
+							border-style: solid;<br>
+							border-color: transparent;<br>
+							z-index: 1001;<br>
+							bottom: -18px;<br>
+							right: -8px;<br>
+							border-bottom-color: #3479B2;<br>
+						  }<br>
+						  .applied-menu{right: 50%; left: -50%;}<br>
+						  .mentoring-menu{left: -20%;}<br>
+						  .other-menu{left: -25%;}<br>
+							<br>
+						  .dropdown-menu{<br>
+							display: none;<br>
+							top: 3.5em;<br>
+							margin-top: 0;<br>
+						  <div style="color:#1D6363">/*  text-align: center; */</div>
+							background-color: #3479B2;<br>
+							-webkit-border-radius: 0.25rem !important; <div style="color:#1D6363">/* 0 if i want square dropdwon; rn .25 is "rounded" class on bootstrap to match images*/</div>
+							   -moz-border-radius: 0.25rem !important;<br>
+									border-radius: 0.25rem !important;<br>
+						  }<br>
+							<br>
+						  .dropdown:hover .dropdown-menu, .dropdown:focus .dropdown-menu, .dropdown:visited .dropdown-menu {display: block;}<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>So many things to comment on here! First, the @media request: what it's doing here is essentially saying that if the width of the browser screen is more than 768px (min-width has to be 768 pixels), then you can show the drop-down-menu-arrow, etc. In short, it's applying a kind of conditional logic to classes that I have on my HTML elements.</p>
+						
+						<p>OK, so think about the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries" class="copy-link">@media rule</a> from the perspective of your experiment. If you don't want participants to do your experiment unless they have a certain screen resolution, you can use the @media rule to simply not show the buttons to move on in the study unless they're at a certain screen size. Of course, you'd want to put that explicitly in the instructions and explain what happened with respect to the rule, if you chose to do it, lest participants get confused. You can also do this with JavaScript (more on that later!). You could also increase the global font size for your experiment given a certain browser size, etc.</p>
+						
+						<p>You can see from the rest of this example a number of other properties, including the position (absolute, relative), borders, display properties... There are really so many CSS properties that I can't more highly recommend checking out the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" class="copy-link">CSS reference guide</a> or googling when you need to figure out a specific property you need to change.</p>
+						
+						<p> You might also notice I broke some of the original CSS guidelines - that is, border-width has 2 values assigned to the property. That is because some properties, like border, are shorthand properties, where you can set multiple values in a line. For border-width, two values means vertical and then horizontal. Three values changes to top, horizontal, bottom. Four values changes to top, right, bottom, left. In other words, what the value means depends on how many values you input. They're called shorthand properties because it saves you lines of code - that one line with 2 values - is equivalent to writing two lines with 1 value each.</p> 
+						
+						<p>I mentioned before that it didn't matter how much white space you had in an HTML element: the same is mostly true of CSS. You can't have white space when calling upon a specific property: border-bottom-color is not the same as border- bottom - color. But writing .applied-menu{right: 50%; left: -50%} is the same as writing it with left starting on another line. Usually people like to write with each property on a new line (because it's easier to read), BUT when people are creating CSS sheets for others to use, they will squish together the properties and selectors to save the number of lines and reduce overall processing speed. So, you'll see it written both ways.</p>
+						
+						<p> ... </p>
 						
 						<p> ... </p>
 						
