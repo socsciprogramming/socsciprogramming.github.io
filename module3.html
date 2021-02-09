@@ -433,7 +433,7 @@
 						<p>You may have noticed just from this example that each property is going to have its own unique value. I could not put "Open Sans" as the value for color; color takes color values, like predefined names (blue, red, white, etc.) or hex codes (#262626) or RGB (red green blue) values, etc. Font-family takes the name of a particular font that you have to have loaded in your browser. And so on. In the second example, you may note that we even make 2 declarations with 2 different values for 2 different properties within the same set of curly brackets. You can make as many as you want, but sometimes it's not advantageous to have too many. If I wanted to apply this different elements, the more properties I have declared, the less flexible that class/element will be, given my styling rules. That is, I'm much more likely to then run into cases where I don't want particular properties on the header font and the main font, etc. It is also hard to remember all the different CSS properties; MDN has a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" class="copy-link">CSS reference guide</a>, and I personally Google whenever I can't remember a particular property.</p>
 						
 						<p>OK, so how do you actually add CSS to an HTML document beyond styling inline elements? Do you remember our trusty HTML element "link" from the previous tutorial? Well, here it is again, within this module:</p>
-						
+						<!--
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!doctype html&gt;<br>
 						&lt;html lang="en"&gt;<br>
@@ -460,7 +460,7 @@
 						&lt;/body&gt;<br>
 						&lt;/html&gt;<br>
 						</code></pre></div>
-						
+						-->
 						<p>CSS is typically specified within the head element of an HTML document. I link to a preestablished set of CSS (Bootstrap, which we will discuss again in <a href="module4.html" class="copy-link" target="_self">Module 4</a>), as well as the custom sheet of rules I've made for this website, plus the fonts that I want to grab from <a href="https://fonts.google.com/" class="copy-link">Google's Fonts API</a>. I was able to do so with the link tag and its rel attribute marking that this is a stylesheet.</p>
 						
 						<p>One thing you may have also noticed about this site is that when you load it for the first time, it takes a few seconds for the CSS to be applied. You may wonder, how did Firefox and Chrome render the same content in slightly different ways? Well, each browser also has its own set of default styles, and if I'm changing part of that - like a particular font - it will take a little for the browser to load in that information and change that style. <a href="https://superuser.com/questions/1397485/the-chrome-browser-default-setting-of-fonts" class="copy-link">The default font on Chrome</a> is "Font size: 16; Standard font, Serif font: Times New Roman; Sans-serif font: Arial; Fixed-width font: Consolas." And here on this site, I change those default fonts. If you ever are curious about all the CSS properties and their defaults, you can take a look at the MDN guide.</p>
@@ -476,7 +476,7 @@
 						a.copy-link{text-decoration: underline;}<br>
 						.copy-link:visited, .copy-link:focus, .copy-link:hover, .copy-link:active {color: #993399;}<br>
 						</code></pre></div>
-						<!--
+						
 						<p>This means that whenever I call upon the class copy-link, it will be shown in blue, and look, a <a href="https://css-tricks.com/multiple-class-id-selectors/" class="copy-link">combination of the HTML element tag & a class (a.copy-link)</a>! That means that all a elements/tags with the copy-link class will have the underline value assigned to the text-decoration property. And after that, I specify more: that is, I style based on "state" (:hover, :active, :focus, :visited, known as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" class="copy-link">pseudo class selectors</a>). When you hover over a link or have already visited it or focus on it via the keyboard or the link is in the process of being activated/clicked, the link will turn purple. And here's one small version of the HTML code.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
@@ -714,7 +714,7 @@
 						<p> ... </p>
 						
 						<p>Have I gone over everything that is to be known about CSS? Not at all! I hope to have given you a brief intro to the basics, but there is still so much more out there. From <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" class="copy-link">display</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions" class="copy-link">different text directions</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders" class="copy-link">backgrounds and borders</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content" class="copy-link">overflow</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables" class="copy-link">tables</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units" class="copy-link">values and units</a> (like why some of the values say rem and em instead of pixels and there's % etc.), to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS" class="copy-link">sizing</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Images_media_form_elements" class="copy-link">images</a>...An entire set of tutorials related to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout" class="copy-link">CSS layout</a> (and making responsive design). In short, now that you've gotten an overview of CSS, my hope is that if you need something more specific than is covered here, you'll Google it or click one of these links! Or, you'll find a package like Bootstrap (see <a href="module4.html" target="_self" class="copy-link">Module 4!</a>) that helps accommodate all of these concerns so you don't have to think about them as much.</p>
-						-->
+						
 						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" class="copy-link">multiple tutorials on CSS</a>. This may be more detail than you want, but if you really want to delve into CSS and web development, it's a great resource.</p>						
 					</div>
 				</section>
