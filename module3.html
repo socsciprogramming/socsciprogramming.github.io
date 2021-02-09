@@ -95,7 +95,7 @@
 		</div>
 	</nav>
 	<div class="row" id="body-row">
-		<div id="sidebar-container" class="d-none d-lg-block col-2 bg-grey">
+		<div id="sidebar-container" class="d-none d-md-block col-2 bg-grey">
 			<ul class="list-group sticky-top sticky-offset">
 				<li class="list-group-item text-muted d-flex align-items-center">
 					<small><b>MODULES</b></small>
@@ -300,7 +300,8 @@
 						&lt;meta name='twitter:creator' content='@chbejjani'/&gt;<br>
 						&lt;meta name='twitter:url' content='https://socsciprogramming.github.io/module3.html'/&gt;<br>
 						&lt;meta name='twitter:image' content='files/twittercard.png'/&gt;<br>
-						&lt;meta name='twitter:description' content='An online course/workshop for learning how to program online social science experiments.'/&gt;<br>
+						&lt;meta name='twitter:description' content='An online course/workshop for learning 
+						how to program online social science experiments.'/&gt;<br>
 						&lt;meta name='twitter:title' content='Introductory Programming for Online Social Science Experiments'/&gt; <br>
 						<br>
 						<div style="color:#1D6363">&lt;!-- But it is good practice to comment your code: Bootstrap core CSS --&gt;</div>
@@ -344,8 +345,9 @@
 						<div style="color:#1D6363">&lt;!--Usually for webpages, the navigation elements are shown next after you specify the body tag--&gt;</div>
 						<br>
 						&lt;nav class="navbar navbar-expand-md fixed-top bg-blue"&gt;<br>
-						&lt;button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" <br>
-						data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"&gt;<br>
+						&lt;button class="navbar-toggler navbar-toggler-right" type="button" 
+						data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+						aria-expanded="false" aria-label="Toggle navigation"&gt;<br>
 						&lt;span class="fas fa-bars"&gt; &lt;/span&gt; <br>
 						&lt;/button&gt; <br>
 						<br>
@@ -512,7 +514,8 @@
 						<p>Here you can see that we're making a declaration based on when 1) the parent attribute data-toggle is exactly equal to collapse, then look for 2) all iterations of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" class="copy-link">pseudoclass :not</a> (i.e., elements that don't match the .collapsed class) and the .collapsed class within that element with the data-toggle=collapse attribute value, then 3) look at the child elements with the class either .if-not-collapsed or .if-collapsed and 4) then don't display the element. Wow! The logic got more complex, huh? (Note that with attribute selectors, you can change the syntax to match whether you want the attribute to be equal to a specific value, just match the attribute at large, etc.). And here's the HTML that goes with this styling:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						&lt;a href="#submenu3" target="_self" data-toggle="collapse" aria-expanded="true" class="list-group-item flex-column align-items-start"&gt;<br>
+						&lt;a href="#submenu3" target="_self" data-toggle="collapse" aria-expanded="true" 
+						class="list-group-item flex-column align-items-start"&gt;<br>
 						&lt;div class="d-flex w-100 justify-content-start align-items-center"&gt;<br>
 						&lt;span class="if-collapsed fas fa-angle-up mr-3"&gt;&lt;/span&gt;<br>
 						&lt;span class="if-not-collapsed fas fa-angle-down mr-3"&gt;&lt;/span&gt;<br>
@@ -549,14 +552,22 @@
 
 						&lt;style&gt;<br>
 							.w3-boxmodel {margin: 30px 0;}<br>
-							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; position: relative; border: 2px dashed #bbb;}<br>
-							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; top: 1.8%; width: 100%; text-align: center;}<br>
-							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; position: relative;}<br>
-							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; left: 0; top: 2.5%; width: 100%; text-align: center;}<br>
-							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: relative; background: #E5E5E5;}<br>
-							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; left: 0.5%; top:3.7%; width: 100%; text-align: center;}<br>
-							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; background: white; border: 2px dashed #bbb;}<br>
-							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; text-align: center; line-height: 3.5;}<br>
+							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; 
+							position: relative; border: 2px dashed #bbb;}<br>
+							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; 
+							top: 1.8%; width: 100%; text-align: center;}<br>
+							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; 
+							position: relative;}<br>
+							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; 
+							left: 0; top: 2.5%; width: 100%; text-align: center;}<br>
+							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: 
+							relative; background: #E5E5E5;}<br>
+							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; 
+							left: 0.5%; top:3.7%; width: 100%; text-align: center;}<br>
+							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; 
+							background: white; border: 2px dashed #bbb;}<br>
+							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; 
+							text-align: center; line-height: 3.5;}<br>
 							<br>
 							@media screen and (max-width: 450px) {<br>
 							.w3-boxmodel .margin {padding: 35px;}<br>
@@ -666,7 +677,8 @@
 									border-radius: 0.25rem !important;<br>
 						  }<br>
 							<br>
-						  .dropdown:hover .dropdown-menu, .dropdown:focus .dropdown-menu, .dropdown:visited .dropdown-menu {display: block;}<br>
+						  .dropdown:hover .dropdown-menu, .dropdown:focus .dropdown-menu, 
+						  .dropdown:visited .dropdown-menu {display: block;}<br>
 						}<br>
 						</code></pre></div>
 						
