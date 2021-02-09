@@ -533,7 +533,7 @@
 						<p>This targets the HTML element with the id sidebar-container (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors" class="copy-link">ids selected with #</a>) possessing the classes list-group and sidebar-submenu and the a tag within those. It then says, give 30 pixels of padding on the left side. Have you noticed how the items in the module sidebar are indented? And another thing to note is that making comments in CSS also differs slightly from HTML (that is, /* ... */ instead of the carrot/angles beside the exclamation mark and dashes to mark opening and closing tags). </p>
 						
 						<p>OK, so I actually only showed you one way of linking to a stylesheet. That way was the 'external' stylesheet reference, and you already knew about inline styling. You can actually refer to the styling of an HTML document within internal tags as well. We also do it on this site for...</p>
-						<!--
+						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;div class="w3-boxmodel mainfont"&gt;<br>
 							&lt;div class="margin"&gt;<br>
@@ -579,7 +579,7 @@
 							}<br>
 						&lt;/style&gt;<br>
 						</code></pre></div>
-						-->
+						
 						<p><a href="https://www.w3schools.com/css/css_boxmodel.asp" class="copy-link">The W3Schools box model</a>! You can create an internal stylesheet by linking to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style" class="copy-link">HTML tags for style</a> within your document. And note that padding, border, and margin are all properties that you can make a declaration for within CSS (read more details on the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" class="copy-link">box models of CSS</a>). Also, of note, regardless of whether you're using an internal or external stylesheet, spaces don't really matter that much within CSS. That is, you'll see in a lot of premade CSS stylesheets selectors and declarations like the following: .w3-boxmodel {margin: 30px 0;} .w3-boxmodel .margin {padding: 25px;}. The fact that there's not a separate line between the two will not affect the running of the style rules involved here.</p>
 						
 						<p>OK, so how can you tell your CSS isn't working out? The most likely scenario is that your selectors are not matching the way you think. I often forget the specific way that I have to refer to a class versus a state (versus some other selectors we will discuss) and will Google this and play around until I get a site to look the way I want. More on debugging below!</p>
@@ -659,7 +659,7 @@
 							margin-top: 0;<br>
 						  <div style="color:#1D6363">/*  text-align: center; */</div>
 							background-color: #3479B2;<br>
-							-webkit-border-radius: 0.25rem !important; <div style="color:#1D6363">/* 0 if i want square dropdwon; rn .25 is "rounded" class on bootstrap to match images*/</div>
+							-webkit-border-radius: 0.25rem !important;<br>
 							   -moz-border-radius: 0.25rem !important;<br>
 									border-radius: 0.25rem !important;<br>
 						  }<br>
