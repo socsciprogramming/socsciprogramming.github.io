@@ -185,9 +185,9 @@
 					<h2 id="subsec31" class="pad1">Basics of HTML, CSS, and JavaScript</h2>
 					<div>
 						<p>When you load a webpage, your browser looks at the code and renders web content according to its internal guidelines. If you want to see what I mean by the latter, you can load this exact webpage in both Chrome and Firefox. It looks a little different, right? It's the same code, but the way each browser interacts with the code differs.</p>
-						
+						<!--
 						<img src="files/firefox_chrome_example.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Comparing Firefox and Chrome Browser Rendering"></img>
-						
+						-->
 						<p>In the <a href="files/firefox_chrome_example.png" class="copy-link">example above</a>, Firefox is on the left and Chrome is on the right, loading the initial view of this webpage on the same exact screen at the same browser size, and yet you can notice a slight difference between the two. But isn't that also the genius of the code? No matter what browser this code is read on, it looks almost exactly the same. So, let's define what HTML, CSS, and JavaScript even are.</p>
 						
 						<p>HTML stands for Hyper Text Markup Language. As a Markup language, HTML will process certain "tags" (elements) that will communicate with the browser. All browsers can recognize HTML and have been designed to do so: HTML is the foundation and structure of the content that you will see on websites. As the <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" class="copy-link">Mozilla Developer Guide</a> says, HTML can "give [pieces of text] different meaning in a document (Is it a paragraph? Is it a bulleted list? Is it part of a table?), structure a document into logical sections (Does it have a header? Three columns of content? A navigation menu?), and embed content such as images and videos into a page." If you were to look at <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/module3.html" class="copy-link">the code for Module 3</a> - which we will do in more detail below - you would see a whole lot of HTML with our website content and a standard structure. HTML files naturally have the extension ".html". </p>
@@ -682,7 +682,7 @@
 						<p>Now, say you want to debug your CSS to figure out what's gone wrong. By far the easiest way to do this is to access the browser developer tools. What you could do in the DevTools will likely be different based on the browser you're using, but there are some fundamentals: namely having a place for you to look at HTML elements, examine the source scripts of the site, and making changes within the DevTools.</p>
 						
 						<p>There's basically two ways to look at the code of a site. You can right click on a page and click "View Source". Here, you're looking at the code as it's stored on the server that's rendering it. So, if you're looking at the code on this website, it looks pretty similar to ..
-						
+						<!--
 						<img src="files/devtools1.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Developer Tools Tab Elements within Chrome"></img>
 						
 						<p>The <a href="files/devtools1.png" class="copy-link">Elements tab</a> ... </p>
@@ -706,7 +706,7 @@
 						<p>I can say that for this site specifically, I chose a design that is not super mobile friendly, but that's mostly because coding is just a lot harder to do on your phone than on a computer. So, it seemed to me that the site design should be more oriented to computers than mobile devices. You'll need to have specific reasoning why you target the design of your study one way or the other.</p>
 						
 						<img src="files/devtools6.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Developer Tools Tab Elements within Firefox"></img>
-						
+						-->
 						<p>Finally, how do the <a href="files/devtools6.png" class="copy-link">Developer Tools look in other browsers</a>, like Firefox? Well, you can see that there's not really much of a difference. A lot of the same Tabs exist, and might be named slightly differently (Inspect vs. Elements). They both show you the styling applied to elements, plus the box model that we've gone over, and the network and performance/memory tabs. They both let you look more closely at a script, and they both, when you right click on the code in Inspect/Elements, let you click "Edit as HTML" and make whatever edits you want to the structure of the site.</p>
 						
 						<p>OK, so how does this all actually apply to when you're coding a study? In most experiments, I don't use as much CSS as I do with styling webpages like this or my own personal website. I try to use CSS as a framework that guides User Experience, like making buttons a certain color and shape to be consistent across the entire experiment. I specify Arial as the font for basically everything, since it's a pretty standard (i.e., on most computers) and easy to read font. Even using a small amount of CSS, though, can help you abide by our guiding online programming and design principles, as discussed in <a href="module2.html" class="copy-link" target="_self">Module 2</a>. But of course this all depends on your particular goals: in my webpage studies, I don't want people to take the study on a mobile device, so I specifically ensure they can't (window must be greater than 800 x 600, plus the experiment asks for keypresses). This of course limits the generalizability of my study and desire to participate, I'm sure, but also means I don't need to make as many styling changes. All that being said, let's look at my colleague, Nick's, demostration experiments that are coded in HTML, CSS, and JavaScript:</p>
