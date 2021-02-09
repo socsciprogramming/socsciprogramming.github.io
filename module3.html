@@ -414,7 +414,7 @@
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t2">Designing and Styling with CSS</h4></li></ul>
 					<div>						
 						<p>The first thing you might wonder is... do you need CSS? Maybe you've seen something like this before:</p>
-						<!--
+						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;div style="color:#1D6363; white-space: pre;"&gt; &lt;!--One thing to note is that whitespace within an HTML element does not matter. As long as you're using the carrot/angular brackets, you're good        --&gt; &lt;/div&gt;
 						</code></pre></div>
@@ -427,7 +427,7 @@
 						h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}<br>
 						p, .mainfont, code, pre {font-family: "Open Sans";  color: #262626;}<br>
 						</code></pre></div>
-						
+						<!--
 						<p>In these first two lines of the custom CSS for the site, I select all the header elements (h1-h6) (i.e., <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors" class="copy-link">"type" selector</a>) and a new class that I am defining (.headerfont; <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors" class="copy-link">"class selector"</a>) to have a serif font, "Playfair Display". The header elements are the selector; font-family is the property; Playfair Display is the value of that property; and together font-family and playfair display are the declaration that is enclosed in curly brackets and ends with a semi-colon. On the next line, I select the p/paragraph text element, a new class I'm defining (.mainfont), and the code and pre elements, and declare that I want these to show in a sans serif font, Open Sans, and that I want the color to be a kind of charcoal that is in the <a href="https://brand.duke.edu/colors/" class="copy-link">Duke colors brand guide</a>. The fonts are consistent with the <a href="https://brand.duke.edu/typography/" class="copy-link">Duke typography brand guide</a>. You may have noticed even in this example that you can select multiple "selectors" in your declaration statement all at once (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list" class="copy-link">"selector list"</a>), with a comma between the different selectors.</p>
 						
 						<p>You may have noticed just from this example that each property is going to have its own unique value. I could not put "Open Sans" as the value for color; color takes color values, like predefined names (blue, red, white, etc.) or hex codes (#262626) or RGB (red green blue) values, etc. Font-family takes the name of a particular font that you have to have loaded in your browser. And so on. In the second example, you may note that we even make 2 declarations with 2 different values for 2 different properties within the same set of curly brackets. You can make as many as you want, but sometimes it's not advantageous to have too many. If I wanted to apply this different elements, the more properties I have declared, the less flexible that class/element will be, given my styling rules. That is, I'm much more likely to then run into cases where I don't want particular properties on the header font and the main font, etc. It is also hard to remember all the different CSS properties; MDN has a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" class="copy-link">CSS reference guide</a>, and I personally Google whenever I can't remember a particular property.</p>
