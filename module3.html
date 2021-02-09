@@ -185,9 +185,9 @@
 					<h2 id="subsec31" class="pad1">Basics of HTML, CSS, and JavaScript</h2>
 					<div>
 						<p>When you load a webpage, your browser looks at the code and renders web content according to its internal guidelines. If you want to see what I mean by the latter, you can load this exact webpage in both Chrome and Firefox. It looks a little different, right? It's the same code, but the way each browser interacts with the code differs.</p>
-						<!--
+						
 						<img src="files/firefox_chrome_example.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Comparing Firefox and Chrome Browser Rendering"></img>
-						-->
+						
 						<p>In the <a href="files/firefox_chrome_example.png" class="copy-link">example above</a>, Firefox is on the left and Chrome is on the right, loading the initial view of this webpage on the same exact screen at the same browser size, and yet you can notice a slight difference between the two. But isn't that also the genius of the code? No matter what browser this code is read on, it looks almost exactly the same. So, let's define what HTML, CSS, and JavaScript even are.</p>
 						
 						<p>HTML stands for Hyper Text Markup Language. As a Markup language, HTML will process certain "tags" (elements) that will communicate with the browser. All browsers can recognize HTML and have been designed to do so: HTML is the foundation and structure of the content that you will see on websites. As the <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" class="copy-link">Mozilla Developer Guide</a> says, HTML can "give [pieces of text] different meaning in a document (Is it a paragraph? Is it a bulleted list? Is it part of a table?), structure a document into logical sections (Does it have a header? Three columns of content? A navigation menu?), and embed content such as images and videos into a page." If you were to look at <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/module3.html" class="copy-link">the code for Module 3</a> - which we will do in more detail below - you would see a whole lot of HTML with our website content and a standard structure. HTML files naturally have the extension ".html". </p>
@@ -224,7 +224,7 @@
 						<p>OK, so now you know the basic syntax of HTML and some HTML text fundamentals. What is each element like?</p>
 
 						<p>Each HTML element is contained within a box. We already talked about nesting elements - this nesting can actually create what's known as a <a href="https://www.w3schools.com/js/js_htmldom_navigation.asp" class="copy-link">parent-child relationship</a>. For example, the bold, italics, etc. tags are children of the (parent) paragraph tag in the previous code block, and you can extrapolate that relationship to most of the structure provided by HTML. Within the boxes for each HTML element, you can create space within the box (padding, border) or outside the box (margin). <a href="https://www.w3schools.com/css/css_boxmodel.asp" class="copy-link">See the following model - the code for which I took from W3 schools</a>.</p>
-						<!--
+						
 						<div class="w3-boxmodel mainfont">
 							<div class="margin">
 							  <div class="border">
@@ -268,7 +268,7 @@
 							.w3-boxmodel .content:before {font-size: 0.9em;}
 							}
 						</style>
-						-->
+						
 						<p>Margin, border, and padding can be modified on all axes - left, right, top, and bottom. One example of this very box model concept is demonstrated in these code blocks. Which do you think was modified to get the background to be fully grey, and which do you think was modified for the left aligned blue line? Can you see how these will be useful for you when coding an experiment? Of note, previously I mentioned that while designing this site, I recognized I had put a lot of text on one page, so I tried to compensate by... increasing the top and bottom padding for the paragraph (p) elements!</p>
 						
 						<p>One other distinction that can be made about HTML elements refers to their default display. Are they considered block-level or inline elements? A typical inline element is contained within a block-level element, being a part of a line rather than causing a new line to appear (e.g., bolding text, creating hyperlinks). A block-level element is one that can create a new line and is often a structural element, like the paragraph text (p) element, headers, etc. You can still nest block-level elements, but they'd only be nested within more block-level elements (like all the p tags that are all nested here within the main text of this webpage!). Notably, <a href="https://html.spec.whatwg.org/multipage/indices.html#element-content-categories" class="copy-link">recent updates to HTML</a> suggest this kind of distinction may not survive future iterations/edits, but it's useful for now.</p>
@@ -414,7 +414,7 @@
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec31t2">Designing and Styling with CSS</h4></li></ul>
 					<div>						
 						<p>The first thing you might wonder is... do you need CSS? Maybe you've seen something like this before:</p>
-						
+						<!--
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;div style="color:#1D6363; white-space: pre;"&gt; &lt;!--One thing to note is that whitespace within an HTML element does not matter. As long as you're using the carrot/angular brackets, you're good        --&gt; &lt;/div&gt;
 						</code></pre></div>
@@ -682,7 +682,7 @@
 						<p>Now, say you want to debug your CSS to figure out what's gone wrong. By far the easiest way to do this is to access the browser developer tools. What you could do in the DevTools will likely be different based on the browser you're using, but there are some fundamentals: namely having a place for you to look at HTML elements, examine the source scripts of the site, and making changes within the DevTools.</p>
 						
 						<p>There's basically two ways to look at the code of a site. You can right click on a page and click "View Source". Here, you're looking at the code as it's stored on the server that's rendering it. So, if you're looking at the code on this website, it looks pretty similar to ..
-						<!--
+						
 						<img src="files/devtools1.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Developer Tools Tab Elements within Chrome"></img>
 						
 						<p>The <a href="files/devtools1.png" class="copy-link">Elements tab</a> ... </p>
@@ -706,7 +706,7 @@
 						<p>I can say that for this site specifically, I chose a design that is not super mobile friendly, but that's mostly because coding is just a lot harder to do on your phone than on a computer. So, it seemed to me that the site design should be more oriented to computers than mobile devices. You'll need to have specific reasoning why you target the design of your study one way or the other.</p>
 						
 						<img src="files/devtools6.png" class="img-fluid rounded mx-auto d-block pad-t75 pad-b75" alt="Developer Tools Tab Elements within Firefox"></img>
-						-->
+						
 						<p>Finally, how do the <a href="files/devtools6.png" class="copy-link">Developer Tools look in other browsers</a>, like Firefox? Well, you can see that there's not really much of a difference. A lot of the same Tabs exist, and might be named slightly differently (Inspect vs. Elements). They both show you the styling applied to elements, plus the box model that we've gone over, and the network and performance/memory tabs. They both let you look more closely at a script, and they both, when you right click on the code in Inspect/Elements, let you click "Edit as HTML" and make whatever edits you want to the structure of the site.</p>
 						
 						<p>OK, so how does this all actually apply to when you're coding a study? In most experiments, I don't use as much CSS as I do with styling webpages like this or my own personal website. I try to use CSS as a framework that guides User Experience, like making buttons a certain color and shape to be consistent across the entire experiment. I specify Arial as the font for basically everything, since it's a pretty standard (i.e., on most computers) and easy to read font. Even using a small amount of CSS, though, can help you abide by our guiding online programming and design principles, as discussed in <a href="module2.html" class="copy-link" target="_self">Module 2</a>. But of course this all depends on your particular goals: in my webpage studies, I don't want people to take the study on a mobile device, so I specifically ensure they can't (window must be greater than 800 x 600, plus the experiment asks for keypresses). This of course limits the generalizability of my study and desire to participate, I'm sure, but also means I don't need to make as many styling changes. All that being said, let's look at my colleague, Nick's, demostration experiments that are coded in HTML, CSS, and JavaScript:</p>
@@ -714,7 +714,7 @@
 						<p> ... </p>
 						
 						<p>Have I gone over everything that is to be known about CSS? Not at all! I hope to have given you a brief intro to the basics, but there is still so much more out there. From <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" class="copy-link">display</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions" class="copy-link">different text directions</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders" class="copy-link">backgrounds and borders</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content" class="copy-link">overflow</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables" class="copy-link">tables</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units" class="copy-link">values and units</a> (like why some of the values say rem and em instead of pixels and there's % etc.), to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS" class="copy-link">sizing</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Images_media_form_elements" class="copy-link">images</a>...An entire set of tutorials related to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout" class="copy-link">CSS layout</a> (and making responsive design). In short, now that you've gotten an overview of CSS, my hope is that if you need something more specific than is covered here, you'll Google it or click one of these links! Or, you'll find a package like Bootstrap (see <a href="module4.html" target="_self" class="copy-link">Module 4!</a>) that helps accommodate all of these concerns so you don't have to think about them as much.</p>
-						
+						-->
 						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" class="copy-link">multiple tutorials on CSS</a>. This may be more detail than you want, but if you really want to delve into CSS and web development, it's a great resource.</p>						
 					</div>
 				</section>
