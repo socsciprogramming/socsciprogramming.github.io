@@ -282,20 +282,25 @@
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;base target='_blank'/&gt;<br>
 						&lt;meta charset="utf-8"/&gt;<br>
-						&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"/&gt;<br>
-						&lt;meta name="description" content="An online course/workshop for learning how to program online social science experiments."/&gt;<br>
-						&lt;meta name="keywords" content="Social Science, JavaScript, HTML, CSS, Qualtrics, Amazon Mechanical Turk"/&gt; <br>
+						&lt;meta name="viewport" content="width=device-width, initial-scale=1, <br>
+						maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"/&gt;<br>
+						&lt;meta name="description" content="An online course/workshop for <br>
+						learning how to program online social science experiments."/&gt;<br>
+						&lt;meta name="keywords" content="Social Science, JavaScript, HTML, <br>
+						CSS, Qualtrics, Amazon Mechanical Turk"/&gt; <br>
 						<br>
 						...<br>
 						<br>
-						&lt;title&gt;Module 3 of Introductory Programming for Online Social Science Experiments&lt;/title&gt; <br>
+						&lt;title&gt;Module 3 of Introductory Programming for Online <br>
+						Social Science Experiments&lt;/title&gt; <br>
 						<br>
 						<div style="color:#1D6363">&lt;!-- These are the HTML version of Comments: Favicons--&gt;</div>
 						&lt;link href="files/favi_icon_website.png" rel="icon" type="image/x-icon" /&gt; <br>
 						<br>
 						...<br>
 						<br>
-						<div style="color:#1D6363">&lt;!--These comments do not impact the code: This is for those little thumbnails when the link is shared on twitter --&gt;</div>
+						<div style="color:#1D6363">&lt;!--These comments do not impact the code: <br>
+						This is for those little thumbnails when the link is shared on twitter --&gt;</div>
 						&lt;meta name='twitter:card' content='summary'/&gt;<br>
 						&lt;meta name='twitter:creator' content='@chbejjani'/&gt;<br>
 						&lt;meta name='twitter:url' content='https://socsciprogramming.github.io/module3.html'/&gt;<br>
@@ -327,7 +332,7 @@
 						&lt;!doctype html&gt;<br>
 						&lt;html lang="en"&gt;<br>
 						&lt;head&gt;<br>
-						<div style="color:#1D6363">&lt;!--Within the head element tag, you typically load in 
+						<div style="color:#1D6363">&lt;!--Within the head element tag, you typically load in <br>
 						CSS style sheets or other scripts... like: --&gt;</div>
 						<br>
 						...<br>
@@ -339,19 +344,19 @@
 						<br>
 						&lt;/head&gt;<br>
 						&lt;body&gt;<br>
-						<div style="color:#1D6363">&lt;!--Within the body element tag, you typically put the content of the HTML document, 
+						<div style="color:#1D6363">&lt;!--Within the body element tag, you typically put the content of the HTML document, <br>
 						first defined by a header across all the pages... --&gt;</div>
 						<br>
 						<div style="color:#1D6363">&lt;!--Usually for webpages, the navigation elements are shown next after you specify the body tag--&gt;</div>
 						<br>
 						&lt;nav class="navbar navbar-expand-md fixed-top bg-blue"&gt;<br>
-						&lt;button class="navbar-toggler navbar-toggler-right" type="button" 
-						data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+						&lt;button class="navbar-toggler navbar-toggler-right" type="button" <br>
+						data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"<br> 
 						aria-expanded="false" aria-label="Toggle navigation"&gt;<br>
 						&lt;span class="fas fa-bars"&gt; &lt;/span&gt; <br>
 						&lt;/button&gt; <br>
 						<br>
-						<div style="color:#1D6363; white-space: pre;">&lt;!--One thing to note is that whitespace within an HTML element 
+						<div style="color:#1D6363; white-space: pre;">&lt;!--One thing to note is that whitespace within an HTML element <br>
 						does not matter. As long as you're using the carrot/angular brackets, you're good        --&gt;</div>
 						&lt;div class="row" id="body-row"             &gt; <br>
 						&lt;div id="sidebar-container" class="d-none d-md-block col-2 bg-grey"&gt; <br>
@@ -514,7 +519,7 @@
 						<p>Here you can see that we're making a declaration based on when 1) the parent attribute data-toggle is exactly equal to collapse, then look for 2) all iterations of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" class="copy-link">pseudoclass :not</a> (i.e., elements that don't match the .collapsed class) and the .collapsed class within that element with the data-toggle=collapse attribute value, then 3) look at the child elements with the class either .if-not-collapsed or .if-collapsed and 4) then don't display the element. Wow! The logic got more complex, huh? (Note that with attribute selectors, you can change the syntax to match whether you want the attribute to be equal to a specific value, just match the attribute at large, etc.). And here's the HTML that goes with this styling:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						&lt;a href="#submenu3" target="_self" data-toggle="collapse" aria-expanded="true" 
+						&lt;a href="#submenu3" target="_self" data-toggle="collapse" aria-expanded="true"<br> 
 						class="list-group-item flex-column align-items-start"&gt;<br>
 						&lt;div class="d-flex w-100 justify-content-start align-items-center"&gt;<br>
 						&lt;span class="if-collapsed fas fa-angle-up mr-3"&gt;&lt;/span&gt;<br>
@@ -524,7 +529,7 @@
 						&lt;/a&gt;<br>
 						</code></pre></div>
 						
-						<p>So, what's going on here? Our link in the sidebar has an href of #submenu3, which indicentally will be important to the "collapsing" behavior. (All elements within a div that have the ID submenu3 will be the focus of the data-toggle class attribute; this <a href="https://getbootstrap.com/docs/4.0/components/collapse/" class="copy-link">data-toggle attribute</a> is defined within a CSS package called Bootstrap and adds an attribute 'aria-expanded' that equals true or false based on whether you've tried to click and expand or click and hide the div elements and what the default is (i.e., collapsed)). You have a bunch of classes applied to this first-line a element, and you have two span classes that are positioned right next to the title of this Module beneath a div class that groups all 3 span elements together. The fa-angle-up is listed with the if-collapsed class, which is the "default" state of the Modules in the sidebar - you can't see each individual subsection until you've clicked the Module itself. The fa-angle-down class is listed with the if-not-collapsed class.</p>
+						<p>So, what's going on here? Our link in the sidebar has an href of #submenu3, which indicentally will be important to the "collapsing" behavior. (All elements within a div that have the ID submenu3 will be the focus of the data-toggle class attribute; this <a href="https://getbootstrap.com/docs/4.0/components/collapse/" class="copy-link">data-toggle attribute</a> is defined within a CSS package called Bootstrap and makes the attribute 'aria-expanded' equal true or false based on whether you've tried to click and expand or click and hide the div elements and what the default is (i.e., collapsed)). You have a bunch of classes applied to this first-line a element, and you have two span classes that are positioned right next to the title of this Module beneath a div class that groups all 3 span elements together. The fa-angle-up is listed with the if-collapsed class, which is the "default" state of the Modules in the sidebar - you can't see each individual subsection until you've clicked the Module itself. The fa-angle-down class is listed with the if-not-collapsed class.</p>
 						
 						<p>Believe it or not, we still haven't gone over all the selectors! We still have the basic <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors" class="copy-link">"universal selector"</a>. For example, you could do *p and make a declaration that applies to all p elements. I suppose I could make entire site default to Open Sans with this selector and then just specify Playfair Display for header fonts, but I'm wary of using a selector that is not that specific and applies to all. There are also <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements" class="copy-link">"pseudo-elements"</a>, which let you style specific parts of the element you select. I've most often seen this used in refence to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before" class="copy-link">element::before</a> (pseudo-element referring to the first child of your selected element) and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::after" class="copy-link">element::after</a> (pseudo-element referring to the last child of the selected element). We were just talking about creating collapsible submenu icons; can you imagine a version of this, using the ::before and ::after pseudo-elements? (Here's <a href="https://stackoverflow.com/questions/18325779/bootstrap-3-collapse-show-state-with-chevron-icon" class="copy-link">one complicated thread</a>; see below on the drop-down example for more uses of :before & :after).</p>
 						
@@ -552,21 +557,21 @@
 
 						&lt;style&gt;<br>
 							.w3-boxmodel {margin: 30px 0;}<br>
-							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; 
+							.w3-boxmodel .margin {background: #E5E5E5; padding: 45px; width: 100%; height: 100%; <br>
 							position: relative; border: 2px dashed #bbb;}<br>
-							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; 
+							.w3-boxmodel .margin:before {content: "Margin"; font-size: 1.4em; position: absolute; left: 0; <br>
 							top: 1.8%; width: 100%; text-align: center;}<br>
-							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; 
+							.w3-boxmodel .border {background: #B5B5B5; padding: 45px; width: 100%; height: 100%; <br>
 							position: relative;}<br>
-							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; 
+							.w3-boxmodel .border:before {content: "Border"; font-size: 1.4em; color: black; position: absolute; <br>
 							left: 0; top: 2.5%; width: 100%; text-align: center;}<br>
-							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: 
+							.w3-boxmodel .padding {color:black; padding: 45px; width: 100%; height: 100%; position: <br>
 							relative; background: #E5E5E5;}<br>
-							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; 
+							.w3-boxmodel .padding:before {content: "Padding"; font-size: 1.4em; position: absolute; <br>
 							left: 0.5%; top:3.7%; width: 100%; text-align: center;}<br>
-							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; 
+							.w3-boxmodel .content {padding: 20px; width: 100%; height: 100%; position: relative; <br>
 							background: white; border: 2px dashed #bbb;}<br>
-							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; 
+							.w3-boxmodel .content:before {content: "Content"; font-size: 1.4em; display: block; <br>
 							text-align: center; line-height: 3.5;}<br>
 							<br>
 							@media screen and (max-width: 450px) {<br>
