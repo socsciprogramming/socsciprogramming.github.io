@@ -3,8 +3,8 @@ h1, h2, h3, h4, h5, h6, .headerfont {font-family: "Playfair Display";}
 p, .mainfont, code, pre {font-family: "Open Sans";  color: #262626;}
 
 /*code blocks*/
-code,pre{background-color:#E5E5E5;}
-code[class*=language-],pre[class*=language-]{-moz-tab-size:1.5;tab-size:1.5; background-color:#E5E5E5; color: #012169; font-weight: bold;}
+code,pre{background-color:#E5E5E5; color: #012169;-moz-tab-size:1.5;tab-size:1.5;}
+code[class*=language-],pre[class*=language-]{font-weight: bold;}
 pre{border-left: thick solid #012169;}
 pre{-webkit-box-decoration-break:clone;box-decoration-break:clone; -webkit-hyphens:none;-ms-hyphens:none;hyphens:none; word-wrap:break-word; white-space: initial; padding: 1em;}
 
