@@ -73,7 +73,7 @@ body {padding-top: 56px; overflow:auto;}
 #body-row {margin-left:0; margin-right:0;}
 
 /* make sidebar start on the left, indicate its full column size, make sure no outlines on the dropdowns & that they match the colors of the dropdown itself*/
-#sidebar-container {min-height: 100vh; padding: 0; min-width: 275px;}
+#sidebar-container {min-height: 100vh; padding: 0; min-width: 267px;}
 .list-group-item, .list-group-item:hover, .list-group-item:visited, .list-group-item:active, .list-group-item:focus {background-color: #E5E5E5; border: none; text-decoration: none;}
 .dropdown-menu, .dropdown-item, .dropdown-item:hover, .dropdown-item:visited, .dropdown-item:active, .dropdown-item:focus {background-color: #012169; border: none; text-decoration: none;}
 
