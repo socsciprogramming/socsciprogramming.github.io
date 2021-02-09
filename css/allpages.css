@@ -35,33 +35,19 @@ a.copy-link{text-decoration: underline;}
 .navb-link:active, .active {font-weight: bold;}
 .bttn {text-align: center; color: #fff; border-radius: 0.5rem; border: none; outline:none; background-color:#A1B70D;}
 
-/*transitions - leaving for now */
-.dim{opacity:1}
-.dim,.dim:focus,.dim:hover{transition:opacity .15s ease-in}
-.dim:focus,.dim:hover{opacity:.5}
-.dim:active,.dim:visited{opacity:.8;transition:opacity .15s ease-out}
-
 /*colors informed by https://brand.duke.edu/colors/ */
-.white{color:#fff}
-.black{color:#000}
 .bg-blue{background-color:#012169}
-.bg-purple{background-color:#993399}
 .bg-grey{background-color: #E5E5E5}
 
 /* padding - leaving for now */
 p{padding-top: 0.35rem; padding-bottom: 0.35rem;}
 section div{padding-top: 0.7rem; padding-bottom: 0.7rem;}
-.pv2{padding-top:.5rem;padding-bottom:.5rem}
 .pad1{padding: 1rem;}
-.pad75{padding: 0.75rem;}
 .pad-l1{padding-left: 1rem;}
 .pad-b75{padding-bottom: 0.75rem;}
 .pad-t75{padding-top: 0.75rem;}
-.pad-t125{padding-top: 1.25rem;}
-.pad-t5{padding-top: 5rem;}
-.pad-r1{padding-right: 1rem;}
 
-/*misc*/
+/*card - learning goal section*/
 .card{border: none}
 .card-header{background-color:#E5E5E5; color: #012169; border: none;}
 
