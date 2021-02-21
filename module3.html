@@ -194,7 +194,7 @@
 						
 						<p>CSS stands for Cascading Style Sheet. It is a styling language, used primarily to impose display rules and properties on the HTML content of websites, changing their layout and look (e.g., font, color and size of any element, spacing, animations, columns for content, etc.). In the sections below, we will also look at the <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/blob/master/css/allpages.css" class="copy-link">custom CSS sheet</a> used for this module. CSS files naturally have the extension ".css". While learning HTML and CSS, people will often move back and forth between the two languages because they work well together, and you can get by on a webpage without using JavaScript, but typically use HTML and CSS together for any webpage.</p>
 						
-						<p>Finally, JavaScript is a programming language that is primarily used to interact with the HTML (and CSS) - it runs on its own, runs computations, controls the behavior of the website, etc. At the bottom of this tutorial site, there is an up arrow colored in purple. When you click the up arrow, it will scroll you all the way back to the top of the site via JavaScript. It also uses an interactive element called a "tooltip" that will appear when you hover on the arrow, the hover being a "trigger event" that is dictated by JavaScript. JavaScript helps a webpage do more than display static information. JavaScript files have the extension ".js".</p>
+						<p>Finally, JavaScript is a programming language that is primarily used to interact with the HTML (and CSS) - it runs on its own (in response to events on the page), runs computations (e.g., operations on text), controls the behavior of the website, etc. At the bottom of this tutorial site, there is an up arrow colored in purple. When you click the up arrow, it will scroll you all the way back to the top of the site via JavaScript. It also uses an interactive element called a "tooltip" that will appear when you hover on the arrow, the hover being a "trigger event" that is dictated by JavaScript. JavaScript helps a webpage do more than display static information. JavaScript files have the extension ".js".</p>
 									
 						<p>So, now let's more fully explore how HTML provides the structure and content that is styled by CSS and that interacts with JavaScript.</p>
 					</div>
@@ -681,7 +681,7 @@
 						
 						<p>Now, say you want to debug your CSS to figure out what's gone wrong. By far the easiest way to do this is to access the browser developer tools. What you can do in the DevTools will likely be different based on the browser you're using, but there are some fundamentals: namely, having a place for you to look at HTML elements, examine the source scripts of the site, and making changes within the DevTools.</p>
 						
-						<p>There are basically two ways to look at the code of a site. You can right click on a page and click "View Source". Here, you're looking at the code as it's stored on the server that's rendering it. So, if you're looking at the code on this website, it looks pretty similar to what it'll be with the Developer Tools, since I'm not doing much server-side with Github, but if you look at a site hosted on Squarespace, "View Source" is going to a lot harder to read. Generally, though, I recommend looking at the Developer Tools, because these are just more interactive. They show you the DOM rendered in the browser. How do you access the Developer Tools? <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools" class="copy-link">Here's a guide from Mozilla!</a> Or <a href="https://developers.google.com/web/tools/chrome-devtools/open" class="copy-link">one from Google</a>! For me, on Windows 10, all I do is press F12 in Firefox or Chrome and the DevTools pop up. </p>
+						<p>There are basically two ways to look at the code of a site. You can right click on a page and click "View Source". Here, you're looking at the code as it's stored on the server that's rendering it. So, if you're looking at the code on this website, it looks pretty similar to what it'll be with the Developer Tools, since I'm not doing much server-side with Github, but if you look at a site hosted on Squarespace, "View Source" is going to a lot harder to read. Generally, though, I recommend looking at the Developer Tools, because these are just more interactive. They show you the Documnet Object Model (DOM) rendered in the browser. How do you access the Developer Tools? <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools" class="copy-link">Here's a guide from Mozilla!</a> Or <a href="https://developers.google.com/web/tools/chrome-devtools/open" class="copy-link">one from Google</a>! For me, on Windows 10, all I do is press F12 in Firefox or Chrome and the DevTools pop up. </p>
 						
 						<p>So, what do the DevTools look like?</p>
 						
@@ -717,9 +717,9 @@
 						
 						<p>OK, so how does this all actually apply to when you're coding a study? In most experiments, I don't use as much CSS as I do with styling webpages like this or my own personal website. I try to use CSS as a framework that guides User Experience, like making buttons a certain color and shape to be consistent across the entire experiment. I specify Arial as the font for basically everything, since it's a pretty standard (i.e., on most computers) and easy to read font. Even using a small amount of CSS, though, can help you abide by our guiding online programming and design principles, as discussed in <a href="module2.html" class="copy-link" target="_self">Module 2</a>. But of course this all depends on your particular goals: in my webpage studies, I don't want people to take the study on a mobile device, so I specifically ensure they can't (window must be greater than 800 x 600, plus the experiment asks for keypresses). This of course limits the generalizability of my study and desire to participate, I'm sure, but also means I don't need to make as many styling changes. All that being said, let's look at my colleague, Nick's, demostration experiments that are coded in HTML, CSS, and JavaScript:</p>
 						
-						<p><a href="https://nbrosowsky.github.io/online-psychology-demos/task-switching/index.html" class="copy-link">Task-switching demo</a>, <a href="https://nbrosowsky.github.io/online-psychology-demos/face-inversion/index.html" class="copy-link">Face inversion demo</a>, <a href="https://nbrosowsky.github.io/online-psychology-demos/levels-of-processing/index.html" class="copy-link">Levels of processing demo</a>, <a href="https://nbrosowsky.github.io/online-psychology-demos/survival-processing/index.html" class="copy-link">Survival Processing demo</a>. These are all coded as demos for an Introductory Psychology class, but one thing you might notice is that they're all formatted pretty nicely. The demo is centered, the buttons are blue and easy to find and select, the headers are clearly marked, the text itself is easy to read in a kind of magazine structure, the instructions are immediately presented on screen, and the flow of information appears clear from the front page on. You're going to have a lot of variability in how people code, but you can't forget some of our fundamental principles of online programming -- and the need to prioritize user experience!</p>
+						<p><a href="https://nbrosowsky.github.io/online-psychology-demos/task-switching/index.html" class="copy-link">Task-switching demo</a>, <a href="https://nbrosowsky.github.io/online-psychology-demos/face-inversion/index.html" class="copy-link">Face inversion demo</a>, <a href="https://nbrosowsky.github.io/online-psychology-demos/levels-of-processing/index.html" class="copy-link">Levels of processing demo</a>, <a href="https://nbrosowsky.github.io/online-psychology-demos/survival-processing/index.html" class="copy-link">Survival Processing demo</a>. These are all coded as demos for an Introductory Cognitive Psychology class, but one thing you might notice is that they're all formatted pretty nicely. The demo is centered, the buttons are blue and easy to find and select, the headers are clearly marked, the text itself is easy to read in a kind of magazine structure, the instructions are immediately presented on screen, and the flow of information appears clear from the front page on. You're going to have a lot of variability in how people code, but you can't forget some of our fundamental principles of online programming -- and the need to prioritize user experience!</p>
 						
-						<p>Have I gone over everything that is to be known about CSS? Not at all! I hope to have given you a brief intro to the basics, but there is still so much more out there. From <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" class="copy-link">display</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions" class="copy-link">different text directions</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders" class="copy-link">backgrounds and borders</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content" class="copy-link">overflow</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables" class="copy-link">tables</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units" class="copy-link">values and units</a> (like why some of the values say rem and em instead of pixels and there's % etc.), to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS" class="copy-link">sizing</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Images_media_form_elements" class="copy-link">images</a>...An entire set of tutorials related to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout" class="copy-link">CSS layout</a> (and making responsive design). In short, now that you've gotten an overview of CSS, my hope is that if you need something more specific than is covered here, you'll Google it or click one of these links! Or, you'll find a package like Bootstrap (see <a href="module4.html" target="_self" class="copy-link">Module 4!</a>) that helps accommodate all of these concerns so you don't have to think about them as much.</p>
+						<p>Have I gone over everything that is to be known about CSS? Not at all! I hope to have given you a brief intro to the basics, but there is still so much more out there. From <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" class="copy-link">display</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions" class="copy-link">different text directions</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders" class="copy-link">backgrounds and borders</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Overflowing_content" class="copy-link">overflow</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables" class="copy-link">tables</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units" class="copy-link">values and units</a> (like why some of the values say rem and em instead of pixels and there's % etc.), to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS" class="copy-link">sizing</a>, to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Images_media_form_elements" class="copy-link">images</a>... An entire set of tutorials related to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout" class="copy-link">CSS layout</a> (and making responsive design). In short, now that you've gotten an overview of CSS, my hope is that if you need something more specific than is covered here, you'll Google it or click one of these links! Or, you'll find a package like Bootstrap (see <a href="module4.html" target="_self" class="copy-link">Module 4!</a>) that helps accommodate all of these concerns so you don't have to think about them as much.</p>
 						
 						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" class="copy-link">multiple tutorials on CSS</a>. This may be more detail than you want, but if you really want to delve into CSS and web development, it's a great resource.</p>						
 					</div>
@@ -735,17 +735,157 @@
 						
 						-->
 						
-						<p>....</p>
+						<p>Know how we were just talking about the DevTools for CSS? Well, the "Console" tab is where you can type in JavaScript as though it's a terminal. You can run an entire script there if you wanted. In fact, one big distinction to make here is that we're pretty much always going to be talking about client-side JavaScript: that is, code that's downloaded, run, and displayed by a browser on a user's computer. The opposite is server-side code, where the code is run on the server and then the results are downloaded and displayed in the browser.</p>
 						
-						<p>....</p>
+						<p>JavaScript deals in variables, and you have to define/declare variables before you can refer to them. You can have local variables that are assigned a value and global variables that you assign by including "var" before the name of the variable.</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						var coolVarName = 2; <div style="color:#1D6363">&lt;!--global variable --&gt;</div>
+						let coolVarName = 2; <div style="color:#1D6363">&lt;!--use var or let to create a global variable; let is more modern, var is more historical --&gt;</div>
+						coolVarName = 2; <div style="color:#1D6363">&lt;!--local variable --&gt;</div>
+						</code></pre></div>
 						
-						<p>....</p>
+						<p>With JavaScript, you can dynamically update content (e.g., running code in response to , animate images, and more--through its interaction with HTML and CSS. To give another example, you can create a button to "move on" in a survey, then style it in CSS (according to design principles!), and then add JavaScript to make it interactive: when you click the button, let's have a prompt appear, let's show you new (previously hidden) information, let's load new images, etc. To understand what exactly JavaScript is doing, you also have to think about *what* it might be interacting with.</p>
 						
-						<p>....</p>
+						<p>APIs - or Application Programming Interfaces - are sets of code blocks that allow you/developers to implement programs relatively easily (because they're ready-made). You can have 3rd-party APIs, like "Netflix Party" (Teleparty now?) or social media APIs (Twitter, Instagram, etc. that show the latest tweets/photos from your freed), or Browser APIs, which are what you're more likely to use when coding up your experiments. Browser APIs - as perhaps implied by the name - are built into the web browser and help do complex things. Some examples include: the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" class="copy-link">Document Object Model (DOM) API</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation" class="copy-link">Geolocation API</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" class="copy-link">Canvas API</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" class="copy-link">WebGL API</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery" class="copy-link">Audio and Video APIs</a>. The DOM API will be extremely important for coding your experiment: it allows you to manipulate HTML and CSS, create, change, or remove HTML, and more. We previously talked about the DOM in the context of what's loaded when and with regard to inspecting the Developer console - and that's only a fraction. When we code, we will typically wait until the "DOM" is ready and loaded before rendering our specific code. (That is, we'll typically modify HTML and CSS via JavaScript, via the DOM, executing the code for a web page, and if JavaScript tries to run before the HTML and CSS it dynamically interacts with are loaded, voila, usually an error!). If you have any images that you want to "draw" on-screen, you'll be using the Canvas API; 3D content, the WebGL API. If you want to grab IP addresses from folks, you might be using the Geolocation API, which is what Google Maps uses. And so on.</p>
+						
+						<p>How is JavaScript read? Typically from top to bottom. Unlike CSS, there's no "priority" or "specificity" style rules except that what came first gets loaded first. So, if you were to add a button that then shows new information when you click it, you'd need to define the button (e.g., let coolVarName = ...) BEFORE adding the event listener (i.e., code that looks for when you perform X event - here, click the element), then what you want to happen upon that event (i.e., usually a function). You can't define what you want to happen upon clicking before you tell the browser to watch out for clicking and what's even being clicked. That's where you'd - again - run into an error.</p>
+						
+						<p>OK, so I briefly mentioned variables. Where do you even START putting JavaScript? Where do you define those variables? I mentioned that you can dynamically run JavaScript in the Developer's console, but obviously if you're running an experiment, you're going to code up your experiment and run that without accessing everyone's individual Console screen.</p>
+						
+						<p>Where exactly the JavaScript code is in your HTML document can also depend on your preferences (i.e., in the head HTML tag or in the body tag) and what type of scripting you'll call on. Basically, you're going to use the HTML element script to indicate JavaScript (just like how you indicated CSS with link and style HTML elements). And within this module, when we use external sources of JavaScript, we place the following code *before* the end of the head HTML tag:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous"&gt;&lt;/script&gt;<br>
+						&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-5K6E5T95PP"&gt;&lt;/script&gt;<br>
+						</code></pre></div>
+						
+						<p>That is, here I'm calling upon external JavaScript from Font Awesome and external JavaScript from Google Analytics for the website (akin to the link tag for CSS). We also have some JavaScript code that comes before the end of the body HTML tag:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;<br>
+						&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"&gt;&lt;/script&gt;<br>
+						&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"&gt;&lt;/script&gt;<br>
+						<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+						<br>
+							<div style="color:#1D6363">//this is the scroll to the top arrow; it selects any select that says href=#top and when you click that link, it animates the html body to slowly scroll to the top</div>
+							$("a[href='#top']").click(function() {<br>
+								$('html,body').animate({scrollTop: 0}, "slow");<br>
+								return false;<br>
+							});<br>
+							<div style="color:#1D6363">//this is the tooltip hover that explains what the scroll to the top arrow is in case someone is not familiar with that</div>
+							$('[rel=tooltip]').tooltip({ trigger: "hover" });<br>
+							<br>
+						});<br>
+						&lt;/script&gt;
+						</code></pre></div>
+						
+						<p>This is "internal" JavaScript, within the same file as the HTML code (akin to the style tag for CSS). You may also note this is how you make one-line comments in Javascript: with two backslashes (//). If my comment is more than one line, I sometimes just separate it into multiple lines, but you can also create a multiline comment in JavaScript just as you would in CSS (i.e., with /* */). Here, we've placed the JavaScript in the body, after all the HTML is loaded, so that the page is loaded faster, because the jquery and bootstrap JavaScript (external) libraries have a lot to load in. Some experimental files I've seen put their JavaScript in the body HTML, some in an external file loaded in the head HTML, etc. At the end of the day, choose whatever works best for you. Finally, just as you can do styling in line with HTML elements, you can do this with JavaScript, too. Here's an example from <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" class="copy-link">MDN</a>:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function createParagraph() {<br>
+						  let para = document.createElement('p');<br>
+						  para.textContent = 'You clicked the button!';<br>
+						  document.body.appendChild(para);<br>
+						}<br>
+						<br>
+						&lt;button onclick="createParagraph()"&gt;Click me!&lt;/button&gt;
+						</code></pre></div>
+						
+						<p>"Onclick" here is defining an event at which you'd run the JavaScript function "createParagraph." That is, when you clicked the button, it would create a p html element named para, and the text content for that element would tell you that you clicked the button, and it would keep appending a new element with this text each time you clicked the button.</p>
+						
+						<p>Just as styling HTML elements in line with CSS rules is not recommended, it's not recommended to add JavaScript in line to HTML elements either--and for similar reasons. It's bad practice and again inefficient, as you'd have to repeat and/or include that on multiple elements. Instead, you could literally write JavaScript that says when you click all buttons, run this createParagraph() function (rather than applying this event handler on each HTML element).</p>
+						
+						<p>So, as I said earlier, one of the APIs we'll be relying on is the DOM API within the browser. We'll  ensure that because HTML is also loaded from top to bottom (in the order in which it appears), we only run the JavaScript until *after* the DOM has been loaded. In internal code, you can do that in various ways...</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						document.addEventListener("DOMContentLoaded", function() {<br>
+						  ...<br>
+						});<br>
+						$(document).ready(function(){<br>
+						...<br>
+						});<br>
+						</code></pre></div>
+						
+						<p>The first line looks for the DOMContentLoaded event, i.e., when the HTML body has been loaded and parsed, while the <a href="https://www.w3schools.com/jquery/event_ready.asp" class="copy-link">document.ready code</a> is from the JavaScript jQuery library and also looks to make sure whatever is inside that function only runs after the HTML has been loaded and parsed. To do this on an external script, you'd add the "defer" attribute:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous" defer&gt;&lt;/script&gt;<br>
+						&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-5K6E5T95PP"&gt;&lt;/script&gt;<br>
+						</code></pre></div>
+						
+						<p>What's async doing here? With that attribute, the script will be executed once the script finishes downloading - you don't know when the script will run (i.e., what order), but it won't stop the rest of the page from displaying. If you need your first script to download before the second script, don't use sync. But if you need a bunch of stuff to load in the background - i.e., if the script should run immediately and doesn't have dependencies - you can use async. Scripts with the defer attribute will run in the order they appear and be executed once the script and page content are downloaded. You might use this if you have dependncies with respect to other scripts or the DOM.</p>
+						
+						<p>One of the things that's probably hardest to learn from these tutorials, but is the most fundamental part of you translating this knowledge of HTML, CSS, and JavaScript into functional code is thinking like a programmer. Part of this is working from a big picture perspective to more detailed - thinking about what you need your code to do, then working out what code would function for your purpose, and putting the two together. We'll go over this in more detail in tutorials below where we'll walk step by step with respect to particular code. So, you'll start out defining your global variables (e.g., trial matrix - how many of a particular trial type, how many trials, how many blocks), define your experimental trial types (what screens will you want? a visual search screen? a stroop stimulus screen?), define variable values for that trial (what colors are the stimulus on screen? where will they be presented?), and then define your run trial -> block kind of sequence (i.e., call your previous functions - defined trial variables, the trial specific screens, advancing trials, but repeated in a cycle).</p>
+						
+						<p>OK, so how might you actually start? Well, we talked a little bit about defining variables with var and let. Typically, people use let now for global variables, because it's more modern in JavaScript. With var, you could technically declare a variable after you initialize it, and you can declare a variable with the same name multiple times with var, but can't with let. That is, you could write <code>var coolVarName = 5; var coolVarName = 8;</code> and on and on, and that would work, but with let, you'd need to do let <code>coolVarName = 5; coolVarName = 8</code>. In essence, these two function similarly, but let, because it is more modern and sensible in terms of making code more readable, is probably what you should use. You can also declare a variable with the keyword <code>const</code>: this means that values cannot be changed for this variable. Often, people will use const to refer to HTML elements that involve some level of user input (e.g., your results), and the HTML element itself won't change.</p>
+						
+						<p>The majority of an Experimental task/study will be one of three types of JavaScript features: functions, if statements, and for loops. A function is a reusable block of code that once it's written, you can run it again and again. Perhaps you can see how that's helpful already - if you've defined trial sequences, you'll probably have functions for individual trial types that you can then call again and again. An if statement is a conditional - you've probably experienced this logic in another programming language before. Conditionals mean that you'll run code only when that condition is "true" or not. Here is an example of using a function + if statement in tandem:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">						
+						function loadImage(){<br>
+							<div style="color:#1D6363">//let participants know that the task is loading based on the # of images to get through for the file index</div>
+							ctx.clearRect(0, 0, canvas.width, canvas.height); <br>
+							ctx.fillStyle="black"; <br>
+							ctx.textBaseline="middle"; <br>
+							ctx.textAlign="center"; <br>
+							ctx.font="75px Arial"; <br>
+							$("#indicator").text("The task is loading. Please wait.");<br>
+							$("#indicator").show();<br>
+							ctx.fillText(Math.round((fullCount/fbimages.length)*100)+"%", (canvas.width/2), (canvas.height/2));<br>
+							<br>
+							if (fullCount &lt; fbimages.length){<br>
+								fbarray[fullCount] = new Image();<br>
+								fbarray[fullCount].onload = loadImage;<br>
+								fbarray[fullCount].src = fbimages[fullCount];<br>
+								fbarray[fullCount].alt = fbimages[fullCount];<br>
+								<br>
+								fullCount++<br>
+							}<br>
+							else{<br>
+								Prep(); <div style="color:#1D6363">//this is a function that will show the Instructions html after the images are fully loaded</div>
+							}<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>You can see that you define a function with the keyword function, the name of the function (loadImage), whether the function will take an input (here, no input, nothing is within the parenthesis), and then indicate the content of the function with the {} curly brackets. To run this function, I would type <code>loadImage();</code>. This is a pretty simple load image function - we'll get to more of what this means, but ctx stands for context, context interacts with the canvas API, and the canvas API allows us to 'draw' on the screen. What we're basically doing is defining properties of the text that will be drawn below the "indicator" HTML element saying how many images have been loaded out of how many remain. Then, we have an if statement (which is defined within the parenthesis) saying that so long as our counter is less than the length of the "fbimages" array, we're going to keep creating new images in "fbarray", source the images for fbarray from the fbimages array, and keep going until the conditional is no longer true. Once the images are all loaded (i.e., the conditional is no longer true, our counter is now larger than the length of the fbimages array), we hit the 'else' logic and immediately run the Prep() function. If you don't understand all this yet (e.g., what is an array?!), don't worry - here, I mostly wanted to show you how a function might work and how you could combine a function with other programming logic to keep your task going.</p>
+						
+						<p>OK, so now you have an idea about the basic structure of an experiment coded in JavaScript as well as how to call on functions and define variables. You also know how to call upon JavaScript in an HTML document as well as basics for how JavaScript interacts with your code in the browser. Let's get into more of the basics of JavaScript.</p>
+						
+						<!-- 
+						Operators here
+						
+						-->
+						
+						<p>That being said, you will definitely need - just as you did with Qualtrics - some way of getting an MTurk Worker's workerID. You will also need the document.ready function, code to end a block, code to end a run, and code to submit to an external server so your data is recorded. In short, data collection, keeping track of time, and marking who did your task.</p>
+						
+						<p>Another way of debugging JavaScript: breakpoints and console.log(variablename).</p>
+						
+						<p>Some practical tips, as they relate to coding an experiment:</p>
+						
+						<!-- 
+						
+						If you have many images to load, call your image loader function in the background. JavaScript does not like the If/Else statement for image loading when you have a lot of them to load.
+						Fixed length vs. response-sensitive trials:
+						In a fixed length style JS, you would need to put the body.keypress fxn outside of any function, and you would never clear a timeout or have a timeouthandle. SetTimeout helps.
+						In a response-sensitive trial, you could put the body.keypress fxn inside a function (like the showITI), and you would use things like timeouthandle = setTimeout(fxn, ms), & clear the timeout once the sub has pressed a button
 
-						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript" class="copy-link">multiple tutorials on JavaScript</a>. This may be more detail than you want, but if you really want to delve into JavaScript and web development, it's a great resource.</p>
+						Excluding participants:
+						-Qualifications code via MTurk
+						-also code in look for a duplicate worker in JavaScript
+						-record demographics (nice discussion of i-frame as a UX problem vs. coding within your own HTML
+						
+						Other useful functions:
+						-countdown(time)
+						-shuffle function
+						-check size function
+						
+						
+						-->
+
+						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" class="copy-link">multiple tutorials on JavaScript</a>. This may be more detail than you want, but if you really want to delve into JavaScript and web development, it's a great resource.</p>
 
 						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1ZgF8OoobDfSPqr90FY4MVroZlQeeMcO5vtSSgHv_c3M/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
 						
