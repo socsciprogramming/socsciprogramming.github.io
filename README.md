@@ -6,7 +6,7 @@ We thank the following Course Contributors--
 
 #### Code:
 
-Christina Bejjani, Peter Whitehead, Nick Brosowsky, Jiefeng Jiang
+Christina Bejjani, Peter Whitehead, Nick Brosowsky, Jiefeng Jiang, Khoi Vo, Vineethsubbu Somasundaram
 
 #### Input/Feedback:
 
