@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CL task</title>
+    <link rel="stylesheet" href="index.css?v=2.1.1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+
+  <body>
+    <div class = "boxLeft" id = "boxLeft">
+      <h3 id = "currLabel" class = "mainInst">Practice Task 1 Instructions:
+      </h3>
+
+      <br><br>
+      <span id = "spaceBar">Press spacebar to continue</h1>
+    </div>
+
+    <div class="innerContainer">
+      <!-- fixation -->
+      <h1 class="plus" id = "plus">+</h1>
+
+      <!-- transition text only presented at midway point of task -->
+      <h1 class="tText" id = "transitionText">When you are ready to continue press spacebar</h1>
+
+      <!-- stimulus object, source constantly replaced by next image-->
+      <img class="stimulus" id = "stim" src="croppedFaces/2.jpg" alt="">
+
+      <!-- conflict word, not used in clTask-->
+      <span class="word" id = "conflictWord">k</span>
+    </div>
+
+    <script src="practiceCL.js?2.1.1"></script>
+
+  </body>
+</html>

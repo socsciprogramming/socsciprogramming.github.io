@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CL task</title>
+    <link rel="stylesheet" href="postTask.css?v=2.1.1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+
+  <body>
+
+    <div class="innerContainer">
+      <!-- fixation -->
+      <h1 class="plus" id = "plus">+</h1>
+
+      <!-- transition text -->
+      <h1 class="tText" id = "transitionText">When you are ready to continue press spacebar</h1>
+
+      <!-- gives directions -->
+      <h3 id="prompt">Your task is to select the image that you believe was more frequently displayed during the preceding tasks. If you are unsure, just guess.<br><br>Unlike previous tasks, this task does not require quick responses, you will have as much time as neccessary to answer the question </h3>
+
+      <!-- displays left and right images, constantly switched with the new images -->
+      <div class="images">
+        <div class="leftImg">
+          <h3 class = "key" id = "keyL">Z/z</h3>
+          <img class="stimulus" id = "stimL" src="croppedFaces/2.jpg" alt="">
+        </div>
+        <div class="rightImg">
+          <h3 class = "key" id = "keyR">M/m</h3>
+          <img class="stimulus" id = "stimR" src="croppedFaces/2.jpg" alt="">
+        </div>
+      </div>
+
+      <!-- conflict word: not used in this task -->
+      <span class="word" id = "conflictWord">k</span>
+    </div>
+
+    <script src="postTask.js?2.1.1"></script>
+
+  </body>
+</html>

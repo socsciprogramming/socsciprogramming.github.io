@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CL Task</title>
+    <link rel="stylesheet" href="menu.css?v=2.1.1">
+  </head>
+  <!-- index page: main home page for subjects to guide them through the experiment, switching tasks and completing forms -->
+  <body>
+    <h1>Learning and Attention Task: </h1>
+    <span class = "extraTop">Please read these instructions carefully before continuing.
+      <br><br>Do not close out of this tab.
+      <br><br>You will be going through two tasks. The second task will be displayed once you have completed the first task.
+    </span>
+    <!-- gives current instruction -->
+    <h3 class = "currentInst" id = "currentInst">
+      Current Instruction: Complete Practice Task 1.
+    </h3>
+
+    <!-- asks for netID of subjects before entering the main page -->
+    <div class="netIdAsker" id="netIdAsker">
+      <span>Please enter your netID</span>
+      <br>
+      <input id="netId"></input>
+      <button onclick="goToMain()" class="continuer" id = "inc">Continue</button>
+    </div>
+
+    <!-- gives instructions for the upcoming task -->
+    <div class="bigBox" id="bigBox">
+      <div class="boxLeft">
+        <h3 id = "currLabel">
+          Task 1 Instructions:
+        </h3>
+
+        <span id = "topInst">
+          In this experiment you will see a series of face images.
+          <br><br>Your task is to categorize the gender of the face images.
+        </span>
+
+        <span id = "midInst">
+          <br><br>Press
+          <strong><span id = "maleKey" class = "key">"L"</span></strong>
+          if the image shows a male face and
+          <strong><span id = "femaleKey" class = "key">"A"</span></strong>
+          if the image shows a female face.
+          <br><br>
+        </span>
+
+        <span id = "bottomInst">
+          Memorize that task rule and press on the practice task to run the practice trials.
+        </span>
+      </div>
+
+      <!-- has buttons for each task and links to task pages -->
+      <div class="boxRight" id="boxRight">
+        <button onclick="currentTask('p1', 'practice task')" id = "pTask1">Practice Task 1</button>
+        <button onclick="currentTask('t1', 'task')" id = "Task1">Task 1</button>
+        <button onclick="currentTask('p2', 'practice task')" id = "pTask2">Practice Task 2</button>
+        <button onclick="currentTask('t2', 'task')" id = "Task2">Task 2</button>
+        <button onclick="currentTask('post', 'post task')" id = "postTask">Post Task</button>
+        <button onclick="currentTask('consent', 'consent task')" id = "consent">Consent Form</button>
+        <button onclick="currentTask('demographics', 'demographics task')" id = "demographics">Demographics</button>
+      </div>
+    </div>
+
+    <!-- hidden form elements: stores data for each subject that can be posted to the server; I removed the link to our server -->
+    <form id="mturk_form" method="POST" action="">
+
+      <input type="hidden" id="assignmentId" name="assignmentId" value="">
+      <input type="hidden" id="workerId" name="workerId" value="">
+      <input type="hidden" id="hitId" name="hitId" value="">
+      <input type="hidden" id="RTs", name="RTs", value="">
+      <input type="hidden" id="demos" name="demos" value="">
+
+      <input type="hidden" id="posttestLeft" name="posttestLeft" value="">
+      <input type="hidden" id="posttestRight" name="posttestRight" value="">
+      <input type="hidden" id="posttestRT" name="posttestRT" value="">
+      <input type="hidden" id="posttestResp" name="posttestResp" value="">
+      <input type="hidden" id="posttestCorr" name="posttestCorr" value="">
+
+      <input type="hidden" id="clDataOrder" name="clDataOrder" value="">
+      <input type="hidden" id="clDataRT" name="clDataRT" value="">
+      <input type="hidden" id="clDataResp" name="clDataResp" value="">
+      <input type="hidden" id="clDataCorr" name="clDataCorr" value="">
+
+      <input type="hidden" id="conDataOrder" name="conDataOrder" value="">
+      <input type="hidden" id="conDataConList" name="conDataConList" value="">
+      <input type="hidden" id="conDataRT" name="conDataRT" value="">
+      <input type="hidden" id="conDataResp" name="conDataResp" value="">
+      <input type="hidden" id="conDataCorr" name="conDataCorr" value="">
+
+      <input type="hidden" id="conflictKey" name="conflictKey" value="">
+      <input type="hidden" id="conflictList" name="conflictList" value="">
+      <input type="hidden" id="keys" name="keys" value="">
+
+      <input type="hidden" id="highFreq" name="highFreq" value="">
+      <input type="hidden" id="medFreq" name="medFreq" value="">
+      <input type="hidden" id="lowFreq" name="lowFreq" value="">
+
+      <input type="hidden" id="myOrder" name="myOrder" value="">
+      <input type="hidden" id="taskOrder" name="taskOrder" value="">
+      <input type="hidden" id="postAnswers" name="postAnswers" value="">
+      <input type="hidden" id="ExpName" name="ExpName" value="CLandDemand">
+      <input type="hidden" id="qAns" name="qAns" value="">
+
+      <input type="hidden" id="SONAurl" name="SONAurl" value="">
+
+
+    </form>
+
+    <button onclick = "reset()" id = "inc">Reset</button>
+
+    <script src="index.js?2.1.1"></script>
+
+
+
+  </body>
+</html>

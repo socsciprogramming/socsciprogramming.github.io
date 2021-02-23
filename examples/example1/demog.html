@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+</head>
+<body>
+
+  <!-- demographics page: asks subjects simple demographics questions -->
+  <div id="demographics" style="font-family: Arial; color: black; font-size: 20px; text-align: center; align: center; display: block">
+  	<p> <b> Please answer the demographic questions below:</b></p><br /> <br />
+  	<p> <b> Gender: </b> </p>
+    <!-- gender question -->
+  	<select id="gender">
+  		<option value="">Select Gender</option>
+  		<option value="F">Woman</option>
+  		<option value="M">Man</option>
+  		<option value="NA">Do not wish to reply</option>
+  	</select>
+    <br />
+
+  	<br /> <p><b> Age: </b></p>
+  	<input id="age" name="Age" value="" placeholder="Enter Age"></input>
+    <br />
+    <!-- ethnicity question -->
+  	<br /> <p><b> Ethnicity:</b></p>
+  	<select id="ethnicity">
+  		<option value="">Select Ethnicity</option>
+  		<option value="HL">Hispanic/Latino</option>
+  		<option value="NHL">Non-Hispanic/Latino</option>
+  		<option value="NA">Do not wish to reply</option>
+  	</select>
+    <br />
+
+  	<br /> <p><b>Race: </b></p>
+    <!-- race question -->
+  	<select id="race">
+  		<option value="">Select Race</option>
+  		<option value="AI">American Indian/Alaska Native</option>
+  		<option value="A">Asian</option>
+  		<option value="NH">Native Hawaiian/Other Pacific Islander</option>
+  		<option value="AA">African American/Black</option>
+  		<option value="W">Caucasian/White</option>
+  		<option value="M">Multiracial</option>
+  		<option value="O">Other</option>
+  		<option value="NA">Do not wish to reply</option>
+  	</select>
+  	<br/>
+    <br/>
+  	<br /> <br /> <button onclick = "continuer()" id="demoSubmit" a id="dyn-bttn" class="bttn b-right f6 link dim ph3 pv2 mb2 dib white bg-green" style="width: 200px; text-align: center">Submit Demographics</button>
+  </div>
+
+<!-- <button onclick="continueConsent()" id="ICAgreeButton" style="font-family:arial;color:black;font-size:20px;">I have read the above consent form and agree to participate in the study.</button> -->
+<!-- <button id="ICDisagreeButton" style="font-family:arial;color:black;font-size:20px;">I do not agree to participate in the study.</button> -->
+
+<script src="demog.js?2.1.1"></script>
+</body>
+</html>
