@@ -2106,10 +2106,490 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....</p>
+						<p>.... This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/create_stroop_trials.js" class="copy-link">create_stroop_trials.js external file</a> referred to above.</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						// creates an array of stroop trials<br>
+						let trial_array = function () {<br>
+						<br>
+							/* generic function to shuffle an array */<br>
+							function shuffle(array) {<br>
+								var tmp, current, top = array.length;<br>
+								if (top)<br>
+									while (--top) {<br>
+										current = Math.floor(Math.random() * (top + 1));<br>
+										tmp = array[current];<br>
+										array[current] = array[top];<br>
+										array[top] = tmp;<br>
+									}<br>
+								<br>
+								return array;<br>
+							}<br>
+							<br>
+							/* generic function to repeat an array */<br>
+							const makeRepeated = (arr, repeats) => [].concat(...Array.from({<br>
+								length: repeats<br>
+							}, () => arr));<br>
+							<br>
+							////////////////////////////////////////////////////////////<br>
+							<br>
+							let N_trials = 48<br>
+							let temp_array = []<br>
+							<br>
+							// stimulus set<br> 
+							// each color name with hex code<br>
+							let stim_set = [["#e41a1c", "red"], ["#1f78b4", "blue"], ["#4daf4a", "green"], ["#ffff33", "yellow"]]<br>
+							<br>
+							let con_stims = []<br>
+							let inc_stims = []<br>
+							<br>
+							for (i = 0; i &lt; stim_set.length; i++) {<br>
+								for (ii = 0; ii &lt; stim_set.length; ii++) {<br>
+									if (stim_set[i] == stim_set[ii]) {<br>
+										con_stims.push([stim_set[i], stim_set[ii]])<br>
+									}<br>
+							<br>
+									if (stim_set[i] != stim_set[ii]) {<br>
+										inc_stims.push([stim_set[i], stim_set[ii]])<br>
+									}<br>
+								}<br>
+							}<br>
+							<br>
+							// make equal con/inc trials<br>
+							con_stims = makeRepeated(con_stims, 3)<br>
+							<br>
+							// make enough for N_trials<br>
+							con_stims = makeRepeated(con_stims, (N_trials / 2) / con_stims.length)<br>
+							inc_stims = makeRepeated(inc_stims, (N_trials / 2) / inc_stims.length)<br>
+							<br>
+							// add them all together and randomize order<br>
+							all_trials = shuffle(con_stims.concat(inc_stims))<br>
+							<br>
+							for (n = 0; n &lt; N_trials; n++) {<br>
+								// take one from array<br>
+								let current_stim = all_trials.pop()<br>
+								<br>
+								temp_array.push({<br>
+									subject: sub_code,<br>
+									trial: n + 1,<br>
+									word: current_stim[0][1],<br>
+									color: current_stim[1][0],<br>
+									congruency: (current_stim[0][1] == current_stim[1][1] ? "con" : "inc"),<br>
+									answer: current_stim[1][1][0]<br>
+								})<br>
+							}<br>
+							<br>
+							console.log(temp_array)<br>
+							return temp_array<br>
+						}()<br>
+						</code></pre></div>
 						
+						<p>.... This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/run_stroop.js" class="copy-link">run_stroop.js external file</a> referred to above.</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						// I use a custom timer called "eventTimer", but this code checks that it is loaded<br>
+						// fallback to vanilla timers if eventTimer is not loaded...<br>
+						// you could replace all eventTimer.setTimeout with window.setTimeout and everything would still work<br>
+						<br>
+						if (typeof eventTimer == 'undefined') {<br>
+							//console.log("no eventTimer found... using JS setTimeout/Interval")<br>
+							var eventTimer = {};<br>
+							eventTimer.setTimeout = function (fun, time) {<br>
+								window.setTimeout(fun, time)<br>
+							}<br>
+							eventTimer.setInterval = function (fun, time) {<br>
+								window.setInterval(fun, time)<br>
+							}<br>
+						}<br>
+						<br>
+						/////// global variables ////////////<br>
+						let allow_keys = false // when true keypresses trigger function<br>
+						let trial_counter = 0  // tracks current trial<br>
+						<br>
+						///// initialize the display for experiment ///////////<br>
+						let init_stroop = function () {<br>
+							// add event listener for the on_keypress function<br>
+							document.addEventListener("keydown", on_keypress, false)<br>
+							<br>
+							// create content display within the main-display div<br>
+							document.querySelector("#main-display").style.display = "flex"<br>
+							document.querySelector("#main-display").innerHTML = `&lt;div class="content-display flex flex-column justify-center lh-copy" style="text-align: left"&gt;&lt;/div&gt;`<br>
+							<br>
+							// call instruction function<br>
+							instructions_pg1();<br>
+						}<br>
+						<br>
+						//////// INSTRUCTIONS /////////////////////<br>
+						let instructions_pg1 = function () {<br>
+							document.querySelector(".content-display").style.visibility = "hidden"<br>
+							<br>
+							document.querySelector(".content-display").innerHTML =<br>
+								`&lt;h3&gt;Instructions&lt;/h3&gt;<br>
+										&lt;div&gt;<br>
+											&lt;p&gt;Your primary task will be to identify the color of the font as quickly and as accurately as possible.&lt;/p&gt;<br>
+											&lt;p&gt;On every trial you will see a color-word in a colored font (e.g., &lt;span style="color: #e41a1c"&gt;BLUE&lt;/span&gt;, &lt;span style="color:#ffff33"&gt;YELLOW&lt;/span&gt;, &lt;span style="color:#1f78b4"&gt;BLUE&lt;/span&gt;). &lt;/p&gt;<br>
+											&lt;p&gt;Your task is to indicate the color of the font (ignoring what the word says). You will use the keyboard to respond by pressing "b" for blue, "g" for green, "r" for red and "y" for yellow.&lt;/p&gt;<br>
+											&lt;p&gt;For example, if you were presented &lt;span style="color: #1f78b4"&gt;RED&lt;/span&gt;, you would respond by pressing "b" for blue.&lt;/p&gt;<br>
+											&lt;p&gt;If you were presented &lt;span style="color: #4daf4a"&gt;GREEN&lt;/span&gt;, you would respond by pressing "g" for green.&lt;/p&gt;<br>
+										&lt;/div&gt;<br>
+									&lt;div class="flex flex-row" style=""&gt;<br>
+										&lt;a id="dyn-bttn" class="bttn b-right f6 link dim ph3 pv2 mb2 dib white bg-gray" href="#0"&gt;NEXT&lt;/a&gt;<br>
+									&lt;/div&gt;`<br>
+							<br>
+							// can only set onclick after a button has been created<br>
+							document.querySelector("#dyn-bttn").setAttribute("onClick", "javascript: instructions_pg2();")<br>
+							document.querySelector(".content-display").style.visibility = "visible"<br>
+						}<br>
+						<br>
+						let instructions_pg2 = function () {<br>
+							document.querySelector(".content-display").style.visibility = "hidden"<br>
+							<br>
+							document.querySelector(".content-display").innerHTML =<br>
+								`&lt;h3&gt;Instructions&lt;/h3&gt;<br>
+										&lt;div&gt;<br>
+											&lt;p&gt;That's it!&lt;/p&gt;<br>
+											&lt;p&gt;When you are ready to begin, press start&lt;/p&gt;<br>
+										&lt;/div&gt;<br>
+									&lt;div class="flex flex-row" style=""&gt;<br>
+										&lt;a id="dyn-bttn" class="bttn b-right f6 link dim ph3 pv2 mb2 dib white bg-gray" href="#0"&gt;NEXT&lt;/a&gt;<br>
+									&lt;/div&gt;`<br>
+							<br>
+							// can only set onclick after a button has been created<br>
+							document.querySelector("#dyn-bttn").setAttribute("onClick", "javascript: start_task();")<br>
+							document.querySelector(".content-display").style.visibility = "visible"<br>
+						<br>
+						}<br>
+						<br>
+						//////////////// stroop task functions /////////////////////<br>
+						let start_task = function () {<br>
+							// setup the display for stroop task<br>
+							document.querySelector("#main-display").innerHTML = `<br>
+										  &lt;div class="content-display flex items-center" &gt;<br>
+											&lt;div class="stimulus-display"&gt;<br>
+												&lt;p id="stimulus" style="min-height: 82px;"&gt;&lt;/p&gt;<br>
+											&lt;/div&gt;<br>
+										  &lt;/div&gt;`<br>
+							<br>
+							fixate();<br>
+							<br>
+						};<br>
+						<br>
+						let pre_fixate = function () {<br>
+							// blank screen before fixation<br>
+							document.querySelector("#stimulus").innerHTML = ""<br>
+							<br>
+							timer = eventTimer.setTimeout(fixate, 500)<br>
+						}<br>
+						<br>
+						let fixate = function () {<br>
+							// display fixation<br>
+							document.querySelector("#stimulus").style.color = "grey"<br>
+							document.querySelector("#stimulus").innerHTML = "+"<br>
+						<br>
+							timer = eventTimer.setTimeout(post_fixate, 1000)<br>
+						}<br>
+						<br>
+						let post_fixate = function () {<br>
+							// blank screen after fixation<br>
+							document.querySelector("#stimulus").innerHTML = ""<br>
+						<br>
+							timer = eventTimer.setTimeout(stimulus, 500)<br>
+						}<br>
+						<br>
+						let stimulus = function () {<br>
+							// save time when the trial started<br>
+							trial_array[trial_counter].time_start = window.performance.now();<br>
+							<br>
+							let div = document.querySelector("#stimulus")<br>
+							div.style.visibility = "hidden"<br>
+							<br>
+							// change color to trial color<br>
+							div.style.color = trial_array[trial_counter].color<br>
+							<br>
+							// insert trial stimulus word into div<br>
+							div.innerHTML = trial_array[trial_counter].word.toUpperCase();<br>
+							<br>
+							div.style.visibility = "visible"<br>
+							<br>
+							// allow keyboard responses & wait for response<br>
+							allow_keys = true;<br>
+						}<br>
+						<br>
+						let end_trial = function () {<br>
+							// increase trial counter<br>
+							trial_counter++<br>
+						<br>
+							// if there are no more trials end experiment<br>
+							if (trial_counter &gt; trial_array.length - 1) {<br>
+								end_exp();<br>
+								return<br>
+							}<br>
+							<br>
+							// else cue next trial<br>
+							pre_fixate();<br>
+						}<br>
+						<br>
+						let end_exp = function (){<br>
+							// typically you would submit the data through php which would automatically trigger the feedback html<br>
+							//submit_data();<br>
+							<br>
+							// but since the php won't post properly without a server I'll just trigger the html<br>
+							 window.open("feedback-letter.html", "_self");<br>
+						}<br>
+						<br>
+						/////////// on keypress event // added as event listener on init /////////////////////////<br>
+						let on_keypress = function (event) {<br>
+							let code = event.which || event.keyCode || 0<br>
+							let key = event.key<br>
+							<br>
+							key_time = window.performance.now();<br>
+							<br>
+							// do nothing if allow_keys is false<br>
+							if (allow_keys == false) {<br>
+								return;<br>
+							}<br>
+							<br>
+							// submit a response if current key one of the response keys<br>
+							if (code == 82 | code == 66 | code == 71 | code == 89) {<br>
+								// don't allow anymore keypresses<br>
+								allow_keys = false;<br>
+							<br>
+								// record response data<br>
+								trial_array[trial_counter].response = key;<br>
+								trial_array[trial_counter].reaction_time = key_time - trial_array[trial_counter].time_start<br>
+								trial_array[trial_counter].time_end = key_time<br>
+							<br>
+								end_trial();<br>
+							}<br>
+						};<br>
+						</code></pre></div>
+						
+						<p>.... This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/record_data.js" class="copy-link">record_data.js external file</a> referred to above.</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						// create a random subject code<br>
+						//set participant values<br>		
+						function getRandomString(length, chars) {<br>
+							var result = '';<br>
+							for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];<br>
+							return result;<br>
+						}<br>
+						<br>
+						const sub_code = getRandomString(8, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');<br>
+						<br>
+						sessionStorage.setItem("sscode", sub_code);<br>
+						<br>
+						// submits data to database using php code<br>
+						function submit_data() {<br>
+								let formHTML = [<br>
+									"&lt;form id='sendtoPHP' method='post' action='server-side.php' style='display: none'&gt;",<br>
+										"&lt;input type='hidden' name='put-studyid-here' id = 'put-studyid-here' value = ''/&gt;",<br>
+										"&lt;input type='hidden' name='put-sscode-here' id = 'put-sscode-here' value = ''/&gt;",<br>
+										"&lt;input type='hidden' name='put-data-here' id = 'put-data-here' value = ''/&gt;",<br>
+									"&lt;/form&gt;"<br>
+									].join("\n")<br>
+							<br>
+							document.querySelector("body").innerHTML += formHTML<br>
+							<br>
+							// collect each task dataset<br>
+							let data = trial_array<br>
+							<br>
+							// convert array of objects to string<br>
+							data = array_to_text(data)<br>
+							<br>
+							// submit data<br>
+							document.getElementById('put-studyid-here').value = sub_code;<br>
+							document.getElementById('put-sscode-here').value = "demo-exp";<br>
+							document.getElementById('put-data-here').value = data;<br>
+							document.getElementById('sendtoPHP').submit();<br>
+						}<br>
+						<br>
+						// converts an array of objects to csv formatted text<br>
+						function array_to_text(args) {<br>
+							var result, ctr, keys, columnDelimiter, lineDelimiter, data;<br>
+							<br>
+							data = args || null;<br>
+							if (data == null || !data.length) {<br>
+								return null;<br>
+							}<br>
+							<br>
+							columnDelimiter = args.columnDelimiter || ',';<br>
+							lineDelimiter = args.lineDelimiter || '\n';<br>
+							<br>
+							keys = Object.keys(data[0]);<br>
+							<br>
+							result = '';<br>
+							result += keys.join(columnDelimiter);<br>
+							result += lineDelimiter;<br>
+							<br>
+							data.forEach(function (item) {<br>
+								ctr = 0;<br>
+								keys.forEach(function (key) {<br>
+									if (ctr &gt; 0) result += columnDelimiter;<br>
+								<br>
+									result += '"' + item[key] + '"';<br>
+									ctr++;<br>
+								});<br>
+								result += lineDelimiter;<br>
+							});<br>
+							<br>
+							return result;<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>.... What about the CSS used in this Experiment? Here's the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/css/index-style.css" class="copy-link">index-style css file</a>.</p>
+						
+						<div class="highlight"><pre><code class="language-css" data-lang="css">
+						div,button{<br>
+						  display:none;<br>
+						  visibility:hidden;<br>
+						  font-family: Verdana, sans-serif;<br>
+						  font-size: 16px;<br>
+						}<br>
+						<br>
+						audio{display:none;}<br>
+						<br>
+						p,h1,h2,h3,h4,h5{color:#57585b;}<br>
+						<br>
+						body{<br>
+						  /*top right bottom left*/<br>
+						  /*padding: 40px 40px 0px 40px;*/<br>
+						  padding: 40px 100px 10px 100px;<br>
+						  background-color:#ffffff;<br>
+						}<br>
+						<br>
+						button{<br>
+						  /*top right bottom left*/<br>
+						  padding: 8px 12px 8px 12px;<br>
+						  text-transform:uppercase;<br>
+						  color:#57585b;<br>
+						}<br>
+						<br>
+						table {<br>
+							color:#57585b;<br>
+							font-family: Verdana, sans-serif;<br>
+							padding: 10px;<br>
+						}<br>
+						<br>
+						caption {padding: 10px;}<br>
+						<br>
+						tr, td {padding: 10px;}<br>
+						<br>
+						tr.slider-row {margin: 20px;}<br>
+						<br>
+						#stim-container{<br>
+						  position:fixed;<br>
+							top:50%;<br>
+							left:50%;<br>
+							margin:auto;<br>
+							transform: translate(-50%, -50%);<br>
+							font-size:62px;<br>
+							color:#57585b;<br>
+						}<br>
+						<br>
+						#vid-container{z-index: 200;}<br>
+						<br>
+						iframe{<br>
+						  width:640;<br>
+						  height:480;<br>
+						  display:none;<br>
+						  visibility: hidden;<br>
+						  position:fixed;<br>
+						  top:20%;<br>
+						  left:50%;<br>
+						  margin-left: auto;<br>
+						  margin-right: auto;<br>
+						  transform: translate(-50%,-50%);<br>
+						  pointer-events: none;<br>
+						  border: 1px solid black;<br>
+						}<br>
+						<br>
+						input[type=range] {<br>
+						  -webkit-appearance: none;<br>
+						  margin: 18px 0;<br>
+						  width: 100%;<br>
+						}<br>
+						input[type=range]:focus {<br>
+						  outline: none;<br>
+						}<br>
+						input[type=range]::-webkit-slider-runnable-track {<br>
+						  width: 100%;<br>
+						  height: 8.4px;<br>
+						  cursor: pointer;<br>
+						  animate: 0.2s;<br>
+						  background: #cccccc;<br>
+						}<br>
+						input[type=range]::-webkit-slider-thumb {<br>
+						  height: 30px;<br>
+						  width: 15px;<br>
+						  background: #57585b;<br>
+						  cursor: pointer;<br>
+						  -webkit-appearance: none;<br>
+						  margin-top: -14px;<br>
+						}<br>
+						input[type=range]:focus::-webkit-slider-runnable-track {<br>
+						  background: #cccccc;<br>
+						}<br>
+						input[type=range]::-moz-range-track {<br>
+						  width: 100%;<br>
+						  height: 8.4px;<br>
+						  cursor: pointer;<br>
+						  animate: 0.2s;<br>
+						  background: #cccccc;<br>
+						}<br>
+						input[type=range]::-moz-range-thumb {<br>
+						  height: 30px;<br>
+						  width: 15px;<br>
+						  background: #57585b;<br>
+						  cursor: pointer;<br>
+						}<br>
+						input[type=range]::-ms-track {<br>
+						  width: 100%;<br>
+						  height: 8.4px;<br>
+						  cursor: pointer;<br>
+						  animate: 0.2s;<br>
+						  background: transparent;<br>
+						  color: transparent;<br>
+						}<br>
+						input[type=range]::-ms-fill-lower {<br>
+						  background: #cccccc;<br>
+						}<br>
+						input[type=range]::-ms-fill-upper {<br>
+						  background: #cccccc;<br>
+						}<br>
+						input[type=range]::-ms-thumb {<br>
+						  height: 30px;<br>
+						  width: 15px;<br>
+						  border-radius: 3px;<br>
+						  background: #57585b;<br>
+						  cursor: pointer;<br>
+						}<br>
+						input[type=range]:focus::-ms-fill-lower {<br>
+						  background: #cccccc;<br>
+						}<br>
+						input[type=range]:focus::-ms-fill-upper {<br>
+						  background: #cccccc;<br>
+						}<br>
+						<br>
+						span{color: green;}<br>
+						<br>
+						input[type=radio]{<br>
+						  border:0px;<br>
+						  width:25px;<br>
+						  height:25px;<br>
+						  margin-top: 7px;<br>
+						  margin-bottom: 7px;<br>
+						}<br>
+						<br>
+						input[type='radio'],label{<br>
+						  font-size: 16px;<br>
+						  vertical-align:middle;<br>
+						  cursor: pointer;<br>
+						  font-family: Verdana, sans-serif;<br>
+						  color:#57585b;<br>
+						}<br>
+						<br>
+						ul {color:#57585b;}<br>
 						</code></pre></div>
 						
 						<p>....</p>
