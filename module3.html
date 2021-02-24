@@ -884,20 +884,49 @@
 						<p>OK, so I said that a lot of your experiment was going to be functions, if statements, and for loops, and we've gone over the former two. Now let's discuss for loops here. Here's a simple example that you can paste in the JavaScript console (of any browser, including this webpage) and see what happens.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						var Stimuli1 = [];<br>
+						let Stimuli1 = [];<br>
 						for (let i=1; i < 31; i++){<br>
 							Stimuli1=Stimuli1.concat(1);<br>
 							console.log(i);<br>
 						}<br>
 						</code></pre></div>
 						
-						<p>If you pasted this in the console, you would see that the counter i was logged 30 times, incrementing by 1 each time the for loop was run, and the variable Stimuli1 is an array of 30 1s, since we concatenated 1 each time the loop was run to a blank variable. You can see that when you're running a for loop, there are three primary arguments: a starting value (let i = 1), a condition (i < 31) indicating when to stop, and an incrementor (i++, i increasing by 1 each time the loop runs). Inside the {} is the code we expect to be run according to those conditions. You can probably see how for loops would help you define your experimental conditions, allowing you to iterate .</p>
+						<p>If you pasted this in the console, you would see that the counter i was logged 30 times, incrementing by 1 each time the for loop was run, and the variable Stimuli1 is an array of 30 1s, since we concatenated 1 each time the loop was run to a blank variable. You can see that when you're running a for loop, there are three primary arguments: a starting value (let i = 1), a condition (i < 31) indicating when to stop, and an incrementor (i++, i increasing by 1 each time the loop runs). Inside the {} is the code we expect to be run according to those conditions. You can probably see how for loops would help you define your experimental conditions, allowing you to iterate over the number of trials that you have.</p>
 						
-						<!-- 
+						<p>In JavaScript, most of what you're manipulating are "objects" or items with similar functionality stored as a group. When we use the DOM as an initiator for our JavaScript code - e.g., document.addEventListener("DOMContentLoaded", function() {} - we are running the addEventListener "method" on the document "object". You'll note the use of objects whose values and properties we'll change in various code... for example:</p>
 						
-						for string variable example, give the gup function
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						document.querySelector("#main-display").style.display = "flex";					
+						</code></pre></div>
 						
-						-->
+						<p>We're also running the method querySelector on the document object, and then grabbing the main-display HTML id element, setting its style=display:flex property here via JavaScript. This is a very brief introduction to what someone might mean when they tell you that JavaScript is an object-oriented coding language.</p>
+						
+						<p>OK, so now you've got the basics of for loops, functions, if statements, where to call JavaScript, different operators in JavaScript, events, and more, let's get a little more into the types of variables and other little details. First, you might have seen me refer to basic terms like "strings" and "arrays". Variables that contain strings ("2", "hello world!", 'this works too', 'as long as you're consistent') are treated as characters, not numbers. If you wanted to treat your string variable as a number, you'd have to use a function to run the conversion. An array is a variable that contains other variables withim them. You've seen in an example the 'picword' array. That array looks something like:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						var picword = [["YELLOW", "yellow"], ["RED", "red"], ["GREEN", "green"]];
+						</code></pre></div>
+						
+						<p>Indices within JavaScript start at 0, so the first element is called with 0. Thus, picword[0][0] returns "YELLOW", picword[0][1] returns "yellow", picword[1][0] returns "RED", picword[1][1] returns "red", and so on. This multidimensional array has arrays within the larger variable so that each element is its own array. You can also have (single dimension) arrays that mix words and numbers, like <pre><code>var picword = [1,2,"hello world!"];</code></pre>. To create a new array, you can initialize the variable as <pre><code>var array = [''];</code></pre> or write <pre><code>var array = new Array('');</code></pre>. Of note, if you wanted to add onto the picword array, but in a different variable, you would want to use the concatenation method from above, like <pre><code>var newVar = picword.concat('coolarray!');</code></pre>. This is because if you just assigned the new variable to be equal to the picword array and then made your changes, the changes would happen to both your new array and the picword array. This has to do with how JavaScript refers to arrays.</p>
+						
+						<p>If you want to figure out the length of an array... well, you've actually already seen this happen within the code - do you remember? <pre><code>"fbimages.length"</code></pre>. This will tell you the length of the fbimages array. If you're appending to an array (adding information to a variable), you can use the + operator as we previously discussed, concatenation, and more (although I confess to using these the most frequently). Previously we also said that functions were going to be a big part of your experimental code, but that we'd return to them. Let's look at that now:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function gup( name, tmpURL )
+						{
+							var regexS = "[\\?&]"+name+"=([^&#]*)";
+							var regex = new RegExp( regexS );
+							var results = regex.exec( tmpURL );
+							if( results == null )
+								return "";
+							else
+								return results[1];
+						}
+						</code></pre></div>
+						
+						<p>This was a commonly used function to retrieve the worker ID, assignment ID, and HIT ID from MTurk (<pre><code>document.getElementById('workerId').value = gup('workerId', document.referrer);</code></pre>). In short, it looked at whatever URL you fed as an input into the function and looked for whatever you put as the name input within the URL. Specifically, it looked for the "cookie" attached to the URL that said name= ... and then split the URL string so that that was the value of the 'name' variable. We used to put in 'document.referrer' because Mturk linked to the JavaScript experiment (and therefore was the referrer), BUT recently, MTurk has changed up their browser security settings, I think, perhaps restraining our ability to use this to get workerID.</p>
+						
+						<p>But, this function is useful to think about the basics of creating a function. You start JavaScript functions with the keyword function, the name of the function (gup), and the function input (name, tmpURL - can also be a blank parenthesis), followed by the code to be executed in {}. The exact function or input name don't matter so long as they're not a reserved keyword and you don't have a typo when you call either. Functions can also have a 'return' value at the end if you want to refer to something you'd get out of code that you've run. Notably, I did not have a return value in the loadImage function because the values go direclty into the feedback array, which I'll call later.</p>
 						
 						<p>That being said, you will definitely need - just as you did with Qualtrics - some way of getting an MTurk Worker's workerID. You will also need the document.ready function, code to end a block, code to end a run, and code to submit to an external server so your data is recorded. In short, data collection, keeping track of time, and marking who did your task.</p>
 						
@@ -1037,8 +1066,6 @@
 						https://www.html-tidy.org/documentation/
 						
 						-->
-
-						-->
 						
 						<p>....</p>
 						
@@ -1135,19 +1162,13 @@
 				<section>
 					<h2 id="subsec33" class="pad1">Demos and Scripts</h2>
 					<div>
-						<p>...</p>
-						
-						<p>....</p>
+						<p>This section will go over three different scripts that show how to code a basic Stroop task. In cognitive psychology, the traditional Stroop task has participants categorize the color in which color-words are printed. Typically, participants are slower and more error prone when a color-word is printed in a color that is incongruent with its semantic meaning (i.e., "RED" printed in blue) compared to when the color-word is printed in a color that is congruent with its semantic meaning (i.e., "RED" printed in red). Odes have been written to this task, one among many used to understand what exactly people pay attention to. By seeing how the same task can be coded in multiple ways, I hope to demonstrate for you the breath of JavaScript, HTML, and CSS combinations and the power of what they can do together for your Experiments. After that, we'll go over how these coding languages are used in Qualtrics and MTurk, so you can see the coding languages in other applied contexts as well.</p>
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t1">Basic Stroop task demo</h4></li></ul>
-					<div>
-						<!--
-						Go over basic demonstration of how to code a Stroop task (here’s Jiefeng’s workshop code - compare Nick’s with mine)
-						-->
-						
-						<p>....</p>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t1">Basic Stroop task demo, I</h4></li></ul>
+					<div>		
+						<p>The following code comes from <a href="https://myweb.uiowa.edu/jiefjiang/index.html" class="copy-link">Dr. Jiefeng Jiang</a> when he first taught me how to code in JavaScript.</p>
 						
 						<p>....</p>
 						
@@ -1159,7 +1180,39 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t2">How does Qualtrics use JavaScript, HTML, CSS?</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t2">Basic Stroop task demo, II</h4></li></ul>
+					<div>
+						<!--
+						Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
+						-->
+						
+						<p>The following code comes from <a href="https://nbrosowsky.github.io/simple-stroop-demo/" class="copy-link">Dr. Nick Brosowsky's Stroop Task Demo</a>.</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t3">Basic Stroop task demo, III</h4></li></ul>
+					<div>
+						<p>The following code comes directly from <a href="https://crumplab.github.io/programmingforpsych/Programming_Crump.pdf" class="copy-link">Dr. Matthew Crump's Programming for Psychologists</a> textbook, pages 147-159. Please make sure to check out that link and the Crump lab website for a number of other useful open-source tools.</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>....</p>
+						
+						<p>Finally, if you're looking for more coding examples, you can check out <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/tree/master/examples" class="copy-link">the folder within this repository</a> for that purpose.</p>
+					</div>
+				</section>
+				<section>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t4">How does Qualtrics use JavaScript, HTML, CSS?</h4></li></ul>
 					<div>
 						<!--
 						Can connect to module 2 by discussing more about Qualtrics’s use of JS/HTML/CSS
@@ -1180,7 +1233,7 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t4">How does MTurk use JavaScript, HTML, CSS?</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t5">How does MTurk use JavaScript, HTML, CSS?</h4></li></ul>
 					<div>
 						<!--
 						Connect back to module 1 and editing the HIT page
@@ -1199,43 +1252,7 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t5">Going over a script, Part I</h4></li></ul>
-					<div>
-						<!--
-						Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-					</div>
-				</section>
-				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t6">Going over a script, Part II</h4></li></ul>
-					<div>
-						<!--
-						Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-					</div>
-				</section>
-				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t7">Applied Exercises</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t6">Applied Exercises</h4></li></ul>
 					<div>
 						<p>If you want to "explore" on your own, let me suggest opening the JavaScript Developer Console on this site. Then edit whatever HTML you'd like and see what happens - live - to the site itself. What does each CSS styling correspond to? What does each element correspond to? What happens if you add more JavaScript to the site? One of the best ways to learn how to code is to take something that already exists and mess with it until you see what your changes do. Then you'll have a framework to work with when you are coding on your own.</p>
 						
