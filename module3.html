@@ -849,11 +849,11 @@
 						<p>In the above function, you might have noticed I write (fullCount/fbimages.length)*100)+"%". The backslash (/) indicates division, the asterisk (*) indicates multiplication, the plus (+) indicates addition, and although it wasn't used in the above example, the minus (-) indicates subtraction. These basic operators within JavaScript, which allows us to do math and join together strings. If you have previous programming experience, you might be confused as to how I could do math on a clear number-based format (fullCount/fbimages.length)*100) and then add "%", which is a string format. In JavaScript, using the addition operator, you <em>can</em> concatenate (or join together) strings! I frequently put numbers together with strings in my instructions, especially if I want to fill in a value, like the key that's been assigned to a particular condition, and this isn't automatically set the same for each participant.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">	
-						if (Memory == 0)
-						{$("#Instructions2").html('Press z/Z if the color-word is printed in &lt;text style="color:' + picword[0][0] + '"&gt;' + picword[0][1] + '&lt;text style="color:black"&gt;, x/X if the color-word is printed in &lt;text style="color:' + picword[2][0] + '"&gt;' + picword[2][1] + '&lt;text style="color:black"&gt;, c/C if the color-word is printed in &lt;text style="color:' + picword[4][0] + '"&gt;' + picword[4][1] + '&lt;text style="color:black"&gt;, b/B if the color-word is printed in &lt;text style="color:' + picword[1][0] + '"&gt;' + picword[1][1] + '&lt;text style="color:black">, n/N if the color-word is printed in &lt;text style="color:' + picword[3][0] + '"&gt;' + picword[3][1] + '&lt;text style="color:black"&gt;, and m/M if the color-word is printed in &lt;text style="color:' + picword[5][0] + '"&gt;' + picword[5][1] +'&lt;text style="color:black"&gt;.');}
-						else
-						{$("#Instructions2").html('You will use the a/A and l/L keys to indicate Old and New, respectively. The response mappings will stay on screen for these ratings.');}
-						$("#Instructions2").show();
+						if (Memory == 0)<br>
+						{$("#Instructions2").html('Press z/Z if the color-word is printed in &lt;text style="color:' + picword[0][0] + '"&gt;' + picword[0][1] + '&lt;text style="color:black"&gt;, x/X if the color-word is printed in &lt;text style="color:' + picword[2][0] + '"&gt;' + picword[2][1] + '&lt;text style="color:black"&gt;, c/C if the color-word is printed in &lt;text style="color:' + picword[4][0] + '"&gt;' + picword[4][1] + '&lt;text style="color:black"&gt;, b/B if the color-word is printed in &lt;text style="color:' + picword[1][0] + '"&gt;' + picword[1][1] + '&lt;text style="color:black">, n/N if the color-word is printed in &lt;text style="color:' + picword[3][0] + '"&gt;' + picword[3][1] + '&lt;text style="color:black"&gt;, and m/M if the color-word is printed in &lt;text style="color:' + picword[5][0] + '"&gt;' + picword[5][1] +'&lt;text style="color:black"&gt;.');}<br>
+						else<br>
+						{$("#Instructions2").html('You will use the a/A and l/L keys to indicate Old and New, respectively. The response mappings will stay on screen for these ratings.');}<br>
+						$("#Instructions2").show();<br>
 						</code></pre></div>
 						
 						<p>In the above code, I wanted to emphasize that z/Z was the key for the color-word that was in the first slot of the "picword" array and that it was the key used for the color in the first slot of the second dimension of the "picword" array. In short, I simply wanted to color the words that I was inputting - and that were randomized for each participant - and to include these in the instructions in a dynamic way. This meant that the instructions would be specific to each participant and color was used intentionally to emphasize what the participants needed to be doing. In the second part of the conditional, I didn't change the keys the participants were using based on the Old/New condition, because it didn't matter to me. The two examples here hopefully show the difference between dynamic instructions enabled by JavaScript string concatenation and static instructions defined in an HTML element.</p>
@@ -865,18 +865,18 @@
 						<p>Something that I have referred to, numerous times, is an "event". Some of the examples I gave previously were about clicking a button or pressing a keyboard button. Generally, an event is just something that happens in the browser and that can trigger the execution of other blocks of code. Triggering other blocks of code requires your program/code to recognize that event has actually happened. For that to happen, you have to have an "event listener", which will be on the lookout for the event happening, and the blocks of code that are triggered by the event firing are the "event handlers." In my experiments, I typically record record data differently if someone presses a key vs. if they don't press a key during the specified interval. Here's part of what that looks like:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">	
-						$("body").keypress(function(event){
-							keyPressed = String.fromCharCode(event.which);
-							if (window.hasResponse == 0){
-								if (keyPressed == "z" || keyPressed == "x" || keyPressed == "n" || keyPressed == "m" || keyPressed == "c" || keyPressed == "b" || keyPressed == "Z" || keyPressed == "X" || keyPressed == "N" || keyPressed == "M" || keyPressed == "C" || keyPressed == "B" ){
-									window.hasResponse = -1;
-									Responset = new Date().getTime() - runStart;
-									respTime = Responset - StimTime;
-									....
-								}
-								....
-							}
-						});
+						$("body").keypress(function(event){<br>
+							keyPressed = String.fromCharCode(event.which);<br>
+							if (window.hasResponse == 0){<br>
+								if (keyPressed == "z" || keyPressed == "x" || keyPressed == "n" || keyPressed == "m" || keyPressed == "c" || keyPressed == "b" || keyPressed == "Z" || keyPressed == "X" || keyPressed == "N" || keyPressed == "M" || keyPressed == "C" || keyPressed == "B" ){<br>
+									window.hasResponse = -1;<br>
+									Responset = new Date().getTime() - runStart;<br>
+									respTime = Responset - StimTime;<br>
+									....<br>
+								}<br>
+								....<br>
+							}<br>
+						});<br>
 						</code></pre></div>
 						
 						<p>This is using jQuery, a JavaScript library, and not pure JavaScript. We will go over some of the differences below; in pure JavaScript, instead of .keypress or .whatevereventlistener, you'd do body.<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" class="copy-link">addEventListener</a>('keypress',whatever-is-implementing-the-event-or-a-new-function) or something to that extent. Some other people use the event listener with respect to keypresses to merely mark accuracy and record data elsewhere, which seems more sensible. There's also a lot of detail with respect to <a href="https://developer.mozilla.org/en-US/docs/Web/Events" class="copy-link">individual event listeners</a> that you could look up (e.g., keydown versus keypress versus keyup).</p>
@@ -884,11 +884,11 @@
 						<p>OK, so I said that a lot of your experiment was going to be functions, if statements, and for loops, and we've gone over the former two. Now let's discuss for loops here. Here's a simple example that you can paste in the JavaScript console (of any browser, including this webpage) and see what happens.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						var Stimuli1 = [];
-						for (let i=1; i < 31; i++){
-							Stimuli1=Stimuli1.concat(1);
-							console.log(i);
-						}
+						var Stimuli1 = [];<br>
+						for (let i=1; i < 31; i++){<br>
+							Stimuli1=Stimuli1.concat(1);<br>
+							console.log(i);<br>
+						}<br>
 						</code></pre></div>
 						
 						<p>If you pasted this in the console, you would see that the counter i was logged 30 times, incrementing by 1 each time the for loop was run, and the variable Stimuli1 is an array of 30 1s, since we concatenated 1 each time the loop was run to a blank variable. You can see that when you're running a for loop, there are three primary arguments: a starting value (let i = 1), a condition (i < 31) indicating when to stop, and an incrementor (i++, i increasing by 1 each time the loop runs). Inside the {} is the code we expect to be run according to those conditions. You can probably see how for loops would help you define your experimental conditions, allowing you to iterate .</p>
