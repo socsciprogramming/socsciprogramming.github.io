@@ -731,7 +731,7 @@
 						
 						<p>JavaScript deals in variables, which are containers for values (e.g., characters, numbers, etc.) that can change, and you have to define/declare variables before you can refer to them. You can have local variables that are assigned a value and global variables that you assign by including "var" or "let" before the name of the variable (more on let vs. var later!).</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						var coolVarName = 2; <div style="color:#1D6363">&lt;!--global variable --&gt;</div>
 						let coolVarName = 2; <div style="color:#1D6363">&lt;!--use var or let to create a global variable; let is more modern, var is more historical --&gt;</div>
 						coolVarName = 2; <div style="color:#1D6363">&lt;!--local variable --&gt;</div>
@@ -749,14 +749,14 @@
 						
 						<p>Where exactly the JavaScript code is in your HTML document can also depend on your preferences (i.e., in the head HTML tag or in the body tag) and what type of scripting you'll call on. Basically, you're going to use the HTML element <code class="language-html" data-lang="html">&lt;script&gt;</code> to indicate JavaScript (just like how you indicated CSS with <code class="language-html" data-lang="html">&lt;link&gt;</code> and <code class="language-html" data-lang="html">&lt;style&gt;</code> HTML elements). And within this module, when we use external sources of JavaScript, we place the following code *before* the end of the head HTML tag:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous"&gt;&lt;/script&gt;<br>
 						&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-5K6E5T95PP"&gt;&lt;/script&gt;<br>
 						</code></pre></div>
 						
 						<p>That is, here I'm calling upon external JavaScript from Font Awesome and external JavaScript from Google Analytics for the website (akin to the link tag for CSS). We also have some JavaScript code that comes before the end of the body HTML tag:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;&lt;/script&gt;<br>
 						&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"&gt;&lt;/script&gt;<br>
 						&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"&gt;&lt;/script&gt;<br>
@@ -778,7 +778,7 @@
 						
 						<p>This (i.e., script type="text/javascript") is "internal" JavaScript, code within the same file as the HTML code (akin to the style tag for CSS). You may also note this is how you make one-line comments in Javascript: with two backslashes (//). If my comment is more than one line, I sometimes just separate it into multiple lines and continue with the //, but you can also create a multiline comment in JavaScript just as you would in CSS (i.e., with /* */). Here, we've placed the JavaScript in the body, after all the HTML is loaded, so that the page is loaded faster, because the jQuery and Bootstrap JavaScript (external) libraries have a lot to load in. Some experimental files I've seen put their JavaScript in the body HTML, some in an external file loaded in the head HTML, etc. At the end of the day, choose whatever works best for you: you may want separate files or you may want everything in a single file, but that's up to you. Finally, just as you can do styling in line with HTML elements, you can do this with JavaScript, too. Here's an example from <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" class="copy-link">MDN</a>:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						function createParagraph() {<br>
 						  let para = document.createElement('p');<br>
 						  para.textContent = 'You clicked the button!';<br>
@@ -794,7 +794,7 @@
 						
 						<p>One thing you might have noted from the internal JavaScript example was the $(document).ready(function(){}); code. As I said earlier, one of the APIs we'll be relying on is the DOM API within the browser. We'll  ensure that because HTML is also loaded from top to bottom (in the order in which it appears), we only run the JavaScript until *after* the DOM has been loaded. That will help make sure we have no immediate JavaScript errors from loading order. In internal code, you can do that in various ways...</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						document.addEventListener("DOMContentLoaded", function() {<br>
 						  ...<br>
 						});<br>
@@ -805,7 +805,7 @@
 						
 						<p>The first line looks for the DOMContentLoaded event, i.e., when the HTML body has been loaded and parsed, while the <a href="https://www.w3schools.com/jquery/event_ready.asp" class="copy-link">document.ready code</a> is from the JavaScript jQuery library and also looks to make sure whatever is inside that function only runs after the HTML has been loaded and parsed. To do this on an external script, you'd add the "defer" attribute:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;script src="https://kit.fontawesome.com/25e7f7a6fa.js" crossorigin="anonymous" defer&gt;&lt;/script&gt;<br>
 						&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-5K6E5T95PP"&gt;&lt;/script&gt;<br>
 						</code></pre></div>
@@ -818,7 +818,7 @@
 						
 						<p>The majority of an Experimental task/study will be one of three types of JavaScript features: functions, if/else (and if...else if or if...else if...else) statements, and for loops. A function is a reusable block of code that once it's written, you can run it again and again. Perhaps you can see how that's helpful already - if you've defined trial sequences, you'll probably have functions for individual trial types that you can then call again and again. An if statement is a conditional - you've probably experienced this logic in another programming language before. Conditionals mean that you'll run code only when that condition is "true" or not. Here is an example of using a function + if statement in tandem:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">						
 						function loadImage(){<br>
 							<div style="color:#1D6363">//let participants know that the task is loading based on the # of images to get through for the file index</div>
 							ctx.clearRect(0, 0, canvas.width, canvas.height); <br>
@@ -850,7 +850,7 @@
 						
 						<p>In the above function, you might have noticed I write (fullCount/fbimages.length)*100)+"%". The backslash (/) indicates division, the asterisk (*) indicates multiplication, the plus (+) indicates addition, and although it wasn't used in the above example, the minus (-) indicates subtraction. These basic operators within JavaScript, which allows us to do math and join together strings. If you have previous programming experience, you might be confused as to how I could do math on a clear number-based format (fullCount/fbimages.length)*100) and then add "%", which is a string format. In JavaScript, using the addition operator, you <em>can</em> concatenate (or join together) strings! I frequently put numbers together with strings in my instructions, especially if I want to fill in a value, like the key that's been assigned to a particular condition, and this isn't automatically set the same for each participant.</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">	
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">	
 						if (Memory == 0)<br>
 						{$("#Instructions2").html('Press z/Z if the color-word is printed in &lt;text style="color:' + picword[0][0] + '"&gt;' + picword[0][1] + '&lt;text style="color:black"&gt;, x/X if the color-word is printed in &lt;text style="color:' + picword[2][0] + '"&gt;' + picword[2][1] + '&lt;text style="color:black"&gt;, c/C if the color-word is printed in &lt;text style="color:' + picword[4][0] + '"&gt;' + picword[4][1] + '&lt;text style="color:black"&gt;, b/B if the color-word is printed in &lt;text style="color:' + picword[1][0] + '"&gt;' + picword[1][1] + '&lt;text style="color:black">, n/N if the color-word is printed in &lt;text style="color:' + picword[3][0] + '"&gt;' + picword[3][1] + '&lt;text style="color:black"&gt;, and m/M if the color-word is printed in &lt;text style="color:' + picword[5][0] + '"&gt;' + picword[5][1] +'&lt;text style="color:black"&gt;.');}<br>
 						else<br>
@@ -866,7 +866,7 @@
 						
 						<p>Something that I have referred to, numerous times, is an "event". Some of the examples I gave previously were about clicking a button or pressing a keyboard button. Generally, <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events" class="copy-link">an event</a> is just something that happens in the browser and that can trigger the execution of other blocks of code. Triggering other blocks of code requires your program/code to recognize that event has actually happened. For that to happen, you have to have an "event listener", which will be on the lookout for the event happening, and the blocks of code that are triggered by the event firing are the "event handlers." In my experiments, I typically record record data differently if someone presses a key vs. if they don't press a key during the specified interval. Here's part of what that looks like:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">	
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">	
 						$("body").keypress(function(event){<br>
 							keyPressed = String.fromCharCode(event.which);<br>
 							if (window.hasResponse == 0){<br>
@@ -885,7 +885,7 @@
 						
 						<p>OK, so I said that a lot of your experiment was going to be functions, if statements, and for loops, and we've gone over the former two. Now let's discuss for loops here. Here's a simple example that you can paste in the JavaScript console (of any browser, including this webpage) and see what happens.</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						let Stimuli1 = [];<br>
 						for (let i=1; i &lt; 31; i++){<br>
 							Stimuli1=Stimuli1.concat(1);<br>
@@ -897,7 +897,7 @@
 						
 						<p>In JavaScript, most of what you're manipulating are "objects" or items with similar functionality stored as a group. When we use the DOM as an initiator for our JavaScript code - e.g., document.addEventListener("DOMContentLoaded", function() {} - we are running the addEventListener "method" on the document "object". You'll note the use of objects whose values and properties we'll change in various code... for example:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						document.querySelector("#main-display").style.display = "flex";					
 						</code></pre></div>
 						
@@ -907,7 +907,7 @@
 						
 						<p>What can variables contain? What types exist? You might have seen me refer to basic terms like "strings" and "arrays". Variables that contain strings ("2", "hello world!", 'this works too', 'as long as you\'re consistent', "it's like HTML, you cannot mix double and single quotes", 'if you want to include something like can\'t, you have to put a blackslash before the single quote to escape it & ensure that the quote is recognized as text') are treated as characters, not numbers. If you wanted to treat your string variable as a number, you'd have to use a function to run the conversion. You can also "split" strings based on a character, like the backslash above (e.g., <code class="language-html" data-lang="html">stringVar.split('\');</code>. A variable can also be a boolean (true/false value) like <code class="language-html" data-lang="html">let checkResponse = true;</code>, which I've typically done for local conditionals. Remember what I said about JavaScript as an object-oriented language? Well, you can also make a variable be an object, like <code class="language-html" data-lang="html">let picword = {color: 'yellow', word: 'YELLOW'};</code>, and to call the color or word, you'd do <code class="language-html" data-lang="html">picword.color</code>. An array is a variable that contains other variables withim them. You've seen in an example the 'picword' array. That array looks something like:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						var picword = [["YELLOW", "yellow"], ["RED", "red"], ["GREEN", "green"]];
 						</code></pre></div>
 						
@@ -921,7 +921,7 @@
 						
 						<p>Previously we also said that functions were going to be a big part of your experimental code, but that we'd return to them. Let's look at that now:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						function gup( name, tmpURL )<br>
 						{<br>
 							var regexS = "[\\?&]"+name+"=([^&#]*)";<br>
@@ -948,7 +948,7 @@
 						
 						<p>With respect to the JavaScript, I actually have an array that lists out the workerIDs of participants who have already done the task before. But, because I'm now having participants 'input' their workerID, some participants may type this out with all lowercase. (It's either all lowercase or all uppercase - no one does a weird mix of the two, and Amazon doesn't show their workerID in that way).</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						function workerarrayLC() {<br>
 							for (i=0; i &lt; worker_array.length; i++){<br>
 								var newID = worker_array[i].toLowerCase();<br>
@@ -960,7 +960,7 @@
 						
 						<p>So, worker_array is the all upper-case version of the workerIDs that I wanted to convert to lowercase and refer to when determining whether this person had already done the task and I'd somehow missed them in the Qualifications exclusion. Below is the code for submitting their workerID:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						$("#submitname").click(function(){<br>
 							var person = document.getElementById('personname').value;<br>
 							if (person == null || person == "") {<br>
@@ -1019,7 +1019,7 @@
 						
 						<p>Here are some more useful functions based on those practical tips:</p>
 						
-						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						<div style="color:#1D6363">// adapted from: http://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window</div>
 						function checkSize(){<br>
 							var w = window.innerWidth;<br>
@@ -1081,11 +1081,245 @@
 						
 						<p>....</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+							var trialNum = 4;<br>
+							var i = 0;<br>
+							var color = ["red", "green", "red", "green"];<br>
+							var word = ["RED", "RED", "GREEN", "GREEN"];<br>
+							<br>
+							var canvas = document.getElementById("myCanvas");<br>
+							var ctx = canvas.getContext("2d");<br>
+							<br>
+							function runTrial(){<br>
+								if (i &lt; trialNum){<br>
+									ctx.clearRect(0, 0, canvas.width, canvas.height);<br>
+									ctx.font="60px Arial";<br>
+									ctx.fillStyle=color[i];<br>
+									ctx.textBaseline="middle";<br>
+									ctx.textAlign="center";<br>
+									ctx.fillText(word[i], canvas.width / 2, canvas.height / 2);<br>
+									i++;<br>
+									setTimeout(runTrial, 1500);<br>
+								}<br>
+							}<br>
+							<br>
+							runTrial();<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;canvas id="myCanvas" width="500" height="500"&gt;&lt;/canvas&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
 						
 						<p>....</p>
 						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+							var canvas = document.getElementById("myCanvas");<br>
+							var ctx = canvas.getContext("2d");<br>
+							var mouseX;<br>
+							var mouseY;<br>
+							var r = 30;<br>
+							<br>
+							canvas.addEventListener("mousemove", function(evt){<br>
+								var rect = canvas.getBoundingClientRect();<br>
+								mouseX = Math.round((evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width);<br>
+								mouseY = Math.round((evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);<br>
+							});<br>
+							<br>
+							function drawCircle(){<br>
+								ctx.clearRect(0, 0, canvas.width, canvas.height);<br>
+								ctx.beginPath();<br>
+								ctx.arc(mouseX, mouseY, r, 0, 2 * Math.PI);<br>
+								ctx.strokeStyle="green";<br>
+								ctx.fillStyle="green";<br>
+								ctx.fill();<br>
+								ctx.stroke();<br>
+								ctx.closePath();<br>
+								<br>
+								ctx.beginPath();<br>
+								ctx.fillStyle="rgba(255, 0, 0, 0.5)";<br>
+								ctx.moveTo(mouseX - 10, mouseY - 10);<br>
+								ctx.lineTo(mouseX + 10, mouseY - 10);<br>
+								ctx.lineTo(mouseX + 10, mouseY + 10);<br>
+								ctx.lineTo(mouseX - 10, mouseY + 10);<br>
+								ctx.lineTo(mouseX - 10, mouseY - 10);<br>
+								ctx.stroke();<br>
+								ctx.fill();<br>
+								ctx.closePath();<br>
+							}<br>
+							var intervalHandle = null;<br>
+							<br>
+							intervalHandle = setInterval(drawCircle, 1000 / 60);<br>
+							$("body").on("contextmenu", "canvas", function(e){return false;});<br>
+							$("body").keypress(function(event){<br>
+								var key = String.fromCharCode(event.which);<br>
+								if (key == 'p' && intervalHandle != null){<br>
+									clearInterval(intervalHandle);<br>
+									intervalHandle = null;<br>
+								}<br>
+							});<br>
+							<br>
+							canvas.addEventListener("click", function(evt) {<br>
+								r = r + 5;<br>
+								if (r &gt; 50){<br>
+									r = 50;<br>
+								}<br>
+							});<br>
+							<br>
+							canvas.oncontextmenu = function() {<br>
+								r = r - 5;<br>
+								if (r &lt; 10){<br>
+									r = 10;<br>
+								}<br>
+							}<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;canvas id="myCanvas" width="500" height="500"&gt;&lt;/canvas&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
 						<p>....</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+							var fileName = ["s1.wav", "s2.wav", "s3.wav", "s4.wav"];<br>
+							var s = new Array(4);<br>
+							var sCount = 0;<br>
+							var i = 0;<br>
+							<br>
+							function loadSound(){<br>
+								if (sCount &lt; 4){<br>
+									s[sCount] = new Audio(fileName[sCount]);<br>
+									s[sCount].oncanplaythrough = loadSound;<br>
+									sCount++;<br>
+								}<br>
+								else{<br>
+									playSound();<br>
+								}<br>
+							}<br>
+							<br>
+							function playSound(){<br>
+								if (i &lt; 4){<br>
+									s[i].play();<br>
+									setTimeout(playSound, 3000);<br>
+									i++;<br>
+								}<br>
+							}<br>
+							<br>
+							$("body").keypress(function(event) {<br>
+								var key = String.fromCharCode(event.which);<br>
+								if (key == 'p'){<br>
+									s[i - 1].pause();<br>
+								}<br>
+							});<br>
+							<br>
+							loadSound();<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>....</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+							var trialNum = 4;<br>
+							var i = 0;<br>
+							var word = ["male", "female", "male", "female"];<br>
+							var fileName = ["F01.jpg", "F02.jpg", "M01.jpg", "M02.jpg"];<br>
+							var imgs = new Array(trialNum);<br>
+							var imgCount = 0;<br>
+							<br>
+							var canvas = document.getElementById("myCanvas");<br>
+							var ctx = canvas.getContext("2d");<br>
+							<br>
+							function loadImage(){<br>
+								if (imgCount &lt; trialNum){<br>
+									imgs[imgCount] = new Image();<br>
+									imgs[imgCount].src=fileName[imgCount];<br>
+									imgs[imgCount].onload=loadImage;<br>
+									imgCount++;<br>
+								}<br>
+								else{<br>
+									runTrial();<br>
+								}<br>
+							}<br>
+							<br>
+							function runTrial(){<br>
+								if (i &lt; trialNum){<br>
+									ctx.clearRect(0, 0, canvas.width, canvas.height);<br>
+									ctx.drawImage(imgs[i], 142, 115);<br>
+									ctx.font="60px Arial";<br>
+									ctx.fillStyle="red";<br>
+									ctx.textBaseline="middle";<br>
+									ctx.textAlign="center";<br>
+									ctx.fillText(word[i], canvas.width / 2, canvas.height / 2);<br>
+									i++;<br>
+									setTimeout(runTrial, 2000);<br>
+								}<br>
+							}<br>
+							<br>
+							loadImage();<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;canvas id="myCanvas" width="500" height="500"&gt;&lt;/canvas&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
 						
 						<p>....</p>
 					</div>
@@ -1261,10 +1495,481 @@
 					<div>		
 						<p>The following code comes from <a href="https://myweb.uiowa.edu/jiefjiang/index.html" class="copy-link">Dr. Jiefeng Jiang</a> when he first taught me how to code in JavaScript.</p>
 						
-						<p>....</p>
+						<p>First up, we have the "Menu" file that essentially will help participants navigate from each task.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						var curStage = 0;<br>
+						<br>
+						function basicPopup(url){<br>
+							popupWindow = window.open(url, "popupWindow");<br>
+						}<br>
+						<br>
+						function gup(name, tmpURL){<br>
+							var regexS = "[\\?&]"+name+"=([^&#]*)";<br>
+							var regex = new RegExp(regexS);<br>
+							var results = regex.exec(tmpURL);<br>
+							if (results == null){<br>
+								return "";<br>
+							}<br>
+							else{<br>
+								return results[1];<br>
+							}<br>
+						}<br>
+						<br>
+						function updateMainMenu(expStage){<br>
+							switch(expStage){<br>
+								case 0:<br>
+									$("#instruction").show();<br>
+									$("#myButton").show();<br>
+									break;<br>
+								case 1:<br>
+									curStage = expStage;<br>
+									$("#instruction").text("Click button to fill out a demographic survey");<br>
+									break;<br>
+								case 2:<br>
+									curStage = expStage;<br>
+									$("#instruction").text("Click button to start main task");<br>
+									break;<br>
+								case 3:<br>
+									curStage = expStage;<br>
+									$("#instruction").hide();<br>
+									$("#myButton").hide();<br>
+									$("#mturk_form").show();<br>
+									break;<br>
+							}<br>
+						}<br>
+						<br>
+						$(document).ready(function(){<br>
+							$("#mturk_form").hide();<br>
+							document.getElementById("assignmentId").value=gup("assignmentId", document.referrer);<br>
+							document.getElementById("hitId").value=gup("hitId", document.referrer);<br>
+							document.getElementById("workerId").value=gup("workerId", document.referrer);<br>
+							<br>	
+								if (document.getElementById("assignmentId").value == "" || document.getElementById("assignmentId").value=="ASSIGNMENT_ID_NOT_AVAILABLE"){<br>
+									$("#instruction").text("Please accept HIT first");<br>
+									$("#myButton").hide();<br>
+								}<br>
+								else{<br>
+									$("#myButton").click(function(){<br>
+										switch(curStage){<br>
+											case 0:<br>
+												basicPopup("WordStroop_Practice.html");<br>
+												break;<br>
+											case 1:<br>
+												basicPopup("Demographics.html");<br>
+												break;<br>
+											case 2:<br>
+												basicPopup("WordStroop.html");<br>
+												break;<br>
+										}<br>
+									});<br>
+									updateMainMenu(0);<br>
+								}<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;p id="instruction" style="font-family: arial; font-size: 40px"&gt;Click the button to start practice&lt;/p&gt;<br>
+										&lt;button id="myButton" style="font-family: arial; font-size: 30px"&gt;Click&lt;/button&gt;<br>
+										&lt;form id="mturk_form" method="POST" action="https://workersandbox.mturk.com/mturk/externalSubmit"&gt;<br>
+											&lt;input type="hidden" id="assignmentId" name="assignmentId" value=""&gt;<br>
+											&lt;input type="hidden" id="hitId" name="hitId" value=""&gt;<br>
+											&lt;input type="hidden" id="workerId" name="workerId" value=""&gt;<br>
+											&lt;input type="hidden" id="logs" name="logs" value=""&gt;<br>
+											&lt;input type="hidden" id="demos" name="demos" value=""&gt;<br>
+											&lt;p style="font-size: 30px"&gt;Click to submit data to MTurk&lt;/p&gt;<br>
+											&lt;input id="submitButton" style="font-size: 30px" type="submit" name="Finish" value="Submit"&gt;<br>
+										&lt;/form&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>....We haven't gone over switch and break yet & workersandbox. Explain & basic organization.</p>
+						
+						<p>OK, what does that CSS file look like?</p>
+						
+						<div class="highlight"><pre><code class="language-css" data-lang="css">
+						html {<br>
+							height: 100%;<br>
+							width: 100%;<br>
+							margin: 0;<br>
+							padding: 0;<br>
+							border: 0;<br>
+						}<br>
+						<br>
+						body {<br>
+							height: 100%;<br>
+							width: 100%;<br>
+							margin: 0;<br>
+							padding: 0;<br>
+							border: 0;<br>
+							/* background-color: #7F7F7F; */<br>
+							background-color: grey;<br>
+						}<br>
+						<br>
+						table {<br>
+							height: 100%;<br>
+							width: 100%;<br>
+							margin:0;<br>
+							padding:0;<br>
+							border:0;<br>
+							text-align:center;<br>
+							vertical-align:middle;<br>
+						}<br>
+						</code></pre></div>
+					
+						<p>This CSS is pretty basic and primarily serves to ensure that the text is center aligned for the "table" elements, the background is grey (not white), and everything else has no margin, padding, or border automatically. In other words, this is a pretty bare bones demo for an Experiment. If you were to run an Experiment, you'd probably want to have prioritize the User Experience more.</p>
+						
+						<p>OK, so this Menu file tells us to load the practice task, then the demographics, then the task files. What do each of these look like?</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;script type="text/javascript" src="jquery-3.1.1.js"&gt;&lt;/script&gt;<br>
+						$(document).ready(function(){<br>
+							var data = [[""]];<br>
+							$("#submitButton").click(function(){<br>
+								var e = document.getElementById("gender");<br>
+								data[0] = e.options[e.selectedIndex].value;<br>
+								<br>
+								data[1] = document.getElementById("age").value;<br>
+								<br>
+								e = document.getElementById("ethnicity");<br>
+								data[2] = e.options[e.selectedIndex].value;<br>
+								<br>
+								e = document.getElementById("race");<br>
+								data[3] = e.options[e.selectedIndex].value;<br>
+								<br>
+								//alert(data.join(";"));<br>
+								$("#demos", opener.window.document).val(data.join(";"));<br>
+								opener.updateMainMenu(2);<br>
+								JavaScript:window.close();<br>
+							});<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;p&gt; &lt;b&gt; Please take a few minutes to answer the demographic questions below:&lt;/b&gt;&lt;/p&gt;<br>
+							&lt;p&gt; &lt;b&gt; Gender: &lt;/b&gt; &lt;/p&gt;<br>
+							&lt;select id="gender"&gt;<br>
+								&lt;option value="F"&gt;Female&lt;/option&gt;<br>
+								&lt;option value="M"&gt;Male&lt;/option&gt;<br>
+								&lt;option value="NA"&gt;Do not wish to reply&lt;/option&gt;<br>
+							&lt;/select&gt;<br>
+							<br>
+							&lt;p&gt;&lt;b&gt; Age: (leave blank if you do not wish to reply)&lt;/b&gt;&lt;/p&gt;<br>
+							&lt;input id="age" name="Age" value=""&gt;&lt;/input&gt;<br>
+							<br>
+							&lt;p&gt;&lt;b&gt; Ethnicity:&lt;/b&gt;&lt;/p&gt;<br>
+							&lt;select id="ethnicity"&gt;<br>
+								&lt;option value="HL"&gt;Hispanic/Latino&lt;/option&gt;<br>
+								&lt;option value="NHL"&gt;Non-Hispanic/Latino&lt;/option&gt;<br>
+								&lt;option value="NA"&gt;Do not wish to reply&lt;/option&gt;<br>
+							&lt;/select&gt;<br>
+							<br>
+							&lt;p&gt;&lt;b&gt;Race: &lt;/b&gt;&lt;/p&gt;<br>
+							&lt;select id="race"&gt;<br>
+								&lt;option value="AI"&gt;American Indian/Alaska Native&lt;/option&gt;<br>
+								&lt;option value="A"&gt;Asian&lt;/option&gt;<br>
+								&lt;option value="NH"&gt;Native Hawaiian/Other Pacific Islander&lt;/option&gt;<br>
+								&lt;option value="AA"&gt;African American/Black&lt;/option&gt;<br>
+								&lt;option value="W"&gt;Caucasian/White&lt;/option&gt;<br>
+								&lt;option value="M"&gt;Multiracial&lt;/option&gt;<br>
+								&lt;option value="O"&gt;Other&lt;/option&gt;<br>
+								&lt;option value="NA"&gt;Do not wish to reply&lt;/option&gt;<br>
+							&lt;/select&gt;<br>
+							&lt;br&gt;<br>
+							&lt;button id="submitButton"&gt;Submit&lt;/button&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>	
+						</code></pre></div>
+						
+						<p>....The following shows you a way around using the canvas - using pure HTML instead for presenting the stimuli in the practice task.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						<br>
+						$(document).ready(function(){<br>
+							var trialNum = 9;<br>
+							var color = [1,2,3,1,2,3,1,2,3];<br>
+							var word = [1,1,1,2,2,2,3,3,3];<br>
+							var i = 0;<br>
+							<br>
+							var runStart;<br>
+							var logCounter = 0;<br>
+							var onset;<br>
+							var data = [[""]];<br>
+							var d1 = new Date();<br>
+							$("#endPractice").hide();<br>
+							<br>
+							var checkResponse = true;<br>
+							var timeoutHandle = null;<br>
+							<br>
+							function runTrial(){<br>
+								if (i &lt; trialNum){<br>
+									switch(word[i]){<br>
+										case 1:<br>
+											$("#s").text("RED");<br>
+											break;<br>
+										case 2:<br>
+											$("#s").text("BLUE");<br>
+											break;<br>
+										case 3:<br>
+											$("#s").text("YELLOW");<br>
+											break;<br>
+									}<br>
+									<br>
+									switch(color[i]){<br>
+										case 1:<br>
+											$("#s").css("color", "red");<br>
+											break;<br>
+										case 2:<br>
+											$("#s").css("color", "blue");<br>
+											break;<br>
+										case 3:<br>
+											$("#s").css("color", "yellow");<br>
+											break;<br>
+									}<br>
+									$("#s").show();<br>
+									checkResponse = true;<br>
+									<br>
+									d1 = new Date();<br>
+									onset = d1.getTime() - runStart;<br>
+									data[logCounter] = ["P:", onset, color[i], word[i]];<br>
+									logCounter++;<br>
+									<br>
+									timeoutHandle = setTimeout(showITI, 1000);<br>
+									i++;<br>
+								}<br>
+								else{<br>
+									$("#s").css("font-size", "20px");<br>
+									$("#s").css("color", "white");<br>
+									$("#s").text(data.join(";"));<br>
+									$("#s").show();<br>
+									$("#endPractice").show();<br>
+								}<br>
+							}<br>
+							<br>
+							function showITI(){<br>
+								$("#s").hide();<br>
+								timeoutHandle = setTimeout(noResponseFeedback, 2000);<br>
+							}<br>
+							<br>
+							function showFeedback(isCorrect){<br>
+								$("#s").show();<br>
+								$("#s").css("color", "white");<br>
+								if (isCorrect){	<br>
+									$("#s").text("Correct");<br>
+								}<br>
+								else{<br>
+									$("#s").text("Incorrect");<br>
+								}<br>
+								setTimeout(showITI2, 1000);<br>
+							}<br>
+							<br>
+							function noResponseFeedback(){<br>
+								checkResponse = false;<br>
+								$("#s").show();<br>
+								$("#s").css("color", "white");<br>
+								$("#s").text("No response");<br>
+								setTimeout(showITI2, 1000);<br>
+							}<br>
+							<br>
+							function showITI2(){<br>
+								$("#s").hide();<br>
+								setTimeout(runTrial, 2000);<br>
+							}<br>
+							<br>
+							$("body").keypress(function(event){<br>
+								if (checkResponse){<br>
+									clearTimeout(timeoutHandle);<br>
+									checkResponse = false;<br>
+									var key = String.fromCharCode(event.which);<br>
+									d1 = new Date();<br>
+									data[logCounter] = ["R:", key, d1.getTime() - runStart];<br>
+									logCounter++;<br>
+									<br>
+									var ans = key[0] - '0';<br>
+									if (color[i - 1] == ans){<br>
+										showFeedback(true);<br>
+									}<br>
+									else{<br>
+										showFeedback(false);<br>
+									}<br>
+								}<br>
+							});<br>
+							<br>
+							function countDown(time){<br>
+								if (time &gt; 0){<br>
+									$("#s").text('' + time);<br>
+									setTimeout(function(){countDown(time - 1)}, 1000);<br>
+								}<br>
+								else{<br>
+									d1 = new Date();<br>
+									runStart = d1.getTime();<br>
+									runTrial();<br>
+								}<br>
+							}<br>
+							<br>
+							$("#start").click(function() {<br>
+								$("#start").hide();<br>
+								countDown(3);<br>
+							});<br>
+							<br>
+							$("#endPractice").click(function(){<br>
+								opener.updateMainMenu(1);<br>
+								JavaScript:window.close();<br>
+							});<br>
+						});<br>
+						<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;p id="s" style="font-family: arial; font-size:60px"&gt;RED=1, BLUE=2,	YELLOW=3&lt;/p&gt;<br>
+										&lt;button id="start"&gt;Click to start&lt;/button&gt;<br>
+										&lt;button id="endPractice" style="font-family: arial; font-size: 20px"&gt;Click to end practice&lt;/button&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>.... OK, what does the main task look like? It's very similar to the practice task.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						<br>
+						$(document).ready(function(){<br>
+							var trialNum = 9;<br>
+							var color = [1,2,3,1,2,3,1,2,3];<br>
+							var word = [1,1,1,2,2,2,3,3,3];<br>
+							var i = 0;<br>
+							<br>
+							var runStart;<br>
+							var logCounter = 0;<br>
+							var onset;<br>
+							var data = [[""]];<br>
+							var d1 = new Date();<br>
+							<br>
+							function runTrial(){<br>
+								if (i < trialNum){<br>
+									switch(word[i]){<br>
+										case 1:<br>
+											$("#s").text("RED");<br>
+											break;<br>
+										case 2:<br>
+											$("#s").text("BLUE");<br>
+											break;<br>
+										case 3:<br>
+											$("#s").text("YELLOW");<br>
+											break;<br>
+									}<br>
+									
+									switch(color[i]){<br>
+										case 1:<br>
+											$("#s").css("color", "red");<br>
+											break;<br>
+										case 2:<br>
+											$("#s").css("color", "blue");<br>
+											break;<br>
+										case 3:<br>
+											$("#s").css("color", "yellow");<br>
+											break;<br>
+									}<br>
+									$("#s").show();<br>
+									<br>
+									d1 = new Date();<br>
+									onset = d1.getTime() - runStart;<br>
+									data[logCounter] = ["P:", onset, color[i], word[i]];<br>
+									logCounter++;<br>
+									<br>
+									setTimeout(showITI, 1000);<br>
+									i++;<br>
+								}<br>
+								else{<br>
+									$("#s").css("font-size", "20px");<br>
+									$("#s").css("color", "white");<br>
+									$("#s").text(data.join(";"));<br>
+									$("#s").show();<br>
+									$("#logs", opener.window.document).val(data.join(";"));<br>
+									opener.updateMainMenu(3);<br>
+									Javascript:window.close();<br>
+								}<br>
+							}<br>
+							<br>
+							function showITI(){<br>
+								$("#s").hide();<br>
+								setTimeout(runTrial, 2000);<br>
+							}<br>
+							<br>
+							$("body").keypress(function(event){<br>
+								var key = String.fromCharCode(event.which);<br>
+								d1 = new Date();<br>
+								data[logCounter] = ["R:", key, d1.getTime() - runStart];<br>
+								logCounter++;<br>
+							});<br>
+							<br>
+							function countDown(time){<br>
+								if (time > 0){<br>
+									$("#s").text('' + time);<br>
+									setTimeout(function(){countDown(time - 1)}, 1000);<br>
+								}<br>
+								else{<br>
+									d1 = new Date();<br>
+									runStart = d1.getTime();<br>
+									runTrial();<br>
+								}<br>
+							}<br>
+							<br>
+							$("#start").click(function() {<br>
+								$("#start").hide();<br>
+								countDown(3);<br>
+							});<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;p id="s" style="font-family: arial; font-size:60px"&gt;RED=1, BLUE=2,	YELLOW=3&lt;/p&gt;<br>
+										&lt;button id="start"&gt;Click to start&lt;/button&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
 						
 						<p>....</p>
-
+						
 						<p>....</p>
 						
 						<p>....</p>
@@ -1279,11 +1984,92 @@
 						
 						<p>The following code comes from <a href="https://nbrosowsky.github.io/simple-stroop-demo/" class="copy-link">Dr. Nick Brosowsky's Stroop Task Demo</a>.</p>
 						
+						<p>Here's the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/index.html" class="copy-link">index or Menu file</a>:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&lt;<br>
+						&lt;html dir="ltr" lang="en-US"&lt;<br>
+						&lt;head&lt;<br>
+							&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&lt;<br>
+							&lt;meta name="N.P. Brosowsky" content="Typing Game" /&lt;<br>
+							&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&lt;<br>
+							&lt;!-- Stylesheets<br>
+							============================================= --&lt;<br>
+							&lt;link rel="stylesheet" href="css/tachyons.min.css" type="text/css" /&lt;<br>
+							&lt;link rel="stylesheet" href="css/index-style.css" type="text/css" /&lt;<br>
+							&lt;!--- Javascript on page load<br>
+							============================================= --&lt;<br>
+							&lt;script type="text/javascript"&lt;<br>
+							&lt;/script&lt;<br>
+							&lt;!-- Document Title<br>
+							============================================= --&lt;<br>
+							&lt;title&lt;Typing Game&lt;/title&lt;<br>
+						&lt;/head&lt;<br>
+						&lt;body&lt;<br>
+							&lt;noscript&lt;<br>
+								&lt;p&lt;Javascript has been disabled in your browser.&lt;/p&lt;<br>
+								&lt;p&lt;In order to complete this study, you must enable JavaScript.&lt;/p&lt;<br>
+								&lt;p&lt;Here are &lt;a href="https://www.enable-javascript.com/"&lt;instructions on how to enable JavaScript in your web browser&lt;/a&lt;.&lt;/p&lt;<br>
+							&lt;/noscript&lt;<br>
+							&lt;div id='info-consent-letter' style="width: 80%; margin: auto"&lt;<br>
+								&lt;p&lt;&lt;b&lt;Title of research study:&lt;/b&lt; Assessing Adaptive Control via Trial-Unique Stimuli&lt;/p&lt;<br>
+								&lt;p&lt;&lt;b&lt;Key Information&lt;/b&lt;&lt;/p&lt;<br>
+								&lt;p&lt;This research study is conducted by Dr. Tobias Egner of the Center for Cognitive Neuroscience at Duke University. Its purpose is to investigate the ease in which people switch between tasks. &lt;/p&lt;<br>
+								&lt;p&lt;&lt;strong&lt;IMPORTANT: This experiment requires that you respond to sounds. It will require speakers or headphones to complete.&lt;/strong&lt;&lt;/p&lt;<br>
+								<br>
+								&lt;p&lt;&lt;b&lt;Procedure&lt;/b&lt;In this experiment, you will be asked to identify competing stimuli (e.g. images and words) on the computer screen. Once you are finished with the task, you will also be asked to fill out a few questions about your demographics. If any questions make you uncomfortable, feel free to skip it, but please try to answer as many of the questions as you can.&lt;/p&lt;<br>
+								<br>
+								&lt;p&lt;Specifically, you will be identifying the color of a word, while ignoring what that word says. (e.g., &lt;span style="color:red"&lt;BLUE&lt;/span&lt;, &lt;span style="color:blue"&lt;YELLOW&lt;/span&lt;). You will respond by pressing a key on the keyboard.  There will be 400 trials. The entire experiment should take less than 20 minutes. You will be compensated $2.75 for your participation.&lt;/p&lt;<br>
+								<br>
+								&lt;p&lt;&lt;b&lt;Benefits and Risks:&lt;/b&lt; We know of no risks or benefits to you for participating in this research study. The potential benefits of this research lie in the knowledge that will be acquired. &lt;/p&lt;<br>
+								<br>
+								&lt;p&lt;&lt;b&lt;Confidentiality&lt;/b&lt; Our records will include the demographic information you report to us (your age, gender, etc.) as well as your task performance data. We employ a participant code system to ensure that this information is not directly linked to your name or consent form. The consent and demographic forms as well as the de-identified performance data will be stored in a secure location. All data will be kept for at least six years or as long as is required by Duke University or any journal that may publish these findings. If a report of this study is published, or the results are presented at a professional conference, only group results will be reported. However, your data, with direct identifiers removed, may be used for future studies and/or shared with other researchers. The audio recordings of your voice will not be shared.&lt;/p&lt;<br>
+								<br>
+								&lt;p&lt;&lt;b&lt;Compensation and Participation&lt;/b&lt;For participating in this study, you will earn $2.75. We will screen your responses prior to compensation. If you do not complete the task, or we think that you completed it to an unsatisfactory standard (i.e. you do not follow the instructions), you will not be compensated. There will be 400 trials. The entire experiment should take less than 20 minutes.&lt;/p&lt;<br>
+								<br>
+								&lt;p&lt;&lt;b&lt;Contact&lt;/b&lt;any questions about your rights as a research subject, you may contact the Human Subjects Protection at campusirb@duke.edu.&lt;/p&lt;<br>
+								&lt;hr&lt;<br>
+								&lt;p&lt;Please click to indicate your consent to participate in the study.&lt;/p&lt;<br>
+								&lt;p&lt;&lt;b&lt;Protocol:&lt;/b&lt;#&lt;/p&lt;<br>
+							&lt;div id='decline-to-participate'&lt;<br>
+								&lt;p&lt;You have declined to participate at this time.&lt;/p&lt;<br>
+								&lt;p&lt;If you change your mind, simply reload this webpage.&lt;/p&lt;<br>
+							&lt;/div&lt;<br>
+							&lt;button id='no-consent-btn' class='consent-btn' style="display: inline; visibility: visible"&lt;I do not agree to participate&lt;/button&lt;<br>
+							&lt;button id='yes-consent-btn' class='consent-btn' style="display: inline; visibility: visible"&lt;&lt;b&lt;I agree to participate&lt;/b&lt;&lt;/button&lt;<br>
+							&lt;/div&lt;<br>
+							&lt;!-- Javascript before page load<br>
+							============================================== --&lt;<br>
+							&lt;!-- custom JS --&lt;<br>
+							&lt;script&lt;<br>
+								document.querySelector("#info-consent-letter").style.display = "block"<br>
+								document.querySelector("#info-consent-letter").style.visibility = "visible"<br>
+								document.querySelector("#no-consent-btn").addEventListener("click",<br>
+									function() {<br>
+										document.querySelector("#info-consent-letter").style.display = "none";<br>
+										document.querySelector("#decline-to-participate").style.display = "block";<br>
+										document.querySelector("#decline-to-participate").style.visibility = "visible";<br>
+										document.querySelector("#no-consent-btn").style.display = "none";<br>
+										document.querySelector("#yes-consent-btn").style.display = "none";<br>
+									});<br>
+								document.querySelector("#yes-consent-btn").addEventListener("click", function() {<br>
+									window.open("task.html?" + window.location.search.slice(1) , "_self");<br>
+								});<br>
+							&lt;/script&lt;<br>
+						&lt;/body&lt;<br>
+						</code></pre></div>
+						
 						<p>....</p>
+
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						
+						</code></pre></div>
 						
 						<p>....</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						
+						</code></pre></div>
 						
 						<p>....</p>
 					</div>
