@@ -729,13 +729,15 @@
 					<div>
 						<p>Know how we were just talking about the DevTools for CSS? Well, the "Console" tab is where you can type in JavaScript as though it's a terminal. You can run an entire script there if you wanted. In fact, one big distinction to make here is that we're pretty much always going to be talking about client-side JavaScript: that is, code that's downloaded, run, and displayed by a browser on a user's computer. The opposite is server-side code, where the code is run on the server and then the results are downloaded and displayed in the browser.</p>
 						
-						<p>JavaScript deals in variables, and you have to define/declare variables before you can refer to them. You can have local variables that are assigned a value and global variables that you assign by including "var" or "let" before the name of the variable (more on let vs. var later!).</p>
+						<p>JavaScript deals in variables, which are containers for values (e.g., characters, numbers, etc.) that can change, and you have to define/declare variables before you can refer to them. You can have local variables that are assigned a value and global variables that you assign by including "var" or "let" before the name of the variable (more on let vs. var later!).</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						var coolVarName = 2; <div style="color:#1D6363">&lt;!--global variable --&gt;</div>
 						let coolVarName = 2; <div style="color:#1D6363">&lt;!--use var or let to create a global variable; let is more modern, var is more historical --&gt;</div>
 						coolVarName = 2; <div style="color:#1D6363">&lt;!--local variable --&gt;</div>
 						</code></pre></div>
+						
+						<p>Variables are useful because they can help make code more efficient, allowing you to refer to something without having to repeat blocks of code over and over. Notably, you don't have to declare a value for a variable in order to declare the variable; you can write <code class="language-html" data-lang="html">let coolVarName;</code> or <code class="language-html" data-lang="html">var coolVarName;</code> and the variables should "exist" in memory then as empty containers. This "declares" the variable, at which point you can initialize it by assigning it a value. After initializing a variable, you can update its value at any time... which gets to one of the big benefits of JavaScript.</p>
 						
 						<p>With JavaScript, you can dynamically update content (e.g., running code in response to , animate images, and more--through its interaction with HTML and CSS. To give another example, you can create a button to "move on" in a survey, then style it in CSS (according to design principles!), and then add JavaScript to make it interactive: when you click the button, let's have a prompt appear, let's show you new (previously hidden) information, let's load new images, etc. To understand what exactly JavaScript is doing, you also have to think about *what* it might be interacting with.</p>
 						
@@ -814,7 +816,7 @@
 						
 						<p>OK, so how might you actually start? Well, we talked a little bit about defining variables with var and let. Typically, people now use let for global variables, because it's more modern in JavaScript. With var, you could technically declare a variable after you initialize it, and you can declare a variable with the same name multiple times with var, but you can't do either with let. That is, you could write <code class="language-html" data-lang="html">var coolVarName = 5; var coolVarName = 8;</code> and on and on, and that would work, but with let, you'd need to do let <code class="language-html" data-lang="html">coolVarName = 5; coolVarName = 8</code>. In essence, these two function similarly, but let, because it is more modern and sensible in terms of making code more readable, is probably what you should use. You can also declare a variable with the keyword <code class="language-html" data-lang="html">const</code>: this means that values cannot be changed for this variable. Often, people will use const to refer to HTML elements that involve some level of user input (e.g., your results), and the HTML element itself won't change (but the text that is assigned as the value for this HTML element will be updated, which is why const works for that purpose).</p>
 						
-						<p>The majority of an Experimental task/study will be one of three types of JavaScript features: functions, if statements, and for loops. A function is a reusable block of code that once it's written, you can run it again and again. Perhaps you can see how that's helpful already - if you've defined trial sequences, you'll probably have functions for individual trial types that you can then call again and again. An if statement is a conditional - you've probably experienced this logic in another programming language before. Conditionals mean that you'll run code only when that condition is "true" or not. Here is an example of using a function + if statement in tandem:</p>
+						<p>The majority of an Experimental task/study will be one of three types of JavaScript features: functions, if/else (and if...else if or if...else if...else) statements, and for loops. A function is a reusable block of code that once it's written, you can run it again and again. Perhaps you can see how that's helpful already - if you've defined trial sequences, you'll probably have functions for individual trial types that you can then call again and again. An if statement is a conditional - you've probably experienced this logic in another programming language before. Conditionals mean that you'll run code only when that condition is "true" or not. Here is an example of using a function + if statement in tandem:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">						
 						function loadImage(){<br>
@@ -842,7 +844,7 @@
 						}<br>
 						</code></pre></div>
 						
-						<p>You can see that you define a function with the keyword function, the name of the function (loadImage), whether the function will take an input (here, no input, nothing is within the parenthesis), and then indicate the content of the function with the {} curly brackets. To run this function, I would type <code class="language-html" data-lang="html">loadImage();</code>. This is a pretty simple load image function - we'll get to more of what this means, but ctx stands for context, context interacts with the <a href="https://www.w3schools.com/tags/ref_canvas.asp" class="copy-link">canvas API</a> (<a href="https://www.w3schools.com/tags/canvas_clearrect.asp" class="copy-link">clearRect</a>, <a href="https://www.w3schools.com/tags/canvas_fillstyle.asp" class="copy-link">fillStyle</a>, <a href="https://www.w3schools.com/tags/canvas_textbaseline.asp" class="copy-link">textBaseline</a>, <a href="https://www.w3schools.com/tags/canvas_textalign.asp" class="copy-link">textAlign</a>, <a href="https://www.w3schools.com/tags/canvas_font.asp" class="copy-link">font</a>, <a href="https://www.w3schools.com/tags/canvas_filltext.asp" class="copy-link">fillText</a>), and the canvas API allows us to 'draw' on the screen. What we're basically doing is defining properties of the text that will be drawn below the "indicator" HTML element indicating that the task is loading and then saying how many images have been loaded out of how many remain. Then, we have an if statement (whereby the conditional is defined within the parenthesis) saying that so long as our counter is less than the length of the "fbimages" array, we're going to keep creating new images in "fbarray", source the images for fbarray from the fbimages array, and keep going until the conditional is no longer true. fullCount++ is equivalent to saying fullCount = fullCount + 1 (i.e., adding 1 to its current value so that it's essentially growing by 1 each time you iterate through the function). Once the images are all loaded (i.e., the conditional is no longer true, our counter is now larger than the length of the fbimages array), we hit the 'else' logic and immediately run the Prep() function. If you don't understand all this yet (e.g., what is an array?!), don't worry - here, I mostly wanted to show you how a function might work and how you could combine a function with other programming logic to keep your task going.</p>
+						<p>You can see that you define a function with the keyword function, the name of the function (loadImage), whether the function will take an input (here, no input, nothing is within the parenthesis), and then indicate the content of the function with the {} curly brackets. To run this function, I would type <code class="language-html" data-lang="html">loadImage();</code>. This is a pretty simple load image function - we'll get to more of what this means, but ctx stands for context, context interacts with the <a href="https://www.w3schools.com/tags/ref_canvas.asp" class="copy-link">canvas API</a> (<a href="https://www.w3schools.com/tags/canvas_clearrect.asp" class="copy-link">clearRect</a>, <a href="https://www.w3schools.com/tags/canvas_fillstyle.asp" class="copy-link">fillStyle</a>, <a href="https://www.w3schools.com/tags/canvas_textbaseline.asp" class="copy-link">textBaseline</a>, <a href="https://www.w3schools.com/tags/canvas_textalign.asp" class="copy-link">textAlign</a>, <a href="https://www.w3schools.com/tags/canvas_font.asp" class="copy-link">font</a>, <a href="https://www.w3schools.com/tags/canvas_filltext.asp" class="copy-link">fillText</a>), and the canvas API allows us to 'draw' on the screen. What we're basically doing is defining properties of the text that will be drawn below the "indicator" HTML element indicating that the task is loading and then saying how many images have been loaded out of how many remain (using a built-in browser function with Math.round()). Then, we have an if/else statement (whereby the conditional is defined within the parenthesis, and the conditional statement is followed by {} curly brackets for both if and else) saying that so long as our counter is less than the length of the "fbimages" array, we're going to keep creating new images in "fbarray", source the images for fbarray from the fbimages array, and keep going until the conditional is no longer true. fullCount++ is equivalent to saying fullCount = fullCount + 1 (i.e., adding 1 to its current value so that it's essentially growing by 1 each time you iterate through the function). Once the images are all loaded (i.e., the conditional is no longer true, our counter is now larger than the length of the fbimages array), we hit the 'else' logic and immediately run the Prep() function. If you don't understand all this yet (e.g., what is an array?!), don't worry - here, I mostly wanted to show you how a function might work and how you could combine a function with other programming logic to keep your task going.</p>
 						
 						<p>OK, so now you have an idea about the basic structure of an experiment coded in JavaScript as well as how to call on functions and define variables. You also know how to call upon JavaScript in an HTML document as well as basics for how JavaScript interacts with your code in the browser. Let's get into more of the basics of JavaScript.</p>
 						
@@ -860,9 +862,9 @@
 						
 						<p>One last note on this front: there are also shortcut operators called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#assignment_operators" class="copy-link">assignment operators</a>, which assign a value to whatever variable in on the left based on the value of what's on the right of the operator. Multiple times, you'll have seen me use the assignment operator (=). There are logical assignment operators and more basic addition ones and more. Putting BISBAS = BISBAS - 5 is the same as doing BISBAS -= 5 with these operators.</p>
 						
-						<p>Finally, in the above example on the loadImage function, you might have also noticed how I used <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators" class="copy-link">comparison operators</a> to help evaluate the true/false / conditional if statement. <code class="language-html" data-lang="html">&lt;</code> indicates less than, <code class="language-html" data-lang="html">&gt;</code> indicates greater than, !== indicates not equal to (strict), != indicates not equal to (less strict), === indicates a strict equality, and == indicates a less strict equality. For example, 2 === '2' will return false, but 2 == '2' will return true - strict equality or strict not equal to means that the cases <b>have</b> to match exactly. That 2 the number has a different format than 2 the string is why it will return false with === but they are the same value, so it returns true with ==.</p>
+						<p>Finally, in the above example on the loadImage function, you might have also noticed how I used <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators" class="copy-link">comparison operators</a> to help evaluate the true/false / conditional if statement. <code class="language-html" data-lang="html">&lt;</code> indicates less than, <code class="language-html" data-lang="html">&gt;</code> indicates greater than, !== indicates not equal to (strict), != indicates loose not equal to, === indicates a strict equality, and == indicates a loose equality. For example, 2 === '2' will return false, but 2 == '2' will return true - strict equality or strict not equal to means that the cases <b>have</b> to match exactly. That 2 the number has a different format than 2 the string is why it will return false with === but they are the same value, so (the browser does A === ToNumber(B) when comparing the two and) it returns true with ==.</p>
 						
-						<p>Something that I have referred to, numerous times, is an "event". Some of the examples I gave previously were about clicking a button or pressing a keyboard button. Generally, an event is just something that happens in the browser and that can trigger the execution of other blocks of code. Triggering other blocks of code requires your program/code to recognize that event has actually happened. For that to happen, you have to have an "event listener", which will be on the lookout for the event happening, and the blocks of code that are triggered by the event firing are the "event handlers." In my experiments, I typically record record data differently if someone presses a key vs. if they don't press a key during the specified interval. Here's part of what that looks like:</p>
+						<p>Something that I have referred to, numerous times, is an "event". Some of the examples I gave previously were about clicking a button or pressing a keyboard button. Generally, <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events" class="copy-link">an event</a> is just something that happens in the browser and that can trigger the execution of other blocks of code. Triggering other blocks of code requires your program/code to recognize that event has actually happened. For that to happen, you have to have an "event listener", which will be on the lookout for the event happening, and the blocks of code that are triggered by the event firing are the "event handlers." In my experiments, I typically record record data differently if someone presses a key vs. if they don't press a key during the specified interval. Here's part of what that looks like:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">	
 						$("body").keypress(function(event){<br>
@@ -885,13 +887,13 @@
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						let Stimuli1 = [];<br>
-						for (let i=1; i < 31; i++){<br>
+						for (let i=1; i &lt; 31; i++){<br>
 							Stimuli1=Stimuli1.concat(1);<br>
 							console.log(i);<br>
 						}<br>
 						</code></pre></div>
 						
-						<p>If you pasted this in the console, you would see that the counter i was logged 30 times, incrementing by 1 each time the for loop was run, and the variable Stimuli1 is an array of 30 1s, since we concatenated 1 each time the loop was run to a blank variable. You can see that when you're running a for loop, there are three primary arguments: a starting value (let i = 1), a condition (i < 31) indicating when to stop, and an incrementor (i++, i increasing by 1 each time the loop runs). Inside the {} is the code we expect to be run according to those conditions. You can probably see how for loops would help you define your experimental conditions, allowing you to iterate over the number of trials that you have.</p>
+						<p>If you pasted this in the console, you would see that the counter i was logged 30 times, incrementing by 1 each time the for loop was run, and the variable Stimuli1 is an array of 30 1s, since we concatenated 1 each time the loop was run to a blank variable. You can see that when you're running a for loop, there are three primary arguments: a starting value (let i = 1), a condition (i &lt; 31) indicating when to stop, and an incrementor (i++, i increasing by 1 each time the loop runs). Inside the {} is the code we expect to be run according to those conditions. You can probably see how for loops would help you define your experimental conditions, allowing you to iterate over the number of trials that you have.</p>
 						
 						<p>In JavaScript, most of what you're manipulating are "objects" or items with similar functionality stored as a group. When we use the DOM as an initiator for our JavaScript code - e.g., document.addEventListener("DOMContentLoaded", function() {} - we are running the addEventListener "method" on the document "object". You'll note the use of objects whose values and properties we'll change in various code... for example:</p>
 						
@@ -899,9 +901,11 @@
 						document.querySelector("#main-display").style.display = "flex";					
 						</code></pre></div>
 						
-						<p>We're also running the method querySelector on the document object, and then grabbing the main-display HTML id element, setting its style=display:flex property here via JavaScript. This is a very brief introduction to what someone might mean when they tell you that JavaScript is an object-oriented coding language.</p>
+						<p>We're also running the method querySelector on the document object, and then grabbing the main-display HTML id element, setting its style=display:flex property here via JavaScript. This is a very brief introduction to what someone might mean when they tell you that JavaScript is an object-oriented coding language (see <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects" class="copy-link">this guide for more detail</a> -- we will not really get into OOP in this module!).</p>
 						
-						<p>OK, so now you've got the basics of for loops, functions, if statements, where to call JavaScript, different operators in JavaScript, events, and more, let's get a little more into the types of variables and other little details. First, you might have seen me refer to basic terms like "strings" and "arrays". Variables that contain strings ("2", "hello world!", 'this works too', 'as long as you're consistent') are treated as characters, not numbers. If you wanted to treat your string variable as a number, you'd have to use a function to run the conversion. An array is a variable that contains other variables withim them. You've seen in an example the 'picword' array. That array looks something like:</p>
+						<p>OK, so now you've got the basics of for loops, functions, if statements, where to call JavaScript, different operators in JavaScript, events, and more, let's get a little more into the types of variables and other little details. First, you might have noticed some naming conventions, like the <a href="https://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms" class="copy-link">"lower camel case"</a> convention where you keep the first word lower case and capitalize the first letter of the second/other words in your variable name (e.g., coolVarName). You can't name variables after special keywords (i.e., for/function), you shouldn't use underscores or numbers at the beginning of variables, and you should watch out for special characters. You should also name variables *intuitively* so they're describing the data they contain, and you should watch out for case sensitivity (coolVarName is not the same as coolvarname, so be careful what you write out).</p>
+						
+						<p>What can variables contain? What types exist? You might have seen me refer to basic terms like "strings" and "arrays". Variables that contain strings ("2", "hello world!", 'this works too', 'as long as you\'re consistent', "it's like HTML, you cannot mix double and single quotes", 'if you want to include something like can\'t, you have to put a blackslash before the single quote to escape it & ensure that the quote is recognized as text') are treated as characters, not numbers. If you wanted to treat your string variable as a number, you'd have to use a function to run the conversion. You can also "split" strings based on a character, like the backslash above (e.g., <code class="language-html" data-lang="html">stringVar.split('\');</code>. A variable can also be a boolean (true/false value) like <code class="language-html" data-lang="html">let checkResponse = true;</code>, which I've typically done for local conditionals. Remember what I said about JavaScript as an object-oriented language? Well, you can also make a variable be an object, like <code class="language-html" data-lang="html">let picword = {color: 'yellow', word: 'YELLOW'};</code>, and to call the color or word, you'd do picword.color. An array is a variable that contains other variables withim them. You've seen in an example the 'picword' array. That array looks something like:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						var picword = [["YELLOW", "yellow"], ["RED", "red"], ["GREEN", "green"]];
@@ -909,50 +913,143 @@
 						
 						<p>Indices within JavaScript start at 0, so the first element is called with 0. Thus, picword[0][0] returns "YELLOW", picword[0][1] returns "yellow", picword[1][0] returns "RED", picword[1][1] returns "red", and so on. This multidimensional array has arrays within the larger variable so that each element is its own array. You can also have (single dimension) arrays that mix words and numbers, like <code class="language-html" data-lang="html">var picword = [1,2,"hello world!"];</code>. To create a new array, you can initialize the variable as <code class="language-html" data-lang="html">var array = [''];</code> or write <code class="language-html" data-lang="html">var array = new Array('');</code>. Of note, if you wanted to add onto the picword array, but in a different variable, you would want to use the concatenation method from above, like <code class="language-html" data-lang="html">var newVar = picword.concat('coolarray!');</code>. This is because if you just assigned the new variable to be equal to the picword array and then made your changes, the changes would happen to both your new array and the picword array. This has to do with how JavaScript refers to arrays.</p>
 						
-						<p>If you want to figure out the length of an array... well, you've actually already seen this happen within the code - do you remember? <pre><code>"fbimages.length"</code></pre>. This will tell you the length of the fbimages array. If you're appending to an array (adding information to a variable), you can use the + operator as we previously discussed, concatenation, and more (although I confess to using these the most frequently). Previously we also said that functions were going to be a big part of your experimental code, but that we'd return to them. Let's look at that now:</p>
+						<p>If you want to figure out the length of an array... well, you've actually already seen this happen within the code - do you remember? <pre><code>"fbimages.length"</code></pre>. This will tell you the length of the fbimages array. You can also get the length of a string with this property. If you're appending to an array (adding information to a variable), you can use the + operator as we previously discussed, concatenation, and more... If you do picword[0] = 'PINK', this will replace the first element in your current array, so that's why you'd have to concatenate or use methods like <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" class="copy-link">push()</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop" class="copy-link">pop()</a>. For example, if I did <code class="language-html" data-lang="html">picword.push(['PINK', 'pink']);</code>, this would add the pair to the end of the array. <code class="language-html" data-lang="html">picword.pop();</code> would remove that pink element I just added to the end of the array. You could do the same for the beginning of an array with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift" class="copy-link">unshift()</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift" class="copy-link">shift()</a>. Another useful string + array method is '<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join" class="copy-link">join()</a>'. I frequently use this method to bring together my data after the experiment is done, joining the array rows together and then assigning it to an HTML element that is delivered in our lab's PHP script (more on data storage in <a href="module4.html" target="_self" class="copy-link">Module 4</a>).</p>
+						
+						<p>One last note on variables generally - Remember when I said that 2 == '2' would return true but 2 === '2' would return false? This is one facet of how dynamic JavaScript is, but also means you should be on the lookout for something like this, because it can cause an error. '2' is still coded as a string, not number, even if the logic recognizes that the value is the same; that means that you won't be able to treat the variable the same as you would with 2.</p>
+						
+						<p>Finally, in the example above with the keypress, one useful change would be to use some string methods - e.g., <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" class="copy-link">toLowerCase()</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" class="copy-link">toUpperCase()</a>. For example, after retrieving "keyPressed", one could do keyPressed.toLowerCase(), which would convert the keypress to lower case, and then you wouldn't have to type out all the "if keypressed = B" and iterations of the upper case possibilities. The same could be done with however you define the correct button press (i.e., whether in the stimulus matrix, when drawing the stimulus, in the keypress function, etc.). This should be useful for you to keep in mind if you're coding a keypress experiment.</p>
+						
+						<p>Previously we also said that functions were going to be a big part of your experimental code, but that we'd return to them. Let's look at that now:</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
-						function gup( name, tmpURL )
-						{
-							var regexS = "[\\?&]"+name+"=([^&#]*)";
-							var regex = new RegExp( regexS );
-							var results = regex.exec( tmpURL );
-							if( results == null )
-								return "";
-							else
-								return results[1];
-						}
+						function gup( name, tmpURL )<br>
+						{<br>
+							var regexS = "[\\?&]"+name+"=([^&#]*)";<br>
+							var regex = new RegExp( regexS );<br>
+							var results = regex.exec( tmpURL );<br>
+							if( results == null )<br>
+								return "";<br>
+							else<br>
+								return results[1];<br>
+						}<br>
 						</code></pre></div>
 						
 						<p>This was a commonly used function to retrieve the worker ID, assignment ID, and HIT ID from MTurk (<code class="language-html" data-lang="html">document.getElementById('workerId').value = gup('workerId', document.referrer);</code>). In short, it looked at whatever URL you fed as an input into the function and looked for whatever you put as the name input within the URL. Specifically, it looked for the "cookie" attached to the URL that said name= ... and then split the URL string so that that was the value of the 'name' variable. We used to put in 'document.referrer' because Mturk linked to the JavaScript experiment (and therefore was the referrer), BUT recently, MTurk has changed up their browser security settings, I think, perhaps restraining our ability to use this to get workerID.</p>
 						
 						<p>But, this function is useful to think about the basics of creating a function. You start JavaScript functions with the keyword function, the name of the function (gup), and the function input (name, tmpURL - can also be a blank parenthesis), followed by the code to be executed in {}. The exact function or input name don't matter so long as they're not a reserved keyword and you don't have a typo when you call either. Functions can also have a 'return' value at the end if you want to refer to something you'd get out of code that you've run. Notably, I did not have a return value in the loadImage function because the values go direclty into the feedback array, which I'll call later.</p>
 						
-						<p>That being said, you will definitely need - just as you did with Qualtrics - some way of getting an MTurk Worker's workerID. You will also need the document.ready function, code to end a block, code to end a run, and code to submit to an external server so your data is recorded. In short, data collection, keeping track of time, and marking who did your task.</p>
+						<p>OK, I previously also mentioned "ctx" and context and the canvas API. Because you're coding experiments, this is going to be extremely helpful to understand. We will go over that in "Presenting Stimuli" and we will go over how to tell you've got an error with "Debugging" below. That being said, you will definitely need - just as you did with Qualtrics - some way of getting an MTurk Worker's workerID. You will also need code to end a block, code to end a run, and code to submit to an external server so your data is recorded. In short, data collection, keeping track of time, and marking who did your task. Because the above function no longer seems to work with respect to MTurk, I now ask participants to enter their worker ID. This is the relevant HTML:</p>
+
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;p id="info" class="usual" style="font-size: 24px"&gt;Please input your worker ID (with no extra spaces, please) into the blank below.&lt;/p&gt;<br>
+						&lt;p&gt;&lt;input id="personname" name="personname" value="" class="usual"&gt;&lt;/p&gt;<br>
+						&lt;p&gt;&lt;button id="submitname" class="usual b-right f6 link dim ph3 pv2 mb2 dib white bg-green" style="font-size:14px">Submit your worker ID.&lt;/button&gt;&lt;/p&gt;<br>
+						</code></pre></div>
 						
-						<p>Another way of debugging JavaScript: breakpoints and console.log(variablename).</p>
+						<p>With respect to the JavaScript, I actually have an array that lists out the workerIDs of participants who have already done the task before. But, because I'm now having participants 'input' their workerID, some participants may type this out with all lowercase. (It's either all lowercase or all uppercase - no one does a weird mix of the two, and Amazon doesn't show their workerID in that way).</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function workerarrayLC() {<br>
+							for (i=0; i &lt; worker_array.length; i++){<br>
+								var newID = worker_array[i].toLowerCase();<br>
+								LCworkerarray = LCworkerarray.concat(newID);<br>
+							}<br>
+							return LCworkerarray;<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>So, worker_array is the all upper-case version of the workerIDs that I wanted to convert to lowercase and refer to when determining whether this person had already done the task and I'd somehow missed them in the Qualifications exclusion. Below is the code for submitting their workerID:</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						$("#submitname").click(function(){<br>
+							var person = document.getElementById('personname').value;<br>
+							if (person == null || person == "") {<br>
+								alert("Please enter your worker ID - this is how we will know if you've done the study!");<br>
+							}<br>
+							else{<br>
+								document.getElementById('workerId').value = person;<br>
+								document.getElementById('assignmentId').value = person + "_assID";<br>
+								document.getElementById('hitId').value = person + "_hitID";<br>
+								$("#info").hide();<br>
+								$("#personname").hide();<br>
+								$("#submitname").hide();<br>
+								var duplicateWorker = checkWorkerId(workerId);<br>
+								if (duplicateWorker==1){<br>
+									hideHTML();<br>
+									$("#NoGo").html('You have performed our task before, &lt;br/&gt;\<br>
+									we cannot take duplicate responses. Please return this HIT. Thanks!')<br>
+									$("#NoGo").show();<br>
+									$("#ClosePage").show();<br>
+								}<br>
+								else{<br>
+									updateMainMenu(0);<br>
+								}<br>
+							}<br>
+						});<br>
+						<br>
+						function checkWorkerId(workerId){<br>
+							workerId = document.getElementById('workerId').value;<br>
+							var wID2 = workerId.toLowerCase();<br>
+							if (jQuery.inArray(workerId,worker_array)!=-1 || jQuery.inArray(wID2,LCworkerarray)!=-1)<br>
+							{duplicateWorker=1;}<br>
+							else<br>
+							{duplicateWorker=0;}<br>
+							<br>
+							if (workerId == "")<br>
+							{duplicateWorker=0;}<br>
+							<br>
+							return duplicateWorker;<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>The first block of code is an event listener, looking for when participants click the button to submit their worker ID. When they do this, it will assign whatever they put in the "person" input element; if it's blank, then participants will receive a pop-up telling them to enter their workerID. If it's not blank, we'll assign the value of what they entered to the workerID HTML element and variations on that for assignment & HIT id. We'll then hide the input forms, since they're no longer relevant, and we'll check to make sure that this person hasn't already completed the study. We assign duplicateWorker to the value retrieved from the checkWorkerID function. In that function, we grab the value we just assigned to the workerID HTML element, and we compare to see whether this value - whether upper or lower case - is in either the uppercase or lowercase workerID arrays. If it is, duplicateWorker is assigned a value of 1; else, it's 0. If it's 1, participants won't be able to see anything else in the task beyond an HTML element telling them to return the HIT. If they aren't ad duplicate worker, they're shown the next page in the task... Hopefully this has illustrated just the level of variability that you can get in coding here - and I'm sure those examples could be improved too!</p>
+						
+						<p>There is SO much more that can be said of JavaScript, but for the purpose of you coding up your own Experiment, sometimes the easiest way to code is to look at other examples and then adjust for your specific task--and to just try as you go along. When I was still trying to figure out whether my code was doing what I expected, I used a lot of the basic debugging methods.</p>
 						
 						<p>Some practical tips, as they relate to coding an experiment:</p>
 						
-						<!-- 
+						<ul class="fa-ul">
+							<li><i class="fa-li fas fa-arrow-right"></i>If you're displaying images, you should always call your image loader function in the background once the page loads. You can show participants the instructions for the task in the meantime so as to give everyone - even folks with slow internet speeds - the chance to load in all the images before starting the task and causing an error. (Alternately, you can of course program your task so that participants cannot advance until the images are all loaded, like how the loadImage() function above explicitly tells participants how many more images need to be loaded before they can continue).</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>If you're wondering how you're going to combine all your task elements, <a href="https://www.w3schools.com/jsref/met_win_settimeout.asp" class="copy-link">setTimeout()</a> is going to be key. This method calls the next function after the amount of time you specify, like setTimeout(drawStimulus, 500), indicating you'd run the drawStimulus function after 500 ms. If you really want to get into the weeds here, Dr. Nick Brosowsky also created a better version of setTimeout called <a href="https://github.com/nbrosowsky/eventTimer" class="copy-link">eventTimer</a>.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>This is a really specific detail, but if you're going to have fixed length trials, you cannot clear the timeout within your event listener. Put more simply: fixed length trials require you to keep track of the amount of time before moving onto the next function. If you were going to do response-sensitive trials - i.e., advancing to the next trial screen as soon as someone presses a key, instead of waiting a specified time - then you would <a href="https://www.w3schools.com/jsref/met_win_cleartimeout.asp" class="copy-link">clearTimeout()</a>.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>When you run an experiment and have participants start after the instructions, make sure you have a "countdown" function so that participants don't truly immediately start after clicking the button - not unless you want them to miss that first trial. This is a part of prioritizing user experience in online programming; no one will expect the first trial to come so immediately, and here you'd be giving them a warning.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>Similarly, if you're concerned about the user experience and you don't want participants to try to do your experiment on e.g., mobile devices, you can check the size of their current window. Mobile devices are restricted to specific dimensions - if you make sure participants cannot advance unless they have a certain browser width or height, you'd pretty much eliminate their ability to load your task on their phone. That of course doesn't mean they can't make your screen small on their computer once they get started--you'll have to think of your specific Experiment and how you can incentivize actually doing your task and assessing whether participants are doing what you expect.</li>
+							<li><i class="fa-li fas fa-arrow-right"></i>If you're excluding participants, you now see that you can do this via Qualifications on MTurk as well as look for duplicate workers in your own JavaScript code. See above for sample code!</li>
+						</ul>
 						
-						If you have many images to load, call your image loader function in the background. JavaScript does not like the If/Else statement for image loading when you have a lot of them to load.
-						Fixed length vs. response-sensitive trials:
-						In a fixed length style JS, you would need to put the body.keypress fxn outside of any function, and you would never clear a timeout or have a timeouthandle. SetTimeout helps.
-						In a response-sensitive trial, you could put the body.keypress fxn inside a function (like the showITI), and you would use things like timeouthandle = setTimeout(fxn, ms), & clear the timeout once the sub has pressed a button
-
-						Excluding participants:
-						-Qualifications code via MTurk
-						-also code in look for a duplicate worker in JavaScript
-						-record demographics (nice discussion of i-frame as a UX problem vs. coding within your own HTML
+						<p>Here are some more useful functions based on those practical tips:</p>
 						
-						Other useful functions:
-						-countdown(time)
-						-shuffle function
-						-check size function
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						// adapted from: http://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window<br>
+						function checkSize(){<br>
+							var w = window.innerWidth;<br>
+							var h = window.innerHeight;<br>
+							if (w &lt; canvas.width || h &lt; canvas.height){<br>
+								$("#indicator").text('Your browser window is too small to display the images properly. Please increase the window size or your screen resolution.');<br>
+								$("#indicator").show();<br>
+								$("#resize").show();<br>
+							}<br>
+							else{ <br>
+								countDown(3);<br>
+							}<br>
+						}<br>
+						<br>
+						function countDown(time){ <br>
+							if (time &gt; 0){<br>
+								ctx.fillStyle="black";<br>
+								ctx.font="100px Arial";<br>
+								ctx.clearRect(0,0, canvas.width, canvas.height);<br>
+								ctx.fillText("" + time, canvas.width / 2, canvas.height / 2);<br>
+								eventTimer.setTimeout(function(){countDown(time - 1)},1000);<br>
+							}<br>
+							else{<br>
+								runStart = new Date().getTime() - ScreenPulled;<br>
+								showITI();<br>
+							}<br>
+						}<br>
+						</code></pre></div>
 						
-						
-						-->
+						<p>Can you tell what these functions are doing? Ctx is the same as it was above--and we'll get to the details again below!</p>
 
 						<p>Additional reading: The Mozilla Developer site has <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" class="copy-link">multiple tutorials on JavaScript</a>. This may be more detail than you want, but if you really want to delve into JavaScript and web development, it's a great resource.</p>
 
@@ -965,33 +1062,14 @@
 				<section>
 					<h2 id="subsec32" class="pad1">Experimental Tutorials</h2>
 					<div>
-						<p>....</p>
-						
-						<p>....</p>
+						<p>Now that you've gotten a basic understanding of HTML, CSS, and JavaScript, we'll go over some of the basics that go into creating Experiments, little by little.</p>
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t1">Basic JavaScript functions</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t1">Presenting Stimuli</h4></li></ul>
 					<div>
 						<!--
-						Go over some basic functionality within JavaScript
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-
-						<p>....</p>
-						
-						<p>....</p>
-					</div>
-				</section>
-				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t2">Presenting Stimuli</h4></li></ul>
-					<div>
-						<!--
+						Go over some basic functionality within JavaScript, like dates?
 						Presenting in HTML and JavasScript, how to customize w/ CSS, images and words, clearing the screen, defining the canvas, etc.
 						I do like your progression:
 						1. How do you build a static website?
@@ -1013,7 +1091,7 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t3">Recording Responses</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t2">Recording Responses</h4></li></ul>
 					<div>
 						<!--
 						Listener events within JavaScript - detecting a key press, detecting a mouse click
@@ -1031,10 +1109,12 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t4">Randomization</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t3">Randomization</h4></li></ul>
 					<div>
 						<!--
 						How to randomize arrays for stimulus sequences
+						
+						shuffle function + what Nick has for his experiment + what Matthew Crump has
 						-->
 						
 						<p>....</p>
@@ -1049,7 +1129,7 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t5">Debugging</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t4">Debugging</h4></li></ul>
 					<div>
 						<!--
 						How do I debug my task code, Brackets is good for HTML as an editor program
@@ -1065,6 +1145,8 @@
 						
 						https://www.html-tidy.org/documentation/
 						
+						<p>Another way of debugging JavaScript: breakpoints and console.log(variablename).</p>
+						
 						-->
 						
 						<p>....</p>
@@ -1079,12 +1161,21 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t6">Differences between JavaScript libraries</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t5">Differences between JavaScript libraries</h4></li></ul>
 					<div>
 						<!--
 						Discuss differences with JsPsych & jQuery & how most of the videos this week are using jQuery; do you have to use a JavaScript library?
 						use the styling here from mozilla
 						<p>There are a number of tools that you can use. As listed in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">Kochari et al. (2019)</a>:</p>
+						
+						
+						https://www.codementor.io/@brainyfarm/jquery-vs-vanilla-javascript-deciding-on-what-to-use-6b79xdmrv
+						https://js.plainenglish.io/why-developers-prefer-vanilla-javascript-over-jquery-e707b249d421
+						https://www.geeksforgeeks.org/when-to-use-vanilla-javascript-vs-jquery/
+						
+						To me, this is like "When do I use base R versus R packages?" Or, the fact that you'll load in Python modules like pandas and numpy. But, as a beginniner, it might help you to learn vanilla JavaScript.
+						
+						The only one of these JavaScript libraries that I'd consider using is jsPsych and that's just because they have an entire team and set of experiments to look at for examples, while the rest of these... Nonetheless, I personally would still use jQuery because it'll get you the farthest in the end, especially if you want to use these skills elsewhere...
 						
 						<table>
 							<tr>
@@ -1218,6 +1309,8 @@
 						Can connect to module 2 by discussing more about Qualtrics’s use of JS/HTML/CSS
 			https://www.qualtrics.com/community/discussion/1795/images-from-library-in-loop-and-merge-fields
 			making the user experience a little better with javascript tweaks. for example, you can customize the words on the 'next' button on individual pages to say stuff like "proceed to experiment" or "view consent" to cue people. or if you have a text box, you can put dummy text in it that disappears when you click on it that provides an example of the type of response you're thinking of - I would describe this as thinking with an `ux copy` mind for experiments
+			
+			i-frame with Norton experiment
 
 						-->
 						
@@ -1259,6 +1352,8 @@
 						<p>Find one of your favorite websites and open the Developer console. For example, why not take a look at the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" class="copy-link">Mozilla Developer site for HTML</a>? It's beautifully styled, with a clear hierarchy of information and tables to define particular elements. You can learn more about all the possible HTML elements while looking at how they've coded the structure of the site and how their CSS has styled the site with an almost magazine-like modern, clean look. Poke around and see how they've defined everything.</p>
 						
 						<p>Create a sample pre-screen HIT on MTurk, applying what you learned from Module 1, that is coded in the HTML/source interface with CSS styling, applying what you learned from Module 3, and that uses basic survey design principles, applying what you learned from Module 2, to assess participant demographics.</p>
+						
+						<p>Download the <a href="https://github.com/deboerk/PageFocus" class="copy-link">PageFocus</a> html file and test out whether you can get this script to work. Does it accurately record when you've left your browser to click on another browser? Add in an input that allows participants to explain what they navigated to. Remove inputs that are extraneous and not necessary to understand the purpose of the script. How might you apply this to your own Experiment?</p> 
 
 						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1tC_wJsryPmfGr3XIRnZcRUiNYb1G-K8Y1gTIU8od0Hg/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
 						
