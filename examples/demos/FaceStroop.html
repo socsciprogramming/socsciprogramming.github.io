@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8">
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var trialNum = 4;
+	var i = 0;
+	var word = ["male", "female", "male", "female"];
+	var fileName = ["F01.jpg", "F02.jpg", "M01.jpg", "M02.jpg"];
+	var imgs = new Array(trialNum);
+	var imgCount = 0;
+	
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	
+	function loadImage()
+	{
+		if (imgCount < trialNum)
+		{
+			imgs[imgCount] = new Image();
+			imgs[imgCount].src=fileName[imgCount];
+			imgs[imgCount].onload=loadImage;
+			imgCount++;
+		}
+		else
+		{
+			runTrial();
+		}
+	}
+	
+	function runTrial()
+	{
+		if (i < trialNum)
+		{
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.drawImage(imgs[i], 142, 115);
+			ctx.font="60px Arial";
+			ctx.fillStyle="red";
+			ctx.textBaseline="middle";
+			ctx.textAlign="center";
+			ctx.fillText(word[i], canvas.width / 2, canvas.height / 2);
+			i++;
+			setTimeout(runTrial, 2000);
+		}
+	}
+	
+	loadImage();
+});
+
+</script>
+
+</head>
+<body>
+<table>
+	<tr>
+		<td>
+			<canvas id="myCanvas" width="500" height="500"></canvas>
+		</td>
+	</tr>
+</table>
+</body>
+
+</html>

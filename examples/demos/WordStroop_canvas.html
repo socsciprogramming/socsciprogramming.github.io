@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8">
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var trialNum = 4;
+	var i = 0;
+	var color = ["red", "green", "red", "green"];
+	var word = ["RED", "RED", "GREEN", "GREEN"];
+	
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	
+	function runTrial()
+	{
+		if (i < trialNum)
+		{
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.font="60px Arial";
+			ctx.fillStyle=color[i];
+			ctx.textBaseline="middle";
+			ctx.textAlign="center";
+			ctx.fillText(word[i], canvas.width / 2, canvas.height / 2);
+			i++;
+			setTimeout(runTrial, 1500);
+		}
+	}
+	runTrial();
+});
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<canvas id="myCanvas" width="500" height="500"></canvas>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

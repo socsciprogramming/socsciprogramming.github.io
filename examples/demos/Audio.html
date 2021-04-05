@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script text="text/javascript" src="jquery-1.7.1.js"></script>
+<script text="text/javascript">
+$(document).ready(function(){
+	var fileName = ["s1.wav", "s2.wav", "s3.wav", "s4.wav"];
+	var s = new Array(4);
+	var sCount = 0;
+	var i = 0;
+	
+	function loadSound()
+	{
+		if (sCount < 4)
+		
+		{
+			s[sCount] = new Audio(fileName[sCount]);
+			s[sCount].oncanplaythrough = loadSound;
+			sCount++;
+		}
+		else
+		{
+			playSound();
+		}
+	}
+	
+	function playSound()
+	{
+		if (i < 4)
+		{
+			s[i].play();
+			setTimeout(playSound, 3000);
+			i++;
+		}
+	}
+	
+	$("body").keypress(function(event) {
+		var key = String.fromCharCode(event.which);
+		if (key == 'p')
+		{
+			s[i - 1].pause();
+		}
+	});
+	
+	loadSound();
+});
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8">
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var mouseX;
+	var mouseY;
+	var r = 30;
+	
+	canvas.addEventListener("mousemove", function(evt){
+		var rect = canvas.getBoundingClientRect();
+		mouseX = Math.round((evt.clientX - rect.left)) // (rect.right - rect.left) * canvas.width);
+		mouseY = Math.round((evt.clientY - rect.top)) // (rect.bottom - rect.top) * canvas.height);
+	});
+	
+	function drawCircle()
+	{
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.beginPath();
+		ctx.arc(mouseX, mouseY, r, 0, 2 * Math.PI);
+		ctx.strokeStyle="green";
+		ctx.fillStyle="green";
+		ctx.fill();
+		ctx.stroke();
+		ctx.closePath();
+		
+		ctx.beginPath();
+		ctx.fillStyle="rgba(255, 0, 0, 0.5)";
+		ctx.moveTo(mouseX - 10, mouseY - 10);
+		ctx.lineTo(mouseX + 10, mouseY - 10);
+		ctx.lineTo(mouseX + 10, mouseY + 10);
+		ctx.lineTo(mouseX - 10, mouseY + 10);
+		ctx.lineTo(mouseX - 10, mouseY - 10);
+		ctx.stroke();
+		ctx.fill();
+		ctx.closePath();
+	}
+	var intervalHandle = null;
+	
+	intervalHandle = setInterval(drawCircle, 1000 / 60);
+	$("body").on("contextmenu", "canvas", function(e){return false;});
+	$("body").keypress(function(event){
+		var key = String.fromCharCode(event.which);
+		if (key == 'p' && intervalHandle != null)
+		{
+			clearInterval(intervalHandle);
+			intervalHandle = null;
+		}
+	});
+	
+	canvas.addEventListener("click", function(evt) {
+		r = r + 5;
+		if (r > 50)
+		{
+			r = 50;
+		}
+	});
+	
+	canvas.oncontextmenu = function() {
+		r = r - 5;
+		if (r < 10)
+		{
+			r = 10;
+		}
+	}
+});
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td>
+			<canvas id="myCanvas" width="500" height="500" style="user-select:none; -webkit-user-select: none; -moz-user-select: none;"></canvas>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

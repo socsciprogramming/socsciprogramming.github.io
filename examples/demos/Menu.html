@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8">
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+var curStage = 0;
+
+function basicPopup(url)
+{
+	popupWindow = window.open(url, "popupWindow");
+}
+
+function gup(name, tmpURL)
+{
+	var regexS = "[\\?&]"+name+"=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(tmpURL);
+	if (results == null)
+	{
+		return "";
+	}
+	else
+	{
+		return results[1];
+	}
+}
+
+function updateMainMenu(expStage)
+{
+	switch(expStage)
+	{
+		case 0:
+			$("#instruction").show();
+			$("#myButton").show();
+			break;
+		case 1:
+			curStage = expStage;
+			$("#instruction").text("Click button to fill out a demographic survey");
+			break;
+		case 2:
+			curStage = expStage;
+			$("#instruction").text("Click button to start main task");
+			break;
+		case 3:
+			curStage = expStage;
+			$("#instruction").hide();
+			$("#myButton").hide();
+			$("#mturk_form").show();
+			break;
+	}
+}
+
+$(document).ready(function(){
+	$("#mturk_form").hide();
+	document.getElementById("assignmentId").value=gup("assignmentId", document.referrer);
+		document.getElementById("hitId").value=gup("hitId", document.referrer);
+		document.getElementById("workerId").value=gup("workerId", document.referrer);
+		
+		if (document.getElementById("assignmentId").value == "" || document.getElementById("assignmentId").value=="ASSIGNMENT_ID_NOT_AVAILABLE")
+		{
+			$("#instruction").text("Please accept HIT first");
+			$("#myButton").hide();
+		}	
+		else
+		{
+			$("#myButton").click(function(){
+				switch(curStage)
+				{
+					case 0:
+						basicPopup("WordStroop_Practice.html");
+						break;
+					case 1:
+						basicPopup("Demographics.html");
+						break;
+					case 2:
+						basicPopup("WordStroop.html");
+						break;
+				}
+			});
+			updateMainMenu(0);
+		}
+
+	
+});
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<p id="instruction" style="font-family: arial; font-size: 40px">Click the button to start practice</p>
+				<button id="myButton" style="font-family: arial; font-size: 30px">Click</button>
+				<form id="mturk_form" method="POST" action="https://workersandbox.mturk.com/mturk/externalSubmit">
+					<input type="hidden" id="assignmentId" name="assignmentId" value="">
+					<input type="hidden" id="hitId" name="hitId" value="">
+					<input type="hidden" id="workerId" name="workerId" value="">
+					<input type="hidden" id="logs" name="logs" value="">
+					<input type="hidden" id="demos" name="demos" value="">
+					<p style="font-size: 30px">Click to submit data to MTurk</p>
+					<input id="submitButton" style="font-size: 30px" type="submit" name="Finish" value="Submit">
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

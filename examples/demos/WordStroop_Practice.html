@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8">
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var trialNum = 9;
+	var color = [1,2,3,1,2,3,1,2,3];
+	var word = [1,1,1,2,2,2,3,3,3];
+	var i = 0;
+	
+	var runStart;
+	var logCounter = 0;
+	var onset;
+	var data = [[""]];
+	var d1 = new Date();
+	
+	//$("#mturk_form").hide();
+	$("#endPractice").hide();
+	//runStart = d1.getTime();
+	
+	var checkResponse = true;
+	var timeoutHandle = null;
+	
+	function runTrial()
+	{
+		if (i < trialNum)
+		{
+			switch(word[i])
+			{
+				case 1:
+					$("#s").text("RED");
+					break;
+				case 2:
+					$("#s").text("BLUE");
+					break;
+				case 3:
+					$("#s").text("YELLOW");
+					break;
+			}
+			
+			switch(color[i])
+			{
+				case 1:
+					$("#s").css("color", "red");
+					break;
+				case 2:
+					$("#s").css("color", "blue");
+					break;
+				case 3:
+					$("#s").css("color", "yellow");
+					break;
+			}
+			$("#s").show();
+			checkResponse = true;
+			
+			d1 = new Date();
+			onset = d1.getTime() - runStart;
+			data[logCounter] = ["P:", onset, color[i], word[i]];
+			logCounter++;
+			
+			timeoutHandle = setTimeout(showITI, 1000);
+			i++;
+		}
+		else
+		{
+			$("#s").css("font-size", "20px");
+			$("#s").css("color", "white");
+			$("#s").text(data.join(";"));
+			$("#s").show();
+			
+			//$("#mturk_form").show();
+			$("#endPractice").show();
+			//$("#logs").val(data.join(";"));
+		}
+	}
+	
+	function showITI()
+	{
+		$("#s").hide();
+		timeoutHandle = setTimeout(noResponseFeedback, 2000);
+	}
+	
+	function showFeedback(isCorrect)
+	{
+		$("#s").show();
+		$("#s").css("color", "white");
+		if (isCorrect)
+		{	
+			$("#s").text("Correct");
+			
+		}
+		else
+		{
+			$("#s").text("Incorrect");
+		}
+		setTimeout(showITI2, 1000);
+	}
+	
+	function noResponseFeedback()
+	{
+		checkResponse = false;
+		$("#s").show();
+		$("#s").css("color", "white");
+		$("#s").text("No response");
+		setTimeout(showITI2, 1000);
+	}
+	
+	function showITI2()
+	{
+		$("#s").hide();
+		setTimeout(runTrial, 2000);
+	}
+	
+	$("body").keypress(function(event){
+		if (checkResponse)
+		{
+			clearTimeout(timeoutHandle);
+			checkResponse = false;
+			var key = String.fromCharCode(event.which);
+			d1 = new Date();
+			data[logCounter] = ["R:", key, d1.getTime() - runStart];
+			logCounter++;
+			
+			var ans = key[0] - '0';
+			if (color[i - 1] == ans)
+			{
+				showFeedback(true);
+			}
+			else
+			{
+				showFeedback(false);
+			}
+		}
+		
+	});
+	
+	function countDown(time)
+	{
+		if (time > 0)
+		{
+			$("#s").text('' + time);
+			setTimeout(function(){countDown(time - 1)}, 1000);
+		}
+		else
+		{
+			d1 = new Date();
+			runStart = d1.getTime();
+			runTrial();
+		}
+	}
+	
+	function gup(name, tmpURL)
+	{
+		var regexS = "[\\?&]"+name+"=([^&#]*)";
+		var regex = new RegExp(regexS);
+		var results = regex.exec(tmpURL);
+		if (results == null)
+		{
+			return "";
+		}
+		else
+		{
+			return results[1];
+		}
+	}
+	
+	$("#start").click(function() {
+		/*document.getElementById("assignmentId").value=gup("assignmentId", document.referrer);
+		document.getElementById("hitId").value=gup("hitId", document.referrer);
+		document.getElementById("workerId").value=gup("workerId", document.referrer);
+		
+		if (document.getElementById("assignmentId").value == "" || document.getElementById("assignmentId").value=="ASSIGNMENT_ID_NOT_AVAILABLE")
+		{
+			$("#s").text("Please accept HIT first");
+			$("#start").hide();
+		}	
+		else
+		{
+			$("#start").hide();
+			countDown(3);
+		}
+			*/	
+		$("#start").hide();
+		countDown(3);
+	});
+	//runTrial();
+	
+	$("#endPractice").click(function(){
+		opener.updateMainMenu(1);
+		JavaScript:window.close();
+	});
+});
+
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<p id="s" style="font-family: arial; font-size:60px">RED=1, BLUE=2,	YELLOW=3</p>
+				<button id="start">Click to start</button>
+				<!--
+				<form id="mturk_form" method="POST" action="https://workersandbox.mturk.com/mturk/externalSubmit">
+				<!-- <form id="mturk_form" method="POST" action="https://www.mturk.com/mturk/externalSubmit"> -->
+				<!--	<input type="hidden" id="assignmentId" name="assignmentId" value="">
+					<input type="hidden" id="workerId" name="workerId" value="">
+					<input type="hidden" id="hitId" name="hitId" value="">
+					<input type="hidden" id="logs" name="logs">
+					<p style="font-size: 30px">Click to submit data</p>
+					<input id="submitButton" style="font-family: arial; color: black; font-size: 24px" type="submit" name="Finish" value="Submit">
+				</form> -->
+				<button id="endPractice" style="font-family: arial; font-size: 20px">Click to end practice</button>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
