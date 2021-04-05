@@ -1069,6 +1069,12 @@
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t1">Presenting Stimuli</h4></li></ul>
 					<div>
 						<!--
+						https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong
+						https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+						https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code
+						https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs
+						https://docs.google.com/presentation/d/1Xg9yKNKpq2z1gV-sRgIbzjNjpKjoUz2DOol7elQS2BM/edit#slide=id.g253ebea2a3_0_86
+						https://crumplab.github.io/programmingforpsych/Programming_Crump.pdf - pg. 147
 						Go over some basic functionality within JavaScript, like dates?
 						Presenting in HTML and JavasScript, how to customize w/ CSS, images and words, clearing the screen, defining the canvas, etc.
 						I do like your progression:
@@ -1079,7 +1085,108 @@
 
 						-->
 						
-						<p>....</p>
+						<p>OK, so now let's get into some of the basics of building an Experiment. First, how might you present stimuli on screen? Let's go over a cognitive psychology task called the "Stroop Task" where people are supposed to name the color a color-word is printed in, while ignoring the semantic meaning of the word.</p>
+						
+						<p>In this case, let's start off with four simple trials, with two color words - each presented in their own color and the color of the other word. Let's also make the background grey and make sure we're using the full space of the page loaded. Let's do this with a mix of CSS and JavaScript.</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						</code></pre></div>
+						
+						<p>What does this .css file look like? It's pretty simple.</p>
+						
+						<div class="highlight"><pre><code class="language-css" data-lang="css">
+						html {<br>
+							height: 100%;<br>
+							width: 100%;<br>
+							margin: 0;<br>
+							padding: 0;<br>
+							border: 0;<br>
+						}<br>
+						<br>
+						body {<br>
+							height: 100%;<br>
+							width: 100%;<br>
+							margin: 0;<br>
+							padding: 0;<br>
+							border: 0;<br>
+							background-color: grey;<br>
+						}<br>
+						<br>
+						table {<br>
+							height: 100%;<br>
+							width: 100%;<br>
+							margin:0;<br>
+							padding:0;<br>
+							border:0;<br>
+							text-align:center;<br>
+							vertical-align:middle;<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>For the purpose of these next few demos, there's very little styling: grey background, full height and width with no padding, margin, or borders. Also, center-aligned text for items that are in the table portion of the HTML document (which is where the instructions during breakpoints or right before starting the task will be).
+						
+						<p>OK, so what's next in the code?</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+							var trialNum = 4;<br>
+							var i = 0;<br>
+							var color = ["red", "green", "red", "green"];<br>
+							var word = ["RED", "RED", "GREEN", "GREEN"];<br>
+							<br>
+							var canvas = document.getElementById("myCanvas");<br>
+							var ctx = canvas.getContext("2d");<br>
+							<br>
+							<div style="color:#1D6363">//removed the other code here</div>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;canvas id="myCanvas" width="500" height="500"&gt;&lt;/canvas&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>Here, you can see that we put our code in with the document.ready function - that is, it will load once the DOM is ready so we don't run the risk of running the JavaScript where we might come across variables that hadn't been defined, causing a serious error. OK, so all parts of the javascript are wrapped in the document.ready loader - this is using the jQuery library. If you remember from our example above, document.addEventListener("DOMContentLoaded", function() {}) was our vanilla JavaScript way of doing this as well.</p>
+						
+						<p>We then define the variables we're interested in. In particular, we've defined the <a href="https://www.w3schools.com/graphics/canvas_intro.asp" class="copy-link">canvas HTML</a> in the HTML section and defined it as a variable & followed the guidelines to ensure we can 'draw' on the canvas by getting the canvas context. What's in the part of the code that I commented out?</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+							function runTrial(){<br>
+								if (i &lt; trialNum){<br>
+									ctx.clearRect(0, 0, canvas.width, canvas.height);<br>
+									ctx.font="60px Arial";<br>
+									ctx.fillStyle=color[i];<br>
+									ctx.textBaseline="middle";<br>
+									ctx.textAlign="center";<br>
+									ctx.fillText(word[i], canvas.width / 2, canvas.height / 2);<br>
+									i++;<br>
+									setTimeout(runTrial, 1500);<br>
+								}<br>
+							}<br>
+							<br>
+							runTrial();<br>
+						</code></pre></div>
+						
+						<p>Here, you can see your first function in the guise of an Experimental manipulation. Each iteration of this function is designed to accomodate 1 trial of the Experiment, where the trial counter here is i and i is incrementally increased after running the function (1 on first iteration, 2 on second, etc.). When i is no longer less than the number of trials to run, there is no other 'else' statement within the function, so the screen would likely just have the last word that was drawn (which wasn't cleared from the screen). There are a lot of small components in this function, too, that are important to understand. Many come from directly interacting with the canvas method. The clearRect line is akin to clearing the screen where you've drawn anything - it starts from the top left (0 in x coordinates, 0 in y coordinates) and goes through the width and height of the canvas where you are drawing words. The function then specifies the font, font size, and color of the word to be drawn - with the color being incremented through the array via the trial counter - and the text is also specified to be in the middle & center of the screen. The text is drawn to the screen in the middle (the width of the canvas divded by 2, height divided by 2). The word itself is also incremented through the word array via the trial counter. Then, at the end, the <a href="https://www.w3schools.com/jsref/met_win_settimeout.asp" class="copy-link">setTimeout method</a> ensures that the runTrial function here will run after a 1500 millisecond delay (1.5 sec). Finally, at the end, you see that outside of the function, we call it in the screen via its name: runTrial(). Without that line, nothing would happen in this code.</p>
+						
+						<p>So, finally, you can see this code put all together. The following code draws 1 color-word four times, with the color of the word matching its meaning on trials 1 and 4, and being incongruent with its meaning on trials 2 and 3.</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;!DOCTYPE html&gt;<br>
@@ -1126,7 +1233,105 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....</p>
+						<p>OK, so that gave you an idea of how to present word stimuli. You've also seen through the clearRect function how you might draw rectangles on the screen - defining the top left coordinates down to the bottom right and filling in the rectangle. You can actually view <a href="https://socsciprogramming.github.io/examples/demos/WordStroop_canvas.html" class="copy-link">the code above live at this link</a>. Let's take a look at some other ways to present stimuli on screen, using the same basic format, with respect to including our JavaScript after the DOM has loaded, defining and drawing on the canvas, etc.</p>
+						
+						<p>How would we draw something to the screen whenever the mouse was clicked? How would we draw a circle?</p>
+						
+						<p>First below, here, we define the radius of the circle and the position of the mouse in X and Y coordinates. This <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event" class="copy-link">mousemove event</a> "is fired at an element when a pointing device (usually a mouse) is moved while the cursor's hotspot is inside it." This is an event that works especially well if you need participants to *draw* something, like their signature or if you are having them draw things as part of a creativity task etc. You can see another example at the link for the mousemove event. For our purposes here, we've added the event listener to the canvas - so whenever you're moving the mouse within the canvas, we'll listen for the event. Then we'll run the <a href="https://www.w3schools.com/jsref/met_element_getboundingclientrect.asp" class="copy-link">getBoundingClientRect method</a> to get the positional coordinates for the canvas relative to the <a href="https://www.w3schools.com/css/css_rwd_viewport.asp" class="copy-link">viewport</a> (visible area of the web page), and then define the (rounded) X and Y coordinates for where the mousemose event happened relative to information we gleaned from the getBoundingClientRect method. Those coordinates we will use again below to actually draw a circle.</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						$(document).ready(function(){<br>
+							var canvas = document.getElementById("myCanvas");<br>
+							var ctx = canvas.getContext("2d");<br>
+							var mouseX;<br>
+							var mouseY;<br>
+							var r = 30;<br>
+							<br>
+							canvas.addEventListener("mousemove", function(evt){<br>
+								var rect = canvas.getBoundingClientRect();<br>
+								mouseX = Math.round((evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width);<br>
+								mouseY = Math.round((evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);<br>
+							});<br>
+						<div style="color:#1D6363">//removed the other code here</div>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;canvas id="myCanvas" width="500" height="500"&gt;&lt;/canvas&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>OK, so now we've got the coorindates to draw on the canvas & have it mouse-specific. What next?</p>
+						
+						<p>Below is the code that we removed from the demo above. We've created a function to draw the circle, first clearing the screen, then <a href="https://www.w3schools.com/tags/canvas_beginpath.asp" class="copy-link">beginning the path</a> (which is necessary when drawing lines on the screen). We then specify the <a href="https://www.w3schools.com/tags/canvas_arc.asp" class="copy-link">"arc" drawing for the circle</a>, the color of the path and its fill (a green circle), actually <a href="https://www.w3schools.com/tags/canvas_fill.asp" class="copy-link">fill the circle/current drawing</a>, draw the path specified (<a href="https://www.w3schools.com/tags/canvas_stroke.asp" class="copy-link">stroke</a>), and then <a href="https://www.w3schools.com/tags/canvas_closepath.asp" class="copy-link">close the path</a>, which will then create the path back to the starting point.</p>
+						
+						<p>In the next part of the code, we create a small square that's like a bounding box for the circle in its smallest iteration and tells us where exactly the mouse click is. Now we're explicitly creating lines. <a href="https://www.w3schools.com/tags/canvas_moveto.asp" class="copy-link">moveTo</a> will move to a position without creating the line, and then you have the <a href="https://www.w3schools.com/tags/canvas_lineto.asp" class="copy-link">four line paths</a> specified before you again actually create them on the canvas with stroke() and fill them and close the path. So ends the drawCircle function.</p>
+						
+						<p>After that, we define an interval variable, initially set to null. It's then set to equal the value of the <a href="https://www.w3schools.com/jsref/met_win_setinterval.asp" class="copy-link">setInterval Method</a>, which will run the draw Circle method every 1000/60 milliseconds. Then we have an event listener for <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event" class="copy-link">contextmenu</a>: the contextmenu is when you right click and get a bunch of options, like Back, etc. This is essentially disabled here: we return *false* for the event when people right click within the canvas. Next, we have an event listener on the body HTML for keypresses (which, of note, is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/keypress_event" class="copy-link">now deprecated</a>, and it is recommended you use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event" class="copy-link">keydown</a>). We then decode which key was presssed with the <a href="https://www.w3schools.com/jsref/jsref_fromcharcode.asp" class="copy-link">fromCharCode method</a>, since the output would also be "numbers" to represent keys. Then if the interval is not null and if someone presses p, this will clear the interval and set it back to null. After this, we have another 2 event listeners: a left click and a right class (contextmenu). When people do either, it changes the radius of the circle that is being drawn on screen.</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+							function drawCircle(){<br>
+								ctx.clearRect(0, 0, canvas.width, canvas.height);<br>
+								ctx.beginPath();<br>
+								ctx.arc(mouseX, mouseY, r, 0, 2 * Math.PI);<br>
+								ctx.strokeStyle="green";<br>
+								ctx.fillStyle="green";<br>
+								ctx.fill();<br>
+								ctx.stroke();<br>
+								ctx.closePath();<br>
+								<br>
+								ctx.beginPath();<br>
+								ctx.fillStyle="rgba(255, 0, 0, 0.5)";<br>
+								ctx.moveTo(mouseX - 10, mouseY - 10);<br>
+								ctx.lineTo(mouseX + 10, mouseY - 10);<br>
+								ctx.lineTo(mouseX + 10, mouseY + 10);<br>
+								ctx.lineTo(mouseX - 10, mouseY + 10);<br>
+								ctx.lineTo(mouseX - 10, mouseY - 10);<br>
+								ctx.stroke();<br>
+								ctx.fill();<br>
+								ctx.closePath();<br>
+							}<br>
+							var intervalHandle = null;<br>
+							<br>
+							intervalHandle = setInterval(drawCircle, 1000 / 60);<br>
+							$("body").on("contextmenu", "canvas", function(e){return false;});<br>
+							$("body").keypress(function(event){<br>
+								var key = String.fromCharCode(event.which);<br>
+								if (key == 'p' && intervalHandle != null){<br>
+									clearInterval(intervalHandle);<br>
+									intervalHandle = null;<br>
+								}<br>
+							});<br>
+							<br>
+							canvas.addEventListener("click", function(evt) {<br>
+								r = r + 5;<br>
+								if (r &gt; 50){<br>
+									r = 50;<br>
+								}<br>
+							});<br>
+							<br>
+							canvas.oncontextmenu = function() {<br>
+								r = r - 5;<br>
+								if (r &lt; 10){<br>
+									r = 10;<br>
+								}<br>
+							}<br>
+						</code></pre></div>
+						
+						<p>Voila! And you can see the code in its entirety below.</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;!DOCTYPE html&gt;<br>
@@ -1209,7 +1414,9 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....</p>
+						<p>So you now have the code for this circle drawing that depends on clicking + where you're moving your mouse (like creating the active cursor you can see if you're giving a Zoom .pptx presentation & select this on - maybe just a Mac?). You can <a href="https://socsciprogramming.github.io/examples/demos/MouseMove.html" class="copy-link">see the code live here</a>. That should also give you an example of how you can use Github Pages to host your tasks online as well (re: Module 1!).</p>
+						
+						<p>How would we play a sound? So, images and sounds first have to be *loaded* for us to actually play them or draw them on the canvas. In the code below, thus first the variables that have the filenames for the sound files plus a new array for the sounds is created. Then we have a loadSound function that iterates through the new sound array by loading a new <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio" class="copy-link">Audio</a> element with the files we specified in the fileName array. Then, we use the <a href="https://www.w3schools.com/jsref/event_oncanplaythrough.asp" class="copy-link">oncanplaythrough</a> event, enabling the audio to be played through all the way once it's been loaded via this function. We do this until there are no more audio files to be loaded and then go to the else statement, where the playSound function is then run. The playsound function will play the sounds after 3000 milliseconds, iterating through the array we've created. We also listen for a keypress, and if someone presses 'p', the audio will pause from playing. Of note, at the end here, we explicitly run the loadSound function, because you need to load the sounds before you can play them, and you need to initiate the "loop" for your experiment - here, the loop starts with loading the images, then goes to play them.</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;!DOCTYPE html&gt;<br>
@@ -1259,7 +1466,11 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....</p>
+						<p>You can explicitly see <a href="https://socsciprogramming.github.io/examples/demos/Audio.html" class="copy-link">this code in action here on the site.</a></p>
+						
+						<p>How would we present an image? So you'll see below a lot of the same elements as they were presented previously - defining variables, the canvas... Here, like loading in audio, we have a loadImage function, specifying that each item in the new imgs array we've created in <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image" class="copy-link">an Image</a>, and that the image source is the filename we specified, which helps to basically note what each image will be. They're then loaded with the <a href="https://www.w3schools.com/jsref/event_onload.asp" class="copy-link">onload event</a>, as above with the sounds. Of note, for all of these little demos, you may want to make your own *edits*. To give a small example, when I load images, I also add in an "alt" name so that I can record exactly which images were presented in a relatively simple filename. Also, all of these demos have the JavaScript in the same file as the HTML, when you may want to code these separately so they'd be more re-usable, etc.</p>
+						
+						<p>After loading in the images, we've again progressed here to a runTrial function, where we will iteratively run this function every 2000 milliseconds, thus drawing all four images (with the <a href="https://www.w3schools.com/tags/canvas_drawimage.asp" class="copy-link">drawImage method</a> on the canvas). We also draw a red male/female label on top of the image. Notably, this should highlight for you that again JavaScript runs from top to bottom, so the image will be drawn first, then the red text label. They're both drawn before the screen is cleared again - you are able to "layer" things like that with JavaScript easily.</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						&lt;!DOCTYPE html&gt;<br>
@@ -1321,7 +1532,9 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....</p>
+						<p>You can see this <a href="https://socsciprogramming.github.io/examples/demos/FaceStroop.html" class="copy-link">code live as a demo here on the site</a>.</p>
+						
+						<p>OK, hopefully that has given you a variety of ways of presenting stimuli. We'll move on to actually recording responses next.</p>
 					</div>
 				</section>
 				<section>
