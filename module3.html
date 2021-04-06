@@ -1539,157 +1539,133 @@
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t2">Recording Responses</h4></li></ul>
-					<div>
-						<!--
-						Listener events within JavaScript - detecting a key press, detecting a mouse click
-						-->
+					<div>						
+						<p>There are <a href="https://developer.mozilla.org/en-US/docs/Web/Events" class="copy-link">a number of events</a> that can be detected with JavaScript. We've already talked about detecting key presses, mouse clicks, etc., and that link is a good reference for the kinds of events found in JavaScript. There are three really important parts to recording responses: 1) event listeners; 2) conditions for the event listeners; 3) having a way of keeping your data stored or actually recorded.</p>
 						
-						<p>....</p>
+						<p>Since you've seen examples of the event listeners in the demos above, I won't mention them again here. But what those demos don't have is condition-specific assignment: only marking specific times when you're accepting keypresses or mouse clicks or going to record those responses.</p>
 						
-						<p>....</p>
+						<p>In the example below, I draw what I want participants to respond to within the "drawStroop" function and then I specify that window.hasResponse is equal to 0. The setTimeout method here will move onto the showFeedback function after the number of milliseconds specified by the respDeadline. Then within the showFeedback function, I specify that window.hasResponse is equal to -1. You don't need that particular name for the variable, but it is useful to have some validator to make sure you're only looking at the times when someone is performing the event *when you care*. Sometimes people might press a key or click when it's not time for them to do so and if you recorded responses during those times, you'd be loaded with so much meaningless data.</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function drawStroop(){
+							ctx.font="100px Arial";
+							StimTime = new Date().getTime() - runStart;
+							<div style="color:#1D6363">//removed the other code here</div>
+							window.hasResponse = 0;
+							eventTimer.setTimeout(showFeedback, respDeadline);
+						</code></pre></div>
 						
-						<p>....</p>
+						<p>You can see that we continue with the condition-specific assignments by adding in an if statement that looks at only when participants are allowed to respond. It'll still listen for events that are occurring outside of when we've specified, but then with the if statement looking at window.hasResponse == 0, we know we'd only be recording keypresses during the key point in time. We also add more conditions, checking specifically for the *right* keypresses. This then goes on to specify whether participants are correct or incorrect in their responses and/or other specific data that we'd be interested in analyzing here, and with that point, there's no reason to record this as an actual keypress (versus a lack of one) if people are pressing the wrong buttons.</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						$("body").keypress(function(event){<br>
+							keyPressed = String.fromCharCode(event.which);<br>
+							if (window.hasResponse == 0){<br>
+								if (keyPressed == "z"){<br>
+							}}});<br>
+						<div style="color:#1D6363">//removed the other code here</div>
+						</code></pre></div>
+						
+						<p>OK, but how do we actually record the data itself? Well, in module 4, we go over storing data via PHP scripts. In the meantime, we here will go over ways you can do this on MTurk (or other sites) without involving a PHP script. First, we have an <a href="https://www.w3schools.com/html/html_form_elements.asp" class="copy-link">HTML form element</a>. If you've ever visited a website and had to submit a contact form or information, this is what they're using. In this, we have hidden inputs assignmentId, hitId, workerId that we will get from MTurk and then assign the value to these HTML elements. For demos, this would be demographics, a few questions we'd ask of participants and then assign their value to demos, and logs would be what we'd assign the value of actual data in the task to. The fact that it's a form means that when someone clicks the "submit button" (where presumably the code to submit the form would be - e.g., <code>document.getElementById("mturk_form").submit();</code>), it would trigger the "POST" method and the action listed, which here is the developer sandbox for workers. This would produce columns of data in the batch .csv file you could download from the MTurk site (i.e., something you can do/use in the absence of having a more complicated script - if you needed to do this on the real MTurk site, the link is https://www.mturk.com/mturk/externalSubmit).</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						<div style="color:#1D6363">//removed the other code here</div>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;form id="mturk_form" method="POST" action="https://workersandbox.mturk.com/mturk/externalSubmit"&gt;<br>
+											&lt;input type="hidden" id="assignmentId" name="assignmentId" value=""&gt;<br>
+											&lt;input type="hidden" id="hitId" name="hitId" value=""&gt;<br>
+											&lt;input type="hidden" id="workerId" name="workerId" value=""&gt;<br>
+											&lt;input type="hidden" id="logs" name="logs" value=""&gt;<br>
+											&lt;input type="hidden" id="demos" name="demos" value=""&gt;<br>
+											&lt;p style="font-size: 30px"&gt;Click to submit data to MTurk&lt;/p&gt;<br>
+											&lt;input id="submitButton" style="font-size: 30px" type="submit" name="Finish" value="Submit"&gt;<br>
+										&lt;/form&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>How do you actually assign the values of the data to these HTML elements?</p>
+						
+						<p>OK, so let's say the data look like this: <code>data[logCounter++] = ["SCRespITI:", versionNumber, logCounter, trialCounter, MatrixCounter, ImageCounter, runCounter, Congruent, MIC, ItemType, colorpresent, wordpresented, StroopNum[MatrixCounter], fbarray[ImageCounter].alt, PressCorrect, keyPressed, accuracy, respTime, feedbackType, runStart, FBonset, StimTime, Responset, ACCCount]</code>. Logcounter++ means each time the line is run, it is increased by one. It would add a new row of data in this array, with the constant "SCRespITI" at the front, and the values for all these other variables. On each trial, the timing would be updated, as would the individual conditions and stimuli being presented according to the matrices we would have specified earlier (like how in the demos above, word and color had separate arrays and then on trial 1, the color of the color-word was congruent with its meaning, but not on the next trial, etc.). If this is what the data look like, then all we'd have to do is something akin to... <code>$("#logs").val(data.join(";"))</code>. This joins the value of the 'data' array to the logs HTML element. Then that means when you submit the mturk_form, you'll have all the recorded responses you've been including in arrays or JavaScript objects in the HTML elements.</p>
+						
+						<p>Are there other ways of recording the data? Absolutely. You'll see some code for recording data down below in the Demo expansions (specifically instances of object-oriented programming), and you can see <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/tree/master/examples/example1" class="copy-link">another example in the coding example repository</a> (see <a href="https://socsciprogramming.github.io/examples/example1/index.html" class="copy-link">live version here</a>).</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t3">Randomization</h4></li></ul>
 					<div>
-						<!--
-						How to randomize arrays for stimulus sequences
+						<p>So you've generated the matrices of stimuli that you want to present on screen, like word = ["RED", "GREEN", "BLUE", "YELLOW"]. How do you ensure that this occurs in a random order for each person, assuming that somehow seeing red before green might bias how your participants respond?</p>
 						
-						shuffle function + what Nick has for his experiment + what Matthew Crump has
-						-->
+						<p>I've personally always used this function that I found on <a href="https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array" class="copy-link">StackOverflow</a> (see <a href="https://stackoverflow.com/questions/39680997/shuffle-javascript-array" class="copy-link">explanation of how this works</a>):</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function shuffle(array) <br>
+						{<br>
+							var currentIndex = array.length, temporaryValue, randomIndex;<br>
+						<br>
+							// While there remain elements to shuffle...<br>
+							while (0 !== currentIndex) {<br>
+							<br>
+								// Pick a remaining element...<br>
+								randomIndex = Math.floor(Math.random() * currentIndex);<br>
+								currentIndex -= 1;<br>
+							<br>
+								// And swap it with the current element.<br>
+								temporaryValue = array[currentIndex];<br>
+								array[currentIndex] = array[randomIndex];<br>
+								array[randomIndex] = temporaryValue;<br>
+							}<br>
+						<br>
+							return array;<br>
+						}<br>
+						</code></pre></div>
 						
-						<p>....</p>
+						<p>Math.random * currentIndex will generate a random number between 0 and n and then math.floor will make it into an integer. This is randomIndex, where we then swap out the current element by using this as an index in the array we're shuffling. Notably, there are limitations to this mechanism for shuffling an array. As with all the code on this site, there is ALWAYS another way to do this.</p>
 						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<p>In terms of calling this function, it's pretty easy. You just write shuffle(array) or shuffle([1,1,2,2]) etc.</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t4">Debugging</h4></li></ul>
 					<div>
-						<!--
-						How do I debug my task code, Brackets is good for HTML as an editor program
-						https://eslint.org/
+						<p>There are a lot of good tools for Debugging in JavaScript, depending on how in depth you want to be. You can use a lot of the tools we've already discussed, with respect to the Developer console, opening the console there to see whether there are any explicit errors noted for you. Within the Developer's Console/Debugger Window, you can also go to the Sources tab and click on specific "lines" of code. This will create a "breakpoint" that looks like a line a grey. That means when you actually run the site or reload/refresh the page, the code will stop running right at the spot where you have the breakpoint. I've done this to isolate where exactly the error is in the code - or what's going wrong, specifically, so I know what I need to actually address moving forward (since not every error will be obvious to you). I once had to learn why running simultaneous executions of a loadImage function wasn't working, and in that case, the breakpoints in combination with other debugging (the next point) helped. You can also run the code <code>console.log(varName)</code> so that you can ensure that what you think is happening to a variable actually is. I did this a lot whenever I needed to figure out whether I was generating arrays that actually had the elements I wanted or thought they did. Similar to console.log, you can write in pop up messages with <code>alert()</code> so that you know if your code met a particular condition. Alerts are more unwieldly than the other methods, but again, using them all together might help the most. You can also write <code>debugger</code> into your code to create a sort of breakpoint. Finally, <a href="http://brackets.io/" class="copy-link">Brackets</a> is a good text editor program - it explicitly will tell you when it thinks it's found an error.</p>
 						
-												<!--discuss the infamous trump resigned example with source code, plus  
+						<p>How does a text editor know when you might have created an error? If I'm not mistaken, it uses a combination of programs, like <a href="https://eslint.org/" class="copy-link">ESLint</a>, which analyzes code quickly and automatically to find any errors. There is also <a href="https://www.html-tidy.org/documentation/" class="copy-link">HTML Tidy</a>, which will help clean up and correct HTML context, like opening tags that are missing a closing tag. Firefox has also developed a tool called <a href="https://firefox-dev.tools/debugger/" class="copy-link">Debugger</a> to help people figure out issues with their code. There are *so many* different tools like this that can help you think about debugging your experiment. Some of these I've also mentioned earlier, with respect to checking your specific HTML code.</p>
 						
-						https://twitter.com/digiphile/status/1351939210018750469/photo/2
+						<p>Here is an <a href="https://raygun.com/learn/javascript-debugging-tools" class="copy-link">entire list of debugging tools</a>, some of which I've mentioned and some which I've left out. Honestly, though, I've primarily used the basic tools: Developer Tools errors, console.log, breakpoints, and alerts. Unless you're writing something really, really complex, these should be sufficient to help you figure out what errors you've made.</p>
 						
-						https://www.w3schools.com/js/js_debugging.asp
-						
-						https://raygun.com/learn/javascript-debugging-tools
-						
-						https://www.html-tidy.org/documentation/
-						
-						<p>Another way of debugging JavaScript: breakpoints and console.log(variablename).</p>
-						
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<p>Of course, you'll have to work out <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong" class="copy-link">what errors you did make</a>. Was it a syntax error, something that caused your code not to run at all or stop working part way through? Was it a logic error, something where the syntax is correct but the code isn't running the way you want it to? A logic error probably won't produce an error in the console itself, which may mean that you have to employ the principles of online programming we talked about previously -- always testing your own code.</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec32t5">Differences between JavaScript libraries</h4></li></ul>
 					<div>
-						<!--
-						Discuss differences with JsPsych & jQuery & how most of the videos this week are using jQuery; do you have to use a JavaScript library?
-						use the styling here from mozilla
-						<p>There are a number of tools that you can use. As listed in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">Kochari et al. (2019)</a>:</p>
+						<p>I've skated around the idea of JavaScript libraries throughout this Module. JavaScript is a language, but there are many people who have tried to streamline the process of creating a new experiment, or streamline the way others write code. There are a number of specific libraries, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6753310/" class="copy-link">even for psychology</a>.</p>
 						
+						<p>Probably the most popular library is <a href="https://jquery.com/" class="copy-link">jQuery</a>. It's popular not just for experiments like these, but web development. Various JavaScript, HTML, and CSS bundles or frameworks for web design incorporate links to jQuery as part of the design. One question you might immediately have is: what's the difference?</p>
 						
-						https://www.codementor.io/@brainyfarm/jquery-vs-vanilla-javascript-deciding-on-what-to-use-6b79xdmrv
-						https://js.plainenglish.io/why-developers-prefer-vanilla-javascript-over-jquery-e707b249d421
-						https://www.geeksforgeeks.org/when-to-use-vanilla-javascript-vs-jquery/
+						<p>The easiest way to tell the difference - in the sample code above - is to comment out that jQuery line in the HTML document and see where the errors arise. Which lines of code depend on having a jQuery library loaded into the homepage? But many folks have written articles on how to choose between jQuery and JavaScript: e.g., <a href="https://www.codementor.io/@brainyfarm/jquery-vs-vanilla-javascript-deciding-on-what-to-use-6b79xdmrv" class="copy-link">1</a>, <a href="https://js.plainenglish.io/why-developers-prefer-vanilla-javascript-over-jquery-e707b249d421" class="copy-link">2</a>, <a href="https://www.geeksforgeeks.org/when-to-use-vanilla-javascript-vs-jquery/" class="copy-link">3</a>. Some folks say that jQuery speeds up development time because it has a bunch of pre-written functions for your use; some folks say that you should use JavaScript so that you have a better handle on the way the code works before using particular libraries. You might want to play around with both, read a few of those articles, and then decide. The demos above used a mixture of plain JavaScript methods and loaded in the jQuery library.</p>
 						
-						To me, this is like "When do I use base R versus R packages?" Or, the fact that you'll load in Python modules like pandas and numpy. But, as a beginniner, it might help you to learn vanilla JavaScript.
+						<p>But maybe you're looking for something else. There is another library called <a href="https://www.jspsych.org/" class="copy-link">jsPsych</a> meant for running behavioral experiments in a web browser. It has a bunch of tutorials, especially since its format is a little different. It designs experiments in the form of a timeline, with plugins (templates) that can be added and refined for the task in question. I have seen this library used for psych experiments, but I personally would choose between jQuery or vanilla JavaScript. Outside of coding behavioral experiments, you're much more likely to use vanilla JS or jQuery again, whereas getting too used to a library like jsPsych might not generalize your skills as much. That's why you won't see me posting examples with this library, but you can definitely still check out their work.</p>
 						
-						The only one of these JavaScript libraries that I'd consider using is jsPsych and that's just because they have an entire team and set of experiments to look at for examples, while the rest of these... Nonetheless, I personally would still use jQuery because it'll get you the farthest in the end, especially if you want to use these skills elsewhere...
+						<p>Similarly, there are a number of other libraries and tools, like <a href="https://www.lab.js.org/" class="copy-link">lab.js</a>, <a href="https://www.github.com/psychopy/psychojs" class="copy-link">PsychoJS</a> (the PsychoPy JavaScript extension), and <a href="https://www.psytoolkit.org/" class="copy-link">PsyToolkit</a>, which are free. PsychoJS and lab.js provide Graphical User Interfaces where the others do not. There's also <a href="https://www.gorilla.sc/" class="copy-link">Gorilla</a> and <a href="https://www.labvanced.com/" class="copy-link">LabVanced</a>, but neither of these is free despite the GUI interface.</p>
 						
-						<table>
-							<tr>
-								<td>Name</td>
-								<td>Website</td>
-								<td>Free</td>
-								<td>Graphical interface</td>
-								<td>Introduction paper</td>
-							</tr>
-							<tr>
-								<td>jsPsych</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>lab.js</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>PsychoPy/PsychoJS</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>PsyToolkit</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>Gorilla</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>LabVanced</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>
-						
-						<p> There is also ....</p>
-
-						
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<p>There are of course a number of other libraries not mentioned here, like React.js (frequently used in web applications). But these will be less relevant to your coding a behavioral experiment. That may be yet another reason to use jQuery or vanilla JS - so that you can understand what other libraries you run into are doing code-wise.</p>
 
 						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1q_hSeVEzZVTz0kN5R3jcnM9Kxvheg20GXqRAjr642y4/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
 						
