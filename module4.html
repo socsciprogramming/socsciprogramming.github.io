@@ -415,69 +415,69 @@
 						<p>With that information at the end of the link, you can then use string splitters to get out the data. You would need to tell it to look for assignmentId and workerId and hitId after the ?, which is fairly simple. But lucky for you, Nick has also shared a function that grabs all the URL parameters and puts them into an object:</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">	
-						function getAllUrlParams(url) {
-						  // get query string from url (optional) or window
-						  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+						function getAllUrlParams(url) {<br>
+						  // get query string from url (optional) or window<br>
+						  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);<br>
 
-						  // we'll store the parameters here
-						  var obj = {};
+						  // we'll store the parameters here<br>
+						  var obj = {};<br>
 
-						  // if query string exists
-						  if (queryString) {
+						  // if query string exists<br>
+						  if (queryString) {<br>
 
-							  // stuff after # is not part of query string, so get rid of it
-							  queryString = queryString.split('#')[0];
+							  // stuff after # is not part of query string, so get rid of it<br>
+							  queryString = queryString.split('#')[0];<br>
 
-							  // split our query string into its component parts
-							  var arr = queryString.split('&');
+							  // split our query string into its component parts<br>
+							  var arr = queryString.split('&');<br>
 
-							  for (var i = 0; i &lt; arr.length; i++) {
-								  // separate the keys and the values
-								  var a = arr[i].split('=');
+							  for (var i = 0; i &lt; arr.length; i++) {<br>
+								  // separate the keys and the values<br>
+								  var a = arr[i].split('=');<br>
 
-								  // set parameter name and value (use 'true' if empty)
-								  var paramName = a[0];
-								  var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+								  // set parameter name and value (use 'true' if empty)<br>
+								  var paramName = a[0];<br>
+								  var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];<br>
 
-								  // (optional) keep case consistent
-								  paramName = paramName.toLowerCase();
-								  if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+								  // (optional) keep case consistent<br>
+								  paramName = paramName.toLowerCase();<br>
+								  if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();<br>
 
-								  // if the paramName ends with square brackets, e.g. colors[] or colors[2]
-								  if (paramName.match(/\[(\d+)?\]$/)) {
+								  // if the paramName ends with square brackets, e.g. colors[] or colors[2]<br>
+								  if (paramName.match(/\[(\d+)?\]$/)) {<br>
 
-									  // create key if it doesn't exist
-									  var key = paramName.replace(/\[(\d+)?\]/, '');
-									  if (!obj[key]) obj[key] = [];
+									  // create key if it doesn't exist<br>
+									  var key = paramName.replace(/\[(\d+)?\]/, '');<br>
+									  if (!obj[key]) obj[key] = [];<br>
 
-									  // if it's an indexed array e.g. colors[2]
-									  if (paramName.match(/\[\d+\]$/)) {
-										  // get the index value and add the entry at the appropriate position
-										  var index = /\[(\d+)\]/.exec(paramName)[1];
-										  obj[key][index] = paramValue;
-									  } else {
-										  // otherwise add the value to the end of the array
-										  obj[key].push(paramValue);
-									  }
-								  } else {
-									  // we're dealing with a string
-									  if (!obj[paramName]) {
-										  // if it doesn't exist, create property
-										  obj[paramName] = paramValue;
-									  } else if (obj[paramName] && typeof obj[paramName] === 'string') {
-										  // if property does exist and it's a string, convert it to an array
-										  obj[paramName] = [obj[paramName]];
-										  obj[paramName].push(paramValue);
-									  } else {
-										  // otherwise add the property
-										  obj[paramName].push(paramValue);
-									  }
-								  }
-							  }
-						  }
+									  // if it's an indexed array e.g. colors[2]<br>
+									  if (paramName.match(/\[\d+\]$/)) {<br>
+										  // get the index value and add the entry at the appropriate position<br>
+										  var index = /\[(\d+)\]/.exec(paramName)[1];<br>
+										  obj[key][index] = paramValue;<br>
+									  } else {<br>
+										  // otherwise add the value to the end of the array<br>
+										  obj[key].push(paramValue);<br>
+									  }<br>
+								  } else {<br>
+									  // we're dealing with a string<br>
+									  if (!obj[paramName]) {<br>
+										  // if it doesn't exist, create property<br>
+										  obj[paramName] = paramValue;<br>
+									  } else if (obj[paramName] && typeof obj[paramName] === 'string') {<br>
+										  // if property does exist and it's a string, convert it to an array<br>
+										  obj[paramName] = [obj[paramName]];<br>
+										  obj[paramName].push(paramValue);<br>
+									  } else {<br>
+										  // otherwise add the property<br>
+										  obj[paramName].push(paramValue);<br>
+									  }<br>
+								  }<br>
+							  }<br>
+						  }<br>
 
-						  return obj;
-					  }
+						  return obj;<br>
+					  }<br>
 						</code></pre></div>
 						
 						<p>Essentially this means you have a few options when using MTurk: you can ask participants to input their own workerID and then care less about assignment & hit ID, OR you can insert <code>document.querySelector("a").href = document.querySelector("a").href + window.location.search</code> into the MTurk HIT interface source code and use the function above (or develop your own!) to take out the cookie information appended to each worker's link to your task.</p>
