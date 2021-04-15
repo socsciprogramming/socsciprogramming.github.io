@@ -189,32 +189,32 @@
 						<p>If you do want other ways of storing data, like custom lab-specific PHP files, let's take a look at what that might mean for you. This is a basic PHP script as written by <a href="https://myweb.uiowa.edu/jiefjiang/Teaching/OnlineTask/Receiver.php" class="copy-link">Jiefeng Jiang</a>.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="php">
-						&lt;?php
-							//generate confirmation code
-							function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-							{
-								$str = '';
-								$max = 61;
-								for ($i = 0; $i &lt; $length; ++$i) {
-									$str .= $keyspace[rand(0, $max)];
-								}
-								return $str;
-							}
-
-							echo "&lt;h2&gt;Uploading data... &lt;/h2&gt;";
-							
-							$cCode = random_str(8);
-							
-							$fid1 = fopen($cCode.".txt", 'w');
-							fwrite($fid1, $_REQUEST['logFile']);
-							fclose($fid1);
-							
-							$returnMsg = "Data successfully uploaded. This is your confirmation code: ".$cCode;
-							echo "&lt;h2&gt;".$returnMsg."&lt;/h2&gt;";
-						?&gt;
+						&lt;?php<br>
+							//generate confirmation code<br>
+							function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')<br>
+							{<br>
+								$str = '';<br>
+								$max = 61;<br>
+								for ($i = 0; $i &lt; $length; ++$i) {<br>
+									$str .= $keyspace[rand(0, $max)];<br>
+								}<br>
+								return $str;<br>
+							}<br>
+						<br>
+							echo "&lt;h2&gt;Uploading data... &lt;/h2&gt;";<br>
+							<br>
+							$cCode = random_str(8);<br>
+							<br>
+							$fid1 = fopen($cCode.".txt", 'w');<br>
+							fwrite($fid1, $_REQUEST['logFile']);<br>
+							fclose($fid1);<br>
+							<br>
+							$returnMsg = "Data successfully uploaded. This is your confirmation code: ".$cCode;<br>
+							echo "&lt;h2&gt;".$returnMsg."&lt;/h2&gt;";<br>
+						?&gt;<br>
 						</code></pre></div>
 						
-						<p></p>
+						<p>So what does this </p>
 						
 						<p>You can also see an example <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/feedback.php" class="copy-link">feedback php file from Nick</a> as well as the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/server-side.php" class="copy-link">server-side php file</a>.</p>
 						
