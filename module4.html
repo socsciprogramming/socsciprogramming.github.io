@@ -172,40 +172,51 @@
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec41t1">How much customization do you need?</h4></li></ul>
 					<div>
-						<p>There are a number of programs that will help you convert your scripts into JavaScript ready tasks and a number of resources - if you're willing to pay - that make it possible for you not to code your task. There's also the possibility of simply mixing in programs. For example, I have a long, complicated study where people do two attention tasks and then have to fill out a bunch of questionnaires about psychiatric symptoms. I could have coded the questionnaires also in JavaScript, like the tasks, but it seemed easier to have participants just do the questionnaires within Qualtrics, which is already made to make questions like those look and feel nice. It saved a lot of time to do that. Plus everything looks a lot nicer when using Qualtrics because they've specifically designed their survey platform to be user friendly.</p>
+						<p>There are a number of programs that will help you convert your scripts into JavaScript ready tasks and a number of resources - if you're willing to pay - that make it possible for you not to code your task. There's also the possibility of simply mixing in programs. For example, I have a long, complicated study where people do two attention tasks and then have to fill out a bunch of questionnaires about psychiatric symptoms. I could have coded the questionnaires also in JavaScript, like the tasks, but it seemed easier to have participants just do the questionnaires within Qualtrics, which is already made to make questions like those look and feel nice. It saved a lot of time to do that. Plus everything looks a lot nicer when using Qualtrics because they've specifically designed their survey platform to be user friendly. However, their JavaScript functions are NOT designed for any sort of complex tasks - I've heard from a lot of other researchers that this can get really buggy.</p>
 						
 						<p>In some cases, you might need to write custom code to make things work too. For instance, if you've coded your task for Amazon Mechanical Turk, and then you want to run participants online in the psychology pool of students, then you would have to write your own way of incorporating the code. The <a href="https://www.sona-systems.com/help/" class="copy-link">SONA system</a> - where psychology students are granted credit for participating in studies - for instance offers a lot of integration with known systems like Qualtrics, but does not with custom code. You can also see lists of programs that are known to convert online tasks and surveys over at that SONA link.</p>
 						
 						<p>If you do need to use custom code, for a complicated task, that isn't supported by SONA, I can tell you how I used the existing system to make it work! In the next section, I include the PHP that our lab uses as an example of how to allow for custom data submission. In that custom PHP, I include some code to make it work with what's needed on SONA for automatic credit granting for these online participants.</p>
 
-						<p>....</p>
+						<p>[copy/paste instructions from the word doc I wrote up]</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec41t2">Storing Data</h4></li></ul>
 					<div>
-						<!--
+						<p>OK, so we've already talked about storing data via Qualtrics - they have a database server on their back-end - and we've talked about sending the form HTML element to the sandbox MTurk link. You can also send the data to the official MTurk site (), and you can talk with your colleagues about creating a PHP script specfically for your lab, with its own computer server. That might also be something to talk with your IT folks (with respect to establishing the server itself). One reason you might not want to send the data to the MTurk site/link that they've provided is that you don't know how exactly it works. Sometimes I've used this and not known why some participants don't have data and others do - how did their system fail? How can I go ahead and fix any errors? I would not know. On the other hand, it's very convenient to use the resources that you have available to you.</p>
 						
-						Discuss php scripts, the mturk site link, SQL databases (link to Duke resource on SQL)
-						
-						●	Can give our lab’s example code (make sure to get rid of the user + password + db? Ask Yimin if he’d be comfortable with this) and what constraints this adds to our data collection
-			●	Pros/cons of submitting the data via MTurk
-			●	Qualtrics will store data for you, but their JS is not meant for complicated functions
-			
-			https://github.com/nbrosowsky/simple-stroop-demo/blob/master/feedback.php
-			https://github.com/nbrosowsky/simple-stroop-demo/blob/master/feedback-letter.html
-			https://github.com/nbrosowsky/simple-stroop-demo/blob/master/server-side.php
-			
-						
-						-->
+						<p>If you do want other ways of storing data, like custom lab-specific PHP files, let's take a look at what that might mean for you. This is a basic PHP script as written by <a href="https://myweb.uiowa.edu/jiefjiang/Teaching/OnlineTask/Receiver.php" class="copy-link">Jiefeng Jiang</a>.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="php">
-						
+						&lt;?php
+							//generate confirmation code
+							function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+							{
+								$str = '';
+								$max = 61;
+								for ($i = 0; $i &lt; $length; ++$i) {
+									$str .= $keyspace[rand(0, $max)];
+								}
+								return $str;
+							}
+
+							echo "&lt;h2&gt;Uploading data... &lt;/h2&gt;";
+							
+							$cCode = random_str(8);
+							
+							$fid1 = fopen($cCode.".txt", 'w');
+							fwrite($fid1, $_REQUEST['logFile']);
+							fclose($fid1);
+							
+							$returnMsg = "Data successfully uploaded. This is your confirmation code: ".$cCode;
+							echo "&lt;h2&gt;".$returnMsg."&lt;/h2&gt;";
+						?&gt;
 						</code></pre></div>
 						
-						<p>This is a basic PHP script as written by <a href="https://myweb.uiowa.edu/jiefjiang/Teaching/OnlineTask/Receiver.php" class="copy-link">Jiefeng Jiang</a>.</p>
+						<p></p>
 						
-						<p>....</p>
+						<p>You can also see an example <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/feedback.php" class="copy-link">feedback php file from Nick</a> as well as the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/server-side.php" class="copy-link">server-side php file</a>.</p>
 						
 						<p>....</p>
 						
