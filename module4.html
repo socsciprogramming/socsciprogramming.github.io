@@ -172,17 +172,11 @@
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec41t1">How much customization do you need?</h4></li></ul>
 					<div>
-						<!--
+						<p>There are a number of programs that will help you convert your scripts into JavaScript ready tasks and a number of resources - if you're willing to pay - that make it possible for you not to code your task. There's also the possibility of simply mixing in programs. For example, I have a long, complicated study where people do two attention tasks and then have to fill out a bunch of questionnaires about psychiatric symptoms. I could have coded the questionnaires also in JavaScript, like the tasks, but it seemed easier to have participants just do the questionnaires within Qualtrics, which is already made to make questions like those look and feel nice. It saved a lot of time to do that. Plus everything looks a lot nicer when using Qualtrics because they've specifically designed their survey platform to be user friendly.</p>
 						
-						Can talk about the alternative programs that will convert your scripts, etc. (https://www.sona-systems.com/help/ - shows a bunch of different Psych programs like Gorilla). Can also talk about what I did for the Germinator - complicated cognitive tasks within JS, then linked to Qualtrics after submitting that data.
+						<p>In some cases, you might need to write custom code to make things work too. For instance, if you've coded your task for Amazon Mechanical Turk, and then you want to run participants online in the psychology pool of students, then you would have to write your own way of incorporating the code. The <a href="https://www.sona-systems.com/help/" class="copy-link">SONA system</a> - where psychology students are granted credit for participating in studies - for instance offers a lot of integration with known systems like Qualtrics, but does not with custom code. You can also see lists of programs that are known to convert online tasks and surveys over at that SONA link.</p>
 						
-						-->
-						
-						<p>There are a number of programs that will help you convert your scripts into JavaScript ready tasks and a number of resources - if you're willing to pay - that make it possible for you not to code your task. There's also the possibility of simply mixing in programs. For example, I have a long, complicated study where people do two attention tasks and then have to fill out a bunch of questionnaires about psychiatric symptoms. I could have coded the questionnaires also in JavaScript, like the tasks, but it seemed easier to have participants just do the questionnaires within Qualtrics, which is already made to make questions like those look and feel nice. It saved a lot of time to do that.</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<p>If you do need to use custom code, for a complicated task, that isn't supported by SONA, I can tell you how I used the existing system to make it work! In the next section, I include the PHP that our lab uses as an example of how to allow for custom data submission. In that custom PHP, I include some code to make it work with what's needed on SONA for automatic credit granting for these online participants.</p>
 
 						<p>....</p>
 					</div>
@@ -205,7 +199,11 @@
 						
 						-->
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="php">
+						
+						</code></pre></div>
+						
+						<p>This is a basic PHP script as written by <a href="https://myweb.uiowa.edu/jiefjiang/Teaching/OnlineTask/Receiver.php" class="copy-link">Jiefeng Jiang</a>.</p>
 						
 						<p>....</p>
 						
