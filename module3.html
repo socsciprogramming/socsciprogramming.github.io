@@ -3226,43 +3226,161 @@
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t4">How does Qualtrics use JavaScript, HTML, CSS?</h4></li></ul>
 					<div>
-						<!--
-						Can connect to module 2 by discussing more about Qualtrics’s use of JS/HTML/CSS
-			https://www.qualtrics.com/community/discussion/1795/images-from-library-in-loop-and-merge-fields
-			making the user experience a little better with javascript tweaks. for example, you can customize the words on the 'next' button on individual pages to say stuff like "proceed to experiment" or "view consent" to cue people. or if you have a text box, you can put dummy text in it that disappears when you click on it that provides an example of the type of response you're thinking of - I would describe this as thinking with an `ux copy` mind for experiments
-			
-			i-frame with Norton experiment
+						<p>We've talked a lot about the user experience and how Qualtrics helps you achieve that... but what if you don't like what Qualtrics does? Well, you can actually change up their HTML, JavaScript, and CSS. For example, you can change their work at a high-level by going to "Look and Feel" and going to the Style tab. You can of course use their GUI, but you can also write your own CSS sheet and put that into "Style".</p>
+						
+						<p>One thing that I've done in the past - with collaborators - is change the particular text on one of the questions. Specifically, I've changed the button with the "JavaScript" option on the consent form style question. I made it explicitly say that the participant is consenting when they click the button, instead of just leaving the button as a right arrow. This helps with the User Experience.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						Qualtrics.SurveyEngine.addOnload(function()
+						{
+							//change the button text
+						var newName = 'Submit consent form';
+						if ($('NextButton').nodeName == 'INPUT')
+						{$('NextButton').setValue(newName);}
+						else if ($('NextButtonText').nodeName == 'SPAN')
+						{$('NextButtonText').innerHTML = newName;}
+						else // next button is probably a button
+						{$('NextButton').innerHTML = newName;}
 
-						-->
+
+						});
+
+						Qualtrics.SurveyEngine.addOnReady(function()
+						{
+							/*Place your JavaScript here to run when the page is fully displayed*/
+
+						});
+
+						Qualtrics.SurveyEngine.addOnUnload(function()
+						{
+							/*Place your JavaScript here to run when the page is unloaded*/
+
+						});
+						</code></pre></div>
 						
-						<p>....</p>
+						<p>If you have a text box, you can modify the JavaScript to also include "placeholder" text so that a participant has some level of what to say in that question. This, like other comments, allows you to customize the survey platform with an eye for user experience. I've also directly modified the HTML so that I could include an i-frame in one survey. As with MTurk, there is a button that says 'Source' <> and allows you to modify HTML.</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;div class="container"&gt;&lt;iframe class="responsive-iframe" src="LINK HERE"&gt;&lt;/iframe&gt;&lt;/div&gt;
+						</code></pre></div>
 						
-						<p>....</p>
+						<p>(Notably, I also defined the max width to the current size of the screen).</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						Qualtrics.SurveyEngine.addOnload(function()
+						{
+							/*Place your JavaScript here to run when the page loads*/
+							var w = window.innerWidth;
+							jQuery(".Skin .SkinInner").css({"min-width": w});
+
+						});
+
+						Qualtrics.SurveyEngine.addOnReady(function()
+						{
+							/*Place your JavaScript here to run when the page is fully displayed*/
+
+						});
+
+						Qualtrics.SurveyEngine.addOnUnload(function()
+						{
+							/*Place your JavaScript here to run when the page is unloaded*/
+
+						});
+						</code></pre></div>
 						
-						<p>....</p>
+						<p>Make sure to try this out for yourself! One thing you might have noticed even from these examples is that Qualtrics has its own way of coding JavaScript, too, so you'd need to learn their specification a little more too.</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t5">How does MTurk use JavaScript, HTML, CSS?</h4></li></ul>
 					<div>
-						<!--
-						Connect back to module 1 and editing the HIT page
+						<p>Do you remember in Module 1 when we referred to the "Source" section of the "Design Layout" on Edit Project for requester MTurk? This source page is HTML, JavaScript, and CSS! You should be able to read this kind of code a lot easier now. What do you think this "New Project" is doing? What would it look like? One way to test out your skills is to see whether you can purely edit the MTurk HIT on the Source page rather than using the GUI itself.</p>
 						
-						-->
-						
-						<p>Do you remember in Module 1 when we referred to the "Source" page of MTurk? This source page is HTML! You should be able to read this kind of code a lot easier now.</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!-- For help on using this template, see the blog post: https://blog.mturk.com/editing-the-survey-link-project-template-in-the-ui-7c75285105fb#.py7towsdx --&gt;&lt;!-- HIT template: SurveyLink-v3.0 --&gt;&lt;!-- The following snippet enables the 'responsive' behavior on smaller screens --&gt;
+						&lt;meta content="width=device-width,initial-scale=1" name="viewport" /&gt;
+						&lt;section class="container" id="SurveyLink"&gt;&lt;!-- Instructions --&gt;
+						&lt;div class="row"&gt;
+						&lt;div class="col-xs-12 col-md-12"&gt;
+						&lt;div class="panel panel-primary"&gt;&lt;!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --&gt;&lt;a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"&gt;&lt;strong&gt;Survey Link Instructions&lt;/strong&gt; &lt;span class="collapse-text"&gt;(Click to expand)&lt;/span&gt; &lt;/a&gt;
+						&lt;div class="panel-body" id="instructionBody"&gt;
+						&lt;p&gt;We are conducting an academic survey about social networks. We need to understand your opinion about social networks. Select the link below to complete the survey. At the end of the survey, you will receive a code to paste into the box below to receive credit for taking our survey.&lt;/p&gt;
+
+						&lt;p&gt;&lt;strong&gt;Make sure to leave this window open as you complete the survey. &lt;/strong&gt; When you are finished, you will return to this page to paste the code into the box.&lt;/p&gt;
+
+						&lt;p class="well well-sm"&gt;&lt;strong&gt;&lt;mark&gt;Template note for Requesters&lt;/mark&gt;&lt;/strong&gt; - To verify that Workers actually complete your survey, require each Worker to enter a &lt;strong&gt;unique&lt;/strong&gt; survey completion code to your HIT. Consult with your survey service provider on how to generate this code at the end of your survey.&lt;/p&gt;
+						&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;!-- End Instructions --&gt;&lt;!-- Survey Link Layout --&gt;
+
+						&lt;div class="row" id="workContent"&gt;
+						&lt;div class="col-xs-12 col-md-6 col-md-offset-3"&gt;&lt;!-- Content for Worker --&gt;
+						&lt;table class="table table-condensed table-bordered"&gt;
+							&lt;colgroup&gt;
+								&lt;col class="col-xs-4 col-md-4" /&gt;
+								&lt;col class="col-xs-8 col-md-8" /&gt;
+							&lt;/colgroup&gt;
+							&lt;tbody&gt;
+								&lt;tr&gt;
+									&lt;td&gt;&lt;label&gt;Survey link:&lt;/label&gt;&lt;/td&gt;
+									&lt;td&gt;&lt;a class="dont-break-out" href="http://[example.com/survey345.html]" target="_blank"&gt;http://example.com/survey345.html&lt;/a&gt;&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/tbody&gt;
+						&lt;/table&gt;
+						&lt;!-- End Content for Worker --&gt;&lt;!-- Input from Worker --&gt;
+
+						&lt;div class="form-group"&gt;&lt;label for="surveycode"&gt;Provide the survey code here:&lt;/label&gt; &lt;input class="form-control" id="surveycode" name="surveycode" placeholder="e.g. 123456" required="" type="text" /&gt;&lt;/div&gt;
+						&lt;!-- End input from Worker --&gt;&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;!-- End Survey Link Layout --&gt;&lt;/section&gt;
+						&lt;!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --&gt;&lt;!-- External CSS references --&gt;
+						&lt;link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" /&gt;&lt;!-- Open internal style sheet --&gt;
+						&lt;style type="text/css"&gt;#collapseTrigger{
+						  color:#fff;
+						  display: block;
+						  text-decoration: none;
+						}
+						#submitButton{
+						  white-space: normal;
+						}
+						.image{
+						  margin-bottom: 15px; 
+						}
+						/* CSS for breaking long words/urls */
+						.dont-break-out {
+						  overflow-wrap: break-word;
+						  word-wrap: break-word;
+						  -ms-word-break: break-all;
+						  word-break: break-all;
+						  word-break: break-word;
+						  -ms-hyphens: auto;
+						  -moz-hyphens: auto;
+						  -webkit-hyphens: auto;
+						  hyphens: auto;
+						}
+						&lt;/style&gt;
+						&lt;!-- Close internal style sheet --&gt;&lt;!-- External JS references --&gt;&lt;script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"&gt;&lt;/script&gt;&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;!-- Open internal javascript --&gt;&lt;script&gt;
+						  $(document).ready(function() {
+							// Instructions expand/collapse
+							var content = $('#instructionBody');
+							var trigger = $('#collapseTrigger');
+							content.hide();
+							$('.collapse-text').text('(Click to expand)');
+							trigger.click(function(){
+							  content.toggle();
+							  var isVisible = content.is(':visible');
+							  if(isVisible){
+								$('.collapse-text').text('(Click to collapse)');
+							  }else{
+								$('.collapse-text').text('(Click to expand)');
+							  }
+							});
+							// end expand/collapse
+						  });
+						&lt;/script&gt;&lt;!-- Close internal javascript --&gt;
+						</code></pre></div>
 					</div>
 				</section>
 				<section>
