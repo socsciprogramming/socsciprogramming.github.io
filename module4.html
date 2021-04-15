@@ -185,7 +185,7 @@
 						
 						-->
 						
-						<p>....</p>
+						<p>There are a number of programs that will help you convert your scripts into JavaScript ready tasks and a number of resources - if you're willing to pay - that make it possible for you not to code your task. There's also the possibility of simply mixing in programs. For example, I have a long, complicated study where people do two attention tasks and then have to fill out a bunch of questionnaires about psychiatric symptoms. I could have coded the questionnaires also in JavaScript, like the tasks, but it seemed easier to have participants just do the questionnaires within Qualtrics, which is already made to make questions like those look and feel nice. It saved a lot of time to do that.</p>
 						
 						<p>....</p>
 						
@@ -204,7 +204,11 @@
 						●	Can give our lab’s example code (make sure to get rid of the user + password + db? Ask Yimin if he’d be comfortable with this) and what constraints this adds to our data collection
 			●	Pros/cons of submitting the data via MTurk
 			●	Qualtrics will store data for you, but their JS is not meant for complicated functions
-
+			
+			https://github.com/nbrosowsky/simple-stroop-demo/blob/master/feedback.php
+			https://github.com/nbrosowsky/simple-stroop-demo/blob/master/feedback-letter.html
+			https://github.com/nbrosowsky/simple-stroop-demo/blob/master/server-side.php
+			
 						
 						-->
 						
@@ -236,27 +240,11 @@
 						
 						<p>....</p>
 						
-						<p>....</p>
-					</div>
-				</section>
-				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec41t4">Excluding Workers</h4></li></ul>
-					<div>
-						<!--
+						<p>And, remember, if a worker is inattentive, as I went over in Module 3, you can always exclude them [manually in the code and/or via MTurk Qualifications (see Module 1)] so they cannot take your task again.</p>
 						
-						Duplicate workers, clearing the cache; with MTurk qualifications, you can only exclude people who have turned in a HIT. With custom exclusion, you can also exclude people who send you nasty emails saying your task sucks.
+						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1tahPeyA2D52xF_qPMHSFkQuxwQ4Z-3gdwP4n-PO0rmM/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
 						
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<div id="googleForm"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfWoxpD6QDKfSEFR2BMvNWmLfdF2k4HrTOwoAkVrL_6AbrGaw/viewform?embedded=true" width="640" height="902" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
 					</div>
 				</section>
 				<hr>
@@ -289,43 +277,226 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec42t2">Integrating libraries</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec42t2">Grabbing MTurk Information</h4></li></ul>
 					<div>
-						<!--
+						<p>As I mentioned within the JavaScript basics subsection and again in the Demos & Scripts subsection of Module 3, MTurk has recently changed up how it sends information about worker ID and assignment ID. I mentioned that I sometimes just have participants fill an input element with their worker ID. That works fine. But if you want another method, <a href="https://nbrosowsky.github.io/" class="copy-link">Dr. Nick Brosowsky</a> has shared the following code for a HIT. Remember how we went over how MTurk uses HTML? Input this HTML into a HIT on requester sandbox, publish a batch, and then accept the HIT as a worker on worker sandbox. What do you see there?</p>
 						
-						integrating jsPsych + jquery: making your own plugin
+						<div class="highlight"><pre><code class="language-html" data-lang="html">	
+						&lt;meta content="width=device-width,initial-scale=1" name="viewport" /&gt;
+						&lt;section class="container" id="SurveyLink"&gt;&lt;!-- Instructions --&gt;
+						&lt;div style="margin: 25px"&gt;
+						&lt;p&gt;The purpose of this research is to investigate creative idea generation.&lt;/p&gt;
+
+						&lt;p&gt;Your Worker ID is: &lt;span id="your_id"&gt; HIT NOT ACCEPTED YET&lt;/span&gt;&lt;/p&gt;
+
+						&lt;p&gt;The iframe URL parameters are currently: &lt;span id="your_url"&gt; NOTHING HERE YET &lt;/span&gt;&lt;/p&gt;
+
+						&lt;p&gt;In this HIT, you will ...&lt;/p&gt;
+
+						&lt;p&gt;To complete this HIT, click the link below (the survey will pop-up in a new browser window).&lt;/p&gt;
+
+						&lt;p&gt;&lt;strong&gt;Make sure to leave this window open as you complete the survey.&nbsp;&lt;/strong&gt;When you are finished, you will return to this page to paste the code into the box.&lt;/p&gt;
+						&lt;/div&gt;
+
+						&lt;div class="row" id="workContent"&gt;
+						&lt;div class="col-xs-12 col-md-6 col-md-offset-3"&gt;
+						&lt;p&gt;Survey link:&lt;/p&gt;
+						&lt;a href="https://socsciprogramming.github.io" id="your_a" onclick="window.open(this.href, 'Experiment', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;"&gt;EXPERIMENT LINK&lt;/a&gt;&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;!-- End Content for Worker --&gt;&lt;!-- Input from Worker --&gt;
+
+						&lt;div class="form-group"&gt;&lt;label for="surveycode"&gt;Provide the survey code here:&lt;/label&gt; &lt;input class="form-control" id="surveycode" name="surveycode" placeholder="e.g. 123456" required="" type="text" /&gt;&lt;/div&gt;
+						&lt;!-- End input from Worker --&gt;&lt;/section&gt;
+						&lt;!-- Close internal style sheet --&gt;&lt;!-- External JS references --&gt;&lt;script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;!-- Open internal javascript --&gt;&lt;script&gt;
+							$(document).ready(function() {
+
+								var mTurk = {
+									// core.turkInfo gets information relevant to mechanical turk experiments. returns an object
+									// containing the workerID, assignmentID, and hitID, and whether or not the HIT is in
+									// preview mode, meaning that they haven't accepted the HIT yet.
+									turkInfo: function() {
+
+										var turk = {};
+
+										var param = function(url, name) {
+											name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+											var regexS = "[\\?&]" + name + "=([^&#]*)";
+											var regex = new RegExp(regexS);
+											var results = regex.exec(url);
+											return (results == null) ? "" : results[1];
+										};
+
+										var src = param(window.location.href, "assignmentId") ? window.location.href : document.referrer;
+
+										var keys = ["assignmentId", "hitId", "workerId", "turkSubmitTo"];
+										keys.map(
+
+											function(key) {
+												turk[key] = unescape(param(src, key));
+											});
+
+										turk.previewMode = (turk.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE");
+
+										turk.outsideTurk = (!turk.previewMode && turk.hitId === "" && turk.assignmentId == "" && turk.workerId == "")
+
+										turk_info = turk;
+
+										return turk;
+
+									},
+
+									// core.submitToTurk will submit a MechanicalTurk ExternalHIT type
+									// *** MUST BE RUN FROM MTURK IFRAME *** //
+
+									// data = key:value pairs
+									//   e.g., data = {
+									//   "question1" : "answer1",
+									//   "question2" : "answer2"
+									// }
+
+									// final output URL example:
+									// url + "/mturk/externalSubmit?" + data
+									//"https://www.mturk.com/mturk/externalSubmit?question1=answer1&question2=answer2&assignmentId=23343234kfkdsn1"
+
+									submitToTurk: function(data) {
+
+										var turkInfo = mTurk.turkInfo();
+										var assignmentId = turkInfo.assignmentId;
+										var turkSubmitTo = turkInfo.turkSubmitTo;
+
+										if (!assignmentId || !turkSubmitTo) return;
+
+										var dataString = [];
+
+										for (var key in data) {
+											if (data.hasOwnProperty(key)) {
+												dataString.push(key + "=" + encodeURI(data[key]));
+											}
+										}
+
+										dataString.push("assignmentId=" + assignmentId);
+
+										var url = turkSubmitTo + "/mturk/externalSubmit?" + dataString.join("&");
+
+										window.location.href = url;
+									},
+
+									append_array: function(array, formID) {
+										let form = document.getElementById(formID)
+										for (i = 0; i &lt; array.length; i++) {
+											ni = document.createElement("input")
+											ni.setAttribute("type", "hidden")
+											ni.setAttribute("name", i.toString())
+											ni.value = array[i].join(", ")
+											form.appendChild(ni)
+										}
+									},
+
+									append_text: function(text, formID, name) {
+										let form = document.getElementById(formID)
+										ni = document.createElement("input")
+										ni.setAttribute("type", "hidden")
+										ni.setAttribute("name", name)
+										ni.value = text
+										form.appendChild(ni)
+									}
+
+
+								};
+
+								document.querySelector("#your_id").innerHTML = mTurk.turkInfo().workerId
+								document.querySelector("#your_url").innerHTML = window.location.search
+								document.querySelector("#your_a").href = document.querySelector("#your_a").href + window.location.search
+							});
+
+						&lt;/script&gt;&lt;!-- Close internal javascript --&gt;						
+						</code></pre></div>
 						
-						-->
+						<p>This code should essentially show you your workerID + the URL parameters that you need, including assignmentId, hitId, and workerId. Although MTurk has changed its parameters so that it's harder to get these values from doing a string split in your code, you can still get this information from within the HIT itself.</p>
 						
-						<p>....</p>
+						<p>How do you actually do this? Well, let's take a look at the key code. If you have this pulled up on sandbox, you'll see that it says something like "The iframe URL parameters are currently: ?assignmentId=37UTHISINSOWFAKERTQZR13&hitId=3CMIQF80FAKEFAKEFAKE8WG9N79J6Q8&workerId=A3FAKEID&turkSubmitTo=https%3A%2F%2Fworkersandbox.mturk.com." And if you look at the code, where this HTML element is, it refers to the value of your_url. Let's look at where we're getting your_url. <code>document.querySelector("#your_url").innerHTML = window.location.search</code> essentially holds this information and one way that you can get this in your own code is in the next part: <code>document.querySelector("#your_a").href = document.querySelector("#your_a").href + window.location.search</code>. Essentially, this means that your Experiment Link will have the URL parameters appended to the end of the link.</p>
+
+						<p>With that information at the end of the link, you can then use string splitters to get out the data. You would need to tell it to look for assignmentId and workerId and hitId after the ?, which is fairly simple. But lucky for you, Nick has also shared a function that grabs all the URL parameters and puts them into an object:</p>
 						
-						<p>....</p>
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">	
+						function getAllUrlParams(url) {
+						  // get query string from url (optional) or window
+						  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+
+						  // we'll store the parameters here
+						  var obj = {};
+
+						  // if query string exists
+						  if (queryString) {
+
+							  // stuff after # is not part of query string, so get rid of it
+							  queryString = queryString.split('#')[0];
+
+							  // split our query string into its component parts
+							  var arr = queryString.split('&');
+
+							  for (var i = 0; i &lt; arr.length; i++) {
+								  // separate the keys and the values
+								  var a = arr[i].split('=');
+
+								  // set parameter name and value (use 'true' if empty)
+								  var paramName = a[0];
+								  var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+
+								  // (optional) keep case consistent
+								  paramName = paramName.toLowerCase();
+								  if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+
+								  // if the paramName ends with square brackets, e.g. colors[] or colors[2]
+								  if (paramName.match(/\[(\d+)?\]$/)) {
+
+									  // create key if it doesn't exist
+									  var key = paramName.replace(/\[(\d+)?\]/, '');
+									  if (!obj[key]) obj[key] = [];
+
+									  // if it's an indexed array e.g. colors[2]
+									  if (paramName.match(/\[\d+\]$/)) {
+										  // get the index value and add the entry at the appropriate position
+										  var index = /\[(\d+)\]/.exec(paramName)[1];
+										  obj[key][index] = paramValue;
+									  } else {
+										  // otherwise add the value to the end of the array
+										  obj[key].push(paramValue);
+									  }
+								  } else {
+									  // we're dealing with a string
+									  if (!obj[paramName]) {
+										  // if it doesn't exist, create property
+										  obj[paramName] = paramValue;
+									  } else if (obj[paramName] && typeof obj[paramName] === 'string') {
+										  // if property does exist and it's a string, convert it to an array
+										  obj[paramName] = [obj[paramName]];
+										  obj[paramName].push(paramValue);
+									  } else {
+										  // otherwise add the property
+										  obj[paramName].push(paramValue);
+									  }
+								  }
+							  }
+						  }
+
+						  return obj;
+					  }
+						</code></pre></div>
 						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<p>Essentially this means you have a few options when using MTurk: you can ask participants to input their own workerID and then care less about assignment & hit ID, OR you can insert <code>document.querySelector("a").href = document.querySelector("a").href + window.location.search</code> into the MTurk HIT interface source code and use the function above (or develop your own!) to take out the cookie information appended to each worker's link to your task.</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec42t3">Additional JavaScript Libraries</h4></li></ul>
 					<div>
-						<!--
+						<p>I talked about different JavaScript libraries like Jspsych and JQuery in Module 3, and I briefly want to acknowledge that this is just the TIP of the iceberg.</p>
 						
-						Jspsych and jquery are not the only JS libraries - can briefly mention react.js, node.js, vue.js, lab.js, etc.
+						<p><a href="https://hackr.io/blog/top-javascript-libraries" class="copy-link">There are so, so many other JavaScript libraries</a>, depending on your goals. For instance, an undergraduate RA who worked with Brenda Yang and me on creating a <a href="mindsetmapper.org" class="copy-link">web application</a> used the framework <a href="https://reactjs.org/" class="copy-link">react.js</a> to build the user interface. So many different companies are associated with each library - I've most often heard react.js associated with Facebook, and as the first link suggests, there's a JavaScript library maintained by Google, another by Microsoft. Uber, WhatsApp and other websites use yet another JavaScript library--I can't tell you what's the best. Even that article acknowledges that jQuery is used by companies like Microsoft, Netflix, and Google, but again this is yet another reminder that learning the fundamentals and how to manipulate those will help you decide whether or not you'd like to use a library.</p>
+
+						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1FLLwNRznLbftPfIvqW6UzTaPciR6gRriUH2AF2plqrE/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
 						
-						-->
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<div id="googleForm"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeaJtPD7-Ygb9eXRi0ovH6fsFONohbKjaiVOQdNftCiKom0ZA/viewform?embedded=true" width="640" height="902" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
 					</div>
 				</section>
 				<hr>
@@ -338,15 +509,21 @@
 					</div>
 				</section>
 				<section>
-					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec43t1">Bootstrap</h4></li></ul>
+					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec43t1">Additional CSS Frameworks</h4></li></ul>
 					<div>
 						<!--
 						
 						Can link to the co-lab resources on making your own website, explaining also what bootstrap CSS is/does, and common thoughts on design
 						
+						https://www.altexsoft.com/blog/engineering/most-popular-responsive-css-frameworks-bootstrap-foundation-materialize-pure-and-more/
+						
+						Materialize, Bootstrap, Foundation
+						
+						material CSS and 
+						
 						-->
 						
-						<p>....</p>
+						<p>Why start from scratch with thinking about your design? If you're really looking for additional ...</p>
 						
 						<p>....</p>
 						
@@ -391,7 +568,13 @@
 			●	https://www.octoparse.com/blog/web-scraping-job-postings
 			●	https://medium.com/@msalmon00/web-scraping-job-postings-from-indeed-96bd588dcb4b 
 			●	Example on jobs using HTML, JS, and CSS?
-
+https://pswhitehead.com/post/blog2/
+https://towardsdatascience.com/ethics-in-web-scraping-b96b18136f01 - ethics-in-web-scraping-b96b18136f01
+khoi code
+https://link.springer.com/article/10.1023/B:ETIN.0000047476.05912.3d
+https://realpython.com/beautiful-soup-web-scraper-python/
+https://levelup.gitconnected.com/web-scraping-with-selenium-in-python-8fde2f0fd559
+https://opensource.com/article/20/5/web-scraping-python
 			●	Web-scraping assignment: https://github.com/ppeyliang/web-scraping-job-postings 
 						
 						-->
@@ -405,6 +588,10 @@
 						<p>....</p>
 						
 						<p>....</p>
+
+						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1gf9hKVAAoBxFDyjOT9P8Q2O2oBQq2OHZvQFEy7ifRb0/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
+						
+						<div id="googleForm"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLScpiSY-IFLZu-liLD60JohSLAhoR1E2Tv5dtyKYZWNlhdbDCw/viewform?embedded=true" width="640" height="902" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
 					</div>
 				</section>
 				<section>
@@ -510,6 +697,10 @@
 						<p>....</p>
 						
 						<p>....</p>
+
+						<p>Please remember to evaluate the subsection with the Google Form below so this can be improved in the future (you can find the results from the <a href="https://docs.google.com/spreadsheets/d/1vsbuiWGgInSKDy7KHE1i3imfvkMGMshlKRDb4-xxC4k/edit?usp=sharing" class="copy-link">Google Form</a> here).</p>
+						
+						<div id="googleForm"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdrk0UgNaSJPOx5OaZd9ZCk1wdX5CvLIXuiMpBVyYSj1N7NYA/viewform?embedded=true" width="640" height="902" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
 					</div>
 				</section>
 				<hr>

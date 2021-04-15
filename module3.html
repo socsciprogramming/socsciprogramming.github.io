@@ -1684,7 +1684,118 @@
 					<div>		
 						<p>The following code comes from <a href="https://myweb.uiowa.edu/jiefjiang/index.html" class="copy-link">Dr. Jiefeng Jiang</a> when he first taught me how to code in JavaScript.</p>
 						
-						<p>First up, we have the "Menu" file that essentially will help participants navigate from each task.</p>
+						<p>First up, we have the "Menu" file that essentially will help participants navigate from each task. The purpose of this file is to link to other HTML documents in the way that an "index" page on a website links to the Research, Diversity, Mentoring tabs. It has the same start as the demos above, with the CSS file and loading in JQuery.</p>
+						
+						<p>Let's take a look at the code slowly.</p>
+						
+						<p>So, the first function is the 'basicPopup' function, which is the main purpose of this menu file. When participants click the button to go onto the next task, this function will be run, opening the new html window that is specified. This page essentially just helps people navigate. Next, we have the 'gup' function, which is meant to split the referral HTML link string (i.e., the website/MTurk HIT that links to the menu file - you'll see the code below). As I stated earlier, however, this code is probably an outdated function now that MTurk changed the way it passes on its variables. I talked about including an 'input' HTML element, and in module 4, I go over yet another way to get the MTurk information. But, probably the most important section is the updateMainMenu function. Here, if you write updatedMainMenu(0), it will show the instruction and myButton HTML elements; if you write updateMainMenu(1), it will show the HTML instruction element saying there's a demographic survey to fill out... In essence, this is the function that makes the menu file a "navigation" based file. In the other HTML files, anytime you want to advance in the menu file, you'd just call this function: updateMainMenu(1 or 2). Then, if you close out that HTML file, the participants will see, "Ah, I'm on the next section!"</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						var curStage = 0;<br>
+						<br>
+						function basicPopup(url){<br>
+							popupWindow = window.open(url, "popupWindow");<br>
+						}<br>
+						<br>
+						function gup(name, tmpURL){<br>
+							var regexS = "[\\?&]"+name+"=([^&#]*)";<br>
+							var regex = new RegExp(regexS);<br>
+							var results = regex.exec(tmpURL);<br>
+							if (results == null){<br>
+								return "";<br>
+							}<br>
+							else{<br>
+								return results[1];<br>
+							}<br>
+						}<br>
+						<br>
+						function updateMainMenu(expStage){<br>
+							switch(expStage){<br>
+								case 0:<br>
+									$("#instruction").show();<br>
+									$("#myButton").show();<br>
+									break;<br>
+								case 1:<br>
+									curStage = expStage;<br>
+									$("#instruction").text("Click button to fill out a demographic survey");<br>
+									break;<br>
+								case 2:<br>
+									curStage = expStage;<br>
+									$("#instruction").text("Click button to start main task");<br>
+									break;<br>
+								case 3:<br>
+									curStage = expStage;<br>
+									$("#instruction").hide();<br>
+									$("#myButton").hide();<br>
+									$("#mturk_form").show();<br>
+									break;<br>
+							}<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>Now, here's the rest of the code we didn't look at yet. Below, you can see the code meant to use the gup function to split the MTurk HIT string into the information we need for assignment ID, HIT ID, and worker ID - this is what I meant about calling the "document.referrer" or the referrer (website that linked to) for the document (current webpage). We essentially have HTML elements at the bottom for assignment ID, etc. that we assign the values to, via this function. That's why you can also use the code I mentioned aerlier with the input HTML element.</p>
+						
+						<p>Here, you also see the exact way that this menu page navigates through the task. When you click the button, if you're on the 0 stage for the updateMainMenu function, it will pop up with the practice HTML (below), until it's told to move forward onto the next step. And we explicitly write to updateMainMenu(0) so that the screen is not 0 - we need to pull up that first page. And below all this, you see that we format information that we'd need in order to get appropriate data out of MTurk. The "form" element is typically how we send data on the interweb - anytime you fill out a contact form, you're using this element. Here, we indicate that we want to keep track of assignment ID, hit ID, etc. in addition to logs and demos. We also have the workersandbox link as the place to submit the form - that's already set up for you so that if you submit the form, it will look for the worker in the batch (identified through those 3 key MTurk elements) and then create columns in the batch .CSV file (that we went over in module 1!) entitled 'logs' and 'demos.' Thus, whatever you end up assigning as the values to those elements can then be recorded and submitted to the site in this way.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						$(document).ready(function(){<br>
+							$("#mturk_form").hide();<br>
+							document.getElementById("assignmentId").value=gup("assignmentId", document.referrer);<br>
+							document.getElementById("hitId").value=gup("hitId", document.referrer);<br>
+							document.getElementById("workerId").value=gup("workerId", document.referrer);<br>
+							<br>	
+								if (document.getElementById("assignmentId").value == "" || document.getElementById("assignmentId").value=="ASSIGNMENT_ID_NOT_AVAILABLE"){<br>
+									$("#instruction").text("Please accept HIT first");<br>
+									$("#myButton").hide();<br>
+								}<br>
+								else{<br>
+									$("#myButton").click(function(){<br>
+										switch(curStage){<br>
+											case 0:<br>
+												basicPopup("WordStroop_Practice.html");<br>
+												break;<br>
+											case 1:<br>
+												basicPopup("Demographics.html");<br>
+												break;<br>
+											case 2:<br>
+												basicPopup("WordStroop.html");<br>
+												break;<br>
+										}<br>
+									});<br>
+									updateMainMenu(0);<br>
+								}<br>
+						});<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;p id="instruction" style="font-family: arial; font-size: 40px"&gt;Click the button to start practice&lt;/p&gt;<br>
+										&lt;button id="myButton" style="font-family: arial; font-size: 30px"&gt;Click&lt;/button&gt;<br>
+										&lt;form id="mturk_form" method="POST" action="https://workersandbox.mturk.com/mturk/externalSubmit"&gt;<br>
+											&lt;input type="hidden" id="assignmentId" name="assignmentId" value=""&gt;<br>
+											&lt;input type="hidden" id="hitId" name="hitId" value=""&gt;<br>
+											&lt;input type="hidden" id="workerId" name="workerId" value=""&gt;<br>
+											&lt;input type="hidden" id="logs" name="logs" value=""&gt;<br>
+											&lt;input type="hidden" id="demos" name="demos" value=""&gt;<br>
+											&lt;p style="font-size: 30px"&gt;Click to submit data to MTurk&lt;/p&gt;<br>
+											&lt;input id="submitButton" style="font-size: 30px" type="submit" name="Finish" value="Submit"&gt;<br>
+										&lt;/form&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>Voila, here's that menu code in full.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!DOCTYPE html&gt;<br>
@@ -1785,43 +1896,15 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....We haven't gone over switch and break yet & workersandbox. Explain & basic organization.</p>
+						<p>OK, great! So you now have seen how to use the developer site as a way of checking out whether your data looks the way you want (via this form submission), and you've seen a way on how to navigate through completely different tasks.</p>
 						
-						<p>OK, what does that CSS file look like?</p>
-						
-						<div class="highlight"><pre><code class="language-css" data-lang="css">
-						html {<br>
-							height: 100%;<br>
-							width: 100%;<br>
-							margin: 0;<br>
-							padding: 0;<br>
-							border: 0;<br>
-						}<br>
-						<br>
-						body {<br>
-							height: 100%;<br>
-							width: 100%;<br>
-							margin: 0;<br>
-							padding: 0;<br>
-							border: 0;<br>
-							/* background-color: #7F7F7F; */<br>
-							background-color: grey;<br>
-						}<br>
-						<br>
-						table {<br>
-							height: 100%;<br>
-							width: 100%;<br>
-							margin:0;<br>
-							padding:0;<br>
-							border:0;<br>
-							text-align:center;<br>
-							vertical-align:middle;<br>
-						}<br>
-						</code></pre></div>
-					
-						<p>This CSS is pretty basic and primarily serves to ensure that the text is center aligned for the "table" elements, the background is grey (not white), and everything else has no margin, padding, or border automatically. In other words, this is a pretty bare bones demo for an Experiment. If you were to run an Experiment, you'd probably want to have prioritize the User Experience more.</p>
+						<p>Remember that this CSS file - as loaded in, like the practice demos above - is pretty basic and primarily serves to ensure that the text is center aligned for the "table" elements, the background is grey (not white), and everything else has no margin, padding, or border automatically. In other words, this is a pretty bare bones demo for an Experiment. If you were to run an Experiment, you'd probably want to have prioritize the User Experience more.</p>
 						
 						<p>OK, so this Menu file tells us to load the practice task, then the demographics, then the task files. What do each of these look like?</p>
+						
+						<p>Here's the demograhpics task. At the top, we define an empty array to put the data into and we define what happens when the user clicks to submit their data. It basically then assigns the first row in the array to whatever the value is for the gender question, then the age question, then the ethnicity and race questions. Then it's joins these elements together with a semi-colon within the data array, assigns that value to the demos HTML element in the menu file (opener.window.document refers to the menu file, since it was used to open the current webpage/document). It then updates the menu page so that you'd move onto the main task and then closes out this pop up page.</p>
+						
+						<p>Next, we see the actual demographic questions that participants are asked, as defined in the HTML. If you remember from Module 2, it may not be the best to use a drop-down option for Gender here, because that means that you have to pre-define all options for Gender. This Demographic question only allows for Male, Female, and Do Not Wish to Reply, which is what is listed on the <a href="https://www.nia.nih.gov/sites/default/files/demographics_form.pdf" class="copy-link">National Institutes of Health demographics form</a>. However, as you might be aware, a number of folks do not identify as male or female, but as nonbinary. Moreover, this question confounds gender with sex (male/female is typically actually associated with sex and woman/man with gender - <a href="https://www.queensu.ca/psychology/van-anders-lab/sctworkbook.pdf" class="copy-link">see this workbook from Sari Van Anders' lab</a>). After that, there is an input element for age, drop-downs for ethnicity and race per the NIH form. The option values are what are coded into the HTML element and what gets assigned to data[0], data[1], etc.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!DOCTYPE html&gt;<br>
@@ -1886,7 +1969,179 @@
 						&lt;/html&gt;<br>	
 						</code></pre></div>
 						
-						<p>....The following shows you a way around using the canvas - using pure HTML instead for presenting the stimuli in the practice task.</p>
+						<p>OK, now that we've gotten the demographics, we're onto the final task page from the menu page. The following shows you a way around using the canvas - using pure HTML instead for presenting the stimuli in the practice task. I'll present the practice task before the main task, mostly as a contrast for you.</p>
+						
+						<p>OK, let's look at this code little by little. First up, like we did in the earlier demos, we define the variables - here, indicating the colors and word to be presented via numbers that will be given meaning via conditional statement below. We define variables that will indicate particular timepoints we're interested in, like onset. And we'll define a blank array that we'll want to drop the data into. Finally, we've also defined a timeoutHandle and a checkResponse variable - these are going to function exactly as you might think, a way to keep track of time relative to the response and whether a participant responds in time.</p>
+						
+						<p>Then we define the runTrial function. We've essentially set up a counter now, where i starts at 0 and as long as it's less than the number of trials we want to run (trialNum), we'll keep running through this runTrial function. We increment through the word matrix based on the trial number that we're currently on (i = 0, so trial #1). It goes to the first number in "word", which is 1, and if it's 1, that means that the s HTML element will be the text "RED". In the second part, we see that the first element of the color matrix is 1, and if the value is 1, we see that the CSS for the HTML element specifies the red color. At the bottom, it makes sure that the HTML element is shown *after* defining how the element should look, and then we see "new Date.()", which will create a timepoint in the code. This is essentially to help us mark when exactly a stimulus is shown on screen. If we want to see how quickly participants respond, then we'll need to know *when* what they respond to is shown on screen. We also set the checkResponse variable to true, ensuring that we want to allow responses *only* while this variable is on screen. We then define the timeoutHandle variable, which says that the next "call" for this function is to the function showITI, and that occurs after 1000 ms (meaning a participant would have 1000 ms to see this word on screen and respond before something else is shown). And we also see the end of the conditional for the runTrial function, where if you've exceeded the number of trials that we should show (trialNum), it then will change the text to white and 20 pixels and it joins together what is input in the data array with the s element. We already saw one of the rows for the data array contains "presentation" style information - "P: color, word" - telling us what was on screen. So when people finish this (fake) practice experiment, it will show them their data on screen as well as an html element - endPractice - that we will see is a button.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						&lt;!DOCTYPE html&gt;<br>
+						&lt;html&gt;<br>
+						&lt;head&gt;<br>
+						&lt;link rel="stylesheet" href="WordStroop.css" type="text/css" charset="utf-8"&gt;<br>
+						&lt;script type="text/javascript" src="jquery-1.7.1.js"&gt;&lt;/script&gt;<br>
+						&lt;script type="text/javascript"&gt;<br>
+						<br>
+						$(document).ready(function(){<br>
+							var trialNum = 9;<br>
+							var color = [1,2,3,1,2,3,1,2,3];<br>
+							var word = [1,1,1,2,2,2,3,3,3];<br>
+							var i = 0;<br>
+							<br>
+							var runStart;<br>
+							var logCounter = 0;<br>
+							var onset;<br>
+							var data = [[""]];<br>
+							var d1 = new Date();<br>
+							$("#endPractice").hide();<br>
+							<br>
+							var checkResponse = true;<br>
+							var timeoutHandle = null;<br>
+							<br>
+							function runTrial(){<br>
+								if (i &lt; trialNum){<br>
+									switch(word[i]){<br>
+										case 1:<br>
+											$("#s").text("RED");<br>
+											break;<br>
+										case 2:<br>
+											$("#s").text("BLUE");<br>
+											break;<br>
+										case 3:<br>
+											$("#s").text("YELLOW");<br>
+											break;<br>
+									}<br>
+									<br>
+									switch(color[i]){<br>
+										case 1:<br>
+											$("#s").css("color", "red");<br>
+											break;<br>
+										case 2:<br>
+											$("#s").css("color", "blue");<br>
+											break;<br>
+										case 3:<br>
+											$("#s").css("color", "yellow");<br>
+											break;<br>
+									}<br>
+									$("#s").show();<br>
+									checkResponse = true;<br>
+									<br>
+									d1 = new Date();<br>
+									onset = d1.getTime() - runStart;<br>
+									data[logCounter] = ["P:", onset, color[i], word[i]];<br>
+									logCounter++;<br>
+									<br>
+									timeoutHandle = setTimeout(showITI, 1000);<br>
+									i++;<br>
+								}<br>
+								else{<br>
+									$("#s").css("font-size", "20px");<br>
+									$("#s").css("color", "white");<br>
+									$("#s").text(data.join(";"));<br>
+									$("#s").show();<br>
+									$("#endPractice").show();<br>
+								}<br>
+							}<br>
+						</code></pre></div>
+						
+						<p>OK, let's look at the next section. So we already know that runTrial goes to this showITI function, where we hide the s HTML element (the stimulus on screen) and we run this 'blank screen' for 2000 ms before going to the noResponseFeedback function. We then disable a participant's way of responding in the noresponseFeedback function by defining checkResponse as false, and we tell participants that we got no response from them. The other function I haven't mentioned yet is showFeedback, and that's because we should look at the event listener that's defined - body.keypress. So, whenever there is a keyPress, it checks to see if checkResponse = true (i.e., the time when we want participants to respond). If true, it clears the timeout. It sets checkResponse to false, so we won't record another response. It checks the key that was pressed, creates a new timepoint, and then indicates what key was pressed as well as what time it was pressed it. (You could define reaction time by taking this time at the response and subtracting it from the time at which the stimulus was presented). Because we've cleared the "timeoutHandle", this actually means that the setTimeout for the original runTrial function is cleared - it doesn't have to run for all 1000 ms. In short, this is a way of making response-specific timing. Instead of waiting for the full 1000 ms, it will only show on screen as long as it takes you to respond... and if you don't respond within the 1000 ms timeline, you get that noresponseFeedback. (If you wanted to make a fixed trial time, you would not clear the timeout, and you would not define a function within your event listener). And so, if you do make a response, you can also see, we define whether the answer - the key pressed - is correct. We then show participants the showFeedback function and indicate in that function whether the response is Correct or not. Notably, both showFeedback and noresponseFeedback go to 'showITI2' next, and that function goes to runTrial after 2000 ms. So the timeline for this task so far is 1000 ms color-word (or shorter) - 2000 ms blank screen (which may not show if you responded earlier, so technically participants have 1000 ms to *see* the color-word and up to 3000 ms to actually respond) - then either feedback or no feedback - then a real blank screen for 2000 ms before the next trial. </p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function showITI(){<br>
+								$("#s").hide();<br>
+								timeoutHandle = setTimeout(noResponseFeedback, 2000);<br>
+							}<br>
+							<br>
+							function showFeedback(isCorrect){<br>
+								$("#s").show();<br>
+								$("#s").css("color", "white");<br>
+								if (isCorrect){	<br>
+									$("#s").text("Correct");<br>
+								}<br>
+								else{<br>
+									$("#s").text("Incorrect");<br>
+								}<br>
+								setTimeout(showITI2, 1000);<br>
+							}<br>
+							<br>
+							function noResponseFeedback(){<br>
+								checkResponse = false;<br>
+								$("#s").show();<br>
+								$("#s").css("color", "white");<br>
+								$("#s").text("No response");<br>
+								setTimeout(showITI2, 1000);<br>
+							}<br>
+							<br>
+							function showITI2(){<br>
+								$("#s").hide();<br>
+								setTimeout(runTrial, 2000);<br>
+							}<br>
+							<br>
+							$("body").keypress(function(event){<br>
+								if (checkResponse){<br>
+									clearTimeout(timeoutHandle);<br>
+									checkResponse = false;<br>
+									var key = String.fromCharCode(event.which);<br>
+									d1 = new Date();<br>
+									data[logCounter] = ["R:", key, d1.getTime() - runStart];<br>
+									logCounter++;<br>
+									<br>
+									var ans = key[0] - '0';<br>
+									if (color[i - 1] == ans){<br>
+										showFeedback(true);<br>
+									}<br>
+									else{<br>
+										showFeedback(false);<br>
+									}<br>
+								}<br>
+							});<br>
+							<br>
+						</code></pre></div>
+						
+						<p> OK, time for the last section of this code. How does this task actually start? Well, with the countdown function that I mentioned to you earlier! once the countdown is complete, it will mark the time this run started, and it will initiate the runTrial function. And you start the countdown by clicking the "start" HTML element, which is a button... and you end this practice task by clicking the endPractice button, which if you remember will show only when we've already gone through all the iterations of the runTrial function. There, it will update the menu page, and it will then close the current pop up page.</p>
+						
+						<div class="highlight"><pre><code class="language-html" data-lang="html">
+						function countDown(time){<br>
+								if (time &gt; 0){<br>
+									$("#s").text('' + time);<br>
+									setTimeout(function(){countDown(time - 1)}, 1000);<br>
+								}<br>
+								else{<br>
+									d1 = new Date();<br>
+									runStart = d1.getTime();<br>
+									runTrial();<br>
+								}<br>
+							}<br>
+							<br>
+							$("#start").click(function() {<br>
+								$("#start").hide();<br>
+								countDown(3);<br>
+							});<br>
+							<br>
+							$("#endPractice").click(function(){<br>
+								opener.updateMainMenu(1);<br>
+								JavaScript:window.close();<br>
+							});<br>
+						});<br>
+						<br>
+						&lt;/script&gt;<br>
+						&lt;/head&gt;<br>
+						&lt;body&gt;<br>
+							&lt;table&gt;<br>
+								&lt;tr&gt;<br>
+									&lt;td&gt;<br>
+										&lt;p id="s" style="font-family: arial; font-size:60px"&gt;RED=1, BLUE=2,	YELLOW=3&lt;/p&gt;<br>
+										&lt;button id="start"&gt;Click to start&lt;/button&gt;<br>
+										&lt;button id="endPractice" style="font-family: arial; font-size: 20px"&gt;Click to end practice&lt;/button&gt;<br>
+									&lt;/td&gt;<br>
+								&lt;/tr&gt;<br>
+							&lt;/table&gt;<br>
+						&lt;/body&gt;<br>
+						&lt;/html&gt;<br>
+						</code></pre></div>
+						
+						<p>Wow, so we went through the demographics and practice task! And this was one *not* using the canvas API, but specifically using a combination of HTML and CSS instead to present something on screen. But, here's the code in full now.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!DOCTYPE html&gt;<br>
@@ -2045,7 +2300,7 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>.... OK, what does the main task look like? It's very similar to the practice task.</p>
+						<p>OK, what does the main task look like? It's very similar to the practice task. Can you spot the differences?</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!DOCTYPE html&gt;<br>
@@ -2157,23 +2412,15 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
+						<p>Hopefully that's given you an idea of how you can combine a bunch of different tasks together to create your full experiment and how you might record data, even if your lab doesn't have a specific server!</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t2">Basic Stroop task demo, II</h4></li></ul>
 					<div>
-						<!--
-						Go over what the script is doing for one example, helpful if not as efficient and/or coded differently
-						-->
+						<p>The following code comes from <a href="https://nbrosowsky.github.io/simple-stroop-demo/" class="copy-link">Dr. Nick Brosowsky's Stroop Task Demo</a>. Nick codes his tasks so that there are separate HTML and JS files, whereas the example I showed you above just defined most things in the HTML file directly.</p>
 						
-						<p>The following code comes from <a href="https://nbrosowsky.github.io/simple-stroop-demo/" class="copy-link">Dr. Nick Brosowsky's Stroop Task Demo</a>.</p>
-						
-						<p>Here's the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/index.html" class="copy-link">index or Menu file</a>:</p>
+						<p>Here's the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/index.html" class="copy-link">index or Menu file</a>. It still has the same structure - definig the author, the title of the page, the CSS files to reference, conditionals in case someone has JavaScript disabled, and showing the consent form. (Can you guess how the consent is shown in the previous example? ... Yes, it is just another item in the menu file - the first updateMainMenu(0) link, before going to the practice, if you wanted to expand on that code). OK, so then he defines whether you can see something on screen based on whether you clicked to consent to the task or not. If you consent, it then opens the task HTML file within the same browser (_self). So, then, let's go take a look at what that task file looks like.</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!DOCTYPE html&gt;<br>
@@ -2248,7 +2495,7 @@
 						&lt;/body&gt;<br>
 						</code></pre></div>
 						
-						<p>....The index file links to the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/task.html" class="copy-link">task file</a> below.</p>
+						<p>The index file links to the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/task.html" class="copy-link">task file</a> below. You can see that it follows basically the same structure as the index file, in terms of defining the author, the title, the CSS sheets... and then it has a div for the "main-display", the JS libraries to bring in (<a href="https://github.com/nbrosowsky/eventTimer" class="copy-link">eventTimer</a> - Nick's alternate to setTimeout; record_data.js, create_stroop_trials.js, and run_stroop.js.) This file is pretty short... so let's look at these specific JS files.</p>
 
 						<div class="highlight"><pre><code class="language-html" data-lang="html">
 						&lt;!DOCTYPE html&gt;<br>
@@ -2295,7 +2542,7 @@
 						&lt;/html&gt;<br>
 						</code></pre></div>
 						
-						<p>.... This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/create_stroop_trials.js" class="copy-link">create_stroop_trials.js external file</a> referred to above.</p>
+						<p>This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/create_stroop_trials.js" class="copy-link">create_stroop_trials.js external file</a> referred to above. We can see that Nick refers to the shuffle function that we mentioned earlier, that he also defines the variable trial_array as part of this function. He has a generic function to repeat stimuli, he then says we're going to have 48 trials, and defines red, blue, green, and yellow at the colors & color-words he's interested in. Then we get into actually making the stimulus array - we say, as long as the counter is less than the length of the array that has the stim_set, run this second for loop; in that second loop, we have the same condition. It then <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" class="copy-link">uses the "push" method within JavaScript</a> to add elements to the end of 2 separate arrays: con_stims (i.e., congruent, when RED is presented in red) and inc_stims (i.e., incongruent, when RED is presented in another color besides red). And then after that's done, Nick calls on his repeated function to repeat the elements within con_stimes three times, and then again to populate it out to the number of trials, with an equal number between incongruent and congruent stimuli (N_trials/2). Then, these two arrays are concatenated together, and shuffled for a single array with all the color-word stimuli and their color/word pairings. He then creates an object-oriented array in temp_array by taking the current stimuli in that all_stimuli array, defining the trial number it is (the key being trial and its value n+1), the word presented, the color it's presented in, whether the color-word matches the color it's presented in (congruency), and what the participant should say (answer). In essence, this is a more complicated way of defining what should be presented on screen than you saw in the last Stroop demo, where they were just manually defined.</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						// creates an array of stroop trials<br>
@@ -2373,7 +2620,191 @@
 						}()<br>
 						</code></pre></div>
 						
-						<p>.... This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/run_stroop.js" class="copy-link">run_stroop.js external file</a> referred to above.</p>
+						<p>Now, let's look at the other JavaScript files. This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/run_stroop.js" class="copy-link">run_stroop.js external file</a> referred to above. As I linked to earlier, Nick uses eventTimer instead of setTimeout and includes a conditional here to check to make sure eventTimer is actually loaded in and included properly within the code; if it's not, it refers to setTimeout instead. Then, like with all the other demos I've shown so far, he defines the global variables like the trial counter and a variable to determine when you can actually respond. Then he's initialized the display for the experiment by showing that HTML element we saw earlier in the task file, ensuring that he's also not listening yet for the keydown element, and then also calling the instructions function below. That instructions function hides the HTML element where the actual content would be shown until after he defines what *should be shown*. I.e., then he's defined the HTML element for the instructions. He includes a NEXT button to keep reading. If they click, it will then go to the second page of the instructions. Then that second instructions function is very similar to this first, but basically a page to show us that hey, when you press the next button, you'll start the task. One of the nicer things about how Nick has his task coded is that each section is very clearly *one* thing, and you can see how he's melded css with the HTML, given all the classes that are assigned to the content display.</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						// I use a custom timer called "eventTimer", but this code checks that it is loaded<br>
+						// fallback to vanilla timers if eventTimer is not loaded...<br>
+						// you could replace all eventTimer.setTimeout with window.setTimeout and everything would still work<br>
+						<br>
+						if (typeof eventTimer == 'undefined') {<br>
+							//console.log("no eventTimer found... using JS setTimeout/Interval")<br>
+							var eventTimer = {};<br>
+							eventTimer.setTimeout = function (fun, time) {<br>
+								window.setTimeout(fun, time)<br>
+							}<br>
+							eventTimer.setInterval = function (fun, time) {<br>
+								window.setInterval(fun, time)<br>
+							}<br>
+						}<br>
+						<br>
+						/////// global variables ////////////<br>
+						let allow_keys = false // when true keypresses trigger function<br>
+						let trial_counter = 0  // tracks current trial<br>
+						<br>
+						///// initialize the display for experiment ///////////<br>
+						let init_stroop = function () {<br>
+							// add event listener for the on_keypress function<br>
+							document.addEventListener("keydown", on_keypress, false)<br>
+							<br>
+							// create content display within the main-display div<br>
+							document.querySelector("#main-display").style.display = "flex"<br>
+							document.querySelector("#main-display").innerHTML = `&lt;div class="content-display flex flex-column justify-center lh-copy" style="text-align: left"&gt;&lt;/div&gt;`<br>
+							<br>
+							// call instruction function<br>
+							instructions_pg1();<br>
+						}<br>
+						<br>
+						//////// INSTRUCTIONS /////////////////////<br>
+						let instructions_pg1 = function () {<br>
+							document.querySelector(".content-display").style.visibility = "hidden"<br>
+							<br>
+							document.querySelector(".content-display").innerHTML =<br>
+								`&lt;h3&gt;Instructions&lt;/h3&gt;<br>
+										&lt;div&gt;<br>
+											&lt;p&gt;Your primary task will be to identify the color of the font as quickly and as accurately as possible.&lt;/p&gt;<br>
+											&lt;p&gt;On every trial you will see a color-word in a colored font (e.g., &lt;span style="color: #e41a1c"&gt;BLUE&lt;/span&gt;, &lt;span style="color:#ffff33"&gt;YELLOW&lt;/span&gt;, &lt;span style="color:#1f78b4"&gt;BLUE&lt;/span&gt;). &lt;/p&gt;<br>
+											&lt;p&gt;Your task is to indicate the color of the font (ignoring what the word says). You will use the keyboard to respond by pressing "b" for blue, "g" for green, "r" for red and "y" for yellow.&lt;/p&gt;<br>
+											&lt;p&gt;For example, if you were presented &lt;span style="color: #1f78b4"&gt;RED&lt;/span&gt;, you would respond by pressing "b" for blue.&lt;/p&gt;<br>
+											&lt;p&gt;If you were presented &lt;span style="color: #4daf4a"&gt;GREEN&lt;/span&gt;, you would respond by pressing "g" for green.&lt;/p&gt;<br>
+										&lt;/div&gt;<br>
+									&lt;div class="flex flex-row" style=""&gt;<br>
+										&lt;a id="dyn-bttn" class="bttn b-right f6 link dim ph3 pv2 mb2 dib white bg-gray" href="#0"&gt;NEXT&lt;/a&gt;<br>
+									&lt;/div&gt;`<br>
+							<br>
+							// can only set onclick after a button has been created<br>
+							document.querySelector("#dyn-bttn").setAttribute("onClick", "javascript: instructions_pg2();")<br>
+							document.querySelector(".content-display").style.visibility = "visible"<br>
+						}<br>
+						<br>
+						let instructions_pg2 = function () {<br>
+							document.querySelector(".content-display").style.visibility = "hidden"<br>
+							<br>
+							document.querySelector(".content-display").innerHTML =<br>
+								`&lt;h3&gt;Instructions&lt;/h3&gt;<br>
+										&lt;div&gt;<br>
+											&lt;p&gt;That's it!&lt;/p&gt;<br>
+											&lt;p&gt;When you are ready to begin, press start&lt;/p&gt;<br>
+										&lt;/div&gt;<br>
+									&lt;div class="flex flex-row" style=""&gt;<br>
+										&lt;a id="dyn-bttn" class="bttn b-right f6 link dim ph3 pv2 mb2 dib white bg-gray" href="#0"&gt;NEXT&lt;/a&gt;<br>
+									&lt;/div&gt;`<br>
+							<br>
+							// can only set onclick after a button has been created<br>
+							document.querySelector("#dyn-bttn").setAttribute("onClick", "javascript: start_task();")<br>
+							document.querySelector(".content-display").style.visibility = "visible"<br>
+						<br>
+						}<br>
+						</code></pre></div>
+						
+						<p>OK, now that we've looked at the instructions within this run JS file, let's look at the Stroop task functions. When the task is initialized (when someone presses the button shown on the screen after the 2nd instructions page), he then does this start_task function that fixes what the actual main display will look like. Then he runs the fixate function. It shows the stimulus HTML element as a grey + (fixation sign). It lasts for 1000 ms before running the post_fixate function, which makes the stimulus HTML blank and lasts for 500 ms before calling the stimulus function. In the stimulus function, he defines the time at which the stimulus is shown on screen, then changes the necessary elements - like the color the color-word is presented in, presenting the color-word in upper case (toUpperCase()) and the specific word that had been defined in the array before. He allows the participant to respond by chagning allow_keys to true. Now, to understand what happens next, you have to go down to where the event listener actually is. It's on_keyPress and you can see that it checks what key was pressed. Like with our previous example, nothing will happen if the key is pressed and they're not supposed to be pressing keys, but if it's during the stimulus time, we'll look to see whether they've pressed the task-specific keys, define their reaction time (time at which something is shown on screen relative to when you actually responded), and then run the end_trial function. There, we increase the trial counter and if we're still under the number of trials we're supposed to run, go to the pre_fixate function (a blank screen) for 500 ms before rerunning the entire cycle again. And when we are past the number of trials, in the end_trial function, it goes to submit the data and open up a feedback HTML document. The submit data JS is what's below!</p>
+						
+						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
+						//////////////// stroop task functions /////////////////////<br>
+						let start_task = function () {<br>
+							// setup the display for stroop task<br>
+							document.querySelector("#main-display").innerHTML = `<br>
+										  &lt;div class="content-display flex items-center" &gt;<br>
+											&lt;div class="stimulus-display"&gt;<br>
+												&lt;p id="stimulus" style="min-height: 82px;"&gt;&lt;/p&gt;<br>
+											&lt;/div&gt;<br>
+										  &lt;/div&gt;`<br>
+							<br>
+							fixate();<br>
+							<br>
+						};<br>
+						<br>
+						let pre_fixate = function () {<br>
+							// blank screen before fixation<br>
+							document.querySelector("#stimulus").innerHTML = ""<br>
+							<br>
+							timer = eventTimer.setTimeout(fixate, 500)<br>
+						}<br>
+						<br>
+						let fixate = function () {<br>
+							// display fixation<br>
+							document.querySelector("#stimulus").style.color = "grey"<br>
+							document.querySelector("#stimulus").innerHTML = "+"<br>
+						<br>
+							timer = eventTimer.setTimeout(post_fixate, 1000)<br>
+						}<br>
+						<br>
+						let post_fixate = function () {<br>
+							// blank screen after fixation<br>
+							document.querySelector("#stimulus").innerHTML = ""<br>
+						<br>
+							timer = eventTimer.setTimeout(stimulus, 500)<br>
+						}<br>
+						<br>
+						let stimulus = function () {<br>
+							// save time when the trial started<br>
+							trial_array[trial_counter].time_start = window.performance.now();<br>
+							<br>
+							let div = document.querySelector("#stimulus")<br>
+							div.style.visibility = "hidden"<br>
+							<br>
+							// change color to trial color<br>
+							div.style.color = trial_array[trial_counter].color<br>
+							<br>
+							// insert trial stimulus word into div<br>
+							div.innerHTML = trial_array[trial_counter].word.toUpperCase();<br>
+							<br>
+							div.style.visibility = "visible"<br>
+							<br>
+							// allow keyboard responses & wait for response<br>
+							allow_keys = true;<br>
+						}<br>
+						<br>
+						let end_trial = function () {<br>
+							// increase trial counter<br>
+							trial_counter++<br>
+						<br>
+							// if there are no more trials end experiment<br>
+							if (trial_counter &gt; trial_array.length - 1) {<br>
+								end_exp();<br>
+								return<br>
+							}<br>
+							<br>
+							// else cue next trial<br>
+							pre_fixate();<br>
+						}<br>
+						<br>
+						let end_exp = function (){<br>
+							// typically you would submit the data through php which would automatically trigger the feedback html<br>
+							//submit_data();<br>
+							<br>
+							// but since the php won't post properly without a server I'll just trigger the html<br>
+							 window.open("feedback-letter.html", "_self");<br>
+						}<br>
+						<br>
+						/////////// on keypress event // added as event listener on init /////////////////////////<br>
+						let on_keypress = function (event) {<br>
+							let code = event.which || event.keyCode || 0<br>
+							let key = event.key<br>
+							<br>
+							key_time = window.performance.now();<br>
+							<br>
+							// do nothing if allow_keys is false<br>
+							if (allow_keys == false) {<br>
+								return;<br>
+							}<br>
+							<br>
+							// submit a response if current key one of the response keys<br>
+							if (code == 82 | code == 66 | code == 71 | code == 89) {<br>
+								// don't allow anymore keypresses<br>
+								allow_keys = false;<br>
+							<br>
+								// record response data<br>
+								trial_array[trial_counter].response = key;<br>
+								trial_array[trial_counter].reaction_time = key_time - trial_array[trial_counter].time_start<br>
+								trial_array[trial_counter].time_end = key_time<br>
+							<br>
+								end_trial();<br>
+							}<br>
+						};<br>
+						</code></pre></div>
+						
+						<p>Now let's take a look at the code in full!</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						// I use a custom timer called "eventTimer", but this code checks that it is loaded<br>
@@ -2553,7 +2984,7 @@
 						};<br>
 						</code></pre></div>
 						
-						<p>.... This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/record_data.js" class="copy-link">record_data.js external file</a> referred to above.</p>
+						<p>This is the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/js/record_data.js" class="copy-link">record_data.js external file</a> referred to above. Each person is assigned a random string (subcode) with 8 selected from 0-9 and a-z in upper and lower case. This is stored as the sscode, and when you submit data, it is sending the data to a lab-specific custom PHP file. It will indicate which study is run and the data array that we've already defined earlier. It converts the array to text via the array_to_text function, which adds delimiters between each row (new line) or column (,). This is akin to the earlier code where we did array.join(delimiter). Nick just writes this into an entire function, and it runs before the 'submit data' section of the sub_data function. There, it includes the values for the sscode, indicates the data array, and then submits to the PHP (which presumably creates its own task file on their server). You could still run this with the sandbox external submit instead of the server-side.php file and test this one out.</p>
 						
 						<div class="highlight"><pre><code class="language-js" data-lang="javascript">
 						// create a random subject code<br>
@@ -2626,7 +3057,7 @@
 						}<br>
 						</code></pre></div>
 						
-						<p>.... What about the CSS used in this Experiment? Here's the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/css/index-style.css" class="copy-link">index-style css file</a>.</p>
+						<p>Great! So now you've seen what it's like to have an experiment in separate JavaScript and HTML files, and this experiment solely used vanilla JS instead of jQuery (see how this one used document.getElementById whereas the above Experiment kept referring to elements like $("#") - that's one of the differences in whether you use the jQuery library versus JavaScript.) What about the CSS used in this Experiment? Here's the <a href="https://github.com/nbrosowsky/simple-stroop-demo/blob/master/css/index-style.css" class="copy-link">index-style css file</a>. You can immediately see that for this demo, Nick has used way more CSS than was used in the other demo. But do you think all of these were used? Try to take a look for yourself and see whether this CSS refers to all the code I include above or if there's CSS referring to things that are in, e.g., the feedback HTML I haven't shown here.</p>
 						
 						<div class="highlight"><pre><code class="language-css" data-lang="css">
 						div,button{<br>
@@ -2780,21 +3211,15 @@
 						<br>
 						ul {color:#57585b;}<br>
 						</code></pre></div>
-						
-						<p>....</p>
 					</div>
 				</section>
 				<section>
 					<ul class="fa-ul"><li><span class="fa-li"><i class="fas fa-star"></i></span><h4 id="subsec33t3">Basic Stroop task demo, III</h4></li></ul>
 					<div>
-						<p>The following code comes directly from <a href="https://crumplab.github.io/programmingforpsych/Programming_Crump.pdf" class="copy-link">Dr. Matthew Crump's Programming for Psychologists</a> textbook, pages 147-159. Please make sure to check out that link and the Crump lab website for a number of other useful open-source tools.</p>
+						<p>One last thing that I want you to do is take a look at <a href="https://crumplab.github.io/programmingforpsych/Programming_Crump.pdf" class="copy-link">Dr. Matthew Crump's Programming for Psychologists</a> textbook, pages 147-159. This textbook *also* has a Basic Stroop task. For copyright reasons, I'm not going to copy/paste any parts of that code here, but it's useful to also compare how he codes THIS EXACT style of task too. Where does he differ relative to these last two demos?</p>
 						
-						<p>....</p>
-						
-						<p>....</p>
-						
-						<p>....</p>
-						
+						<p>What might you want to do for your own Experiments?</p>
+												
 						<p>Finally, if you're looking for more coding examples, you can check out <a href="https://github.com/socsciprogramming/socsciprogramming.github.io/tree/master/examples" class="copy-link">the folder within this repository</a> for that purpose.</p>
 					</div>
 				</section>
@@ -2829,7 +3254,7 @@
 						
 						-->
 						
-						<p>....</p>
+						<p>Do you remember in Module 1 when we referred to the "Source" page of MTurk? This source page is HTML! You should be able to read this kind of code a lot easier now.</p>
 						
 						<p>....</p>
 						
