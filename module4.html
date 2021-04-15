@@ -280,134 +280,132 @@
 						<p>As I mentioned within the JavaScript basics subsection and again in the Demos & Scripts subsection of Module 3, MTurk has recently changed up how it sends information about worker ID and assignment ID. I mentioned that I sometimes just have participants fill an input element with their worker ID. That works fine. But if you want another method, <a href="https://nbrosowsky.github.io/" class="copy-link">Dr. Nick Brosowsky</a> has shared the following code for a HIT. Remember how we went over how MTurk uses HTML? Input this HTML into a HIT on requester sandbox, publish a batch, and then accept the HIT as a worker on worker sandbox. What do you see there?</p>
 						
 						<div class="highlight"><pre><code class="language-html" data-lang="html">	
-						&lt;meta content="width=device-width,initial-scale=1" name="viewport" /&gt;
-						&lt;section class="container" id="SurveyLink"&gt;&lt;!-- Instructions --&gt;
-						&lt;div style="margin: 25px"&gt;
-						&lt;p&gt;The purpose of this research is to investigate creative idea generation.&lt;/p&gt;
-
-						&lt;p&gt;Your Worker ID is: &lt;span id="your_id"&gt; HIT NOT ACCEPTED YET&lt;/span&gt;&lt;/p&gt;
-
-						&lt;p&gt;The iframe URL parameters are currently: &lt;span id="your_url"&gt; NOTHING HERE YET &lt;/span&gt;&lt;/p&gt;
-
-						&lt;p&gt;In this HIT, you will ...&lt;/p&gt;
-
-						&lt;p&gt;To complete this HIT, click the link below (the survey will pop-up in a new browser window).&lt;/p&gt;
-
-						&lt;p&gt;&lt;strong&gt;Make sure to leave this window open as you complete the survey.&nbsp;&lt;/strong&gt;When you are finished, you will return to this page to paste the code into the box.&lt;/p&gt;
-						&lt;/div&gt;
-
-						&lt;div class="row" id="workContent"&gt;
-						&lt;div class="col-xs-12 col-md-6 col-md-offset-3"&gt;
-						&lt;p&gt;Survey link:&lt;/p&gt;
-						&lt;a href="https://socsciprogramming.github.io" id="your_a" onclick="window.open(this.href, 'Experiment', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;"&gt;EXPERIMENT LINK&lt;/a&gt;&lt;/div&gt;
-						&lt;/div&gt;
-						&lt;!-- End Content for Worker --&gt;&lt;!-- Input from Worker --&gt;
-
+						&lt;meta content="width=device-width,initial-scale=1" name="viewport" /&gt;<br>
+						&lt;section class="container" id="SurveyLink"&gt;&lt;!-- Instructions --&gt;<br>
+						&lt;div style="margin: 25px"&gt;<br>
+						&lt;p&gt;The purpose of this research is to investigate creative idea generation.&lt;/p&gt;<br>
+						<br>
+						&lt;p&gt;Your Worker ID is: &lt;span id="your_id"&gt; HIT NOT ACCEPTED YET&lt;/span&gt;&lt;/p&gt;<br>
+						<br>
+						&lt;p&gt;The iframe URL parameters are currently: &lt;span id="your_url"&gt; NOTHING HERE YET &lt;/span&gt;&lt;/p&gt;<br>
+						<br>
+						&lt;p&gt;In this HIT, you will ...&lt;/p&gt;<br>
+						<br>
+						&lt;p&gt;To complete this HIT, click the link below (the survey will pop-up in a new browser window).&lt;/p&gt;<br>
+						<br>
+						&lt;p&gt;&lt;strong&gt;Make sure to leave this window open as you complete the survey.&nbsp;&lt;/strong&gt;When you are finished, you will return to this page to paste the code into the box.&lt;/p&gt;<br>
+						&lt;/div&gt;<br>
+						<br>
+						&lt;div class="row" id="workContent"&gt;<br>
+						&lt;div class="col-xs-12 col-md-6 col-md-offset-3"&gt;<br>
+						&lt;p&gt;Survey link:&lt;/p&gt;<br>
+						&lt;a href="https://socsciprogramming.github.io" id="your_a" onclick="window.open(this.href, 'Experiment', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;"&gt;EXPERIMENT LINK&lt;/a&gt;&lt;/div&gt;<br>
+						&lt;/div&gt;<br>
+						&lt;!-- End Content for Worker --&gt;&lt;!-- Input from Worker --&gt;<br>
+						<br>
 						&lt;div class="form-group"&gt;&lt;label for="surveycode"&gt;Provide the survey code here:&lt;/label&gt; &lt;input class="form-control" id="surveycode" name="surveycode" placeholder="e.g. 123456" required="" type="text" /&gt;&lt;/div&gt;
-						&lt;!-- End input from Worker --&gt;&lt;/section&gt;
-						&lt;!-- Close internal style sheet --&gt;&lt;!-- External JS references --&gt;&lt;script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;!-- Open internal javascript --&gt;&lt;script&gt;
-							$(document).ready(function() {
-
-								var mTurk = {
-									// core.turkInfo gets information relevant to mechanical turk experiments. returns an object
-									// containing the workerID, assignmentID, and hitID, and whether or not the HIT is in
-									// preview mode, meaning that they haven't accepted the HIT yet.
-									turkInfo: function() {
-
-										var turk = {};
-
-										var param = function(url, name) {
-											name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-											var regexS = "[\\?&]" + name + "=([^&#]*)";
-											var regex = new RegExp(regexS);
-											var results = regex.exec(url);
-											return (results == null) ? "" : results[1];
-										};
-
-										var src = param(window.location.href, "assignmentId") ? window.location.href : document.referrer;
-
-										var keys = ["assignmentId", "hitId", "workerId", "turkSubmitTo"];
-										keys.map(
-
-											function(key) {
-												turk[key] = unescape(param(src, key));
-											});
-
-										turk.previewMode = (turk.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE");
-
-										turk.outsideTurk = (!turk.previewMode && turk.hitId === "" && turk.assignmentId == "" && turk.workerId == "")
-
-										turk_info = turk;
-
-										return turk;
-
-									},
-
-									// core.submitToTurk will submit a MechanicalTurk ExternalHIT type
-									// *** MUST BE RUN FROM MTURK IFRAME *** //
-
-									// data = key:value pairs
-									//   e.g., data = {
-									//   "question1" : "answer1",
-									//   "question2" : "answer2"
-									// }
-
-									// final output URL example:
-									// url + "/mturk/externalSubmit?" + data
-									//"https://www.mturk.com/mturk/externalSubmit?question1=answer1&question2=answer2&assignmentId=23343234kfkdsn1"
-
-									submitToTurk: function(data) {
-
-										var turkInfo = mTurk.turkInfo();
-										var assignmentId = turkInfo.assignmentId;
-										var turkSubmitTo = turkInfo.turkSubmitTo;
-
-										if (!assignmentId || !turkSubmitTo) return;
-
-										var dataString = [];
-
-										for (var key in data) {
-											if (data.hasOwnProperty(key)) {
-												dataString.push(key + "=" + encodeURI(data[key]));
-											}
-										}
-
-										dataString.push("assignmentId=" + assignmentId);
-
-										var url = turkSubmitTo + "/mturk/externalSubmit?" + dataString.join("&");
-
-										window.location.href = url;
-									},
-
-									append_array: function(array, formID) {
-										let form = document.getElementById(formID)
-										for (i = 0; i &lt; array.length; i++) {
-											ni = document.createElement("input")
-											ni.setAttribute("type", "hidden")
-											ni.setAttribute("name", i.toString())
-											ni.value = array[i].join(", ")
-											form.appendChild(ni)
-										}
-									},
-
-									append_text: function(text, formID, name) {
-										let form = document.getElementById(formID)
-										ni = document.createElement("input")
-										ni.setAttribute("type", "hidden")
-										ni.setAttribute("name", name)
-										ni.value = text
-										form.appendChild(ni)
-									}
-
-
-								};
-
-								document.querySelector("#your_id").innerHTML = mTurk.turkInfo().workerId
-								document.querySelector("#your_url").innerHTML = window.location.search
-								document.querySelector("#your_a").href = document.querySelector("#your_a").href + window.location.search
-							});
-
-						&lt;/script&gt;&lt;!-- Close internal javascript --&gt;						
+						&lt;!-- End input from Worker --&gt;&lt;/section&gt;<br>
+						&lt;!-- Close internal style sheet --&gt;&lt;!-- External JS references --&gt;&lt;script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;!-- Open internal javascript --&gt;&lt;script&gt;<br>
+							$(document).ready(function() {<br>
+							<br>
+								var mTurk = {<br>
+									// core.turkInfo gets information relevant to mechanical turk experiments. returns an object<br>
+									// containing the workerID, assignmentID, and hitID, and whether or not the HIT is in<br>
+									// preview mode, meaning that they haven't accepted the HIT yet.<br>
+									turkInfo: function() {<br>
+								<br>
+										var turk = {};<br>
+								<br>
+										var param = function(url, name) {<br>
+											name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");<br>
+											var regexS = "[\\?&]" + name + "=([^&#]*)";<br>
+											var regex = new RegExp(regexS);<br>
+											var results = regex.exec(url);<br>
+											return (results == null) ? "" : results[1];<br>
+										};<br>
+								<br>
+										var src = param(window.location.href, "assignmentId") ? window.location.href : document.referrer;<br>
+								<br>
+										var keys = ["assignmentId", "hitId", "workerId", "turkSubmitTo"];<br>
+										keys.map(<br>
+								<br>
+											function(key) {<br>
+												turk[key] = unescape(param(src, key));<br>
+											});<br>
+								<br>
+										turk.previewMode = (turk.assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE");<br>
+								<br>
+										turk.outsideTurk = (!turk.previewMode && turk.hitId === "" && turk.assignmentId == "" && turk.workerId == "")<br>
+								<br>
+										turk_info = turk;<br>
+								<br>
+										return turk;<br>
+								<br>
+									},<br>
+								<br>
+									// core.submitToTurk will submit a MechanicalTurk ExternalHIT type<br>
+									// *** MUST BE RUN FROM MTURK IFRAME *** //<br>
+								<br>
+									// data = key:value pairs<br>
+									//   e.g., data = {<br>
+									//   "question1" : "answer1",<br>
+									//   "question2" : "answer2"<br>
+									// }<br>
+								<br>
+									// final output URL example:<br>
+									// url + "/mturk/externalSubmit?" + data<br>
+									//"https://www.mturk.com/mturk/externalSubmit?question1=answer1&question2=answer2&assignmentId=23343234kfkdsn1"<br>
+								<br>
+									submitToTurk: function(data) {<br>
+								<br>
+										var turkInfo = mTurk.turkInfo();<br>
+										var assignmentId = turkInfo.assignmentId;<br>
+										var turkSubmitTo = turkInfo.turkSubmitTo;<br>
+									<br>
+										if (!assignmentId || !turkSubmitTo) return;<br>
+									<br>
+										var dataString = [];<br>
+									<br>
+										for (var key in data) {<br>
+											if (data.hasOwnProperty(key)) {<br>
+												dataString.push(key + "=" + encodeURI(data[key]));<br>
+											}<br>
+										}<br>
+									<br>
+										dataString.push("assignmentId=" + assignmentId);<br>
+									<br>
+										var url = turkSubmitTo + "/mturk/externalSubmit?" + dataString.join("&");<br>
+									<br>
+										window.location.href = url;<br>
+									},<br>
+									<br>
+									append_array: function(array, formID) {<br>
+										let form = document.getElementById(formID)<br>
+										for (i = 0; i &lt; array.length; i++) {<br>
+											ni = document.createElement("input")<br>
+											ni.setAttribute("type", "hidden")<br>
+											ni.setAttribute("name", i.toString())<br>
+											ni.value = array[i].join(", ")<br>
+											form.appendChild(ni)<br>
+										}<br>
+									},<br>
+									<br>
+									append_text: function(text, formID, name) {<br>
+										let form = document.getElementById(formID)<br>
+										ni = document.createElement("input")<br>
+										ni.setAttribute("type", "hidden")<br>
+										ni.setAttribute("name", name)<br>
+										ni.value = text<br>
+										form.appendChild(ni)<br>
+									}<br>
+								};<br>
+								<br>
+								document.querySelector("#your_id").innerHTML = mTurk.turkInfo().workerId<br>
+								document.querySelector("#your_url").innerHTML = window.location.search<br>
+								document.querySelector("#your_a").href = document.querySelector("#your_a").href + window.location.search<br>
+							});<br>
+						<br>
+						&lt;/script&gt;&lt;!-- Close internal javascript --&gt;			<br>			
 						</code></pre></div>
 						
 						<p>This code should essentially show you your workerID + the URL parameters that you need, including assignmentId, hitId, and workerId. Although MTurk has changed its parameters so that it's harder to get these values from doing a string split in your code, you can still get this information from within the HIT itself.</p>
